@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+@section('title', 'Felhasznalok Index')
 
-<body>
-
-
-    @extends('layouts.app')
-
-    @section('title', 'felhasznalok Index')
-
-    @section('content')
+@section('content')
     <h1>Felhasználók</h1>
 
     @if(count($felhasznalok) > 0)
-    <ul>
-        @foreach($felhasznalok as $felhasznalo)
-        <li>{{ $felhasznalo->name }} - {{ $felhasznalo->email }}</li>
-        @endforeach
-    </ul>
+        <ul>
+            @foreach($felhasznalok as $felhasznalo)
+                <li>{{ $felhasznalo->felhasznalo_nev }}, {{ $felhasznalo->szerepkor }}, {{ $felhasznalo->felhasznalo_email }},</li>
+            @endforeach
+        </ul>
     @else
-    <p>Nincsenek adminok.</p>
+        <p>Nincsenek felhasználók.</p>
     @endif
-    @endsection
-
-</body>
-
-</html>
+@endsection

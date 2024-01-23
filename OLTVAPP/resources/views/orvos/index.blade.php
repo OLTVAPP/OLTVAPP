@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+@section('title', 'Orvosok Index')
 
-<body>
+@section('content')
+    <h1>Orvosok</h1>
 
-
-    @extends('layouts.app')
-
-    @section('title', 'Admins Index')
-
-    @section('content')
-    <h1>Admins</h1>
-
-    @if(count($admins) > 0)
-    <ul>
-        @foreach($admins as $admin)
-        <li>{{ $admin->name }} - {{ $admin->email }}</li>
-        @endforeach
-    </ul>
+    @if(count($orvosok) > 0)
+        <ul>
+            @foreach($orvosok as $orvos)
+                <li>{{ $orvos->vez_nev }}, {{ $orvos->ker_nev }}, {{ $orvos->lakcim_varos }}, {{ $orvos->lakcim_irSzam }}</li>
+            @endforeach
+        </ul>
     @else
-    <p>Nincsenek adminok.</p>
+        <p>Nincsenek felhasználók.</p>
     @endif
-    @endsection
-
-</body>
-
-</html>
+@endsection

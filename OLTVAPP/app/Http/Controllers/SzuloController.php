@@ -10,12 +10,12 @@ class SzuloController extends Controller
     public function szuloIndex()
     {
         $szulok = Szulo::all();
-        return view('oltvapp.szulo.index', ['szulok' => $szulok]);
+        return view('szulo.index', ['szulok' => $szulok]);
     }
 
     public function szuloShow($id)
     {
         $szulo = Szulo::find($id);
-        return view('oltvapp.szulo.show', ['szulo' => $szulo]);
+        return view('szulo.show', ['szulo' => $szulo]);
     }
 }

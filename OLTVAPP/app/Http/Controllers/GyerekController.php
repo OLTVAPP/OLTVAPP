@@ -10,12 +10,12 @@ class GyerekController extends Controller
     public function gyerekIndex()
     {
         $gyerekek = Gyerek::all();
-        return view('oltvapp.gyerek.index', ['gyerekek' => $gyerekek]);
+        return view('gyerek.index', ['gyerekek' => $gyerekek]);
     }
 
     public function gyerekShow($id)
     {
         $gyerek =Gyerek::find($id);
-        return view('oltvapp.gyerek.show', ['gyerek' => $gyerek]);
+        return view('gyerek.show', ['gyerek' => $gyerek]);
     }
 }

@@ -10,12 +10,12 @@ class ForgalmazoController extends Controller
     public function forgalmazoIndex()
     {
         $forgalmazok = Forgalmazo::all();
-        return view('oltvapp.forgalmazo.index', ['forgalmazok' => $forgalmazok]);
+        return view('forgalmazo.index', ['forgalmazok' => $forgalmazok]);
     }
 
     public function forgalmazoShow($id)
     {
         $forgalmazo = Forgalmazo::find($id);
-        return view('oltvapp.forgalmazo.show', ['forgalmazo' => $forgalmazo]);
+        return view('forgalmazo.show', ['forgalmazo' => $forgalmazo]);
     }
 }

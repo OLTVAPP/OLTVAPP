@@ -22,8 +22,20 @@ return new class extends Migration
 
         Admin::create([
             'felhasznalo_id' => 1,
-            'vez_nev' => "József",
-            'ker_nev' => "Attila",
+            'vez_nev' => "Somogyvári",
+            'ker_nev' => "Márton",
+        ]);
+
+        Admin::create([
+            'felhasznalo_id' => 2,
+            'vez_nev' => "Somogyi",
+            'ker_nev' => "András",
+        ]);
+
+        Admin::create([
+            'felhasznalo_id' => 3,
+            'vez_nev' => "Mogyoródi",
+            'ker_nev' => "Balázs",
         ]);
     }
 

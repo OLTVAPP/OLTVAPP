@@ -24,9 +24,23 @@ return new class extends Migration
 
         Felhasznalo::create([
             'felhasznalo_nev' => "martonmarton",
-            'jelszo' => "anyád",
+            'jelszo' => "almaalma1",
             'szerepkor' => 0,
             'felhasznalo_email' => "martonvagyok@gmail.com"
+        ]);
+
+        Felhasznalo::create([
+            'felhasznalo_nev' => "andrashalacska",
+            'jelszo' => "almaalma1",
+            'szerepkor' => 0,
+            'felhasznalo_email' => "andrasvagyok@gmail.com"
+        ]);
+
+        Felhasznalo::create([
+            'felhasznalo_nev' => "balazsbalazs",
+            'jelszo' => "almaalma1",
+            'szerepkor' => 0,
+            'felhasznalo_email' => "balazasvagyok@gmail.com"
         ]);
     }
 

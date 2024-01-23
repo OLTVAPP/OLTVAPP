@@ -8,7 +8,7 @@
     @if(count($admins) > 0)
         <ul>
             @foreach($admins as $admin)
-                <li>{{ $admin->vez_nev }} - {{ $admin->ker_nev }}</li>
+                <li>{{ $admin->vez_nev }}, {{ $admin->ker_nev }}</li>
             @endforeach
         </ul>
     @else

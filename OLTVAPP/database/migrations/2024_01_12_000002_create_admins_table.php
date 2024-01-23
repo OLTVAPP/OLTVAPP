@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +17,14 @@ return new class extends Migration
             $table->foreignId('felhasznalo_id')->references('felhasznalo_id')->on('felhasznalos');
             $table->string('vez_nev');
             $table->string('ker_nev');
+            $table->timestamps();
         });
+
+        Admin::create([
+            'felhasznalo_id' => 1,
+            'vez_nev' => "József",
+            'ker_nev' => "Attila",
+        ]);
     }
 
     /**

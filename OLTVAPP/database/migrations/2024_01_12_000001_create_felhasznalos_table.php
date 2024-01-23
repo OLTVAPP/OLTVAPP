@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Felhasznalo;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,16 @@ return new class extends Migration
             $table->string('jelszo');
             $table->char('szerepkor');
             $table->string('felhasznalo_email')->unique();
+            $table->rememberToken();
+            $table->timestamps();
         });
+
+        Felhasznalo::create([
+            'felhasznalo_nev' => "martonmarton",
+            'jelszo' => "anyád",
+            'szerepkor' => 0,
+            'felhasznalo_email' => "martonvagyok@gmail.com"
+        ]);
     }
 
     /**

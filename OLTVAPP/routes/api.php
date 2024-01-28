@@ -21,12 +21,15 @@ use App\Http\Controllers\SzuloController;
 |
 */
 
-//oltvapp táblák indexei
-Route::get('api/admin', [AdminController::class, 'adminIndex']);
-Route::get('api/beadas', [BeadasController::class, 'beadasIndex']);
-Route::get('api/felhasznalo', [FelhasznaloController::class, 'felhasznaloIndex']);
-Route::get('api/forgalmazo', [ForgalmazoController::class, 'forgalmazoIndex']);
-Route::get('api/gyerek', [GyerekController::class, 'gyerekIndex']);
-Route::get('api/oltas', [OltasController::class, 'oltasIndex']);
-Route::get('api/orvos', [OrvosController::class, 'orvosIndex']);
-Route::get('api/szulo', [SzuloController::class, 'szuloIndex']);
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+//felhasznalo
+Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
+Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
+Route::put('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'update']);
+
+//oltas
+Route::get('/oltas', [OltasController::class, 'index']);
+Route::post('/oltas', [OltasController::class, 'store']);

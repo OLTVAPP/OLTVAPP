@@ -25,12 +25,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//oltvapp táblák indexei
-Route::get('api/admin', [AdminController::class, 'adminIndex']);
-Route::get('api/beadas', [BeadasController::class, 'beadasIndex']);
-Route::get('api/felhasznalo', [FelhasznaloController::class, 'felhasznaloIndex']);
-Route::get('api/forgalmazo', [ForgalmazoController::class, 'forgalmazoIndex']);
-Route::get('api/gyerek', [GyerekController::class, 'gyerekIndex']);
-Route::get('api/oltas', [OltasController::class, 'oltasIndex']);
-Route::get('api/orvos', [OrvosController::class, 'orvosIndex']);
-Route::get('api/szulo', [SzuloController::class, 'szuloIndex']);
+
+
+//felhasznalok
+
+//Kiírja a felashználó adatait
+
+//Hozzáad egy új felhasználót
+//Route::post('api/felhasznalo', [FelhasznaloController::class, 'store']);
+
+//Módosítja a kiválasztott felhasználó adatait
+//Route::put('api/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'update']);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Forgalmazo;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +15,12 @@ return new class extends Migration
         Schema::create('forgalmazos', function (Blueprint $table) {
             $table->id('forgalmazo_id');
             $table->string('forgalmazo_neve');
+            $table->timestamps();
         });
+
+        Forgalmazo::create([
+            'forgalmazo_neve' => "balazs"
+        ]);
     }
 
     /**

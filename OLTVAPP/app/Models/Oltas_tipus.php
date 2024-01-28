@@ -14,6 +14,7 @@ class Oltas_tipus extends Model
     protected $fillable = [
         'tipus_elnev',
         'kotelezo',
-        'beadando'
+        'leiras',
+        'korosztaly'
     ];
 }

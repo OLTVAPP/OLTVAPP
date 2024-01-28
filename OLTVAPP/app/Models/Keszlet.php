@@ -14,6 +14,8 @@ class Keszlet extends Model
     protected $fillable = [
         'oltas_id',
         'orvos_id',
-        'darab'
+        'darab',
+        'beszerzes_datuma',
+        'lejarati_datuma'
     ];
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Admin;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->primary('felhasznalo_id');
-            $table->foreignId('felhasznalo_id')->references('id')->on('felhasznalos');
-            $table->string('vez_nev');
-            $table->string('ker_nev');
+        Schema::create('megsemisites', function (Blueprint $table) {
+            $table->primary('keszlet_id');
+            $table->foreignId('keszlet_id')->references('keszlet_id')->on('keszlets');
+            $table->boolean('megsemisitve');
+            $table->date('megsemmisitve_d');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('megsemisites');
     }
 };

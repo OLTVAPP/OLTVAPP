@@ -13,11 +13,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('felhasznalos', function (Blueprint $table) {
-            $table->id('felhasznalo_id');
+            $table->id('id');
             $table->string('felhasznalo_nev');
             $table->string('jelszo');
             $table->char('szerepkor');
             $table->string('felhasznalo_email')->unique();
+            $table->boolean('aktiv');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -26,21 +27,24 @@ return new class extends Migration
             'felhasznalo_nev' => "martonmarton",
             'jelszo' => "almaalma1",
             'szerepkor' => 0,
-            'felhasznalo_email' => "martonvagyok@gmail.com"
+            'felhasznalo_email' => "martonvagyok@gmail.com",
+            'aktiv' => true
         ]);
 
         Felhasznalo::create([
             'felhasznalo_nev' => "andrashalacska",
             'jelszo' => "almaalma1",
             'szerepkor' => 0,
-            'felhasznalo_email' => "andrasvagyok@gmail.com"
+            'felhasznalo_email' => "andrasvagyok@gmail.com",
+            'aktiv' => true
         ]);
 
         Felhasznalo::create([
             'felhasznalo_nev' => "balazsbalazs",
             'jelszo' => "almaalma1",
             'szerepkor' => 0,
-            'felhasznalo_email' => "balazasvagyok@gmail.com"
+            'felhasznalo_email' => "balazasvagyok@gmail.com",
+            'aktiv' => true
         ]);
     }
 

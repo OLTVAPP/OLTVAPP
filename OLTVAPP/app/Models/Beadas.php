@@ -12,10 +12,9 @@ class Beadas extends Model
     protected $fillable = [
         'orvos_id',
         'gyerek_id',
-        'idopont',
+        'tervezett_beadas',
         'beadas_datuma',
         'megjegyzes',
-        'tervezett_ido',
         'oltas_id'
     ];
 }

@@ -9,12 +9,13 @@ class Felhasznalo extends Model
 {
     use HasFactory;
 
-    protected $primarykey = 'felhasznalo_id';
+    protected $primarykey = 'id';
 
     protected $fillable = [
         'felhasznalo_nev',
         'jelszo',
         'szerepkor',
-        'felhasznalo_email'
+        'felhasznalo_email',
+        'aktiv'
     ];
 }

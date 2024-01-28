@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('gyereks', function (Blueprint $table) {
             $table->id('gyerek_taj');
-            $table->foreignId('szulo_id')->references('szulo_id')->on('szulos');
-            $table->foreignId('orvos_id')->references('orvos_id')->on('orvos');
+            $table->foreignId('orvos_id')->references('felhasznalo_id')->on('orvos');
             $table->string('vez_nev');
             $table->string('ker_nev');
             $table->string('lakcim_varos');

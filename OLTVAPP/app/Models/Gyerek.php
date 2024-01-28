@@ -12,7 +12,6 @@ class Gyerek extends Model
     protected $primarykey = 'gyerek_taj';
 
     protected $fillable = [
-        'szulo_id',
         'orvos_id',
         'vez_nev',
         'ker_nev',

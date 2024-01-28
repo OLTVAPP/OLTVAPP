@@ -9,14 +9,18 @@ class Orvos extends Model
 {
     use HasFactory;
 
-    protected $primarykey = 'orvos_id';
-
     protected $fillable = [
-        'felhasznalo_id',
         'vez_nev',
         'ker_nev',
         'rendelo_id',
         'tel_szam',
         'publikus_email'
     ];
+
+    protected function setKeysForSaveQuery($query)
+    {
+        $query
+            ->where('felhasznalo_id', '=', $this->getAttribute('felhasznalo_id'));
+        return $query;
+    }
 }

@@ -9,11 +9,15 @@ class Admin extends Model
 {
     use HasFactory;
 
-    protected $primarykey = 'admin_id';
-
     protected $fillable = [
-        'felhasznalo_id',
         'vez_nev',
         'ker_nev'
     ];
+
+    protected function setKeysForSaveQuery($query)
+    {
+        $query
+            ->where('felhasznalo_id', '=', $this->getAttribute('felhasznalo_id'));
+        return $query;
+    }
 }

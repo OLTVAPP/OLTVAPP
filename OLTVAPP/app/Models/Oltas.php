@@ -9,7 +9,7 @@ class Oltas extends Model
 {
     use HasFactory;
 
-    protected $primarykey = 'oltas_id';
+    protected $primarykey = 'id';
 
     protected $fillable = [
         'tipus_id',
@@ -17,7 +17,6 @@ class Oltas extends Model
         'szuksegessege',
         'mellek_hatasa',
         'adagolas',
-        'korosztaly',
         'receptre'
     ];
 }

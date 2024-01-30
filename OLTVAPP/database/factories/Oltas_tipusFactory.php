@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Oltas_tipus>
@@ -17,7 +18,10 @@ class Oltas_tipusFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'tipus_elnev'=> Str::random(10),
+            'kotelezo' => $this->faker->boolean(),
+            'leiras'=> $this->faker->text(),
+            'korosztaly'=> $this->faker->randomNumber(1,100),
         ];
     }
 }

@@ -23,6 +23,11 @@ class DatabaseSeeder extends Seeder
         //\App\Models\Admin::factory(9)->create();
         \App\Models\Rendelo::factory(9)->create();
         \App\Models\Orvos::factory(9)->create();
+        \App\Models\Gyerek::factory(9)->create();
+        \App\Models\Oltas::factory(9)->create();
+        \App\Models\Oltas_tipus::factory(9)->create();
+        \App\Models\Forgalmazo::factory(9)->create();
+        //\App\Models\Csalad::factory(9)->create();
         //\App\Models\Beadas::factory(9)->create();
         
     }

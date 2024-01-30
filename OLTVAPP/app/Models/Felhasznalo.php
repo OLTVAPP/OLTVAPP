@@ -18,4 +18,6 @@ class Felhasznalo extends Model
         'felhasznalo_email',
         'aktiv'
     ];
+
+    
 }

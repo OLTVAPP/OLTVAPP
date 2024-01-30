@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('megsemisites', function (Blueprint $table) {
-            $table->primary('keszlet_id');
-            $table->foreignId('keszlet_id')->references('keszlet_id')->on('keszlets');
+            $table->id('keszlet_id');
+            $table->foreign('keszlet_id')->references('keszlet_id')->on('keszlets');
             $table->boolean('megsemisitve');
-            $table->date('megsemmisitve_d');
+            $table->date('megsemisitve_d');
             $table->timestamps();
         });
     }

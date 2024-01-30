@@ -27,8 +27,10 @@ class DatabaseSeeder extends Seeder
         \App\Models\Oltas::factory(9)->create();
         \App\Models\Oltas_tipus::factory(9)->create();
         \App\Models\Forgalmazo::factory(9)->create();
+        \App\Models\Keszlet::factory(9)->create();
+        \App\Models\Megsemisites::factory(1)->create(); //nem engedi duplikálni az adatokat
         //\App\Models\Csalad::factory(9)->create();
-        //\App\Models\Beadas::factory(9)->create();
+        \App\Models\Beadas::factory(9)->create();
         
     }
 }

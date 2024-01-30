@@ -20,8 +20,8 @@ class BeadasFactory extends Factory
     public function definition(): array
     {
         return [
-            'orvos_id'=> Orvos::all()->random()->orvos_id,
-            'gyerek_id'=> Gyerek::all()->random()->gyerek_id,
+            'orvos_id'=> Orvos::all()->random()->felhasznalo_id,
+            'gyerek_id'=> Gyerek::all()->random()->gyerek_taj,
             'tervezett_beadas'=> $this->faker->date(),
             'beadas_datuma'=> $this->faker->date(),
             'megjegyzes'=> $this->faker->text(),

@@ -9,5 +9,8 @@ class Csalad extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = ['szulo_id', 'gyerek_id'];
+    protected $fillable = [
+        'szulo_id',
+        'gyerek_id'
+    ];
 }

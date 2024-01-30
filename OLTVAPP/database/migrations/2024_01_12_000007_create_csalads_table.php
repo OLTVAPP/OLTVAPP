@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Csalad;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,11 +13,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('csalads', function (Blueprint $table) {
-                $table->primary(['szulo_id', 'gyerek_id']);
                 $table->foreignId('szulo_id')->references('felhasznalo_id')->on('szulos');
                 $table->foreignId('gyerek_id')->references('gyerek_taj')->on('gyereks');
                 $table->timestamps();
         });
+
+        Csalad::create([
+            'szulo_id' => 1,
+            'gyerek_id' => 1,
+        ]);
     }
 
     /**

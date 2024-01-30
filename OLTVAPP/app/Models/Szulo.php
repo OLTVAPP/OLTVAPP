@@ -14,10 +14,12 @@ class Szulo extends Model
     protected $fillable = [
         'vez_nev',
         'ker_nev',
-        'lakcim_város',
+        'lakcim_varos',
         'lakcim_irSzam',
-        'lakszim_utca'
+        'lakcim_utca'
     ];
+
+    
 
     
 }

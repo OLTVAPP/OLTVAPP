@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Gyerek;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,6 +25,18 @@ return new class extends Migration
             $table->string('szul_hely');
             $table->timestamps();
         });
+
+        Gyerek::create([
+            'orvos_id' => 1,
+            'vez_nev' => "aghsd",
+            'ker_nev' => "almfghaalma1",
+            'lakcim_varos' => "szennylőrinc",
+            'lakcim_irSzam' => 7940,
+            'lakcim_utca' => "dfghkdj",
+            'erzekenyseg' => "gdhkj",
+            'szul_datum' => 20020103,
+            'szul_hely' => "gjdk"
+        ]);
     }
 
     /**

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BeadasController;
+use App\Http\Controllers\CsaladController;
 use App\Http\Controllers\FelhasznaloController;
 use App\Http\Controllers\ForgalmazoController;
 use App\Http\Controllers\GyerekController;
@@ -45,3 +46,6 @@ Route::put('/rendelo/{rendelo_id}', [RendeloController::class, 'update']);
 
 //Orvosoknak!
 //felhasznalok (gyerek, szülő)
+
+//lekérdezések
+Route::get('/csalad', [CsaladController::class, 'getCsalad']);

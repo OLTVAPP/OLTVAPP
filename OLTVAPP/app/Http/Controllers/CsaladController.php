@@ -7,12 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class CsaladController extends Controller
 {
-    public function getCsalad($id)
+    public function getCsalad()
     {
-        $copies = DB::table('csalads as cs')
+        $csalad = DB::table('csalads as cs')
         ->join('szulos as sz', 'cs.szulo_id','=','sz.felhasznalo_id')
-        ->where('cs.szulo_id', $id);
+        ->join('gyereks as gy', 'cs.gyerek_id', '=', 'gy.gyerek_taj')
+        ->get();
 
-        return $copies;
+        return $csalad;
     }
 }

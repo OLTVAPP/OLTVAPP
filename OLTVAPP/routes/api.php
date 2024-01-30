@@ -26,7 +26,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//felhasznalo
+
+//Adminoknak!
+//felhasznalok
 Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 Route::put('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'update']);
@@ -40,3 +42,6 @@ Route::put('/oltas/{oltas_id}', [OltasController::class, 'update']);
 Route::get('/rendelo', [RendeloController::class, 'index']);
 Route::post('/rendelo', [RendeloController::class, 'store']);
 Route::put('/rendelo/{rendelo_id}', [RendeloController::class, 'update']);
+
+//Orvosoknak!
+//felhasznalok (gyerek, szülő)

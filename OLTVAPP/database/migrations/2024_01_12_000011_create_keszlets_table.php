@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('keszlets', function (Blueprint $table) {
             $table->id('keszlet_id');
             $table->foreignId('oltas_id')->references('oltas_id')->on('oltas');
+            $table->foreignId('orvos_id')->references('felhasznalo_id')->on('orvos');
             $table->integer('darab');
+            $table->date('beszerzes_datuma');
+            $table->date('lejarati_datuma');
             $table->timestamps();
         });
     }

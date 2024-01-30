@@ -18,7 +18,7 @@ class ForgalmazoFactory extends Factory
     public function definition(): array
     {
         return [
-            'forgalmazo' => Str::random(10),
+            'forgalmazo_neve' => Str::random(10),
         ];
     }
 }

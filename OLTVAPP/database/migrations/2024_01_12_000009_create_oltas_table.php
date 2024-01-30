@@ -24,14 +24,7 @@ return new class extends Migration
 
         });
 
-        Oltas::create([
-            'tipus_id' => 1,
-            'forgalmazo_id' => 1,
-            'szuksegessege' => "igen",
-            'mellek_hatasa' => "hanyinger",
-            'adagolas' => "2 naponta",
-            'receptre' => false
-        ]);
+        
     }
 
     /**

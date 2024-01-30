@@ -26,17 +26,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Gyerek::create([
-            'orvos_id' => 1,
-            'vez_nev' => "aghsd",
-            'ker_nev' => "almfghaalma1",
-            'lakcim_varos' => "szennylőrinc",
-            'lakcim_irSzam' => 7940,
-            'lakcim_utca' => "dfghkdj",
-            'erzekenyseg' => "gdhkj",
-            'szul_datum' => 20020103,
-            'szul_hely' => "gjdk"
-        ]);
+       
     }
 
     /**

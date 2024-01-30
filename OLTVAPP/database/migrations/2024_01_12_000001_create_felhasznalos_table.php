@@ -23,29 +23,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Felhasznalo::create([
-            'felhasznalo_nev' => "martonmarton",
-            'jelszo' => "almaalma1",
-            'szerepkor' => 0,
-            'felhasznalo_email' => "martonvagyok@gmail.com",
-            'aktiv' => true
-        ]);
-
-        Felhasznalo::create([
-            'felhasznalo_nev' => "andrashalacska",
-            'jelszo' => "almaalma1",
-            'szerepkor' => 0,
-            'felhasznalo_email' => "andrasvagyok@gmail.com",
-            'aktiv' => true
-        ]);
-
-        Felhasznalo::create([
-            'felhasznalo_nev' => "balazsbalazs",
-            'jelszo' => "almaalma1",
-            'szerepkor' => 0,
-            'felhasznalo_email' => "balazasvagyok@gmail.com",
-            'aktiv' => true
-        ]);
+       
     }
 
     /**

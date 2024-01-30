@@ -18,10 +18,7 @@ return new class extends Migration
                 $table->timestamps();
         });
 
-        Csalad::create([
-            'szulo_id' => 1,
-            'gyerek_id' => 1,
-        ]);
+        
     }
 
     /**

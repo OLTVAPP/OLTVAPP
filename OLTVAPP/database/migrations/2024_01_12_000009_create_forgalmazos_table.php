@@ -18,9 +18,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Forgalmazo::create([
-            'forgalmazo_neve' => "balazs"
-        ]);
+       
     }
 
     /**

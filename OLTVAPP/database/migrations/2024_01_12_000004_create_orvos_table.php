@@ -23,14 +23,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Orvos::create([
-            'vez_nev' => "A",
-            'ker_nev' => "a",
-            'rendelo_id' => 1,
-            'tel_szam' => 12345678,
-            'publikus_email' => "a@gmail.com",
-            
-        ]);
+        
 
         
 

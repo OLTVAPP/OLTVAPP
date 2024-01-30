@@ -22,12 +22,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Oltas_tipus::create([
-            'tipus_elnev' => "rák",
-            'kotelezo' => "igen",
-            'leiras' => "blablabla",
-            'korosztaly' => 14
-        ]);
+       
     }
 
     /**

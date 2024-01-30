@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('erzekenyseg');
             $table->date('szul_datum');
             $table->string('szul_hely');
+            $table->timestamps();
         });
     }
 

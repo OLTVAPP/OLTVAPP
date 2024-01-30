@@ -31,11 +31,12 @@ class OltasController extends Controller
     public function update(Request $request, $id)
     {
         $user = Oltas::find($id);
-        $user->felhasznalo_nev = $request->felhasznalo_nev;
-        $user->jelszo = $request->jelszo;
-        $user->szerepkor = $request->szerepkor;
-        $user->felhasznalo_email = $request->felhasznalo_email;
-        $user->aktiv = $request->aktiv;
+        $user->tipus_id = $request->tipus_id;
+        $user->forgalmazo_id = $request->forgalmazo_id;
+        $user->szuksegessege = $request->szuksegessege;
+        $user->mellek_hatasa = $request->mellek_hatasa;
+        $user->adagolas = $request->adagolas;
+        $user->receptre = $request->receptre;
         $user->save();
 
         return Oltas::find($user->id);
@@ -51,7 +52,7 @@ class OltasController extends Controller
         $record->adagolas = $request->adagolas;
         $record->receptre = $request->receptre;
         $record->save();
-
-        return Oltas::find($record->id);
     }
+
+    
 }

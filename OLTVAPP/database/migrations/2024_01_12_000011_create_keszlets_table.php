@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('keszlets', function (Blueprint $table) {
             $table->id('keszlet_id');
-            $table->foreignId('oltas_id')->references('id')->on('oltas');
+            $table->foreignId('oltas_id')->references('oltas_id')->on('oltas');
             $table->integer('darab');
+            $table->timestamps();
         });
     }
 

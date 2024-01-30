@@ -9,7 +9,7 @@ class Gyerek extends Model
 {
     use HasFactory;
 
-    protected $primarykey = 'gyerek_taj';
+    protected $primaryKey = 'gyerek_taj';
 
     protected $fillable = [
         'orvos_id',

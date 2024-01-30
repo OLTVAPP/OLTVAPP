@@ -9,7 +9,7 @@ class Rendelo extends Model
 {
     use HasFactory;
 
-    protected $primarykey = 'rendelo_id';
+    protected $primaryKey = 'rendelo_id';
 
     protected $fillable = [
         'rendelo_cim',

@@ -39,7 +39,7 @@ class FelhasznaloController extends Controller
         $user->aktiv = $request->aktiv;
         $user->save();
 
-        return Felhasznalo::find($user->id);
+        return Felhasznalo::find($user->felhasznalo_id);
     }
 
     public function store(Request $request)
@@ -51,7 +51,6 @@ class FelhasznaloController extends Controller
         $record->felhasznalo_email = $request->felhasznalo_email;
         $record->aktiv = $request->aktiv;
         $record->save();
-
-        return Felhasznalo::find($record->id);
+        
     }
 }

@@ -9,5 +9,5 @@ class Csalad extends Model
 {
     use HasFactory;
 
-    protected $primarykey = ['szulo_id', 'gyerek_id'];
+    protected $primaryKey = ['szulo_id', 'gyerek_id'];
 }

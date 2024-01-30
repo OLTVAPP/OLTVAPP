@@ -9,7 +9,7 @@ class Keszlet extends Model
 {
     use HasFactory;
 
-    protected $primarykey = 'keszlet_id';
+    protected $primaryKey = 'keszlet_id';
 
     protected $fillable = [
         'oltas_id',

@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('beadas', function (Blueprint $table) {
             $table->foreignId('orvos_id')->references('felhasznalo_id')->on('orvos');
             $table->foreignId('gyerek_id')->references('gyerek_taj')->on('gyereks');
-            $table->date('idopont');
+            $table->date('tervezett_beadas',);
             $table->date('beadas_datuma');
             $table->string('megjegyzes');
-            $table->date('tervezett_ido');
-            $table->foreignId('oltas_id')->references('id')->on('oltas');
+            $table->foreignId('oltas_id')->references('oltas_id')->on('oltas');
+            $table->timestamps();
         });
         
     }

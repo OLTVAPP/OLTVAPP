@@ -9,7 +9,7 @@ class Oltas_tipus extends Model
 {
     use HasFactory;
 
-    protected $primarykey = 'tipus_id';
+    protected $primaryKey = 'tipus_id';
 
     protected $fillable = [
         'tipus_elnev',

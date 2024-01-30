@@ -9,6 +9,7 @@ use App\Http\Controllers\ForgalmazoController;
 use App\Http\Controllers\GyerekController;
 use App\Http\Controllers\OltasController;
 use App\Http\Controllers\OrvosController;
+use App\Http\Controllers\RendeloController;
 use App\Http\Controllers\SzuloController;
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,9 @@ Route::put('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'upda
 //oltas
 Route::get('/oltas', [OltasController::class, 'index']);
 Route::post('/oltas', [OltasController::class, 'store']);
+Route::put('/oltas/{oltas_id}', [OltasController::class, 'update']);
+
+//rendelo
+Route::get('/rendelo', [RendeloController::class, 'index']);
+Route::post('/rendelo', [RendeloController::class, 'store']);
+Route::put('/rendelo/{rendelo_id}', [RendeloController::class, 'update']);

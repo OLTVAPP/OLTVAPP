@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Gyerek;
+use App\Models\Oltas;
 use App\Models\Orvos;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,10 +22,10 @@ class BeadasFactory extends Factory
         return [
             'orvos_id'=> Orvos::all()->random()->orvos_id,
             'gyerek_id'=> Gyerek::all()->random()->gyerek_id,
-            'tervezett_beadas',
-            'beadas_datuma',
-            'megjegyzes',
-            'oltas_id'
+            'tervezett_beadas'=> $this->faker->date(),
+            'beadas_datuma'=> $this->faker->date(),
+            'megjegyzes'=> $this->faker->text(),
+            'oltas_id'=> Oltas::all()->random()->oltas_id,
         ];
     }
 }

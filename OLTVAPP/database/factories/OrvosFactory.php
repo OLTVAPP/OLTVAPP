@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Rendelo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,11 @@ class OrvosFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'vez_nev' => $this->faker->name(),
+            'ker_nev' => $this->faker->name(),
+            'rendelo_id'=> Rendelo::all()->random()->rendelo_id,
+            'tel_szam' => $this->faker->randomNumber(1,10),
+            'publikus_email' => $this->faker->email(),
         ];
     }
 }

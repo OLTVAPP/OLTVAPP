@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Orvos extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'felhasznalo_id';
 
     protected $fillable = [
         'vez_nev',
@@ -17,10 +20,5 @@ class Orvos extends Model
         'publikus_email'
     ];
 
-    protected function setKeysForSaveQuery($query)
-    {
-        $query
-            ->where('felhasznalo_id', '=', $this->getAttribute('felhasznalo_id'));
-        return $query;
-    }
+
 }

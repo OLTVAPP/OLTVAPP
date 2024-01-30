@@ -9,6 +9,8 @@ class Szulo extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'felhasznalo_id';
+
     protected $fillable = [
         'vez_nev',
         'ker_nev',
@@ -17,10 +19,5 @@ class Szulo extends Model
         'lakszim_utca'
     ];
 
-    protected function setKeysForSaveQuery($query)
-    {
-        $query
-            ->where('felhasznalo_id', '=', $this->getAttribute('felhasznalo_id'));
-        return $query;
-    }
+    
 }

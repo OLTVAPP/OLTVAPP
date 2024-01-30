@@ -24,7 +24,7 @@ class FelhasznaloFactory extends Factory
             'felhasznalo_nev' => $this->faker->name(),
             'jelszo' => Str::random(10),
             'szerepkor' => Str::random(1),
-            'felhasznalo_email' => $this->faker->text(),
+            'felhasznalo_email' => $this->faker->email(),
             'aktiv' => $this->faker->boolean(),
         ];
     }

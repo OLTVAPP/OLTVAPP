@@ -19,6 +19,12 @@ export const bejelentKezesLeiro = {
       validalas: "Név nagybetűvel kezdődik, legalább 3 karakter!",
     },
   },
+  gombok: {
+    belepes: {
+      tipus: "submit",
+      value: "Log In",
+    },
+  },
 };
 
 export const bejelentKezesElfelejtLeiro = {

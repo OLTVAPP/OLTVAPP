@@ -1,4 +1,4 @@
-class TextInput{
+class SubmitInput{
 
     #formElem;
     #key;
@@ -32,10 +32,9 @@ class TextInput{
 
 
     #textElem() {
+        console.log(this.#leiro.tipus)
         let txt = `<div class="mb-3 mt-3">
-        <label for="${this.#key}" class="form-label">${this.#leiro.megjelenes}</label>
-        <input type="${this.#leiro.tipus}" class="form-control" id="${this.#key}" placeholder="${this.#leiro.placeholder}" name="${this.#key}"
-        pattern="${this.#leiro.regex}" value="${this.#value}">
+        <input type="${this.#leiro.tipus}" class="form-control" id="${this.#key}"  value="${this.#value}">
       </div>`
         this.#formElem.append(txt);
     }
@@ -47,4 +46,4 @@ class TextInput{
 
 
 }
-export default TextInput
+export default SubmitInput

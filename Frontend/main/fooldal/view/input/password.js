@@ -1,4 +1,4 @@
-class TextInput{
+class PasswordInput{
 
     #formElem;
     #key;
@@ -32,6 +32,7 @@ class TextInput{
 
 
     #textElem() {
+        console.log(this.#leiro.tipus)
         let txt = `<div class="mb-3 mt-3">
         <label for="${this.#key}" class="form-label">${this.#leiro.megjelenes}</label>
         <input type="${this.#leiro.tipus}" class="form-control" id="${this.#key}" placeholder="${this.#leiro.placeholder}" name="${this.#key}"
@@ -47,4 +48,4 @@ class TextInput{
 
 
 }
-export default TextInput
+export default PasswordInput

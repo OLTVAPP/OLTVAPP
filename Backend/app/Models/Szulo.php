@@ -14,6 +14,7 @@ class Szulo extends Model
     protected $fillable = [
         'vez_nev',
         'ker_nev',
+        'szemelyi_igazolvany_szam',
         'lakcim_varos',
         'lakcim_irSzam',
         'lakcim_utca'

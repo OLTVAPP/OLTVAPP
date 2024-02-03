@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('felhasznalo_id')->references('felhasznalo_id')->on('felhasznalos');
             $table->string('vez_nev');
             $table->string('ker_nev');
+            $table->string('szemelyi_igazolvany_szam');
             $table->string('lakcim_varos');
             $table->integer('lakcim_irSzam');
             $table->string('lakcim_utca');

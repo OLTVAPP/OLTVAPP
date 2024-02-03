@@ -37,3 +37,15 @@ footer {
 #jog {
   color: white;
 }
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+.elrejt {
+  display: none;
+}

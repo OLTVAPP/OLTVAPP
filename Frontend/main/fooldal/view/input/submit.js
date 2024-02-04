@@ -1,49 +1,47 @@
-class SubmitInput{
+class SubmitInput {
+  #formElem;
+  #key;
+  #leiro;
+  #value;
 
-    #formElem;
-    #key;
-    #leiro;
-    #value;
+  constructor(key, leiro, szuloElem) {
+    console.log("hello");
+    this.#key = key;
+    this.#leiro = leiro;
+    this.#formElem = szuloElem;
+    this.#value = this.#leiro.value;
+    this.#textElem();
+    this.inputElem = $(`#${this.#key}`);
+    console.log("input", this.inputElem);
+    this.validelem = this.#formElem
+      .children("div:last-child")
+      .children(".valid");
+    this.invalidElem = this.#formElem
+      .children("div:last-child")
+      .children(".invalid");
+    console.log(this.validelem);
+    console.log(this.invalidElem);
+    this.#kattintas();
+  }
 
+  #textElem() {
+    console.log(this.#leiro.tipus);
+    let txt = `<div class="mb-3 mt-3">`;
+    txt += ` <button class="form-control" id="${ this.#key }"  value="${this.#value}">  ${this.#value} </button>`;
 
-    constructor(key, leiro, szuloElem){
-        console.log("hello")
-        this.#key = key;
-        this.#leiro = leiro;
-        this.#formElem = szuloElem;
-        this.#value = this.#leiro.value;
-        this.#textElem();
-        this.inputElem=$(`#${this.#key}`)
-        console.log("input", this.inputElem);
-        this.validelem = this.#formElem.children("div:last-child").children(".valid");
-        this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");;
-        console.log(this.validelem)
-        console.log(this.invalidElem)
-        this.inputElem.on("keyup",()=>{
-            this.#value = this.inputElem.val();
-            let reg = this.#leiro.regex;
-            let regObj = new RegExp(reg);
-            console.log(regObj.test(this.#value));
-        })
+   // txt += `<input type="${this.#leiro.tipus}" class="form-control" id="${this.#key}"  value="${this.#value}">`;
+    txt += "</div>";
+    this.#formElem.append(txt);
+  }
 
+  #kattintas() {
+    this.inputElem.on("click", () => {
+      this.#esemenyTrigger();
+    });
+  }
 
-    }
-
-
-
-    #textElem() {
-        console.log(this.#leiro.tipus)
-        let txt = `<div class="mb-3 mt-3">
-        <input type="${this.#leiro.tipus}" class="form-control" id="${this.#key}"  value="${this.#value}">
-      </div>`
-        this.#formElem.append(txt);
-    }
-
-
-    getValue(){
-        return this.#value
-    }
-
-
+  #esemenyTrigger() {
+    window.dispatchEvent(new CustomEvent(`${this.#key}`, { detail: this }));
+  }
 }
-export default SubmitInput
+export default SubmitInput;

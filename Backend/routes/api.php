@@ -31,7 +31,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Adminoknak!
 //felhasznalok
 Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
+Route::get('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'show']);
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
+Route::get('/felhasznalo_keres/{felhasznalo_nev}', [FelhasznaloController::class, 'bejelentkezes']);
 Route::put('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'update']);
 
 //oltas

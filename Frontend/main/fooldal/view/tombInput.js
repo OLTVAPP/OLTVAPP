@@ -11,11 +11,12 @@ class TombInput {
     szuloElem.append("<div>");
     this.#divElem = szuloElem.children("div:last-child");
     this.#divElem.addClass(className);
-    this.#inputTombLetrehozo();
-    console.log(this.#inputok);
+    this.#init();
   }
 
-  #inputTombLetrehozo() {
+
+
+  #init() {
     for (const key in this.#adatok) {
       switch (this.#adatok[key].tipus) {
         case "text":
@@ -29,11 +30,11 @@ class TombInput {
             new PasswordInput(key, this.#adatok[key], this.#divElem)
           );
           break;
-          case "submit":
-            this.#inputok.push(
-              new SubmitInput(key, this.#adatok[key], this.#divElem)
-            );
-            break;
+        case "submit":
+          this.#inputok.push(
+            new SubmitInput(key, this.#adatok[key], this.#divElem)
+          );
+          break;
       }
     }
   }

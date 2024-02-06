@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Felhasznalo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FelhasznaloController extends Controller
 {
@@ -53,4 +54,23 @@ class FelhasznaloController extends Controller
         $record->save();
         
     }
+
+    public function show($id){
+        return response()->json(Felhasznalo::find($id));
+    }
+
+    
+
+
+    public function bejelentkezes($felhasznalo_nev){
+        $felhasznalo = DB::table('felhasznalos as f')
+        ->select('f.felhasznalo_id', 'f.felhasznalo_nev', 'f.jelszo', 'f.szerepkor', 'f.aktiv')
+        ->where('f.felhasznalo_nev', $felhasznalo_nev)
+        ->get();
+        return response()->json($felhasznalo);
+    }
+
+
+
+
 }

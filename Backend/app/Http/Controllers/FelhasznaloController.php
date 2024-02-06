@@ -59,11 +59,18 @@ class FelhasznaloController extends Controller
         return response()->json(Felhasznalo::find($id));
     }
 
+    
+
+
     public function bejelentkezes($felhasznalo_nev){
-        $id = DB::table('felhasznalos as f')
-        ->select('f.felhasznalo_id')
+        $felhasznalo = DB::table('felhasznalos as f')
+        ->select('f.felhasznalo_id', 'f.felhasznalo_nev', 'f.jelszo', 'f.szerepkor', 'f.aktiv')
         ->where('f.felhasznalo_nev', $felhasznalo_nev)
         ->get();
-        return $id;
+        return response()->json($felhasznalo);
     }
+
+
+
+
 }

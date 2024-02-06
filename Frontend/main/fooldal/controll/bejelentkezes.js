@@ -12,8 +12,8 @@ class Bejelentkezes {
   #email_cim;
   #felhasznalo
   #felhasznaloi_adatok;
+  #dataService = new DataService();
   constructor() {
-    this.dataService = new DataService();
     const adatTombok = [];
     const adatLeiro = bejelentKezesLeiro;
     $("article").append("<form>");
@@ -27,40 +27,63 @@ class Bejelentkezes {
   }
 
 
-  #bejelentkezes(){
+  #bejelentkezes() {
     $(window).on("belepes", (event) => {
       this.#felhasznalo_nev = this.#felhasznaloi_adatok[0].getValue()
       this.#jelszo = this.#felhasznaloi_adatok[1].getValue()
       console.log(this.#felhasznalo_nev)
       console.log(this.#jelszo)
-      this.dataService.getData(
+      this.#dataService.getData(
         `http://localhost:8000/api/felhasznalo_keres/${this.#felhasznalo_nev}`,
-        this.keresett_felhasznalo_id,
+        this.keresett_felhasznalo,
         this.megjelenitHiba
       );
     });
   }
 
-  keresett_felhasznalo_id(obj){
+  keresett_felhasznalo(obj) {
     const objektum = obj[0]
-    console.log(objektum)
-    this.#felhasznalo = new Felhasznalo();
-   
-    this.#felhasznalo.setAdatok(objektum);
-    this.dataService.getData(
-      `http://localhost:8000/api/felhasznalo/1`,
-      this.megjelenit,
-      this.megjelenitHiba
-    );
+
+    console.log(objektum.jelszo)
+
+    console.log(objektum.szerepkor)
+
+    if ("123ab" == objektum.jelszo) {
+      console.log("jó jjelszó")
+      if (objektum.aktiv == 1) {
+        console.log(objektum.szerepkor)
+        switch (objektum.szerepkor) {
+          case 'S':
+            console.log("szulo")
+          //  location.replace("https://www.w3schools.com");
+            break;
+
+          case 'O':
+            console.log("orvos")
+           // location.replace("https://www.w3schools.com");
+            break;
+          case 'A':
+            console.log("admin")
+          //  location.replace("admin.html");
+            break;
+        }
+
+      } else {
+        console.log("Nem aktív felhasználó")
+      }
+
+
+
+    } else {
+      console.log("Hibás elszó")
+    }
+
+
   }
 
-  megjelenit(lista) {
-    console.log(lista)
-   
 
-  }
 
-  megjelenitHiba(hiba){}
+  megjelenitHiba(hiba) { }
 
 }
 export default Bejelentkezes;

@@ -1,21 +1,20 @@
 class Felhasznalo{
     #id;
     #adatok;
-    constructor(){
-      
+    constructor(id){
+      this.setId(id);
     }
 
+
+    setId(id){
+        this.#id = id;
+    }
 
     getId(){
         return this.#id
     }
 
-    setAdatok(adatok){
-        console.log("hello")
-        console.log(adatok)
-        this.#adatok = adatok;
-        console.log(this.#adatok)
-    }
+   
 
 
 

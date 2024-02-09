@@ -1,5 +1,4 @@
-import UrlapElem from "./UrlapElem.js";
-
+import TextUrlapElem from "./TextUrlapElem.js";
 class UrlapView {
 
     #szuloElem
@@ -12,6 +11,7 @@ class UrlapView {
     #szuloAdat = {};
     #felhasznaloAdat = {};
     #jelszo
+    #boolean = false;
 
     constructor(szuloElem, leiro) {
         this.#leiro = leiro;
@@ -37,24 +37,32 @@ class UrlapView {
     }
 
     osszeRak() {
-        for (const key in this.#leiro) {
-            switch (this.#leiro[key].id) {
-                case "fadat":
-                    this.#urlapElemLista.push(new UrlapElem(key, this.#leiro[key], this.#fElem))
+        for (const key in this.#leiro.felhasznalo) {
+            switch (this.#leiro.felhasznalo[key].tipus) {
+                case "text":
+                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.felhasznalo[key], this.#fElem))
                     break
-                case "fadat2":
-                    this.#urlapElemLista.push(new UrlapElem(key, this.#leiro[key], this.#fElem))
-                    this.#leiro[key].megjelenes = "Jelszó megerősítése:"
-                    this.#jelszo = (new UrlapElem(key + "2", this.#leiro[key], this.#fElem))
+                case "email":
+                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.felhasznalo[key], this.#fElem))
                     break
-                case "szadat":
-                    this.#urlapElemLista.push(new UrlapElem(key, this.#leiro[key], this.#szElem))
-                    break
-                case "ladat":
-                    this.#urlapElemLista.push(new UrlapElem(key, this.#leiro[key], this.#lElem))
+                case "password":
+                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.felhasznalo[key], this.#fElem))
+                    this.#leiro.felhasznalo[key].megjelenes = "Jelszó megerősítése:"
+                    this.#jelszo = (new TextUrlapElem(key + "2", this.#leiro.felhasznalo[key], this.#fElem))
                     break
                 default:
             }
+        }
+        for (const key in this.#leiro.szulo) {
+            switch (this.#leiro.szulo[key].id) {
+                case "lakcim":
+                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.szulo[key], this.#lElem))
+                    break;
+                case "adat":
+                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.szulo[key], this.#szElem))
+                    break;
+            }
+
         }
     }
 
@@ -68,17 +76,23 @@ class UrlapView {
             })
             if (this.#osszesElemValidE) {
                 this.#urlapElemLista.forEach((elem) => {
-                    if(elem.id == "fadat" || elem.id == "fadat2"){
-                        this.#felhasznaloAdat[elem.key] = elem.value;
+                    if (this.#boolean == false) {
+                        this.#felhasznaloAdat[this.#leiro.felhasznalo.aktiv.key] = this.#leiro.felhasznalo.aktiv.value;
+                        this.#felhasznaloAdat[this.#leiro.felhasznalo.szerepkor.key] = this.#leiro.felhasznalo.szerepkor.value;
+                        this.#boolean = true;
                     }
-                    else{
+                    if (elem.id == "adat" || elem.id == "lakcim") {
                         this.#szuloAdat[elem.key] = elem.value;
+                    }
+                    else {
+                        this.#felhasznaloAdat[elem.key] = elem.value;
                     }
                 })
                 if (this.#felhasznaloAdat.jelszo == this.#jelszo.value) {
-                    console.log("Valid az űrlap")
-                    this.#esemenyTrigger(this.#felhasznaloAdat);
-                    this.#esemenyTrigger(this.#szuloAdat);
+                    this.#esemenyTrigger("felhasznalo", this.#felhasznaloAdat);
+                    this.#esemenyTrigger("szulo", this.#szuloAdat);
+                    alert("Sikeres regisztráció!")
+                    location.replace("bejelentkezes.html");
                 }
                 else {
                     alert("Nem egyforma a jelszó!")
@@ -89,8 +103,8 @@ class UrlapView {
         });
     }
 
-    #esemenyTrigger(adat) {
-        const E = new CustomEvent("feltolt", { detail: adat });
+    #esemenyTrigger(esemenyNev, adat) {
+        const E = new CustomEvent(esemenyNev, { detail: adat });
         window.dispatchEvent(E);
     }
 

@@ -1,4 +1,4 @@
-class UrlapElem {
+class TextUrlapElem {
 
     #key = "";
     #leiro = {};
@@ -65,7 +65,8 @@ class UrlapElem {
         id="${this.#key}" 
         name="${this.#key}"
         patter="${this.#leiro.regex}"
-        value="${this.#leiro.value}">
+        value="${this.#leiro.value}"
+        maxLength="${this.#leiro.maxLength}">
 
         <div class="valid elrejt">OK</div>
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
@@ -76,4 +77,4 @@ class UrlapElem {
     }
 }
 
-export default UrlapElem;
+export default TextUrlapElem;

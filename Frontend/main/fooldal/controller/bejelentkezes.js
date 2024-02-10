@@ -1,10 +1,11 @@
 import {
   bejelentKezesLeiro,
   bejelentKezesElfelejtLeiro,
-} from "../model/adatLeiro.js";
-import DataService from "../model/dataService.js";
-import Felhasznalo from "../model/felhasznalo.js";
+} from "../modell/adatLeiro.js";
+
+import Felhasznalo from "../modell/felhasznalo.js";
 import TombInput from "../view/tombInput.js";
+import DataService from "../modell/DataService.js";
 class Bejelentkezes {
   #felhasznalo_id;
   #felhasznalo_nev = "";
@@ -12,7 +13,7 @@ class Bejelentkezes {
   #email_cim;
   #felhasznalo
   #felhasznaloi_adatok;
-  #dataService = new DataService();
+  #dataService = new DataService;
   constructor() {
     const adatTombok = [];
     const adatLeiro = bejelentKezesLeiro;
@@ -50,20 +51,24 @@ class Bejelentkezes {
       console.log("jó jelszó")
       if (objektum.aktiv == 1) {
         const felhasznalo = new Felhasznalo(objektum.felhasznalo_id);
-        console.log(objektum.szerepkor)
+        
         switch (objektum.szerepkor) {
           case 'S':
             console.log("szulo")
            // location.replace("/main/szulo/szulo.html");
-            window.location.assign("/main/szulo/szulo.html");
+         
+            window.location.assign("/main/admin/admin.html");
+            console.log(felhasznalo.getId())
             break;
           case 'O':
             console.log("orvos")
             window.location.assign("/main/orvos/orvos.html");
+            console.log(felhasznalo.getId())
             break;
           case 'A':
             console.log("admin")
             window.location.assign("/main/admin/admin.html");
+            console.log(felhasznalo.getId())
             break;
         }
       } else {

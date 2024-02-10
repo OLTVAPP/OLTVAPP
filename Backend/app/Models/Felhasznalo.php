@@ -19,5 +19,7 @@ class Felhasznalo extends Model
         'aktiv'
     ];
 
+  
+
     
 }

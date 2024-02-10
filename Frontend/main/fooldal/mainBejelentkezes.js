@@ -1,9 +1,9 @@
-import Bejelentkezes from "./controll/bejelentkezes.js";
+import Bejelentkezes from "./controller/bejelentkezes.js";
 
 $(function(){
     console.log("hello")
 
-    new Bejelentkezes()
+    new Bejelentkezes();
 
 
 

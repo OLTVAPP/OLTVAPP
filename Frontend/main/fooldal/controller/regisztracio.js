@@ -1,6 +1,6 @@
 import UrlapView from "../view/UrlapView.js";
 import UrlapModell from "../modell/UrlapModell.js";
-import DataService from "../modell/DataService.js";
+import DataService from "../modell/dataService.js";
 
 
 class Controller {

@@ -1,11 +1,8 @@
-import {
-  bejelentKezesLeiro,
-  bejelentKezesElfelejtLeiro,
-} from "../modell/adatLeiro.js";
-
+import {bejelentKezesLeiro, bejelentKezesElfelejtLeiro,} from "../modell/adatLeiro.js";
+import DataService from "../modell/dataService.js";
 import Felhasznalo from "../modell/felhasznalo.js";
 import TombInput from "../view/tombInput.js";
-import DataService from "../modell/DataService.js";
+
 class Bejelentkezes {
   #felhasznalo_id;
   #felhasznalo_nev = "";

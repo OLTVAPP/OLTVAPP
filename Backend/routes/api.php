@@ -12,6 +12,8 @@ use App\Http\Controllers\OltasController;
 use App\Http\Controllers\OrvosController;
 use App\Http\Controllers\RendeloController;
 use App\Http\Controllers\SzuloController;
+use App\Models\Szulo;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,8 +39,12 @@ Route::middleware('auth.basic')->group(function () {
 //felhasznalok
 Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
 Route::get('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'show']);
+
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 Route::get('/felhasznalo_keres/{felhasznalo_nev}/{felhasznalo_jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
+
+Route::get('/felhasznalo_keres/{felhasznalo_nev}', [FelhasznaloController::class, 'bejelentkezes']);
+
 Route::put('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'update']);
 
 //oltas
@@ -56,3 +62,7 @@ Route::put('/rendelo/{rendelo_id}', [RendeloController::class, 'update']);
 
 //lekérdezések
 Route::get('/csalad', [CsaladController::class, 'getCsalad']);
+
+//regisztráció
+Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
+Route::post('/szulo', [SzuloController::class, 'store']);

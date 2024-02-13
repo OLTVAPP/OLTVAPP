@@ -19,6 +19,13 @@ return new class extends Migration
             $table->string('ker_nev');
             $table->timestamps();
         });
+
+        Admin::create([
+            'jelszo' => "123ab",
+            'felhasznalo_email' => "bal@gmail.com",
+            'szerepkor' => "S",
+            'aktiv' => true
+        ]);
     }
 
     /**

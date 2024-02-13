@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Felhasznalo;
 use App\Models\Szulo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SzuloController extends Controller
 {
@@ -31,4 +33,6 @@ class SzuloController extends Controller
         $record->save();
         
     }
+
+
 }

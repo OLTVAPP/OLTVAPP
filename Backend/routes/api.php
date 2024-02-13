@@ -1,18 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\BeadasController;
-use App\Http\Controllers\CsaladController;
-use App\Http\Controllers\FelhasznaloController;
-use App\Http\Controllers\ForgalmazoController;
-use App\Http\Controllers\GyerekController;
-use App\Http\Controllers\OltasController;
-use App\Http\Controllers\OrvosController;
-use App\Http\Controllers\RendeloController;
-use App\Http\Controllers\SzuloController;
-use App\Models\Szulo;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,49 +10,14 @@ use App\Models\Szulo;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
 
-Route::middleware('auth.basic')->group(function () {
 
-});
-
-
-//Adminoknak!
-//felhasznalok
-Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
-Route::get('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'show']);
-
-Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
-Route::get('/felhasznalo_keres/{felhasznalo_nev}/{felhasznalo_jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
-
-Route::get('/felhasznalo_keres/{felhasznalo_nev}', [FelhasznaloController::class, 'bejelentkezes']);
-
-Route::put('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'update']);
-
-//oltas
-Route::get('/oltas', [OltasController::class, 'index']);
-Route::post('/oltas', [OltasController::class, 'store']);
-Route::put('/oltas/{oltas_id}', [OltasController::class, 'update']);
-
-//rendelo
-Route::get('/rendelo', [RendeloController::class, 'index']);
-Route::post('/rendelo', [RendeloController::class, 'store']);
-Route::put('/rendelo/{rendelo_id}', [RendeloController::class, 'update']);
-
-//Orvosoknak!
-//felhasznalok (gyerek, szülő)
-
-//lekérdezések
-Route::get('/csalad', [CsaladController::class, 'getCsalad']);
-
-//regisztráció
-Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
-Route::post('/szulo', [SzuloController::class, 'store']);

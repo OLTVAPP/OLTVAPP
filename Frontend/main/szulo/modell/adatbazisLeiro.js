@@ -23,4 +23,4 @@ export const adatbazis = {
 
 };
 
-export const gombok=["Gyerek", "Oltás", "Orvos"];
+export const gombok=["Gyerek", "Orvos", "Oltás"];

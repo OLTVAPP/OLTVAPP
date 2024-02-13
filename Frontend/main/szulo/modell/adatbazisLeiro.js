@@ -19,3 +19,5 @@ export const adatbazis = {
     },
 
 };
+
+export const gombok=["Gyerek", "Oltás", "Orvos"];

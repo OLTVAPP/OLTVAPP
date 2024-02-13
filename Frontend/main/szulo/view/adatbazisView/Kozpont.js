@@ -4,41 +4,43 @@ import OrvosView from "./OrvosView.js";
 
 class Kozpont {
 
-    #adatok;
-    #divElem
-    #tablak = [];
+  #adatok;
+  #divElem;
+  #tablak = [];
+  #gombok = [];
 
-    constructor(adatok, szuloElem, osztaly) {
-        this.#adatok = adatok;
-        szuloElem.append("<div>");
-        this.#divElem = szuloElem.children("div:last");
-        this.#divElem.addClass(osztaly);
-    
-        this.#osszTabla();
-    }
+  constructor(adatok, gombok, szuloElem, osztaly) {
+    this.#adatok = adatok;
+    this.#gombok = gombok;
+    szuloElem.append("<div>");
+    this.#divElem = szuloElem.children("div:last");
+    this.#divElem.addClass(osztaly);
 
-    #osszTabla() {
-        for (const key in this.#adatok) {
-          switch (this.#adatok[key].tipus) {
-            case "gyerek":
-              this.#tablak.push(
-                new GyerekView(key, this.#adatok[key], this.#divElem)
-              );
-              break;
-    
-            case "oltas":
-              this.#tablak.push(
-                new OltasView(key, this.#adatok[key], this.#divElem)
-              );
-              break;
-            case "orvos":
-              this.#tablak.push(
-                new OrvosView(key, this.#adatok[key], this.#divElem)
-              );
-              break;
-          }
-        }
+    this.#osszTabla();
+  }
+
+  #osszTabla() {
+    for (const key in this.#adatok) {
+      switch (this.#gombok[key]) {
+        case "Gyerek":
+          this.#tablak.push(
+            new GyerekView(key, this.#adatok[key], this.#divElem)
+          );
+          break;
+
+        case "Oltás":
+          this.#tablak.push(
+            new OltasView(key, this.#adatok[key], this.#divElem)
+          );
+          break;
+        case "Orvos":
+          this.#tablak.push(
+            new OrvosView(key, this.#adatok[key], this.#divElem)
+          );
+          break;
       }
+    }
+  }
 
 }
 export default Kozpont;

@@ -6,6 +6,7 @@ class GyerekView {
     #adatok;
 
     constructor(key, adatok, szuloElem){
+        console.log("Bementem a GyerekView osztályba");
         this.#key = key;
         this.#adatok = adatok;
         this.#formElem = szuloElem;

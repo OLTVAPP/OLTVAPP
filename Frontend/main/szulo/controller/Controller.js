@@ -1,6 +1,6 @@
 import Kozpont from "../view/adatbazisView/Kozpont.js";
 import adatbazisModell from "../modell/adatbazisModell.js";
-import Gombok from "../view/Gombok.js";
+import Gombok from "../view/adatbazisView/Gombok.js";
 
 class Controller {
 
@@ -12,7 +12,6 @@ class Controller {
     }
 
     megjelenit() {
-        console.log(this.#adatbazisModell.getGleiro())
         new Gombok(this.#adatbazisModell.getGleiro(), $(".tablaNevek"));
         new Kozpont(this.#adatbazisModell.getLeiro(), this.#adatbazisModell.getGleiro(), $("article"), $("tablak") );
         

@@ -1,4 +1,3 @@
-
 class GyerekView {
 
     #formElem;
@@ -17,9 +16,13 @@ class GyerekView {
 
 
     #tablaAdatai() {
-        let txt = `<div class="mb-3 mt-3">
-        <p for="${this.#key}" class="form-label">${this.#adatok.vez_nev}, ${this.#adatok.ker_nev}, 
-        ${this.#adatok.szul_datum}, ${this.#adatok.szul_hely}</p>
+        let txt = `<div >
+        <ul>
+            <li><p for="${this.#key}" class="form-label">Vez_név: ${this.#adatok.vez_nev}</p></li>
+            <li><p for="${this.#key}" class="form-label">Ker_név: ${this.#adatok.ker_nev}</p></li>
+            <li><p for="${this.#key}" class="form-label">Szül_dátum: ${this.#adatok.szul_datum}</p></li>
+            <li><p for="${this.#key}" class="form-label">Szül_hely: ${this.#adatok.szul_hely}</p></li>
+        </ul>
       </div>`
         this.#formElem.append(txt);
     }

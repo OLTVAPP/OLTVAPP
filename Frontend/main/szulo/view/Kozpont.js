@@ -1,26 +1,24 @@
-import GyerekView from "./GyerekView.js";
-import OltasView from "./OltasView.js";
-import OrvosView from "./OrvosView.js";
+import GyerekView from "./adatbazisView/GyerekView.js";
+import OltasView from "./adatbazisView/OltasView.js";
+import OrvosView from "./adatbazisView/OrvosView.js";
 
 class Kozpont {
 
   #adatok;
   #divElem;
   #tablak = [];
-  #gombok;
 
-  constructor(adatok, gombok, szuloElem, osztaly) {
+  constructor(adatok, szuloElem, osztaly) {
     this.#adatok = adatok;
-    this.#gombok = gombok;
     szuloElem.append("<div>");
-    this.#divElem = szuloElem.children("div:last");
+    this.#divElem = szuloElem.children("div:last-child");
     this.#divElem.addClass(osztaly);
 
   }
 
   megjelenitGyerek() {
-    for (const key in this.#adatok) {
-      this.#tablak.push(new GyerekView(key, this.#adatok[key], this.#divElem));
+    for (const key in this.#adatok.gyerek ) {
+      this.#tablak.push(new GyerekView(key, this.#adatok.gyerek[key], this.#divElem));
     }
   }
 

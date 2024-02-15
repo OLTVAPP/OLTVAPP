@@ -1,6 +1,6 @@
-import Kozpont from "../view/adatbazisView/Kozpont.js";
+import Kozpont from "../view/Kozpont.js";
 import adatbazisModell from "../modell/adatbazisModell.js";
-import Gombok from "../view/adatbazisView/Gombok.js";
+import Gombok from "../view/Gombok.js";
 
 class Controller {
     #adatbazisModell;
@@ -12,25 +12,23 @@ class Controller {
 
     megjelenit() {
         const gombok = new Gombok(this.#adatbazisModell.getGleiro(), $(".tablaNevek")); 
-        const kozpont = new Kozpont(this.#adatbazisModell.getLeiro(), this.#adatbazisModell.getGleiro(), $("article"), $(".tablak") );
+        const kozpont = new Kozpont(this.#adatbazisModell.getLeiro(), $("article"), $(".tablak") );
 
 
         gombok.gombokKezelese(function(index) {
-            switch(index) {
-                case 0:
-                    kozpont.megjelenitGyerek();
-                    break;
-                case 1:
-                    kozpont.megjelenitOrvos();
-                    break;
-                case 2:
-                    kozpont.megjelenitOltas();
-                    break;
-                default:
-                    console.log("Ismeretlen gomb");
+            if (index === 0) {
+                kozpont.megjelenitGyerek();
+            } else if (index === 1) {
+                kozpont.megjelenitOrvos();
+            } else if (index === 2) {
+                kozpont.megjelenitOltas();
+            } else {
+                console.log("Ismeretlen gomb");
             }
         });
     }
+
+    
 }
 
 export default Controller;

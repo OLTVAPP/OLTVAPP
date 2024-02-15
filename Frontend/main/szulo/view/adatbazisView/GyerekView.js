@@ -9,7 +9,7 @@ class GyerekView {
         this.#key = key;
         this.#adatok = adatok;
         this.#formElem = szuloElem;
-
+        this.#formElem.addClass("tablak");
         this.#tablaAdatai();
     }
 

@@ -1,92 +1,126 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: auto;
-  }
-  
-  nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: brown;
-    padding: 10pt;
-  }
-  
-  a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  h1 {
-    padding: 5px;
-    text-align: center;
-    margin: auto;
-  }
-  
-  button {
-    margin: 15px;
-  }
-  
-  #gombok {
-    margin-left: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-area: "g";
-  }
-  
-  #cim {
-    font-size: larger;
-    margin-right: auto;
-    grid-area: "c";
-  }
-  
-  article {
-    display: grid;
-    grid-template-areas: "fo fo" "c2 c3";
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-  
-  #focikk {
-    grid-area: fo;
-    padding: 5px;
-    margin: 5px;
-    border: solid black 3px;
-  }
-  
-  #cikk2 {
-    grid-area: c2;
-    padding: 5px;
-    margin: 5px;
-    border: solid black 3px;
-  }
-  
-  #cikk3 {
-    grid-area: c3;
-    padding: 5px;
-    margin: 5px;
-    border: solid black 3px;
-  }
-  
-  footer {
-    padding-top: 5px;
-    background-color: black;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-  }
-  
-  #jog {
-    color: white;
-  }
-  
-  .circle{
-    border: 2px solid black;
-    border-radius: 50%;
-    width: 100px; 
-    height: 100px;
-  }
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto;
+  background-color: rgb(236, 236, 244);
+}
 
-  .elrejt{
-    display: none;
-  }
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-image: linear-gradient(rgb(101, 101, 238), rgba(128, 128, 230, 0.736), rgb(101, 101, 238));
+  padding: 10pt;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1 {
+  padding: 5px;
+  text-align: center;
+  margin: auto;
+}
+
+button {
+  margin: 15px;
+}
+
+#linkek {
+  border: 3px solid rgba(128, 128, 230, 0.736);
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: rgb(0, 98, 255);
+  color: white;
+}
+
+.alapMinta{
+  border: 3px solid rgba(128, 128, 230, 0.736);
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: rgb(0, 98, 255);
+  color: white;
+}
+
+#gombok {
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-area: "g";
+  
+}
+
+#cim {
+  font-size: larger;
+  margin-right: auto;
+  grid-area: "c";
+  color: white;
+}
+
+article {
+  display: grid;
+  grid-template-areas: "fo fo" "c2 c3";
+  color: black;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.gombCimkek {
+  border: 3px solid rgba(128, 128, 230, 0.736);
+  background-color: rgb(0, 98, 255);
+  border-radius: 5px;
+  font-size: 20px;
+  color: white;
+}
+
+.tablak {
+  filter: none;
+  background-image: url('kepek/oltas.jpg');
+  filter: brightness(70%);
+}
+
+#focikk {
+  grid-area: fo;
+  padding: 5px;
+  margin: 5px;
+  border: solid black 3px;
+}
+
+#cikk2 {
+  grid-area: c2;
+  padding: 5px;
+  margin: 5px;
+  border: solid black 3px;
+}
+
+#cikk3 {
+  grid-area: c3;
+  padding: 5px;
+  margin: 5px;
+  border: solid black 3px;
+}
+
+footer {
+  padding-top: 5px;
+  background-color: black;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  background-color: rgb(101, 101, 238);
+}
+
+#jog {
+  color: white;
+}
+
+.circle {
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.elrejt {
+  display: none;
+}

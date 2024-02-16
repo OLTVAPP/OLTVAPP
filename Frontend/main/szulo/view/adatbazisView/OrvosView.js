@@ -5,7 +5,7 @@ class OrvosView {
     #key;
     #adatok;
 
-    constructor(key, adatok, szuloElem){
+    constructor(key, adatok, szuloElem) {
         console.log("Bementem a GyerekView osztályba");
         this.#key = key;
         this.#adatok = adatok;
@@ -18,12 +18,12 @@ class OrvosView {
 
     #tablaAdatai() {
         let txt = `<div >
-        <ul>
-            <li><p for="${this.#key}" class="form-label">Vez_név: ${this.#adatok.vez_nev}</p></li>
-            <li><p for="${this.#key}" class="form-label">Ker_név: ${this.#adatok.ker_nev}</p></li>
-            <li><p for="${this.#key}" class="form-label">Telefon szám: ${this.#adatok.tel_szam}</p></li>
-            <li><p for="${this.#key}" class="form-label">Publikus email:: ${this.#adatok.publikus_email}</p></li>
-        </ul>
+        <table>
+            <tr><td>Vez_név:</td><td>${this.#adatok.vez_nev}</td></tr>
+            <tr><td>Ker_név:</td><td>${this.#adatok.ker_nev}</td></tr>
+            <tr><td>Telefon szám:</td><td>${this.#adatok.tel_szam}</td></tr>
+            <tr><td>Publikus email:</td><td>${this.#adatok.publikus_email}</td></tr>
+        </table>
       </div>`
         this.#formElem.append(txt);
     }

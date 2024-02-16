@@ -18,12 +18,12 @@ class OltasView {
 
     #tablaAdatai() {
         let txt = `<div >
-        <ul>
-            <li><p for="${this.#key}" class="form-label">Oltás típusa: ${this.#adatok.tipus_id}</p></li>
-            <li><p for="${this.#key}" class="form-label">Forgalmazója: ${this.#adatok.forgalmazo_id}</p></li>
-            <li><p for="${this.#key}" class="form-label">Jótékony hatásai: ${this.#adatok.jotekony_hatas}</p></li>
-            <li><p for="${this.#key}" class="form-label">Mellék Hatásai: ${this.#adatok.mellek_hatas}</p></li>
-        </ul>
+        <table>
+            <tr><td>Oltás típusa:</td><td>${this.#adatok.tipus_id}</td></tr>
+            <tr><td>Forgalmazója:</td><td>${this.#adatok.forgalmazo_id}</td></tr>
+            <tr><td>Jótékony hatásai:</td><td>${this.#adatok.jotekony_hatas}</td></tr>
+            <tr><td>Mellék Hatásai:</td><td>${this.#adatok.mellek_hatas}</td></tr>
+        </table>
       </div>`
         this.#formElem.append(txt);
     }

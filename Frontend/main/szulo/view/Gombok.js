@@ -18,12 +18,17 @@ class Gombok {
   }
 
   gombokKezelese(callback) {
+    const adatok = this.#adatok;
     this.#divElem.on('click', 'button', function () {
-      const index = $(this).index(); 
-      callback(index); 
+      const buttonText = $(this).text().trim(); // A gomb szövege
+      const index = adatok.findIndex(item => item === buttonText);
+      if (index !== -1) {
+        callback(index);
+      } else {
+        console.log("Ismeretlen gomb");
+      }
     });
   }
- 
 }
 
 export default Gombok;

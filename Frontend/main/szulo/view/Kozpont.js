@@ -17,20 +17,35 @@ class Kozpont {
   }
 
   megjelenitGyerek() {
-    for (const key in this.#adatok.gyerek ) {
-      this.#tablak.push(new GyerekView(key, this.#adatok.gyerek[key], this.#divElem));
+    this.#divElem.empty();
+    for (const key in this.#adatok) {
+      if (key === 'gyerekek') {
+        for (const gyerekKey in this.#adatok[key]) {
+          this.#tablak.push(new GyerekView(gyerekKey, this.#adatok[key][gyerekKey], this.#divElem));
+        }
+      }
     }
   }
 
   megjelenitOrvos() {
+    this.#divElem.empty();
     for (const key in this.#adatok) {
-      this.#tablak.push(new OrvosView(key, this.#adatok[key], this.#divElem));
+      if (key === 'orvosok') {
+        for (const orvosKey in this.#adatok[key]) {
+          this.#tablak.push(new OrvosView(orvosKey, this.#adatok[key][orvosKey], this.#divElem));
+        }
+      }
     }
   }
 
   megjelenitOltas() {
+    this.#divElem.empty();
     for (const key in this.#adatok) {
-      this.#tablak.push(new OltasView(key, this.#adatok[key], this.#divElem));
+      if (key === 'oltasok') {
+        for (const oltasKey in this.#adatok[key]) {
+          this.#tablak.push(new OltasView(oltasKey, this.#adatok[key][oltasKey], this.#divElem));
+        }
+      }
     }
   }
 }

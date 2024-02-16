@@ -1,4 +1,7 @@
-import TextUrlapElem from "./RegisztracioTextUrlapElem.js";
+import TextInput from "./input/text.js";
+import EmailInput from "./input/Email.js";
+import PasswordInput from "./input/password.js";
+import NumberInput from "./input/Number.js";
 class UrlapView {
 
     #szuloElem
@@ -40,30 +43,41 @@ class UrlapView {
         for (const key in this.#leiro.felhasznalo) {
             switch (this.#leiro.felhasznalo[key].tipus) {
                 case "text":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.felhasznalo[key], this.#fElem))
+                    this.#urlapElemLista.push(new TextInput(key, this.#leiro.felhasznalo[key], this.#fElem))
                     break
                 case "email":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.felhasznalo[key], this.#fElem))
+                    this.#urlapElemLista.push(new EmailInput(key, this.#leiro.felhasznalo[key], this.#fElem))
                     break
                 case "password":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.felhasznalo[key], this.#fElem))
+                    this.#urlapElemLista.push(new PasswordInput(key, this.#leiro.felhasznalo[key], this.#fElem))
                     this.#leiro.felhasznalo[key].megjelenes = "Jelszó megerősítése:"
-                    this.#jelszo = (new TextUrlapElem(key + "2", this.#leiro.felhasznalo[key], this.#fElem))
+                    this.#jelszo = (new PasswordInput(key + "2", this.#leiro.felhasznalo[key], this.#fElem))
                     break
                 default:
             }
         }
-        for (const key in this.#leiro.szulo) {
-            switch (this.#leiro.szulo[key].id) {
-                case "lakcim":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.szulo[key], this.#lElem))
-                    break;
-                case "adat":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.szulo[key], this.#szElem))
-                    break;
-            }
 
+        for (const key in this.#leiro.szulo.szemelyes_adatok) {
+            switch (this.#leiro.szulo.szemelyes_adatok[key].tipus) {
+                case "text":
+                    this.#urlapElemLista.push(new TextInput(key, this.#leiro.szulo.szemelyes_adatok[key], this.#szElem))
+                    break
+                default:
+            }
         }
+
+        for (const key in this.#leiro.szulo.lakcim) {
+            switch (this.#leiro.szulo.lakcim[key].tipus) {
+                case "text":
+                    this.#urlapElemLista.push(new TextInput(key, this.#leiro.szulo.lakcim[key], this.#lElem))
+                    break
+                case "number":
+                    this.#urlapElemLista.push(new NumberInput(key, this.#leiro.szulo.lakcim[key], this.#lElem))
+                    break
+                default:
+            }
+        }
+
     }
 
     adatFeltolt() {

@@ -1,30 +1,26 @@
-class PasswordInput {
+class EmailInput {
 
-    #formElem;
-    #key;
-    #leiro;
-    #value;
+    #key = "";
+    #leiro = {};
+    #gyerekElem
+    #value = "";
     #valid = false;
 
-
-    constructor(key, leiro, szuloElem) {
-        console.log("hello")
+    constructor(key, leiro, gyerekElem) {
         this.#key = key;
         this.#leiro = leiro;
-        this.#formElem = szuloElem;
-        this.#value = this.#leiro.value;
-        this.#textElem();
-        this.inputElem = $(`#${this.#key}`)
-        console.log("input", this.inputElem);
-        this.validElem = this.#formElem.children("div:last-child").children(".valid");
-        this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");;
-        console.log(this.validelem)
-        console.log(this.invalidElem)
+        this.#gyerekElem = gyerekElem
+
+        this.textElem();
+
+        this.inputElem = $(`#${this.#key}`);
+        this.validElem = this.#gyerekElem.children("div:last-child").children(".valid");
+        this.invalidElem = this.#gyerekElem.children("div:last-child").children(".invalid");
         this.inputElem.on("keyup", () => {
             this.#value = this.inputElem.val();
             let reg = this.#leiro.regex;
             let regObj = new RegExp(reg);
-            console.log(regObj.test(this.#value));
+
             if (regObj.test(this.#value)) {
                 this.#valid = true;
                 this.validElem.removeClass("elrejt");
@@ -34,9 +30,7 @@ class PasswordInput {
                 this.invalidElem.removeClass("elrejt");
                 this.validElem.addClass("elrejt");
             }
-        })
-
-
+        });
     }
 
     get id() {
@@ -55,10 +49,7 @@ class PasswordInput {
         return this.#key;
     }
 
-
-
-    #textElem() {
-        console.log(this.#leiro.tipus)
+    textElem() {
         let txt = `
         <div class="input">
         <label for="${this.#key}" 
@@ -77,14 +68,9 @@ class PasswordInput {
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
         </div>
         `
-        this.#formElem.append(txt);
+
+        this.#gyerekElem.append(txt);
     }
-
-
-    getValue() {
-        return this.#value
-    }
-
-
 }
-export default PasswordInput
+
+export default EmailInput;

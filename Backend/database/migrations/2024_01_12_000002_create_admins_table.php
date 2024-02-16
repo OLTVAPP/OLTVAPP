@@ -20,12 +20,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Admin::create([
-            'jelszo' => "123ab",
-            'felhasznalo_email' => "bal@gmail.com",
-            'szerepkor' => "S",
-            'aktiv' => true
-        ]);
     }
 
     /**

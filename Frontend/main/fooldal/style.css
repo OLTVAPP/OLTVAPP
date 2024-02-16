@@ -52,6 +52,16 @@ article {
   border: solid black 3px;
 }
 
+.valid {
+  color: green;
+}
+.invalid {
+  color: red;
+}
+.elrejt {
+  display: none;
+}
+
 #cikk2 {
   grid-area: c2;
   padding: 5px;

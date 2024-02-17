@@ -43,7 +43,6 @@ Route::get('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'show
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 Route::get('/felhasznalo_keres/{felhasznalo_nev}/{felhasznalo_jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
 
-Route::get('/felhasznalo_keres/{felhasznalo_nev}', [FelhasznaloController::class, 'bejelentkezes']);
 
 Route::put('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'update']);
 

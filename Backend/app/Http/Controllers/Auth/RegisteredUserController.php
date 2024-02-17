@@ -35,8 +35,9 @@ class RegisteredUserController extends Controller
             'felhasznalo_email' => $request->felhasznalo_email,
             'szerepkor' => 'S',
             'aktiv' => true
-
         ]);
+
+        
 
         event(new Registered($user));
 
@@ -44,4 +45,5 @@ class RegisteredUserController extends Controller
 
         return response()->noContent();
     }
+
 }

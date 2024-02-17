@@ -38,43 +38,61 @@ button {
 }
 
 article {
-  display: grid;
-  grid-template-areas: "fo fo" "c2 c3";
-  margin-left: 100px;
-  margin-right: 100px;
+  margin: auto;
+  text-align: center;
 }
 
-#focikk {
-  grid-area: fo;
-  padding: 5px;
-  margin: 5px;
-  border: solid black 3px;
+.gombok {
+  background-color: mediumturquoise;
+  padding: 40px;
+  margin: 10px;
 }
+
+article {
+  margin: auto;
+  text-align: center;
+}
+
+.input{
+  margin: auto;
+  width: 20%;
+  display: grid;
+}
+.adatok{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+}
+
+.gyerekAdat {
+  margin: 20px;
+  border: solid black 3px;
+  padding: 10px;
+}
+
+.gyerekLakcim {
+  margin: 20px;
+  border: solid black 3px;
+  padding: 10px;
+}
+
+
 
 .valid {
   color: green;
 }
+
 .invalid {
   color: red;
 }
+
 .elrejt {
   display: none;
 }
 
-#cikk2 {
-  grid-area: c2;
-  padding: 5px;
-  margin: 5px;
-  border: solid black 3px;
-}
 
-#cikk3 {
-  grid-area: c3;
-  padding: 5px;
-  margin: 5px;
-  border: solid black 3px;
-}
-
+/*
 footer {
   padding-top: 5px;
   background-color: black;
@@ -88,3 +106,4 @@ footer {
 #jog {
   color: white;
 }
+*/

@@ -1,4 +1,4 @@
-import TextUrlapElem from "./TextUrlapElem.js";
+import TextUrlapElem from "./RegisztracioTextUrlapElem.js";
 class UrlapView {
 
     #szuloElem

@@ -7,7 +7,7 @@ body {
 nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-image: linear-gradient(rgb(101, 101, 238), rgba(128, 128, 230, 0.736), rgb(101, 101, 238));
+  background-image: linear-gradient(rgb(101, 101, 238), rgba(128, 128, 230, 0.736), rgb(128, 128, 230, 0.736));
   padding: 10pt;
   border-bottom: 10px solid rgb(0, 98, 255);
   box-shadow: 0 4px 8px rgb(49, 111, 212);
@@ -106,11 +106,16 @@ article {
   margin: auto;
 }
 
+h2{
+  text-align: center;
+  background-color: white;
+  border: 2px solid black;
+}
+
 table {
   color: white;
   width: auto;
   margin: auto;
-  padding: 10px;
 }
 
 td {
@@ -118,15 +123,13 @@ td {
   border: 2px solid black;
   background-color: white;
   color: black;
+  padding-right: 30px;
+  text-align: left;
 }
-tr{
-  padding: 5px;
-  margin: 5px;
-}
+
 th{
+  width: 200px;
   font-size: 20px;
-  border: 2px solid black;
-  background-color: white;
   color: black;
 }
 #focikk {
@@ -180,4 +183,8 @@ footer {
 .tablaNevek {
   margin: 0 auto;
   grid-area: tn;
+}
+
+.adatok{
+  margin-bottom: 10px;
 }

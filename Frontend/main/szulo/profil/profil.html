@@ -8,7 +8,7 @@
     <meta name="keywords" content="Oltas, OLTVAPP, Vakcina">
     <meta name="author" content="Somogyi András, Somogyvári Márton, Mogyoródi Balázs">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="mainSzulo.js" type="module"></script>
+    <script src="mainProfil.js" type="module"></script>
     <link rel="stylesheet" href="style.css">
     <title></title>
 
@@ -34,30 +34,16 @@
             </div>
         </nav>
         <header>
-            <h1>Szülő oldala</h1>
+            <h1>Profil beállítások</h1>
         </header>
         <article>
-            <button class="alapMinta">
-                <a href="profil/profil.html">Profil beállítás</a>
-            </button>
-            <div class="tablaNevek"></div>
+            
         </article>
 
         <footer>
             <a id="jog">Minden jog fenntartva!</a>
         </footer>
 
-        <script>
-
-            $("#linkek").click(function () {
-                let linkek = $("#gombok button");
-                if (linkek.hasClass("elrejt")) {
-                    linkek.removeClass("elrejt");
-                } else {
-                    linkek.addClass("elrejt");
-                }
-            });
-        </script>
     </main>
 </body>
 

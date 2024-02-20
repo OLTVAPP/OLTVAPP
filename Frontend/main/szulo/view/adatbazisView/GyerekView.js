@@ -16,20 +16,19 @@ class GyerekView {
 
 
     #tablaAdatai() {
-        let txt = `<div >
+        let txt = `
+        
+        <div class="adatok">
+        <h2>${this.#adatok.vez_nev} ${this.#adatok.ker_nev}</h2>
         <table>
+        <tbody>
         <tr>
-            <th>Vez_név</th>
-            <th>Ker_név</th>
-            <th>Szül_dátum</th>
-            <th>Szül_hely</th>
+            <td>Vezeték név: ${this.#adatok.vez_nev}</td>
+            <td>Kereszt név: ${this.#adatok.ker_nev}</td>
+            <td>Születési dátum: ${this.#adatok.szul_datum}</td>
+            <td>Születési hely: ${this.#adatok.szul_hely}</td>
         </tr>
-        <tr>
-            <td>${this.#adatok.vez_nev}</td>
-            <td>${this.#adatok.ker_nev}</td>
-            <td>${this.#adatok.szul_datum}</td>
-            <td>${this.#adatok.szul_hely}</td>
-        </tr>
+        </tbody>
         </table>
       </div>`
         this.#formElem.append(txt);

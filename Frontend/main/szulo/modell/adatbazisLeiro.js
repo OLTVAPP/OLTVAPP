@@ -35,11 +35,21 @@ export const adatbazis = {
     ],
     oltasok: [
         {
-            tipus_id: 1,
-            forgalmazo_id: 1,
+            elnev: "Bárány hímlő elleni oltás",
             jotekony_hatas: "Jó hatás",
-            mellek_hatas: "Nincs mellékhatás"
+            mellek_hatas: "Nincs mellékhatás",
+            beadando:"beadva",
+            kotelezo:"nem",
         },
+
+        {
+            elnev: "Kanyaró",
+            jotekony_hatas: "Jó hatás",
+            mellek_hatas: "Nincs mellékhatás",
+            beadando:"beadandó",
+            kotelezo:"igen",
+        },
+
     ],
     orvosok: [
         {
@@ -51,4 +61,4 @@ export const adatbazis = {
     ]
 };
 
-export const gombok=["Gyerek", "Orvos", "Oltás"];
+export const gombok=["Gyerek", "Orvos", "Oltás", "Jelentkezett oltások"];

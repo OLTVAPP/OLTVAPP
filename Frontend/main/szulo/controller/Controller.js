@@ -11,24 +11,24 @@ class Controller {
     }
 
     megjelenit() {
-        const gombok = new Gombok(this.#adatbazisModell.getGleiro(), $(".tablaNevek")); 
-        const kozpont = new Kozpont(this.#adatbazisModell.getLeiro(), $("article"), $(".tablak") );
+        const gombok = new Gombok(this.#adatbazisModell.getGleiro(), $(".tablaNevek"));
+        const kozpont = new Kozpont(this.#adatbazisModell.getLeiro(), $("article"), $(".tablak"));
 
-
-        gombok.gombokKezelese(function(index) {
+        gombok.gombokKezelese(function (index) {
             if (index === 0) {
                 kozpont.megjelenitGyerek();
             } else if (index === 1) {
                 kozpont.megjelenitOrvos();
             } else if (index === 2) {
                 kozpont.megjelenitOltas();
+            } else if (index === 3) {
+                kozpont.megjelenitIdopont();
             } else {
                 console.log("Ismeretlen gomb");
             }
         });
     }
 
-    
 }
 
 export default Controller;

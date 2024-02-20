@@ -5,7 +5,7 @@ class OltasView {
     #key;
     #adatok;
 
-    constructor(key, adatok, szuloElem){
+    constructor(key, adatok, szuloElem) {
         console.log("Bementem a GyerekView osztályba");
         this.#key = key;
         this.#adatok = adatok;
@@ -17,14 +17,32 @@ class OltasView {
 
 
     #tablaAdatai() {
-        let txt = `<div >
+        let txt = `<div class="adatok">
+        <h2>${this.#adatok.elnev}</h2>
         <table>
-            <tr><td>Oltás típusa:</td><td>${this.#adatok.tipus_id}</td></tr>
-            <tr><td>Forgalmazója:</td><td>${this.#adatok.forgalmazo_id}</td></tr>
-            <tr><td>Jótékony hatásai:</td><td>${this.#adatok.jotekony_hatas}</td></tr>
-            <tr><td>Mellék Hatásai:</td><td>${this.#adatok.mellek_hatas}</td></tr>
+        <tbody>
+        <tr>
+            <td>Hatásai: ${this.#adatok.jotekony_hatas}</td>
+            <td>Mellék hatásai: ${this.#adatok.mellek_hatas}</td>
+            <td>Állapot: ${this.#adatok.beadando}</td>
+            <td>Kötelező beadni: ${this.#adatok.kotelezo}</td>
+      `
+
+      if (this.#adatok.kotelezo === "igen") {
+        txt += `
+        <td></td>
+        </tr>
+        </tbody>
         </table>
-      </div>`
+        </div>`
+      }
+      else{
+        txt += `
+        </tr>
+        </tbody>
+        </table>
+        </div>`
+      }
         this.#formElem.append(txt);
     }
 

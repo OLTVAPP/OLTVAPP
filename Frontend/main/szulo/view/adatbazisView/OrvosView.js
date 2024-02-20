@@ -17,12 +17,16 @@ class OrvosView {
 
 
     #tablaAdatai() {
-        let txt = `<div >
+        let txt = `
+        <div class="adatok">
+        <h2>${this.#adatok.vez_nev} ${this.#adatok.ker_nev}</h2>
         <table>
-            <tr><td>Vez_név:</td><td>${this.#adatok.vez_nev}</td></tr>
-            <tr><td>Ker_név:</td><td>${this.#adatok.ker_nev}</td></tr>
-            <tr><td>Telefon szám:</td><td>${this.#adatok.tel_szam}</td></tr>
-            <tr><td>Publikus email:</td><td>${this.#adatok.publikus_email}</td></tr>
+        <tbody>
+        <tr>
+            <td>Születési dátum: ${this.#adatok.tel_szam}</td>
+            <td>Születési hely: ${this.#adatok.publikus_email}</td>
+        </tr>
+        </tbody>
         </table>
       </div>`
         this.#formElem.append(txt);

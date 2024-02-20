@@ -1,17 +1,21 @@
 import { urlapLeiro } from "./adatLeiro.js";
-
+import { tesztAdatok } from "./tesztAdat.js";
 
 class UrlapModell {
+  #leiro;
+  #tesztAdatok;
 
-    #leiro
+  constructor() {
+    this.#leiro = urlapLeiro;
+    this.#tesztAdatok = tesztAdatok;
+  }
 
-    constructor() {
-        this.#leiro = urlapLeiro;
-    }
+  getLeiro() {
+    return { ...this.#leiro };
+  }
 
-    getLeiro() {
-        return { ...this.#leiro };
-    }
-
+  getTesztAdatok() {
+    return { ...this.#tesztAdatok };
+  }
 }
 export default UrlapModell;

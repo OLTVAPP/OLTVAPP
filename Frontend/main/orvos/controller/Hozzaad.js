@@ -1,4 +1,4 @@
-import UrlapView from "../view/osszekottetesUrlapView.js";
+import UrlapView from "../view/osszekottetes/HozzaadUrlapView.js";
 import UrlapModell from "../modell/UrlapModell.js";
 
 class Hozzaad {
@@ -7,6 +7,7 @@ class Hozzaad {
     constructor() {
         this.#urlapModell = new UrlapModell();
         this.#megjelenit();
+
     }
 
     #megjelenit(){

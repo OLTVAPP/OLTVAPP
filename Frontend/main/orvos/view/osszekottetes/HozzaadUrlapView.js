@@ -1,4 +1,4 @@
-import TextInput from "./input/text.js";
+import TextInput from "./input/Text.js";
 import EmailInput from "./input/Email.js";
 import NumberInput from "./input/Number.js";
 import DateInput from "./input/Date.js";

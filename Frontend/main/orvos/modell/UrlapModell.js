@@ -17,5 +17,6 @@ class UrlapModell {
   getTesztAdatok() {
     return { ...this.#tesztAdatok };
   }
+
 }
 export default UrlapModell;

@@ -9,7 +9,7 @@ class Betegek {
   }
 
   #megjelenit() {
-    new BetegView(this.#urlapModell.getTesztAdatok(), $("article"), this.#urlapModell.getLeiro());
+    new BetegView(this.#urlapModell.getTesztAdatok(), $("article"), this.#urlapModell.getLeiro(), 2);
   }
 }
 export default Betegek;

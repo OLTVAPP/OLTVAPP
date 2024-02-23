@@ -2,33 +2,31 @@ class BetegViewSor {
   #adat;
   #tablaElem;
   #szuloGomb;
-  #index;
+  #szuloElem
+  #index
+
   constructor(adat, szuloElem, index) {
     this.#adat = adat;
-    this.#tablaElem = szuloElem;
-    this.#index = index;
+    this.#szuloElem = szuloElem;
+    this.#index = index
     this.#sor();
-    this.#kattintas();
+    //this.#kattintas();
   }
+
   #sor() {
     let txt = "";
-
-    txt += "<tr>";
-    for (const key in this.#adat) {
-      if (Object.hasOwnProperty.call(this.#adat, key)) {
-        const element = this.#adat[key];
-        txt += `<td>${element}</td>`;
-      }
+    txt += "<tr>"
+    for (let key in this.#adat) {
+      txt += `<td>${this.#adat[key]}</td>`;
     }
-    txt += `<td><div class="szulo${this.#index}">szülő profil</div></td>`;
-    txt += `<td><div class="oltas${this.#index}">Oltási információk</div></td>`;
-    txt += `<td><div class="szerkesztes${this.#index}">Módosítás</div></td>`;
-    txt += "</tr>";
+    txt += "</tr>"
 
-    this.#tablaElem.append(txt);
-    this.#szuloGomb = $(`.szulo${this.#index}`);
+    this.#szuloElem.append(txt);
   }
 
+
+
+  //this.#szuloGomb = $(`.szulo${this.#index}`);
   #kattintas() {
     this.#szuloGomb.on("click", () => {
       let txt = "";
@@ -38,6 +36,10 @@ class BetegViewSor {
       this.#tablaElem.append(txt);
     });
   }
+
 }
+
+
+
 
 export default BetegViewSor;

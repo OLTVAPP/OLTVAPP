@@ -21,8 +21,24 @@ h1 {
   margin: auto;
 }
 
+.gombok {
+  margin: auto;
+  text-align: center;
+}
+
 button {
   margin: 15px;
+}
+
+h2 {
+  margin: auto;
+  text-align: center;
+}
+
+.gyerekek {
+  padding: 10px;
+  margin: 40px;
+  background-color: turquoise;
 }
 
 #gombok {
@@ -36,10 +52,12 @@ button {
   margin-right: auto;
   grid-area: "c";
 }
+
 table {
   margin: auto;
   text-align: center;
 }
+
 td,
 th {
   padding: 5px;

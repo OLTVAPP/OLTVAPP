@@ -19,7 +19,8 @@ class Felhasznalo extends Model
         'aktiv'
     ];
 
-  
-
-    
+    public function szulo()
+    {
+        return $this->hasOne(Szulo::class);
+    }
 }

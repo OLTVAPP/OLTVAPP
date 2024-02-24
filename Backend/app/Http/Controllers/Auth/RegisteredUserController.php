@@ -31,19 +31,29 @@ class RegisteredUserController extends Controller
 
         $user = Felhasznalo::create([
             'felhasznalo_nev' => $request->felhasznalo_nev,
-            'jelszo'=> Hash::make($request->jelszo),
+            'jelszo' => Hash::make($request->jelszo),
             'felhasznalo_email' => $request->felhasznalo_email,
             'szerepkor' => 'S',
             'aktiv' => true
         ]);
 
-        
+
+        $user->szulo()->create([
+            'felhasznalo_felhasznalo_id' => $user->id,
+            'vez_nev' => $request->vez_nev,
+            'ker_nev' => $request->ker_nev,
+            'szemelyi_igazolvany_szam' => $request->szemelyi_igazolvany_szam,
+            'lakcim_varos' => $request->lakcim_varos,
+            'lakcim_irSzam' => $request->lakcim_irSzam,
+            'lakcim_utca' => $request->lakcim_utca
+        ]);
+
+
 
         event(new Registered($user));
 
-        Auth::login($user);
+        //Auth::login($user);
 
         return response()->noContent();
     }
-
 }

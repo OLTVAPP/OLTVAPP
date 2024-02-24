@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\FelhasznaloController;
 use App\Http\Controllers\SzuloController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::get('/id/{id}', [SzuloController::class, 'atmasol']);
+Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 
 
 

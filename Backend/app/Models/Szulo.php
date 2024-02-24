@@ -9,10 +9,8 @@ class Szulo extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'felhasznalo_id';
-    public $autoincrement = false;
-
     protected $fillable = [
+        'felhasznalo_felhasznalo_id',
         'vez_nev',
         'ker_nev',
         'szemelyi_igazolvany_szam',
@@ -21,7 +19,8 @@ class Szulo extends Model
         'lakcim_utca'
     ];
 
-    
-
-    
+    public function felhasznalo()
+    {
+        return $this->belongsTo(Felhasznalo::class);
+    }
 }

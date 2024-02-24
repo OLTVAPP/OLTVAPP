@@ -18,15 +18,9 @@ class Controller {
   }
 
   post() {
-    $(window).on("felhasznalo", (event) => {
+    $(window).on("regisztracio", (event) => {
       this.#dataService.postData(
-        "http://localhost:8000/api/felhasznalo",
-        event.detail
-      );
-    });
-    $(window).on("szulo", (event) => {
-      this.#dataService.postData(
-        "http://localhost:8000/api/szulo",
+        "http://localhost:8000/register",
         event.detail
       );
     });

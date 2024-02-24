@@ -51,7 +51,7 @@ class FelhasznaloController extends Controller
         $record->jelszo = $request->jelszo;
         $record->szerepkor = $request->szerepkor;
         $record->felhasznalo_email = $request->felhasznalo_email;
-        $record->aktiv = $request->aktiv;
+        $record->aktiv = true;
         $record->save();
     }
 

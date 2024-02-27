@@ -1,4 +1,4 @@
-import { urlapLeiro } from "./adatLeiro.js";
+import { gyerekLeiro } from "./adatLeiro.js";
 import { tesztAdatok } from "./tesztAdat.js";
 
 class UrlapModell {
@@ -6,7 +6,7 @@ class UrlapModell {
   #tesztAdatok;
 
   constructor() {
-    this.#leiro = urlapLeiro;
+    this.#leiro = gyerekLeiro;
     this.#tesztAdatok = tesztAdatok;
   }
 

@@ -4,14 +4,15 @@ class BetegView {
   #szuloElem;
   #list = [];
   #tablaElem;
+  #leiro = [];
 
-  constructor(list, szuloElem) {
-    console.log(list)
+  constructor(list, szuloElem, leiro) {
+    this.#leiro = leiro;
     this.#list = list;
     this.#szuloElem = szuloElem;
     this.#szuloElem.append("<table>");
     this.#tablaElem = szuloElem.children("table");
-    //this.#sor();
+    this.#sor();
     this.#tablazatbaIr();
   }
 
@@ -31,7 +32,7 @@ class BetegView {
   #tablazatbaIr() {
     let i = 0;
     for (const key in this.#list.gyerekek) {
-      new BetegViewSor(this.#list.gyerekek[key], this.#tablaElem, i);
+      new BetegViewSor(this.#list.gyerekek[key], this.#tablaElem, i, this.#leiro);
       i++;
     }
   }

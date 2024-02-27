@@ -9,7 +9,11 @@ class Betegek {
   }
 
   #megjelenit() {
-    new BetegView(this.#urlapModell.getTesztAdatok(), $(".betegekLista"));
+    new BetegView(this.#urlapModell.getTesztAdatok(), $(".betegekLista"), this.#urlapModell.getLeiro());
+  }
+
+  egyBetegMegjelenit(){
+    
   }
 }
 export default Betegek;

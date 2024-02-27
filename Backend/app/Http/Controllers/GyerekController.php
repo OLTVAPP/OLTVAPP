@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class GyerekController extends Controller
 {
+
+    /*
     public function gyerekIndex()
     {
         $gyerekek = Gyerek::all();
@@ -17,5 +19,10 @@ class GyerekController extends Controller
     {
         $gyerek =Gyerek::find($id);
         return view('gyerek.show', ['gyerek' => $gyerek]);
+    }
+    */
+
+    public function gyerekSzulo(){
+        
     }
 }

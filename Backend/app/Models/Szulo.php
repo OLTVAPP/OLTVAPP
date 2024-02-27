@@ -9,8 +9,9 @@ class Szulo extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'felhasznalo_id';
+
     protected $fillable = [
-        'felhasznalo_felhasznalo_id',
         'vez_nev',
         'ker_nev',
         'szemelyi_igazolvany_szam',

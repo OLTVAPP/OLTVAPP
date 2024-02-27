@@ -39,7 +39,7 @@ class RegisteredUserController extends Controller
 
 
         $user->szulo()->create([
-            'felhasznalo_felhasznalo_id' => $user->id,
+            'felhasznalo_id' => $user->id,
             'vez_nev' => $request->vez_nev,
             'ker_nev' => $request->ker_nev,
             'szemelyi_igazolvany_szam' => $request->szemelyi_igazolvany_szam,

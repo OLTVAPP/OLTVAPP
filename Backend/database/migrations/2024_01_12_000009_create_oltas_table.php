@@ -15,11 +15,11 @@ return new class extends Migration
         Schema::create('oltas', function (Blueprint $table) {
             $table->id('oltas_id');
             $table->foreignId('tipus_id')->references('tipus_id')->on('oltas_tipuses');
-            $table->foreignId('forgalmazo_id')->references('forgalmazo_id')->on('forgalmazos');
-            $table->string('szuksegessege');
-            $table->string('mellek_hatasa');
+            $table->string('forgalmazo', 50);
+            $table->string('leiras');
             $table->string('adagolas');
             $table->boolean('receptre');
+            $table->boolean('aktiv');
             $table->timestamps();
 
         });

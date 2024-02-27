@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('oltas_tipuses', function (Blueprint $table) {
             $table->id('tipus_id');
-            $table->string('tipus_elnev');
+            $table->string('tipus_elnev', 50);
             $table->string('kotelezo');
             $table->string('leiras');
-            $table->integer('korosztaly');
             $table->timestamps();
         });
 

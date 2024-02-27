@@ -29,7 +29,6 @@ button {
   margin-left: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-area: "g";
 }
 
 #cim {
@@ -50,6 +49,16 @@ article {
   padding: 5px;
   margin: 5px;
   border: solid black 3px;
+}
+
+.valid {
+  color: green;
+}
+.invalid {
+  color: red;
+}
+.elrejt {
+  display: none;
 }
 
 #cikk2 {

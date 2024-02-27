@@ -13,11 +13,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('felhasznalos', function (Blueprint $table) {
-            $table->id('felhasznalo_id');
-            $table->string('felhasznalo_nev')->unique();
-            $table->string('jelszo');
-            $table->string('felhasznalo_email')->unique();
-            $table->char('szerepkor');
+            $table->id('id');
+            $table->string('felhasznalo_nev', 30)->unique();
+            $table->string('jelszo', 30);
+            $table->string('felhasznalo_email', 254)->unique();
+            $table->char('szerepkor', 1);
             $table->boolean('aktiv');
             $table->rememberToken();
             $table->timestamps();

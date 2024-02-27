@@ -14,15 +14,16 @@ return new class extends Migration
     {
         Schema::create('gyereks', function (Blueprint $table) {
             $table->id('gyerek_taj');
-            $table->foreignId('orvos_id')->references('felhasznalo_id')->on('orvos');
-            $table->string('vez_nev');
-            $table->string('ker_nev');
-            $table->string('lakcim_varos');
-            $table->integer('lakcim_irSzam');
-            $table->string('lakcim_utca');
-            $table->string('erzekenyseg');
+            $table->string('vez_nev', 50);
+            $table->string('ker_nev', 50);
             $table->date('szul_datum');
-            $table->string('szul_hely');
+            $table->string('szul_hely', 50);
+            $table->foreignId('orvos_id')->references('felhasznalo_id')->on('orvos');
+            $table->foreignId('szulo_id')->references('felhasznalo_id')->on('szulos');
+            $table->string('lakcim_varos', 50);
+            $table->integer('lakcim_irSzam');
+            $table->string('lakcim_utca', 100);
+            $table->string('erzekenyseg');
             $table->timestamps();
         });
 

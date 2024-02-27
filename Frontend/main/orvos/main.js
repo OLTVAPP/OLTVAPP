@@ -11,7 +11,7 @@ $(function () {
     if (message === "Szülő hozzáadása a gyerekhez") {
         new Hozzaad();
     }
-    if(message === "Betegek"){
+    if(message === "Betegek" || message === "Beteg"){
         new Betegek();
     }
     if(message === "Készlet"){

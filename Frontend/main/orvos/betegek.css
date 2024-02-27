@@ -45,7 +45,7 @@ h2 {
   margin-left: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
+} 
 
 #cim {
   font-size: larger;

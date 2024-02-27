@@ -1,5 +1,5 @@
 import UrlapModell from "../modell/UrlapModell.js";
-import BetegView from "../view/betegek/BetegView.js";
+import BetegView from "../view/betegek/BetegekView.js";
 
 class Betegek {
   #urlapModell;
@@ -9,7 +9,7 @@ class Betegek {
   }
 
   #megjelenit() {
-    new BetegView(this.#urlapModell.getTesztAdatok(), $("article"), this.#urlapModell.getLeiro(), 2);
+    new BetegView(this.#urlapModell.getTesztAdatok(), $(".betegekLista"));
   }
 }
 export default Betegek;

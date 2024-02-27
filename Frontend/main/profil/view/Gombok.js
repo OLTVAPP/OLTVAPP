@@ -12,7 +12,7 @@ class Gombok {
   }
 
   gombok() {
-    let txt = '';
+    let txt = ``;
     for (let index = 0; index < this.#adatok.length; index++) {
       txt += `<button class="gombCimkek"> ${this.#adatok[index]} </button>`;
     }
@@ -22,7 +22,7 @@ class Gombok {
   gombokKezelese(callback) {
     const adatok = this.#adatok;
     this.#divElem.on('click', 'button', function () {
-      const buttonText = $(this).text().trim(); // A gomb szövege
+      const buttonText = $(this).text().trim(); 
       const index = adatok.findIndex(item => item === buttonText);
       if (index !== -1) {
         callback(index);

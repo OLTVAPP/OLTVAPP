@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class OltasController extends Controller
 {
 
-    /*
+    
     public function oltasIndex()
     {
         $oltasok = Oltas::all();
@@ -20,7 +20,7 @@ class OltasController extends Controller
         $oltas = Oltas::find($id);
         return view('oltas.show', ['oltas' => $oltas]);
     }
-    */
+    
 
     public function index()
     {

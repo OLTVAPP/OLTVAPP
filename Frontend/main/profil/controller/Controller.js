@@ -17,7 +17,7 @@ class Controller {
 
     megjelenit() {
         new TombInput(this.#profilModell.getInputok(),$("article"), $("profilElemek"));
-        new Gombok(this.#profilModell.getGombok(),$("profilGombok"));
+        new Gombok(this.#profilModell.getGombok(),$("article"), $("profilGombok"));
     }
 }
 

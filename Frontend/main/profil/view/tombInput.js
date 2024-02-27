@@ -11,7 +11,6 @@ class TombInput {
     szuloElem.append("<div>");
     this.#divElem = szuloElem.children("div:last-child");
     this.#divElem.addClass(osztaly);
-    this.#init();
   }
 
 
@@ -38,6 +37,7 @@ class TombInput {
       }
     }
   }
+
 
   getInputok() {
     return this.#inputok;

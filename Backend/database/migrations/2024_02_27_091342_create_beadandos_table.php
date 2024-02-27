@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Forgalmazo;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forgalmazos', function (Blueprint $table) {
-            $table->id('forgalmazo_id');
-            $table->string('forgalmazo_neve');
+        Schema::create('beadandos', function (Blueprint $table) {
+            $table->id('beadando_id');
+            $table->foreignId('tipus_id')->references('tipus_id')->on('oltas_tipuses');
+            $table->integer('ev');
+            $table->integer('honap');
+            $table->integer('hanyadik');
             $table->timestamps();
         });
-
-       
     }
 
     /**
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('forgalmazos');
+        Schema::dropIfExists('beadandos');
     }
 };

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('darab');
             $table->date('beszerzes_datuma');
             $table->date('lejarati_datuma');
+            $table->date('megsemessites_datuma');
             $table->timestamps();
         });
     }

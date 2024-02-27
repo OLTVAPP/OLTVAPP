@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('megsemisites', function (Blueprint $table) {
-            $table->id('keszlet_id');
-            $table->foreign('keszlet_id')->references('keszlet_id')->on('keszlets');
-            $table->boolean('megsemisitve');
-            $table->date('megsemisitve_d');
+        Schema::create('parameters', function (Blueprint $table) {
+            $table->string('kuldo_email');
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('megsemisites');
+        Schema::dropIfExists('parameters');
     }
 };

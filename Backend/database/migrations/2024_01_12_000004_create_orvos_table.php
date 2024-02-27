@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('felhasznalo_id')->references('id')->on('felhasznalos');
             $table->string('vez_nev');
             $table->string('ker_nev');
-            $table->foreignId('rendelo_id')->references('rendelo_id')->on('rendelos');
             $table->integer('tel_szam');
             $table->string('publikus_email');
             $table->timestamps();

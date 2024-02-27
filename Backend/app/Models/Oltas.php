@@ -13,7 +13,7 @@ class Oltas extends Model
 
     protected $fillable = [
         'tipus_id',
-        'forgalmazo_id',
+        'forgalmazo',
         'szuksegessege',
         'mellek_hatasa',
         'adagolas',

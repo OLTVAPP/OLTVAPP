@@ -16,6 +16,7 @@ class Keszlet extends Model
         'orvos_id',
         'darab',
         'beszerzes_datuma',
-        'lejarati_datuma'
+        'lejarati_datuma',
+        'megsemessites_datuma'
     ];
 }

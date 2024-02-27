@@ -61,4 +61,4 @@ export const adatbazis = {
     ]
 };
 
-export const gombok=["Gyerek", "Orvos", "Oltás", "Jelentkezett oltások"];
+export const gombok=["Gyerek", "Orvos", "Oltás"];

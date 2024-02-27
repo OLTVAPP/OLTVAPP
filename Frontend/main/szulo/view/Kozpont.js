@@ -14,7 +14,9 @@ class Kozpont {
     szuloElem.append("<div>");
     this.#divElem = szuloElem.children("div:last-child");
     this.#divElem.addClass(osztaly);
-    this.oltasFelvetel();
+    //______________________________________________
+    //MODAL MINTA, NYUGODTAN HASZNÁLJÁTOK!!!
+    //this.oltasFelvetel();
 
   }
 
@@ -63,11 +65,13 @@ class Kozpont {
     });
   }
   
-
-  oltasFelvetel() {
+  //______________________________________________
+  //MODAL MINTA, NYUGODTAN HASZNÁLJÁTOK!!!
+  
+  /*oltasFelvetel() {
     const self = this;
     let txt = `
-    <button id="openModalBtn">Modal megnyitása</button>
+    <button id="openModalBtn" class="profilGomb" >Oltás kérelem</button>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -107,7 +111,7 @@ class Kozpont {
     
       self.megjelenitIdopont();
     });
-  }
-
+  }*/
+//______________________________________________
 }
 export default Kozpont;

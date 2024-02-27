@@ -7,14 +7,13 @@ body {
 nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-image: linear-gradient(rgb(101, 101, 238), rgba(128, 128, 230, 0.736), rgb(128, 128, 230, 0.736));
+  background-image: linear-gradient(rgb(7, 109, 241), rgba(7, 109, 241), rgba(50, 125, 236, 0.736));
   padding: 10pt;
-  border-bottom: 10px solid rgb(0, 98, 255);
-  box-shadow: 0 4px 8px rgb(49, 111, 212);
+  border-bottom: 3px solid black;
 }
 
 header{
-  color: white;
+  color: black;
 }
 
 a {
@@ -33,11 +32,11 @@ button {
 }
 
 #linkek {
-  border: 3px solid rgba(128, 128, 230, 0.736);
+  border: 3px solid rgb(4, 224, 253);
   border-radius: 5px;
   font-size: 20px;
-  background-color: rgb(0, 98, 255);
-  color: white;
+  background-color: rgb(4, 224, 253);
+  color: black;
 }
 
 li {
@@ -45,11 +44,11 @@ li {
 }
 
 .alapMinta {
-  border: 3px solid rgba(128, 128, 230, 0.736);
+  border: 3px solid rgb(4, 224, 253);
   border-radius: 5px;
   font-size: 20px;
-  background-color: rgb(0, 98, 255);
-  color: white;
+  background-color: rgb(4, 224, 253);
+  color: black;
 }
 
 #gombok {
@@ -76,15 +75,18 @@ article {
   "t t"
   ;
   color: black;
-  background-color: rgb(177, 177, 243);
-  margin-left: 100px;
-  margin-right: 100px;
+  border: 3px solid black;
+  background-color: rgba(50, 125, 236, 0.736);
   border-radius: 10px;
+  width: 1000px;
+  margin: auto;
+  padding: 25px;
+  text-align: center;
 }
 
 .gombCimkek {
-  border: 3px solid rgba(128, 128, 230, 0.736);
-  background-color: rgb(0, 98, 255);
+  border: 3px solid rgb(4, 224, 253);
+  background-color: rgb(4, 224, 253);
   border-radius: 5px;
   font-size: 25px;
   color: white;
@@ -97,10 +99,10 @@ article {
   filter: none;
   background-image: url('kepek/oltas.jpg');
   /*filter: brightness(50%);*/
-  border: 7px solid black;
+  border: 3px solid black;
   border-radius: 5px;
   width: 600px; 
-  height: 400px;
+  height: 500px;
   overflow: auto;
   grid-area: t;
   margin: auto;
@@ -157,15 +159,16 @@ th{
 }
 
 footer {
+  margin-top: 25px;
   padding-top: 5px;
   background-color: black;
   text-align: center;
   bottom: 0;
   width: 100%;
   height: 2.5rem;
-  background-color: rgb(101, 101, 238);
-  border-top: 10px solid rgb(0, 98, 255);
-  box-shadow: 0 4px 8px rgb(49, 111, 212);
+  background-color: rgba(50, 125, 236, 0.736);
+  border-bottom: 3px solid black;
+  border-top: 3px solid black;
 }
 
 #jog {
@@ -226,4 +229,17 @@ footer {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.profilGomb{
+  border: 3px solid rgba(128, 128, 230, 0.736);
+  background-color: rgb(0, 98, 255);
+  border-radius: 5px;
+  font-size: 25px;
+  color: white;
+  width: 110px;
+}
+
+.szuloCim{
+  margin: auto;
 }

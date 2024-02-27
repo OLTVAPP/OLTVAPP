@@ -21,8 +21,6 @@ class Controller {
                 kozpont.megjelenitOrvos();
             } else if (index === 2) {
                 kozpont.megjelenitOltas();
-            } else if (index === 3) {
-                kozpont.megjelenitIdopont();
             } else {
                 console.log("Ismeretlen gomb");
             }

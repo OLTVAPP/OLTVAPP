@@ -16,3 +16,5 @@ class ProfilModell {
         return [...this.#gombok];
     }
 }
+
+export default ProfilModell;

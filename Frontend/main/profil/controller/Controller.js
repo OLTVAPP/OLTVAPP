@@ -1,5 +1,9 @@
-import UrlapView from "../view/UrlapView.js";
+
 import ProfilModell from "../modell/ProfilModell.js";
+import Gombok from "../view/Gombok.js";
+import TombInput from "../view/tombInput.js";
+
+
 
 class Controller {
 
@@ -9,13 +13,11 @@ class Controller {
         this.#profilModell = new ProfilModell();
         this.megjelenit();
 
-        $(window).on("feltolt", (event) => {
-            console.log(event.detail);
-          });
     }
 
     megjelenit() {
-        new UrlapView($("article"), this.#profilModell.getInputok());
+        new TombInput(this.#profilModell.getInputok(),$("article"), $("profilElemek"));
+        new Gombok(this.#profilModell.getGombok(),$("profilGombok"));
     }
 }
 

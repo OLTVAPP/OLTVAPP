@@ -1,0 +1,245 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    background-color: rgb(236, 236, 244);
+  }
+  
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-image: linear-gradient(rgb(7, 109, 241), rgba(7, 109, 241), rgba(50, 125, 236, 0.736));
+    padding: 10pt;
+    border-bottom: 3px solid black;
+  }
+  
+  header{
+    color: black;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  h1 {
+    padding: 5px;
+    text-align: center;
+    margin: auto;
+  }
+  
+  button {
+    margin: 15px;
+  }
+  
+  #linkek {
+    border: 3px solid rgb(4, 224, 253);
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: rgb(4, 224, 253);
+    color: black;
+  }
+  
+  li {
+    filter: none;
+  }
+  
+  .alapMinta {
+    border: 3px solid rgb(4, 224, 253);
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: rgb(4, 224, 253);
+    color: black;
+  }
+  
+  #gombok {
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-area: "g";
+  
+  }
+  
+  #cim {
+    font-size: larger;
+    margin-right: auto;
+    grid-area: "c";
+    color: white;
+  }
+  
+  article {
+    display: grid;
+    grid-template-areas: 
+    "fo fo" 
+    "c2 c3" 
+    "tn tn"
+    "t t"
+    ;
+    color: black;
+    border: 3px solid black;
+    background-color: rgba(50, 125, 236, 0.736);
+    border-radius: 10px;
+    width: 1000px;
+    margin: auto;
+    padding: 25px;
+    text-align: center;
+  }
+  
+  .gombCimkek {
+    border: 3px solid rgb(4, 224, 253);
+    background-color: rgb(4, 224, 253);
+    border-radius: 5px;
+    font-size: 25px;
+    color: white;
+    width: 125px;
+    height: 50px;
+    font-weight: bold;
+  }
+  
+  .tablak {
+    filter: none;
+    background-image: url('kepek/oltas.jpg');
+    /*filter: brightness(50%);*/
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 600px; 
+    height: 500px;
+    overflow: auto;
+    grid-area: t;
+    margin: auto;
+    padding: 10px;
+  }
+  
+  h2{
+    text-align: center;
+    background-color: white;
+    border: 2px solid black;
+    margin: 0;
+  }
+  
+  table {
+    color: white;
+    width: auto;
+    margin: auto;
+    border: 2px solid black;
+  }
+  
+  td {
+    font-size: 20px;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding-right: 30px;
+    text-align: left;
+  }
+  
+  th{
+    width: 200px;
+    font-size: 20px;
+    color: black;
+  }
+  #focikk {
+    grid-area: fo;
+    padding: 5px;
+    margin: 5px;
+    border: solid black 3px;
+  }
+  
+  #cikk2 {
+    grid-area: c2;
+    padding: 5px;
+    margin: 5px;
+    border: solid black 3px;
+  }
+  
+  #cikk3 {
+    grid-area: c3;
+    padding: 5px;
+    margin: 5px;
+    border: solid black 3px;
+  }
+  
+  footer {
+    margin-top: 25px;
+    padding-top: 5px;
+    background-color: black;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgba(50, 125, 236, 0.736);
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+  }
+  
+  #jog {
+    color: white;
+  }
+  
+  .circle {
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .elrejt {
+    display: none;
+  }
+  
+  .tablaNevek {
+    margin: 0 auto;
+    font-size: 30px;
+    grid-area: tn;
+  }
+  
+  .adatok{
+    margin-bottom: 10px;
+    background-color: white;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .profilGomb{
+    border: 3px solid rgba(128, 128, 230, 0.736);
+    background-color: rgb(0, 98, 255);
+    border-radius: 5px;
+    font-size: 25px;
+    color: white;
+    width: 110px;
+  }
+  
+  .szuloCim{
+    margin: auto;
+  }

@@ -17,6 +17,7 @@ class Oltas extends Model
         'szuksegessege',
         'mellek_hatasa',
         'adagolas',
-        'receptre'
+        'receptre',
+        'aktiv'
     ];
 }

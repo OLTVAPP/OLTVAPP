@@ -15,10 +15,9 @@ return new class extends Migration
             $table->foreignId('orvos_id')->references('felhasznalo_id')->on('orvos');
             $table->foreignId('gyerek_id')->references('gyerek_taj')->on('gyereks');
             $table->foreignId('oltas_id')->references('oltas_id')->on('oltas');
-            $table->date('tervezett_beadas',);
+            $table->foreignId('beadando_id')->references('beadando_id')->on('beadandos');
             $table->date('beadas_datuma');
             $table->string('megjegyzes');
-            $table->foreignId('beadando_id')->references('beadando_id')->on('beadandos');
             $table->timestamps();
         });
         

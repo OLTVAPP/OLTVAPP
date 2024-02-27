@@ -17,7 +17,8 @@ class Orvos extends Model
         'vez_nev',
         'ker_nev',
         'tel_szam',
-        'publikus_email'
+        'publikus_email',
+        'rendelo_ajto_szam'
     ];
 
 

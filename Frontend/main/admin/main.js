@@ -2,9 +2,9 @@
 
 
 $(function(){
-    console.log("hello")
-
-    new Bejelentkezes()
+    console.log(localStorage.getItem("felhasznalo_id"));
+   
+   
 
 
 

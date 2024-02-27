@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::get('/id/{id}', [SzuloController::class, 'atmasol']);
-Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
-
+Route::get('/bejelentkezes/{felhasnalo_nev}/{jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
+Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
 
 

@@ -1,4 +1,4 @@
-import {bejelentKezesLeiro, bejelentKezesElfelejtLeiro,} from "../modell/adatLeiro.js";
+import { bejelentKezesLeiro, bejelentKezesElfelejtLeiro, } from "../modell/adatLeiro.js";
 import DataService from "../modell/data.js";
 import Felhasznalo from "../modell/felhasznalo.js";
 import TombInput from "../view/BejelentkezesTombInput.js";
@@ -31,9 +31,9 @@ class Bejelentkezes {
       this.#jelszo = this.#felhasznaloi_adatok[1].getValue()
       console.log(this.#felhasznalo_nev)
       console.log(this.#jelszo)
-     
+
       this.#dataService.getData(
-        `http://localhost:8000/api/felhasznalo_keres/${this.#felhasznalo_nev}/${this.#jelszo}`,
+        `http://localhost:8000/api/bejelentkezes/${this.#felhasznalo_nev}/${this.#jelszo}`,
         this.keresett_felhasznalo,
         this.megjelenitHiba
       );
@@ -47,15 +47,12 @@ class Bejelentkezes {
       const objektum = obj[1];
       console.log("jó jelszó")
       if (objektum.aktiv == 1) {
-        const felhasznalo = new Felhasznalo(objektum.felhasznalo_id);
-        
-        switch (objektum.szerepkor) {
-          case 'S':
-            console.log("szulo")
-           // location.replace("/main/szulo/szulo.html");
-         
+        console.log(objektum.Felhasznalo);
+        localStorage.setItem("felhasznalo_id", objektum.id);
+       switch (objektum.szerepkor) {
+          case 'S':console.log("szulo")
+            location.replace("/main/szulo/szulo.html");
             window.location.assign("/main/admin/admin.html");
-            console.log(felhasznalo.getId())
             break;
           case 'O':
             console.log("orvos")
@@ -64,16 +61,16 @@ class Bejelentkezes {
             break;
           case 'A':
             console.log("admin")
-            window.location.assign("/main/admin/admin.html");
+           // window.location.assign("/main/admin/admin.html");
             console.log(felhasznalo.getId())
             break;
         }
       } else {
         console.log("Nem aktív felhasználó")
       }
-    } else if(jelszo_allapot == "helytelen jelszó") {
+    } else if (jelszo_allapot == "helytelen jelszó") {
       console.log("Hibás jelszó")
-    } else{
+    } else {
       console.log("Nincs ilyen felhasználó")
     }
 

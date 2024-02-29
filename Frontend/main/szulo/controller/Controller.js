@@ -14,6 +14,8 @@ class Controller {
         const gombok = new Gombok(this.#adatbazisModell.getGleiro(), $(".tablaNevek"));
         const kozpont = new Kozpont(this.#adatbazisModell.getLeiro(), $("article"), $(".tablak"));
 
+        const self = this;
+
         gombok.gombokKezelese(function (index) {
             if (index === 0) {
                 kozpont.megjelenitGyerek();
@@ -22,13 +24,14 @@ class Controller {
             } else if (index === 2) {
                 kozpont.megjelenitOltas();
             } else if (index === 3) {
-                kozpont.megjelenitIdopont();
+                kozpont.megjeleniRegisztralttOltas();
+                kozpont.oltasFelvetel();
             } else {
                 console.log("Ismeretlen gomb");
             }
         });
     }
-
 }
+
 
 export default Controller;

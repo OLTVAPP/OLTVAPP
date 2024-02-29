@@ -11,12 +11,10 @@ class Kozpont {
 
   constructor(adatok, szuloElem, osztaly) {
     this.#adatok = adatok;
-    szuloElem.append("<div>");
-    this.#divElem = szuloElem.children("div:last-child");
+    this.#divElem = $("<div>"); // hozzá kell adni a jQuery inicializálást
+    szuloElem.append(this.#divElem);
     this.#divElem.addClass(osztaly);
-    this.oltasFelvetel();
-
-  }
+}
 
   megjelenitGyerek() {
     this.#divElem.empty();
@@ -52,17 +50,29 @@ class Kozpont {
     }
   }
 
-  megjelenitIdopont(){
-    const oltasRegisztracioView = new OltasRegisztracioView(this.#divElem);
+  megjelenitIdopont() {
+    const oltasRegisztracioView = new OltasRegisztracioView(null, null, this.#divElem);
     $("#oltasRegisztracioBtn").click(function () {
-      let betegNeve = $("#betegNeve").val();
-      let idopont = $("#idopont").val();
-      let valasztas = $("#valasztasiLista").val();
-  
-      oltasRegisztracioView.regisztracioFelvetel(betegNeve, idopont, valasztas);
+        let betegNeve = $("#betegNeve").val();
+        let idopont = $("#idopont").val();
+        let valasztas = $("#valasztasiLista").val();
+
+        oltasRegisztracioView.regisztracioFelvetel(betegNeve, idopont, valasztas);
     });
-  }
+}
   
+  megjeleniRegisztralttOltas() {
+    this.#divElem.empty();
+    for (const key in this.#adatok) {
+      if (key === 'jelentkezettOltasok') {
+        for (const oltasKey in this.#adatok[key]) {
+          this.#tablak.push(new OltasRegisztracioView(oltasKey, this.#adatok[key][oltasKey], this.#divElem));
+        }
+      }
+    }
+
+    this.megjelenitIdopont
+  }
 
   oltasFelvetel() {
     const self = this;
@@ -73,15 +83,15 @@ class Kozpont {
             <span class="close">&times;</span>
             <p>Választható oltások:</p>
     <select id="valasztasiLista">
-        <option value="opcio1">Bárányhimlő</option>
-        <option value="opcio2">Covid</option>
-        <option value="opcio3">Halrudi elleni oltás</option>
-        <option value="opcio4">Hipilisz</option>
+        <option value="Bárányhimlő">Bárányhimlő</option>
+        <option value="Covid">Covid</option>
+        <option value="Halrudi elleni oltás">Halrudi elleni oltás</option>
+        <option value="Hipilisz">Hipilisz</option>
     </select>
-            <label for="fname">Beteg neve:</label>
-            <input type="text" id="fname" name="fname">
-            <label for="fname">Esetleges időpont:</label>
-            <input type="date" id="fname" name="fname">
+            <label for="betegNeve">Beteg neve:</label>
+            <input type="text" id="betegNeve" name="betegNeve">
+            <label for="idopont">Esetleges időpont:</label>
+            <input type="date" id="idopont" name="idopont">
             <button id="oltasRegisztracioBtn">Regisztrálok az oltásra</button>
         </div>
     </div>

@@ -6,7 +6,7 @@ export const adatbazis = {
             szul_datum: "2005.05.15",
             szul_hely: "Budapest"
         },
-        
+
         {
             vez_nev: "K",
             ker_nev: "P",
@@ -38,16 +38,16 @@ export const adatbazis = {
             elnev: "Bárány hímlő elleni oltás",
             jotekony_hatas: "Jó hatás",
             mellek_hatas: "Nincs mellékhatás",
-            beadando:"beadva",
-            kotelezo:"nem",
+            beadando: "beadva",
+            kotelezo: "nem",
         },
 
         {
             elnev: "Kanyaró",
             jotekony_hatas: "Jó hatás",
             mellek_hatas: "Nincs mellékhatás",
-            beadando:"beadandó",
-            kotelezo:"igen",
+            beadando: "beadandó",
+            kotelezo: "igen",
         },
 
     ],
@@ -58,7 +58,34 @@ export const adatbazis = {
             tel_szam: "123456789",
             publikus_email: "anna@orvos.hu"
         },
+    ],
+
+    jelentkezettOltasok: [
+        {
+            betegNeve: "Kovács Péter",
+            idopont: "Bárány hímlő elleni oltás",
+            valasztas: "2024.02.20"
+        },
+        {
+            betegNeve: "Nagy Anna",
+            idopont: "Kanyaró elleni oltás",
+            valasztas: "2024.02.22"
+        },
+
     ]
 };
 
-export const gombok=["Gyerek", "Orvos", "Oltás", "Jelentkezett oltások"];
+export const jelentkezettOltasok = [
+    {
+        betegNeve: "Kovács Péter",
+        idopont: "Bárány hímlő elleni oltás",
+        valasztas: "2024.02.20"
+    },
+    {
+        betegNeve: "Nagy Anna",
+        idopont: "Kanyaró elleni oltás",
+        valasztas: "2024.02.22"
+    },
+
+];
+export const gombok = ["Gyerek", "Orvos", "Oltás", "Jelentkezett oltások"];

@@ -104,7 +104,7 @@ class UrlapView {
                     console.log(this.#adatok)
                     this.#esemenyTrigger("regisztracio", this.#adatok);
                     alert("Sikeres regisztráció!")
-                    location.replace("bejelentkezes.html");
+                    //location.replace("bejelentkezes.html");
                 }
                 else {
                     alert("Nem egyforma a jelszó!")

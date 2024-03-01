@@ -64,7 +64,7 @@ class BetegViewSor {
       console.log("asd");
     });
     this.#modositGomb.on("click", () => {
-      for (let i = 0; i < this.#adatokElem.; i++) {
+      for (let i = 0; i < this.#adatokElem; i++) {
         this.#adatokElem.push(this.#gyerekElem.children(`.adat${this.#i}`));
       }
       let txt = "";

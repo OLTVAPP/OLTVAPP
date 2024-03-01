@@ -6,7 +6,8 @@ class BetegView {
   #tablaElem;
   #leiro = [];
 
-  constructor(list, szuloElem, leiro) {
+  constructor(szuloElem, list, leiro) {
+    console.log(list);
     this.#leiro = leiro;
     this.#list = list;
     this.#szuloElem = szuloElem;
@@ -20,7 +21,7 @@ class BetegView {
     let txt = "";
 
     txt += "<tr>";
-    for (const key in this.#list.gyerekek.gyerek1) {
+    for (const key in this.#leiro) {
       txt += `<th>${key}</th>`;
     }
     txt += `<th>Részletek</th>`;
@@ -31,8 +32,8 @@ class BetegView {
 
   #tablazatbaIr() {
     let i = 0;
-    for (const key in this.#list.gyerekek) {
-      new BetegViewSor(this.#list.gyerekek[key], this.#tablaElem, i, this.#leiro);
+    for (const key in this.#list) {
+      new BetegViewSor(this.#list[key], this.#tablaElem, i, this.#leiro);
       i++;
     }
   }

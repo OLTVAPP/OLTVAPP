@@ -61,7 +61,7 @@ class Bejelentkezes {
             break;
           case 'A':
             console.log("admin")
-           // window.location.assign("/main/admin/admin.html");
+            window.location.assign("/main/admin/admin.html");
             console.log(felhasznalo.getId())
             break;
         }

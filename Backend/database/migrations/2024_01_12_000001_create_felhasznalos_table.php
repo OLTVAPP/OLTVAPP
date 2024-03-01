@@ -33,7 +33,7 @@ return new class extends Migration
         ]);   
         Felhasznalo::create([
             'felhasznalo_nev' => "kovacsBela",
-            'jelszo' => "123ab",
+            'jelszo' => "Gerle0104",
             'felhasznalo_email' => "kov@gmail.com",
             'szerepkor' => "O",
             'aktiv' => true   

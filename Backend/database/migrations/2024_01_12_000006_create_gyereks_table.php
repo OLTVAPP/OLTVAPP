@@ -26,8 +26,44 @@ return new class extends Migration
             $table->string('erzekenyseg');
             $table->timestamps();
         });
+        Gyerek::create([
+            'vez_nev' => "asfgdgdf",
+            'ker_nev' => "dgffdgdm",
+            'szul_datum' => "2002-02-13",
+            'szul_hely' => "Pecs",
+            'orvos_id' => 1,
+            'szulo_id' => 1,
+            'lakcim_varos' => "Pécs",
+            'lakcim_irSzam' => 4535,
+            'lakcim_utca' => "hgfskjd",
+            'erzekenyseg' => "fghdkd"
+        ]);
 
-       
+        Gyerek::create([
+            'vez_nev' => "asfgdgfdgdf",
+            'ker_nev' => "dgffdfgdgdm",
+            'szul_datum' => "2002-02-16",
+            'szul_hely' => "Pecs",
+            'orvos_id' => 1,
+            'szulo_id' => 1,
+            'lakcim_varos' => "Pécs",
+            'lakcim_irSzam' => 4535,
+            'lakcim_utca' => "hgfskjd",
+            'erzekenyseg' => "fgfdgdhdkd"
+        ]);
+
+        Gyerek::create([
+            'vez_nev' => "asfgdgfdgdf",
+            'ker_nev' => "dgffdfgdgdm",
+            'szul_datum' => "2002-02-16",
+            'szul_hely' => "Pecs",
+            'orvos_id' => 2,
+            'szulo_id' => 1,
+            'lakcim_varos' => "Pécs",
+            'lakcim_irSzam' => 4535,
+            'lakcim_utca' => "hgfskjd",
+            'erzekenyseg' => "fgfdgdhdkd"
+        ]);
     }
 
     /**

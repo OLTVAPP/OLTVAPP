@@ -4,8 +4,7 @@ class Gombok {
 
   constructor(adatok, szuloElem, osztaly) {
     this.#adatok = adatok;
-    szuloElem.append("<div>");
-    this.#divElem = szuloElem.children("div:last-child");
+    this.#divElem = szuloElem.find(".profilGombok");
     this.#divElem.addClass(osztaly);
 
     this.gombok();
@@ -14,7 +13,7 @@ class Gombok {
   gombok() {
     let txt = ``;
     for (let index = 0; index < this.#adatok.length; index++) {
-      txt += `<button class="gombCimkek"> ${this.#adatok[index]} </button>`;
+      txt += `<button type="button" class="gombCimkek"> ${this.#adatok[index]} </button>`;
     }
     this.#divElem.append(txt);
   }

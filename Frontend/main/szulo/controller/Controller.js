@@ -34,36 +34,40 @@ class Controller {
     }
 
     getOltas() {
-        this.#dataService.getData(
-            "http://localhost:8000/api/oltas",
-            (data) => {
-                const kozpont = new Kozpont(data, $("article"), $("tablak"));
-                kozpont.megjelenitOltas();
-                
-            },
-            this.#adatbazisModell.getLeiro()
-        );
+        const self = this;
+        $(".gombCimkek2").click((event) => {
+            event.preventDefault(); 
+            self.#dataService.getAxiosData(
+                "http://localhost:8000/api/oltas",
+                (data) => {
+                    const kozpont = new Kozpont(data, $("article"), $("tablak"));
+                    kozpont.megjelenitOltas();
+                },
+                self.#adatbazisModell.getLeiro()
+            );
+        });
     }
 
+
     getGyerek() {
-        this.#dataService.getData(
+        this.#dataService.getAxiosData(
             "http://localhost:8000/api/gyerek",
             (data) => {
                 const kozpont = new Kozpont(data, $("article"), $("tablak"));
                 kozpont.megjelenitGyerek();
-                
+
             },
             this.#adatbazisModell.getLeiro()
         );
     }
 
     getOrvos() {
-        this.#dataService.getData(
+        this.#dataService.getAxiosData(
             "http://localhost:8000/api/orvos",
             (data) => {
                 const kozpont = new Kozpont(data, $("article"), $("tablak"));
                 kozpont.megjelenitOrvos();
-                
+
             },
             this.#adatbazisModell.getLeiro()
         );

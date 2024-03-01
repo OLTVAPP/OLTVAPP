@@ -12,7 +12,7 @@ class Gombok {
   gombok() {
     let txt = '';
     for (let index = 0; index < this.#adatok.length; index++) {
-      txt += `<button class="gombCimkek"> ${this.#adatok[index]} </button>`;
+      txt += `<button class="gombCimkek${index}"> ${this.#adatok[index]} </button>`;
     }
     this.#divElem.append(txt);
   }

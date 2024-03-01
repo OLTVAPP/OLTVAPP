@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Models\Felhasznalo;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -77,7 +78,7 @@ class FelhasznaloController extends Controller
             return ($tabla);
         } else {
             if ($megfelelo_jelszo) {
-              //  return(  $jelszo == $keresett_jelszo);
+              //  AuthenticatedSessionController::store($tabla->felhasznalo_id);
                 return ($tabla);
             } else {
                 $tabla = ["helytelen jelszó"];
@@ -101,6 +102,6 @@ class FelhasznaloController extends Controller
             $tabla = ["Helyes jelszó", $keresett];
             $talalt_felhasznalo_nev = $keresett->felhasznalo_nev;
         }
-        return response()->json(FelhasznaloController::bejelentkezes_ellenorzes($tabla, $talalt_felhasznalo_nev, $jelszo == $keresett_jelszo ));
+        return response()->json(FelhasznaloController::bejelentkezes_ellenorzes($tabla, $talalt_felhasznalo_nev, $jelszo == $keresett_jelszo));
     }
 }

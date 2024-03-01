@@ -10,7 +10,7 @@ class SubmitInput {
     this.#leiro = leiro;
     this.#formElem = szuloElem;
     this.#value = this.#leiro.value;
-    this.#textElem();
+    this.#buttonElem();
     this.inputElem = $(`#${this.#key}`);
     console.log("input", this.inputElem);
     this.validelem = this.#formElem
@@ -24,7 +24,7 @@ class SubmitInput {
     this.#kattintas();
   }
 
-  #textElem() {
+  #buttonElem() {
     console.log(this.#leiro.tipus);
     let txt = `<div class="mb-3 mt-3">`;
     txt += ` <button class="form-control" id="${ this.#key }"  value="${this.#value}">  ${this.#value} </button>`;
@@ -36,6 +36,7 @@ class SubmitInput {
 
   #kattintas() {
     this.inputElem.on("click", () => {
+      console.log(this.#key)
       this.#esemenyTrigger();
     });
   }

@@ -12,7 +12,7 @@ class PasswordInput{
         this.#leiro = leiro;
         this.#formElem = szuloElem;
         this.#value = this.#leiro.value;
-        this.#textElem();
+        this.#passwordElem();
         this.inputElem=$(`#${this.#key}`)
         console.log("input", this.inputElem);
         this.validelem = this.#formElem.children("div:last-child").children(".valid");
@@ -31,7 +31,7 @@ class PasswordInput{
 
 
 
-    #textElem() {
+    #passwordElem() {
         console.log(this.#leiro.tipus)
         let txt = `<div class="mb-3 mt-3">
         <label for="${this.#key}" class="form-label">${this.#leiro.megjelenes}</label>

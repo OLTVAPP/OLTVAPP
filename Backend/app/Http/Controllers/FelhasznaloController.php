@@ -6,6 +6,7 @@ use App\Models\Felhasznalo;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class FelhasznaloController extends Controller
 {
@@ -72,12 +73,14 @@ class FelhasznaloController extends Controller
 
     public function bejelentkezes_ellenorzes($tabla, $felhasznalo_nev, $megfelelo_jelszo)
     {
+        $user = $tabla->felhasznalo_id;
         if ("" == $felhasznalo_nev) {
             $tabla = ["Nincs ilyen felhasználó"];
             return ($tabla);
         } else {
             if ($megfelelo_jelszo) {
-              //  return(  $jelszo == $keresett_jelszo);
+                //  return(  $jelszo == $keresett_jelszo);
+                Auth::login($user);
                 return ($tabla);
             } else {
                 $tabla = ["helytelen jelszó"];
@@ -85,6 +88,8 @@ class FelhasznaloController extends Controller
             }
         }
     }
+
+
 
 
 
@@ -101,6 +106,6 @@ class FelhasznaloController extends Controller
             $tabla = ["Helyes jelszó", $keresett];
             $talalt_felhasznalo_nev = $keresett->felhasznalo_nev;
         }
-        return response()->json(FelhasznaloController::bejelentkezes_ellenorzes($tabla, $talalt_felhasznalo_nev, $jelszo == $keresett_jelszo ));
+        return response()->json(FelhasznaloController::bejelentkezes_ellenorzes($tabla, $talalt_felhasznalo_nev, $jelszo == $keresett_jelszo));
     }
 }

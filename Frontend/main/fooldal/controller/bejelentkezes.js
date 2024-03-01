@@ -11,11 +11,9 @@ class Bejelentkezes {
   #felhasznalo
   #felhasznaloi_adatok;
   #dataService = new DataService;
-  constructor() {
+  constructor(articleElem) {
     const adatTombok = [];
     const adatLeiro = bejelentKezesLeiro;
-    $("article").append("<form>");
-    const formElem = $("article").children("form:last-child");
     for (const tomb in adatLeiro) {
       console.log(adatLeiro[tomb]);
       adatTombok.push(new TombInput(adatLeiro[tomb], $("article"), tomb));
@@ -31,7 +29,6 @@ class Bejelentkezes {
       this.#jelszo = this.#felhasznaloi_adatok[1].getValue()
       console.log(this.#felhasznalo_nev)
       console.log(this.#jelszo)
-     
       this.#dataService.getData(
         `http://localhost:8000/api/felhasznalo_keres/${this.#felhasznalo_nev}/${this.#jelszo}`,
         this.keresett_felhasznalo,
@@ -48,12 +45,9 @@ class Bejelentkezes {
       console.log("jó jelszó")
       if (objektum.aktiv == 1) {
         const felhasznalo = new Felhasznalo(objektum.felhasznalo_id);
-        
         switch (objektum.szerepkor) {
           case 'S':
-            console.log("szulo")
-           // location.replace("/main/szulo/szulo.html");
-         
+            console.log("szulo");
             window.location.assign("/main/admin/admin.html");
             console.log(felhasznalo.getId())
             break;

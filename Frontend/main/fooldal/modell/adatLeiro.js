@@ -46,6 +46,16 @@ export const bejelentKezesElfelejtLeiro = {
       validalas: "Név nagybetűvel kezdődik, legalább 3 karakter!",
     },
   },
+  gombok: {
+    megse: {
+      tipus: "submit",
+      value: "Mégse",
+    },
+    megerosit: {
+      tipus: "submit",
+      value: "Megerősít",
+    },
+  },
 };
 
 export const urlapLeiro = {

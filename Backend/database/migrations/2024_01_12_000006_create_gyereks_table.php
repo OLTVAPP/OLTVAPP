@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('gyereks', function (Blueprint $table) {
-            $table->id('gyerek_taj');
+            $table->integer('gyerek_taj')->primary();
             $table->string('vez_nev', 50);
             $table->string('ker_nev', 50);
             $table->date('szul_datum');
@@ -27,11 +27,12 @@ return new class extends Migration
             $table->timestamps();
         });
         Gyerek::create([
+            'gyerek_taj' => 345232232,
             'vez_nev' => "asfgdgdf",
             'ker_nev' => "dgffdgdm",
             'szul_datum' => "2002-02-13",
             'szul_hely' => "Pecs",
-            'orvos_id' => 1,
+            'orvos_id' => 3,
             'szulo_id' => 1,
             'lakcim_varos' => "Pécs",
             'lakcim_irSzam' => 4535,
@@ -40,11 +41,12 @@ return new class extends Migration
         ]);
 
         Gyerek::create([
+            'gyerek_taj' => 432354345,
             'vez_nev' => "asfgdgfdgdf",
             'ker_nev' => "dgffdfgdgdm",
             'szul_datum' => "2002-02-16",
             'szul_hely' => "Pecs",
-            'orvos_id' => 1,
+            'orvos_id' => 2,
             'szulo_id' => 1,
             'lakcim_varos' => "Pécs",
             'lakcim_irSzam' => 4535,
@@ -53,6 +55,7 @@ return new class extends Migration
         ]);
 
         Gyerek::create([
+            'gyerek_taj' => 232354346,
             'vez_nev' => "asfgdgfdgdf",
             'ker_nev' => "dgffdfgdgdm",
             'szul_datum' => "2002-02-16",

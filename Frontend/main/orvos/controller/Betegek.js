@@ -1,4 +1,4 @@
-import UrlapModell from "../modell/UrlapModell.js";
+import UrlapModell from "../modell/Modell.js";
 import BetegView from "../view/betegek/BetegekView.js";
 import DataService from "../modell/data.js";
 
@@ -16,7 +16,9 @@ class Betegek {
   }
 
   #get(){
-    this.#dataService.getAxiosData("http://localhost:8000/api/betegek/1", this.megjelenit, this.#urlapModell.getLeiro()
+    let id = localStorage.getItem("felhasznalo_id");
+    console.log(id)
+    this.#dataService.getAxiosData(`http://localhost:8000/api/betegek/${id}`, this.megjelenit, this.#urlapModell.getLeiro()
     );
   }
 

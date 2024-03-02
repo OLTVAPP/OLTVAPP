@@ -22,7 +22,7 @@ class BetegView {
 
     txt += "<tr>";
     for (const key in this.#leiro) {
-      txt += `<th>${key}</th>`;
+      txt += `<th>${this.#leiro[key].megjelenes}</th>`;
     }
     txt += `<th>Részletek</th>`;
     txt += `<th>Módosít</th>`;

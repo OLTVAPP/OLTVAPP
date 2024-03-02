@@ -23,7 +23,9 @@ class OrvosController extends Controller
     public function betegek($orvos_id){
 
         $beteg = Gyerek::where('orvos_id', $orvos_id)
+        ->select('gyerek_taj', 'vez_nev', 'ker_nev', 'szul_datum', 'szul_hely', 'lakcim_varos', 'lakcim_irSzam', 'lakcim_utca', 'erzekenyseg')
         ->get();
-    return $beteg;
+
+        return $beteg;
     }
 }

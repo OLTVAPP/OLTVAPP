@@ -1,5 +1,5 @@
 import UrlapView from "../view/osszekottetes/HozzaadUrlapView.js";
-import UrlapModell from "../modell/UrlapModell.js";
+import UrlapModell from "../modell/Modell.js";
 
 class Hozzaad {
 

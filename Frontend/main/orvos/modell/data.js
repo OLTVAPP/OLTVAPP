@@ -24,6 +24,27 @@ class DataService {
           });
       }
 
+      getAxiosData2(url, callback, adatLeiro, szuloLeiro, vakcinaLeiro) {
+        axios
+          .get(url)
+          .then(function (response) {
+            //handle success
+            console.log("response", response);
+            console.log("data", response.data);
+            console.log("státusz", response.request.status);
+            console.log("text", response.statusText);
+            callback(response.data, adatLeiro, szuloLeiro, vakcinaLeiro);
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+          .finally(function () {
+            // always executed
+            console.log("finally");
+          });
+      }
+
 
     postData(url, data) {
         axios

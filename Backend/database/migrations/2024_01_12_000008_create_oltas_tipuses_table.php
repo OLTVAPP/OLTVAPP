@@ -21,7 +21,17 @@ return new class extends Migration
             $table->timestamps();
         });
 
-       
+        Oltas_tipus::create([
+            'tipus_elnev' => "Koronavirus",
+            'kotelezo' => "igen",
+            'leiras' => "blabla"
+        ]);
+
+        Oltas_tipus::create([
+            'tipus_elnev' => "ADHD",
+            'kotelezo' => "nem",
+            'leiras' => "blabla"
+        ]);
     }
 
     /**

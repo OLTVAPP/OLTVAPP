@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Beadando;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,6 +20,20 @@ return new class extends Migration
             $table->integer('hanyadik');
             $table->timestamps();
         });
+
+        Beadando::create([
+            'tipus_id' => 1,
+            'ev' => 2022,
+            'honap' => 12,
+            'hanyadik' => 1
+        ]);
+
+        Beadando::create([
+            'tipus_id' => 2,
+            'ev' => 2022,
+            'honap' => 12,
+            'hanyadik' => 2
+        ]);
     }
 
     /**

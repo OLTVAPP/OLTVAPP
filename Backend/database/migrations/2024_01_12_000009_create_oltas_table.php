@@ -21,9 +21,34 @@ return new class extends Migration
             $table->boolean('receptre');
             $table->boolean('aktiv');
             $table->timestamps();
-
         });
 
+        Oltas::create([
+            'tipus_id' => 1,
+            'forgalmazo' => "AstraZeneca",
+            'leiras' => "blabla",
+            'adagolas' => "egyszeri adagolas",
+            'receptre' => true,
+            'aktiv' => true
+        ]);
+
+        Oltas::create([
+            'tipus_id' => 1,
+            'forgalmazo' => "Novavax",
+            'leiras' => "blabla",
+            'adagolas' => "kettő adag",
+            'receptre' => true,
+            'aktiv' => true
+        ]);
+        
+        Oltas::create([
+            'tipus_id' => 2,
+            'forgalmazo' => "Novavax",
+            'leiras' => "blabla",
+            'adagolas' => "napi 3x",
+            'receptre' => true,
+            'aktiv' => true
+        ]);
         
     }
 

@@ -1,13 +1,12 @@
-import BetegViewSor from "./BetegekViewSor.js";
+import BetegekViewSor from "./BetegekViewSor.js";
 
-class BetegView {
+class BetegekView {
   #szuloElem;
   #list = [];
   #tablaElem;
   #leiro = [];
 
   constructor(szuloElem, list, leiro) {
-    console.log(list);
     this.#leiro = leiro;
     this.#list = list;
     this.#szuloElem = szuloElem;
@@ -27,16 +26,17 @@ class BetegView {
     txt += `<th>Részletek</th>`;
     txt += `<th>Módosít</th>`;
     txt += "</tr>";
+
     this.#tablaElem.append(txt);
   }
 
   #tablazatbaIr() {
     let i = 0;
     for (const key in this.#list) {
-      new BetegViewSor(this.#list[key], this.#tablaElem, i, this.#leiro);
+      new BetegekViewSor(this.#list[key], this.#tablaElem, i);
       i++;
     }
   }
 }
 
-export default BetegView;
+export default BetegekView;

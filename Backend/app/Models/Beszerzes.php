@@ -16,6 +16,6 @@ class Beszerzes extends Model
         'darab',
         'beszerzes_datuma',
         'lejarati_datuma',
-        'megsemessites_datuma'
+        'megsemmesites_datuma'
     ];
 }

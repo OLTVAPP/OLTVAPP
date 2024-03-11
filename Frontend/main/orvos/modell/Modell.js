@@ -1,15 +1,22 @@
-import { gyerekLeiro } from "./adatLeiro.js";
+import { gyerekLeiro, reszletesAdatok } from "./adatLeiro.js";
 
 class UrlapModell {
-  #leiro;
+  #gyerekLeiro;
+  #reszletesAdatok
 
   constructor() {
-    this.#leiro = gyerekLeiro;
+    this.#gyerekLeiro = gyerekLeiro;
+    this.#reszletesAdatok = reszletesAdatok
   }
 
   getLeiro() {
-    return { ...this.#leiro };
+    return { ...this.#gyerekLeiro };
   }
+
+  getReszletesAdatok(){
+    return { ...this.#reszletesAdatok };
+  }
+
 
 }
 export default UrlapModell;

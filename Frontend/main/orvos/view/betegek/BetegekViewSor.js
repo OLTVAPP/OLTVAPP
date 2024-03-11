@@ -1,5 +1,5 @@
-import Betegek from "../../controller/Betegek.js";
-class BetegViewSor {
+
+class BetegekViewSor {
   #adat;
   #reszletGomb;
   #modositGomb;
@@ -9,12 +9,11 @@ class BetegViewSor {
   #adatokElem = [];
   #index;
   #i;
-  #leiro = [];
   #sorElem
   #adatElem
+  #gyerek_taj
 
-  constructor(adat, szuloElem, index, leiro) {
-    this.#leiro = leiro;
+  constructor(adat, szuloElem, index) {
     this.#adat = adat;
     this.#szuloElem = szuloElem;
     this.#index = index;
@@ -36,6 +35,9 @@ class BetegViewSor {
     let txt = "";
     txt += `<tr class=gyerek${this.#index}>`;
     for (let key in this.#adat) {
+      if(key === "gyerek_taj"){
+        this.#gyerek_taj = this.#adat[key];
+      }
       txt += `<td>${this.#adat[key]}</td>`;
       this.#i++;
     }
@@ -46,11 +48,9 @@ class BetegViewSor {
     this.#szuloElem.append(txt);
   }
 
-
-
-
   #kattintas() {
     this.#reszletGomb.on("click", () => {
+      this.#esemenyTrigger("gyerek_taj")
     });
     this.#modositGomb.on("click", () => {
       this.#keszGomb.css("display", "inline");
@@ -61,6 +61,11 @@ class BetegViewSor {
       this.#modositGomb.css("display", "inline");
     });
   }
+
+  #esemenyTrigger(esemenyNev){
+    const e = new CustomEvent(esemenyNev, { detail: this.#gyerek_taj });
+    window.dispatchEvent(e);
+  }
 }
 
-export default BetegViewSor;
+export default BetegekViewSor;

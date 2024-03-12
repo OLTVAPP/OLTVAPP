@@ -68,6 +68,20 @@ class OrvosController extends Controller
         $keszlet = Beszerzes::where('orvos_id', $orvos_id)
             ->join('oltas', 'beszerzes.oltas_id', '=', 'oltas.oltas_id')
             ->join('oltas_tipuses', 'oltas.tipus_id', '=', 'oltas_tipuses.tipus_id')
+            ->whereNull('beszerzes.megsemmesites_datuma')
+            ->select('oltas_tipuses.tipus_elnev', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma')
+            ->get();
+
+        return $keszlet;
+    }
+
+    public function megsemmisitettKeszlet($orvos_id)
+    {
+        $keszlet = Beszerzes::where('orvos_id', $orvos_id)
+            ->join('oltas', 'beszerzes.oltas_id', '=', 'oltas.oltas_id')
+            ->join('oltas_tipuses', 'oltas.tipus_id', '=', 'oltas_tipuses.tipus_id')
+            ->whereNotNull('beszerzes.megsemmesites_datuma')
+            ->select('oltas_tipuses.tipus_elnev', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma', 'beszerzes.megsemmesites_datuma')
             ->get();
 
         return $keszlet;
@@ -76,17 +90,21 @@ class OrvosController extends Controller
     //Modositások
 
     
-    public function betegModosit(Request $request, $gyerek_taj)
+    public function betegModosit(Request $request, $gyerek_taj, $orvos_id, $felhasznalo_email)
     {
+
+        $szulo_id = Felhasznalo::where('felhasznalo_email', $felhasznalo_email)
+        ->where('szerepkor', '=', 'S')
+        ->value('id');
         
         $gyerek = Gyerek::find($gyerek_taj);
         $gyerek->gyerek_taj = $request->gyerek_taj;
         $gyerek->vez_nev = $request->vez_nev;
         $gyerek->ker_nev = $request->ker_nev;
-        $gyerek->ker_nev = $request->szul_datum;
+        $gyerek->szul_datum = $request->szul_datum;
         $gyerek->szul_hely = $request->szul_hely;
-        $gyerek->orvos_id = 2;
-        $gyerek->szulo_id = 1;
+        $gyerek->orvos_id = $orvos_id;
+        $gyerek->szulo_id = $szulo_id;
         $gyerek->lakcim_varos = $request->lakcim_varos;
         $gyerek->lakcim_irSzam = $request->lakcim_irSzam;
         $gyerek->lakcim_utca = $request->lakcim_utca;

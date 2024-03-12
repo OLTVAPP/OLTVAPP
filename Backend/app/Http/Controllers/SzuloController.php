@@ -31,8 +31,13 @@ class SzuloController extends Controller
         $record->lakcim_irSzam = $request->lakcim_irSzam;
         $record->lakcim_utca = $request->lakcim_utca;
         $record->save();
-        
     }
 
 
+    public function atmasol($felhasznalo_id)
+    {
+        $szulo = Felhasznalo::find($felhasznalo_id);
+        $idValtozo = $szulo->felhasznalo_id;
+        return response()->json($idValtozo);
+    }
 }

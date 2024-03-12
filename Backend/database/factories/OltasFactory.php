@@ -21,7 +21,8 @@ class OltasFactory extends Factory
     {
         return [
             'tipus_id'=> Oltas_tipus::all()->random()->tipus_id,
-            'forgalmazo_id'=>Forgalmazo::all()->random()->forgalmazo_id,
+            'oltoanyag_neve'=>Str::random(10),
+            'forgalmazo'=>Str::random(10),
             'szuksegessege'=> Str::random(10),
             'mellek_hatasa'=>Str::random(10),
             'adagolas'=>Str::random(10),

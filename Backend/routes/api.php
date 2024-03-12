@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+
 use App\Http\Controllers\CsaladController;
 use App\Http\Controllers\FelhasznaloController;
 use App\Http\Controllers\OltasController;
@@ -24,13 +25,22 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware(['auth:basic'])->group(function () {
+
+}); 
 
 
+Route::get('/id/{id}', [SzuloController::class, 'atmasol']);
+
+Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
+
+Route::get('/bejelentkezes/{felhasnalo_nev}/{jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
 
 
 //Adminoknak!
 //felhasznalok
 Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
+Route::get('/bejelentkezett_felhasznalo', [FelhasznaloController::class, 'bejelentkezett_felhasznalo']);
 Route::get('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'show']);
 
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);

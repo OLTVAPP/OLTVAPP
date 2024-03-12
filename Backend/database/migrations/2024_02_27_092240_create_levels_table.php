@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('megsemisites', function (Blueprint $table) {
-            $table->id('keszlet_id');
-            $table->foreign('keszlet_id')->references('keszlet_id')->on('keszlets');
-            $table->boolean('megsemisitve');
-            $table->date('megsemisitve_d');
+        Schema::create('levels', function (Blueprint $table) {
+            $table->id("level_id");
+            $table->foreignId('gyerek_taj')->references('gyerek_taj')->on('gyereks');
+            $table->foreignId('tipus_id')->references('tipus_id')->on('oltas_tipuses');
+            $table->date('kikuldes_datuma');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('megsemisites');
+        Schema::dropIfExists('levels');
     }
 };

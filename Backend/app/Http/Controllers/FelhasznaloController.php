@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Models\Felhasznalo;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -52,7 +53,7 @@ class FelhasznaloController extends Controller
         $record->jelszo = $request->jelszo;
         $record->szerepkor = $request->szerepkor;
         $record->felhasznalo_email = $request->felhasznalo_email;
-        $record->aktiv = $request->aktiv;
+        $record->aktiv = true;
         $record->save();
     }
 
@@ -73,14 +74,11 @@ class FelhasznaloController extends Controller
 
     public function bejelentkezes_ellenorzes($tabla, $felhasznalo_nev, $megfelelo_jelszo)
     {
-        $user = $tabla->felhasznalo_id;
         if ("" == $felhasznalo_nev) {
             $tabla = ["Nincs ilyen felhasználó"];
             return ($tabla);
         } else {
             if ($megfelelo_jelszo) {
-                //  return(  $jelszo == $keresett_jelszo);
-                Auth::login($user);
                 return ($tabla);
             } else {
                 $tabla = ["helytelen jelszó"];
@@ -89,6 +87,10 @@ class FelhasznaloController extends Controller
         }
     }
 
+
+    public function bejelentkezett_felhasznalo(){
+        return response()->json(Auth::user());	
+    }
 
 
 

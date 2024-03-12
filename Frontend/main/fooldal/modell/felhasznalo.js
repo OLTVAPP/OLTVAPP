@@ -1,6 +1,5 @@
 class Felhasznalo{
     #id;
-    #adatok;
     constructor(id){
       this.setId(id);
     }

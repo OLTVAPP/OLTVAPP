@@ -1,4 +1,7 @@
-import TextUrlapElem from "./RegisztracioTextUrlapElem.js";
+import TextInput from "./input/text.js";
+import EmailInput from "./input/Email.js";
+import PasswordInput from "./input/password.js";
+import NumberInput from "./input/Number.js";
 class UrlapView {
 
     #szuloElem
@@ -8,15 +11,12 @@ class UrlapView {
     #leiro = {}
     #urlapElemLista = [];
     #osszesElemValidE = true;
-    #szuloAdat = {};
-    #felhasznaloAdat = {};
+    #adatok = {};
     #jelszo
-    #boolean = false;
 
     constructor(szuloElem, leiro) {
         this.#leiro = leiro;
         this.letrehozz(szuloElem);
-        this.osszeRak();
         this.adatFeltolt();
 
 
@@ -27,43 +27,65 @@ class UrlapView {
         this.#szuloElem.append('<div class="fAdat">')
         this.#fElem = this.#szuloElem.children(".fAdat");
         this.#fElem.append('<h2>Felhasznalói adatok</h2>')
+        this.felhasznalo();
         this.#szuloElem.append('<div class="szAdat">')
         this.#szElem = this.#szuloElem.children(".szAdat");
+        this.#szElem.append('<h2>Személyes adatok</h2>')
+        this.szemelyesAdatok();
         this.#szElem.append('<div class="lAdat">')
         this.#lElem = this.#szElem.children(".lAdat");
         this.#lElem.append('<h2>Lakcim</h2>')
-        this.#szElem.append('<h2>Személyes adatok</h2>')
+        this.lakcim();
         this.#szuloElem.append('<button class="kuld">Regisztráció elküldése</button>')
     }
 
-    osszeRak() {
+    felhasznalo() {
         for (const key in this.#leiro.felhasznalo) {
             switch (this.#leiro.felhasznalo[key].tipus) {
                 case "text":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.felhasznalo[key], this.#fElem))
+                    this.#urlapElemLista.push(new TextInput(key, this.#leiro.felhasznalo[key], this.#fElem))
                     break
                 case "email":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.felhasznalo[key], this.#fElem))
+                    this.#urlapElemLista.push(new EmailInput(key, this.#leiro.felhasznalo[key], this.#fElem))
                     break
                 case "password":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.felhasznalo[key], this.#fElem))
+                    this.#urlapElemLista.push(new PasswordInput(key, this.#leiro.felhasznalo[key], this.#fElem))
                     this.#leiro.felhasznalo[key].megjelenes = "Jelszó megerősítése:"
-                    this.#jelszo = (new TextUrlapElem(key + "2", this.#leiro.felhasznalo[key], this.#fElem))
+                    this.#jelszo = (new PasswordInput(key + "2", this.#leiro.felhasznalo[key], this.#fElem))
                     break
                 default:
             }
         }
-        for (const key in this.#leiro.szulo) {
-            switch (this.#leiro.szulo[key].id) {
-                case "lakcim":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.szulo[key], this.#lElem))
-                    break;
-                case "adat":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro.szulo[key], this.#szElem))
-                    break;
-            }
+    }
 
+    lakcim() {
+        for (const key in this.#leiro.szulo.lakcim) {
+            switch (this.#leiro.szulo.lakcim[key].tipus) {
+                case "text":
+                    this.#urlapElemLista.push(new TextInput(key, this.#leiro.szulo.lakcim[key], this.#lElem))
+                    break
+                case "number":
+                    this.#urlapElemLista.push(new NumberInput(key, this.#leiro.szulo.lakcim[key], this.#lElem))
+                    break
+                default:
+            }
         }
+    }
+
+    szemelyesAdatok() {
+
+
+        for (const key in this.#leiro.szulo.szemelyes_adatok) {
+            switch (this.#leiro.szulo.szemelyes_adatok[key].tipus) {
+                case "text":
+                    this.#urlapElemLista.push(new TextInput(key, this.#leiro.szulo.szemelyes_adatok[key], this.#szElem))
+                    break
+                default:
+            }
+        }
+
+
+
     }
 
     adatFeltolt() {
@@ -76,23 +98,13 @@ class UrlapView {
             })
             if (this.#osszesElemValidE) {
                 this.#urlapElemLista.forEach((elem) => {
-                    if (this.#boolean == false) {
-                        this.#felhasznaloAdat[this.#leiro.felhasznalo.aktiv.key] = this.#leiro.felhasznalo.aktiv.value;
-                        this.#felhasznaloAdat[this.#leiro.felhasznalo.szerepkor.key] = this.#leiro.felhasznalo.szerepkor.value;
-                        this.#boolean = true;
-                    }
-                    if (elem.id == "adat" || elem.id == "lakcim") {
-                        this.#szuloAdat[elem.key] = elem.value;
-                    }
-                    else {
-                        this.#felhasznaloAdat[elem.key] = elem.value;
-                    }
+                    this.#adatok[elem.key] = elem.value;
                 })
-                if (this.#felhasznaloAdat.jelszo == this.#jelszo.value) {
-                    this.#esemenyTrigger("felhasznalo", this.#felhasznaloAdat);
-                    this.#esemenyTrigger("szulo", this.#szuloAdat);
+                if (this.#adatok.jelszo == this.#jelszo.value) {
+                    console.log(this.#adatok)
+                    this.#esemenyTrigger("regisztracio", this.#adatok);
                     alert("Sikeres regisztráció!")
-                    location.replace("bejelentkezes.html");
+                    //location.replace("bejelentkezes.html");
                 }
                 else {
                     alert("Nem egyforma a jelszó!")

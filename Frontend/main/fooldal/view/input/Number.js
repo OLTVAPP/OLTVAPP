@@ -1,4 +1,4 @@
-class TextUrlapElem {
+class NumberInput {
 
     #key = "";
     #leiro = {};
@@ -14,12 +14,8 @@ class TextUrlapElem {
         this.textElem();
 
         this.inputElem = $(`#${this.#key}`);
-        this.validElem = this.#gyerekElem
-            .children("div:last-child")
-            .children(".valid");
-        this.invalidElem = this.#gyerekElem
-            .children("div:last-child")
-            .children(".invalid"); //más megoldás: this.invalidElem = $(".invalid:last")
+        this.validElem = this.#gyerekElem.children("div:last-child").children(".valid");
+        this.invalidElem = this.#gyerekElem.children("div:last-child").children(".invalid");
         this.inputElem.on("keyup", () => {
             this.#value = this.inputElem.val();
             let reg = this.#leiro.regex;
@@ -77,4 +73,4 @@ class TextUrlapElem {
     }
 }
 
-export default TextUrlapElem;
+export default NumberInput;

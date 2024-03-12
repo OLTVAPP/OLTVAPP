@@ -13,10 +13,12 @@ class Oltas extends Model
 
     protected $fillable = [
         'tipus_id',
-        'forgalmazo_id',
+        'oltoanyag_neve',
+        'forgalmazo',
         'szuksegessege',
         'mellek_hatasa',
         'adagolas',
-        'receptre'
+        'receptre',
+        'aktiv'
     ];
 }

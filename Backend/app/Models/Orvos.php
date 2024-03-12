@@ -16,9 +16,9 @@ class Orvos extends Model
     protected $fillable = [
         'vez_nev',
         'ker_nev',
-        'rendelo_id',
         'tel_szam',
-        'publikus_email'
+        'publikus_email',
+        'rendelo_ajto_szam'
     ];
 
 

@@ -1,10 +1,11 @@
+import Felhasznalok_kezelese_controller from "./controller/felhasznalok_kezelese_controller.js";
 
 
 
 $(function(){
-    console.log("hello")
-
-    new Bejelentkezes()
+    new Felhasznalok_kezelese_controller();
+   
+   
 
 
 

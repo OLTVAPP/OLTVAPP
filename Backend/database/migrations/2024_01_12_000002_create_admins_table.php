@@ -14,18 +14,12 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id('felhasznalo_id');
-            $table->foreign('felhasznalo_id')->references('felhasznalo_id')->on('felhasznalos');
-            $table->string('vez_nev');
-            $table->string('ker_nev');
+            $table->foreign('felhasznalo_id')->references('id')->on('felhasznalos');
+            $table->string('vez_nev', 50);
+            $table->string('ker_nev', 50);
             $table->timestamps();
         });
 
-        Admin::create([
-            'jelszo' => "123ab",
-            'felhasznalo_email' => "bal@gmail.com",
-            'szerepkor' => "S",
-            'aktiv' => true
-        ]);
     }
 
     /**

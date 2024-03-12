@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('keszlets', function (Blueprint $table) {
-            $table->id('keszlet_id');
+        Schema::create('beszerzes', function (Blueprint $table) {
+            $table->id('beszerzes_id');
             $table->foreignId('oltas_id')->references('oltas_id')->on('oltas');
             $table->foreignId('orvos_id')->references('felhasznalo_id')->on('orvos');
             $table->integer('darab');
             $table->date('beszerzes_datuma');
             $table->date('lejarati_datuma');
+            $table->date('megsemessites_datuma');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('keszlets');
+        Schema::dropIfExists('beszerzes');
     }
 };

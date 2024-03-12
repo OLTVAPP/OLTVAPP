@@ -110,4 +110,30 @@ class FelhasznaloController extends Controller
         }
         return response()->json(FelhasznaloController::bejelentkezes_ellenorzes($tabla, $talalt_felhasznalo_nev, $jelszo == $keresett_jelszo));
     }
+
+    public function filterBySzulo(){
+        $user = DB::table('felhasznalos as f')
+        ->join('szulos', 'szulos.felhasznalo_id', '=','f.id')
+        ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'szulos.vez_nev')
+        ->get();
+        return  response()->json($user);
+    }
+
+    public function filterByOrvos(){
+        $user = DB::table('felhasznalos as f')
+        ->join('orvos', 'orvos.felhasznalo_id', '=','f.id')
+        ->selectRaw('*')
+        ->get();
+        return  response()->json($user);
+    }
+
+    public function filterByAdmin(){
+        $user = DB::table('felhasznalos as f')
+        ->join('admins', 'admins.felhasznalo_id', '=','f.id')
+        ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'admins.vez_nev', 'admins.ker_nev', 'f.aktiv')
+        ->get();
+        return  response()->json($user);
+     
+    }
+
 }

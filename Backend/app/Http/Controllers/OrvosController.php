@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Orvos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrvosController extends Controller
 {
@@ -18,4 +19,8 @@ class OrvosController extends Controller
         $orvos = Orvos::find($id);
         return view('orvos.show', ['orvos' => $orvos]);
     }
+
+
+ 
+
 }

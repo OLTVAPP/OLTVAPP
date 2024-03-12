@@ -1,10 +1,7 @@
-import {
-  bejelentKezesLeiro,
-  bejelentKezesElfelejtLeiro,
-} from "../modell/adatLeiro.js";
+import { bejelentKezesLeiro } from "../modell/adatLeiro.js";
 import DataService from "../modell/data.js";
 import Felhasznalo from "../modell/felhasznalo.js";
-import TombInput from "../view/BejelentkezesTombInput.js";
+import TombInput from "../view/TombInput.js";
 
 class Bejelentkezes {
   #felhasznalo_id;
@@ -53,8 +50,7 @@ class Bejelentkezes {
           emai: objektum.felhasznalo_email,
           jelszo: objektum.jelszo,
         };
-        //       data.postData( `http://localhost:8000/login`, adat);
-        //    this.#dataService.getData('http://localhost:8000/api/bejelentkezett_felhasznalo', this.belepes, this.megjelenitHiba);
+     
         localStorage.setItem("felhasznalo", objektum.id);
         switch (objektum.szerepkor) {
           case "S":
@@ -70,7 +66,6 @@ class Bejelentkezes {
             window.location.assign("/main/admin/admin.html");
             break;
         }
-    //    this.belepes(objektum);
       } else {
         console.log("Nem aktív felhasználó");
       }

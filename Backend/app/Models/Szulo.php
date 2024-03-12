@@ -21,8 +21,8 @@ class Szulo extends Model
         'lakcim_utca'
     ];
 
-    public function felhasznalo()
+    public function felhasznalo_szulo()
     {
-        return $this->belongsTo(Felhasznalo::class);
+        return $this->belongsTo(Felhasznalo::class, 'id', 'felhasznalo_id');
     }
 }

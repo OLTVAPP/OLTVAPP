@@ -38,6 +38,11 @@ Route::get('/bejelentkezes/{felhasnalo_nev}/{jelszo}', [FelhasznaloController::c
 
 
 //Adminoknak!
+Route::get('/felhasznalo_szulo', [FelhasznaloController::class, 'filterBySzulo']);
+Route::get('/felhasznalo_orvos', [FelhasznaloController::class, 'filterByOrvos']);
+Route::get('/felhasznalo_admin', [FelhasznaloController::class, 'filterByAdmin']);
+
+
 //felhasznalok
 Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
 Route::get('/bejelentkezett_felhasznalo', [FelhasznaloController::class, 'bejelentkezett_felhasznalo']);
@@ -55,9 +60,7 @@ Route::post('/oltas', [OltasController::class, 'store']);
 Route::put('/oltas/{oltas_id}', [OltasController::class, 'update']);
 
 //rendelo
-Route::get('/rendelo', [RendeloController::class, 'index']);
-Route::post('/rendelo', [RendeloController::class, 'store']);
-Route::put('/rendelo/{rendelo_id}', [RendeloController::class, 'update']);
+
 
 //Orvosoknak!
 //felhasznalok (gyerek, szülő)

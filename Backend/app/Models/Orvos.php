@@ -20,6 +20,9 @@ class Orvos extends Model
         'publikus_email',
         'rendelo_ajto_szam'
     ];
-
+    public function felhasznalo()
+    {
+        return $this->belongsTo(Felhasznalo::class);
+    }
 
 }

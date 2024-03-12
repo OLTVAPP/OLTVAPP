@@ -1,5 +1,5 @@
 import { bejelentKezesElfelejtLeiro } from "../modell/adatLeiro.js";
-import TombInput from "../view/tombInput.js";
+import TombInput from "../view/TombInput.js";
 import Bejelentkezes from "./bejelentkezes.js";
 
 

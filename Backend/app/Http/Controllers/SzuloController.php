@@ -6,6 +6,7 @@ use App\Models\Felhasznalo;
 use App\Models\Szulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class SzuloController extends Controller
 {
@@ -40,4 +41,7 @@ class SzuloController extends Controller
         $idValtozo = $szulo->felhasznalo_id;
         return response()->json($idValtozo);
     }
+
+   
+
 }

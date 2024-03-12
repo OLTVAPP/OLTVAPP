@@ -16,6 +16,9 @@ class Admin extends Model
         'vez_nev',
         'ker_nev'
     ];
-
+    public function felhasznalo()
+    {
+        return $this->belongsTo(Felhasznalo::class);
+    }
    
 }

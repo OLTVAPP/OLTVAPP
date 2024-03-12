@@ -1,5 +1,5 @@
 export const gyerekLeiro = {
-  tajszam: {
+  gyerek_taj: {
     megjelenes: "Tajszám",
     tipus: "number",
     value: "",
@@ -59,7 +59,7 @@ export const gyerekLeiro = {
 
 export const reszletesAdatok = {
   adatok: {
-    tajszam: {
+    gyerek_taj: {
       megjelenes: "Tajszám",
       tipus: "number",
       value: "",
@@ -190,5 +190,43 @@ export const reszletesAdatok = {
       validalas: "",
     },
   }
+}
+
+export const keszletLeiro = {
+  tipus_elnev: {
+    megjelenes: "Oltás neve",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  darab: {
+    megjelenes: "Darab száma",
+    tipus: "number",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  beszerzes_datum: {
+    megjelenes: "Beszerzés dátuma",
+    tipus: "date",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  lejarati_datum: {
+    megjelenes: "Lejárati dátuma",
+    tipus: "date",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  megsemmisitett_datum: {
+    megjelenes: "Megsemmisités dátuma",
+    tipus: "date",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
 }
 

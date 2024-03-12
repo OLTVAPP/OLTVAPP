@@ -1,12 +1,14 @@
-import { gyerekLeiro, reszletesAdatok } from "./adatLeiro.js";
+import { gyerekLeiro, reszletesAdatok, keszletLeiro } from "./adatLeiro.js";
 
 class UrlapModell {
   #gyerekLeiro;
   #reszletesAdatok
+  #keszletLeiro
 
   constructor() {
     this.#gyerekLeiro = gyerekLeiro;
     this.#reszletesAdatok = reszletesAdatok
+    this.#keszletLeiro = keszletLeiro;
   }
 
   getLeiro() {
@@ -15,6 +17,10 @@ class UrlapModell {
 
   getReszletesAdatok(){
     return { ...this.#reszletesAdatok };
+  }
+
+  getKeszletLeiro(){
+    return { ...this.#keszletLeiro };
   }
 
 

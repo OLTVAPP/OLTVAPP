@@ -16,20 +16,20 @@ return new class extends Migration
         Schema::create('oltas_tipuses', function (Blueprint $table) {
             $table->id('tipus_id');
             $table->string('tipus_elnev', 50);
-            $table->string('kotelezo');
+            $table->boolean('kotelezo');
             $table->string('leiras');
             $table->timestamps();
         });
 
         Oltas_tipus::create([
             'tipus_elnev' => "Koronavirus",
-            'kotelezo' => "igen",
+            'kotelezo' => true,
             'leiras' => "blabla"
         ]);
 
         Oltas_tipus::create([
             'tipus_elnev' => "ADHD",
-            'kotelezo' => "nem",
+            'kotelezo' => false,
             'leiras' => "blabla"
         ]);
     }

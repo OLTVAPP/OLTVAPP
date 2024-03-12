@@ -5,42 +5,52 @@ import BetegView from "../view/betegek/BetegView.js";
 class Betegek {
   #urlapModell;
   #dataService;
+  #id
   constructor() {
     this.#urlapModell = new UrlapModell();
     this.#dataService = new DataService();
+
     this.#get();
     this.#gyerekAdat()
     this.#vissza()
+    this.#modositBeteg()
+
   }
 
   megjelenitBetegek(list, leiro) {
-    new BetegekView($(".betegekLista"), list, leiro);
+    new BetegekView($("article"), list, leiro);
   }
 
   megjelenitBeteg(list, leiro) {
-    console.log(leiro)
-    new BetegView($(".betegekLista"), list, leiro)
+
+    new BetegView($("article"), list, leiro)
   }
 
 
   #get() {
-    let id = localStorage.getItem("felhasznalo_id");
-    console.log(id)
-    this.#dataService.getAxiosData(`http://localhost:8000/api/betegek/${id}`, this.megjelenitBetegek, this.#urlapModell.getLeiro()
+    this.#id = localStorage.getItem("felhasznalo_id");
+    this.#dataService.getAxiosData(`http://localhost:8000/api/betegek/${this.#id}`, this.megjelenitBetegek, this.#urlapModell.getLeiro()
     );
   }
 
   #gyerekAdat() {
     $(window).on("gyerek_taj", (event) => {
       this.#dataService.getAxiosData(`http://localhost:8000/api/beteg/${event.detail}`, this.megjelenitBeteg, this.#urlapModell.getReszletesAdatok())
-      $(".betegekLista").empty()
+      $("article").empty()
     });
   }
 
   #vissza(){
     $(window).on("vissza", (event) => {
-      $(".betegekLista").empty()
+      $("article").empty()
       this.#get();
+    });
+  }
+
+  #modositBeteg(){
+    $(window).on("modositBeteg", (event) => {
+
+      this.#dataService.putData(`http://localhost:8000/api/beteg_modosit/${event.detail[2]}/${this.#id}/${event.detail[1]}`, event.detail[0])
     });
   }
 

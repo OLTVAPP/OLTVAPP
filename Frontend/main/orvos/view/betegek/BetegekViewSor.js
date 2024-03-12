@@ -2,8 +2,6 @@
 class BetegekViewSor {
   #adat;
   #reszletGomb;
-  #modositGomb;
-  #keszGomb;
   #gyerekElem;
   #szuloElem;
   #adatokElem = [];
@@ -24,9 +22,6 @@ class BetegekViewSor {
     this.#sorElem = this.#szuloElem.children("tr:last-child");
     this.#adatElem = this.#sorElem.children("td:not(:has(span))");
     this.#reszletGomb = this.#sorElem.children("td").children(".reszletek" + this.#index);
-    this.#modositGomb = this.#sorElem.children("td").children(".modosit" + this.#index);
-    this.#keszGomb = this.#sorElem.children("td").children(".kesz" + this.#index);
-    this.#keszGomb.css("display", "none");
     this.#kattintas();
   }
 
@@ -42,7 +37,6 @@ class BetegekViewSor {
       this.#i++;
     }
     txt += `<td><span class="reszletek${this.#index}">Részletek</span></td>`;
-    txt += `<td><span class="modosit${this.#index}">Módosítás</span><span class="kesz${this.#index}">Kész</span></td>`;
     txt += "</tr>";
 
     this.#szuloElem.append(txt);
@@ -51,14 +45,6 @@ class BetegekViewSor {
   #kattintas() {
     this.#reszletGomb.on("click", () => {
       this.#esemenyTrigger("gyerek_taj")
-    });
-    this.#modositGomb.on("click", () => {
-      this.#keszGomb.css("display", "inline");
-      this.#modositGomb.css("display", "none");
-    });
-    this.#keszGomb.on("click", () => {
-      this.#keszGomb.css("display", "none");
-      this.#modositGomb.css("display", "inline");
     });
   }
 

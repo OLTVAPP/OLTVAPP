@@ -1,14 +1,14 @@
 import BetegViewSor from "./BetegViewSor.js";
-
+import Modosit from "./Modosit.js";
 class BetegView {
 
     #szuloElem;
     #list = [];
     #tablaElem = [];
     #leiro = [];
-
     #index = 0;
     #cim = [];
+    #felhasznalo_email;
 
     constructor(szuloElem, list, leiro) {
         this.#leiro = leiro;
@@ -26,7 +26,7 @@ class BetegView {
         const szulo = this.#list[1];
         const vakcina = this.#list[2];
 
- 
+
         this.#sor(this.#leiro.adatok);
         this.#tablazatbaIr(adat);
         this.#sor(this.#leiro.szulo_adatok);
@@ -37,7 +37,8 @@ class BetegView {
         const gombElem = this.#szuloElem.children(".vissza");
         gombElem.on("click", () => {
             this.#esemenyTrigger("vissza")
-          });
+        });
+        this.#modal();
     }
 
     #sor(leiro) {
@@ -47,20 +48,49 @@ class BetegView {
         for (const key in leiro) {
             txt += `<th>${leiro[key].megjelenes}</th>`;
         }
+        if (this.#index === 0 || this.#index === 2) {
+            txt += `<th>Módosít</th>`;
+        }
         txt += "</tr>";
         this.#tablaElem[this.#index].append(txt);
+    }
+
+    #modal() {
+        let txt = "";
+        txt +=
+            `
+        <div class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <br><br>
+        </div>
+        </div>
+        `
+        console.log("hallooo")
+        this.#szuloElem.append(txt);
+        $(window).on("modal", (event) => {
+            $(".modal").css("display", "block");
+            new Modosit($(".modal-content"), event.detail, this.#leiro.adatok, this.#felhasznalo_email);
+        });
+        $(".close").on("click", () => {
+            $(".modal").css("display", "none");
+        });
     }
 
     #tablazatbaIr(adat) {
         let i = 0;
         for (const key in adat) {
-            new BetegViewSor(adat[key], this.#tablaElem[this.#index], i);
+            if (adat[key].felhasznalo_email != null) {
+                this.#felhasznalo_email = adat[key].felhasznalo_email
+            }
+
+            new BetegViewSor(adat[key], this.#tablaElem[this.#index], i, this.#index);
             i++;
         }
         this.#index++;
     }
 
-    #esemenyTrigger(esemenyNev){
+    #esemenyTrigger(esemenyNev) {
         const e = new CustomEvent(esemenyNev);
         window.dispatchEvent(e);
     }

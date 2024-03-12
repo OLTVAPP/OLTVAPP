@@ -47,6 +47,15 @@ return new class extends Migration
             'beszerzes_datuma' => "2023-12-10",
             'lejarati_datuma' => "2024-12-10"
         ]);
+
+        Beszerzes::create([
+            'oltas_id' => 1,
+            'orvos_id' => 2,
+            'darab' => 10,
+            'beszerzes_datuma' => "2023-12-10",
+            'lejarati_datuma' => "2024-12-10",
+            'megsemmesites_datuma' => "2024-12-11"
+        ]);
         
     }
 

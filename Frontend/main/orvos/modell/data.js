@@ -24,7 +24,7 @@ class DataService {
           });
       }
 
-      getAxiosData2(url, callback, adatLeiro, szuloLeiro, vakcinaLeiro) {
+      getAxiosData2(url, callback, adatLeiro, logikaiErtek) {
         axios
           .get(url)
           .then(function (response) {
@@ -33,7 +33,7 @@ class DataService {
             console.log("data", response.data);
             console.log("státusz", response.request.status);
             console.log("text", response.statusText);
-            callback(response.data, adatLeiro, szuloLeiro, vakcinaLeiro);
+            callback(response.data, adatLeiro, logikaiErtek);
           })
           .catch(function (error) {
             // handle error
@@ -69,8 +69,8 @@ class DataService {
     }
 
     
-    putData(url,id,obj){
-        axios.put(url+'/'+id,obj)
+    putData(url,obj){
+        axios.put(url, obj)
         .then(function(response){
           location.reload();
           console.log("resp",response);

@@ -10,7 +10,7 @@ class BetegekView {
     this.#leiro = leiro;
     this.#list = list;
     this.#szuloElem = szuloElem;
-    this.#szuloElem.append("<table>");
+    this.#szuloElem.append('<table class="table table-hover"></table>');
     this.#tablaElem = szuloElem.children("table");
     this.#sor();
     this.#tablazatbaIr();
@@ -24,7 +24,6 @@ class BetegekView {
       txt += `<th>${this.#leiro[key].megjelenes}</th>`;
     }
     txt += `<th>Részletek</th>`;
-    txt += `<th>Módosít</th>`;
     txt += "</tr>";
 
     this.#tablaElem.append(txt);

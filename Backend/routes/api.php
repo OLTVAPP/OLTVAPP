@@ -28,10 +28,11 @@ Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
 
 
 Route::get('/keszlet/{orvos_id}', [OrvosController::class, 'keszlet']);
+Route::get('/megsemmisitett_keszlet/{orvos_id}', [OrvosController::class, 'megsemmisitettKeszlet']);
 Route::get('/betegek/{orvos_id}', [OrvosController::class, 'betegek']);
 Route::get('/beteg/{gyerek_taj}', [OrvosController::class, 'beteg']);
 
 
-Route::put('/beteg_modosit/{gyerek_taj}', [OrvosController::class, 'betegModosit']);
+Route::put('/beteg_modosit/{gyerek_taj}/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'betegModosit']);
 
 Route::post('/uj_beteg/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'ujBeteg']);

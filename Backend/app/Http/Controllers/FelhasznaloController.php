@@ -114,25 +114,39 @@ class FelhasznaloController extends Controller
     public function filterBySzulo(){
         $user = DB::table('felhasznalos as f')
         ->join('szulos', 'szulos.felhasznalo_id', '=','f.id')
-        ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'szulos.vez_nev')
+        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  szulos.vez_nev, szulos.ker_nev, szulos.szemelyi_igazolvany_szam, "aktív" as aktiv')
         ->get();
         return  response()->json($user);
     }
 
     public function filterByOrvos(){
-        $user = DB::table('felhasznalos as f')
+        $user_true = DB::table('felhasznalos as f')
         ->join('orvos', 'orvos.felhasznalo_id', '=','f.id')
-        ->selectRaw('*')
-        ->get();
-        return  response()->json($user);
+       // ->select('*')
+        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  orvos.vez_nev, orvos.ker_nev, "aktív" as aktiv')
+        ->where('f.aktiv', '=', true);
+        $user_false = DB::table('felhasznalos as f')
+        ->join('orvos', 'orvos.felhasznalo_id', '=','f.id')
+     //   ->select('*')
+        ->selectRaw('id, felhasznalo_nev, felhasznalo_email,  vez_nev, ker_nev, "inaktív" as aktiv')
+        ->where('f.aktiv', '=', false);
+        return  response()->json($user_true->union($user_false)->get());
     }
 
     public function filterByAdmin(){
-        $user = DB::table('felhasznalos as f')
+        $user_true = DB::table('felhasznalos as f')
         ->join('admins', 'admins.felhasznalo_id', '=','f.id')
-        ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'admins.vez_nev', 'admins.ker_nev', 'f.aktiv')
-        ->get();
-        return  response()->json($user);
+       // ->select('*')
+        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  admins.vez_nev, admins.ker_nev, "aktív" as aktiv')
+        ->where('f.aktiv', '=', true);
+        $user_false = DB::table('felhasznalos as f')
+        ->join('admins', 'admins.felhasznalo_id', '=','f.id')
+     //   ->select('*')
+        ->selectRaw('id, felhasznalo_nev, felhasznalo_email,  vez_nev, ker_nev, "inaktív" as aktiv')
+        ->where('f.aktiv', '=', false);
+        return  response()->json($user_true->union($user_false)->get());
+       // return  response()->json($user_true);
+
      
     }
 

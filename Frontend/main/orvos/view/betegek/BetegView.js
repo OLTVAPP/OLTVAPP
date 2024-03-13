@@ -48,7 +48,7 @@ class BetegView {
         for (const key in leiro) {
             txt += `<th>${leiro[key].megjelenes}</th>`;
         }
-        if (this.#index === 0 || this.#index === 2) {
+        if (this.#index === 0) {
             txt += `<th>Módosít</th>`;
         }
         txt += "</tr>";
@@ -61,19 +61,14 @@ class BetegView {
             `
         <div class="modal">
         <div class="modal-content">
-        <span class="close">&times;</span>
-        <br><br>
         </div>
         </div>
         `
-        console.log("hallooo")
         this.#szuloElem.append(txt);
+
         $(window).on("modal", (event) => {
             $(".modal").css("display", "block");
             new Modosit($(".modal-content"), event.detail, this.#leiro.adatok, this.#felhasznalo_email);
-        });
-        $(".close").on("click", () => {
-            $(".modal").css("display", "none");
         });
     }
 

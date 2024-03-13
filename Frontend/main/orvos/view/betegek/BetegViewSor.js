@@ -35,7 +35,7 @@ class BetegViewSor {
         txt += `<td>${this.#adat[key]}</td>`;
         this.#i++;
       }
-      if(this.#foindex === 0 || this.#foindex === 2){
+      if(this.#foindex === 0){
         txt += `<td><span class="modosit${this.#index}">Módosítás</span></td>`;
       }
 

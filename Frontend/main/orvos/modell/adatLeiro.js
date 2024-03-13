@@ -207,14 +207,14 @@ export const keszletLeiro = {
     regex: "",
     validalas: "",
   },
-  beszerzes_datum: {
+  beszerzes_datuma: {
     megjelenes: "Beszerzés dátuma",
     tipus: "date",
     value: "",
     regex: "",
     validalas: "",
   },
-  lejarati_datum: {
+  lejarati_datuma: {
     megjelenes: "Lejárati dátuma",
     tipus: "date",
     value: "",

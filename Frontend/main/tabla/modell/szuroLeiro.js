@@ -3,29 +3,30 @@ export const felhasznalo_szuro = [
     key: "felhasznalo_nev",
     megjelenes: "Felhasználó név",
     tipus: "select",
+    value: "",
     url: "http://localhost:8000/api/felhasznalo_id",
-    valaszto: {
-      value: "üres",
+    valaszto: [{
+      value: "",
       kiiras: "Válasz nevet",
-    },
+    },]
   },
   {
-    key: "felhasznalo_nev",
-    megjelenes: "Felhasználó név",
+    key: "felhasznalo_email",
+    megjelenes: "Felhasználó email",
     tipus: "text",
     value: "",
     placeholder: "felhasználó név",
   },
   {
-    key: "felhasznalo_nev",
-    megjelenes: "Felhasználó név",
+    key: "vez_nev",
+    megjelenes: "Vezeték név",
     tipus: "text",
     value: "",
     placeholder: "felhasználó név",
   },
   {
-    key: "felhasznalo_nev",
-    megjelenes: "Felhasználó név",
+    key: "ker_nev",
+    megjelenes: "Kereszt név",
     tipus: "text",
     value: "",
     placeholder: "felhasználó név",
@@ -34,13 +35,19 @@ export const felhasznalo_szuro = [
     key: "aktiv",
     megjelenes: "Felhasználó név",
     tipus: "select",
+    value: "",
     url: "nincs",
     valaszto: [
-      { value: "üres", kiiras: "Összes" },
-      { value: "aktiv", kiiras: "Aktív" },
-      { value: "inaktiv", kiiras: "Inaktív" },
+      { value: "", kiiras: "Összes" },
+      { value: true, kiiras: "Aktív" },
+      { value: false, kiiras: "Inaktív" },
     ],
   },
+  {
+    key: "kereses",
+    value: "Keresés",
+    tipus: "button",
+  }
 ];
 export const felhasznalo_szuro_proba = {
   felhasznalo_nev: {

@@ -41,6 +41,7 @@ Route::get('/bejelentkezes/{felhasnalo_nev}/{jelszo}', [FelhasznaloController::c
 Route::get('/felhasznalo_szulo', [FelhasznaloController::class, 'filterBySzulo']);
 Route::get('/felhasznalo_orvos', [FelhasznaloController::class, 'filterByOrvos']);
 Route::get('/felhasznalo_admin', [FelhasznaloController::class, 'filterByAdmin']);
+Route::get('/felhasznalok', [FelhasznaloController::class, 'osszes_felhasznalo']);
 Route::get('/felhasznalo_id', [FelhasznaloController::class, 'felhasznalo_id']);
 
 

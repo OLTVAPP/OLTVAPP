@@ -23,7 +23,7 @@ class DataService {
             });
     }
 
-    getDataKereso(vegpont, callback, selectElem) {
+    getDataKereso(vegpont, callback, selectElem, obj) {
         axios.get(vegpont)
             .then(function (response) {
                 console.log("response", response);
@@ -31,7 +31,7 @@ class DataService {
                 console.log("statusz", response.status);
                 console.log("statusz", response.request.status);
                 console.log("text", response.statusText);
-                callback(response.data, selectElem);
+                callback(response.data, selectElem, obj);
             })
             .catch(function (error) {
                 console.log(error);

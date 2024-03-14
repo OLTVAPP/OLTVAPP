@@ -1,5 +1,5 @@
 import Tabla_controller from "./controller/tabla_controller.js";
-import { fejlec_admin_felhasznalo, fejlec_orvos_felhasznalo, fejlec_szulo_felhasznalo} from "./modell/fejlecLeiro.js";
+import { fejlec_admin_felhasznalo, fejlec_felhasznalo, fejlec_orvos_felhasznalo, fejlec_szulo_felhasznalo} from "./modell/fejlecLeiro.js";
 $(function () {
   new Tabla_main($("table").attr("id"))
 });
@@ -17,8 +17,8 @@ class Tabla_main{
         fejlec = fejlec_orvos_felhasznalo
         break;
       case "szulo_felhaszhnalok":
-        tablaAdatUrl = "http://localhost:8000/api/felhasznalo_szulo";
-        fejlec = fejlec_szulo_felhasznalo
+        tablaAdatUrl = "http://localhost:8000/api/felhasznalok";
+        fejlec = fejlec_felhasznalo
         break;
       default:
         break;

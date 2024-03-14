@@ -4,7 +4,14 @@ class Select {
   #adatok;
   #value;
 
-  constructor(adatok, selectElem) {
+  constructor(key, inputElem) {
+    inputElem.append(`<select id="${key}"></select>`);
+    this.#selectElem = inputElem.children(`#${key}:last-child`);
+    this.#change(); 
+  }
+
+
+  selectLetrehozo(adatok, selectElem){
     this.#adatok = adatok;
     this.#selectElem = selectElem;
     for (let index = 0; index < this.#adatok.length; index++) {
@@ -15,15 +22,14 @@ class Select {
         this.#selectElem
       );
     }
-    this.#kattintas();
   }
 
 
-  #kattintas() {
+
+  #change() {
     this.#selectElem.on("change", (e) => {
         let optionSelected = $(e.target);
         this.setValue(optionSelected.val());
-        console.log(this.#value)
     });
   }
 
@@ -34,6 +40,10 @@ class Select {
 
   getValue(){
     return this.#value;
+  }
+
+  getSelectElem(){
+    return this.#selectElem
   }
 
 }

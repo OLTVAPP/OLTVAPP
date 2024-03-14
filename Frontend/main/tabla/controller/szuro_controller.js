@@ -1,19 +1,27 @@
-import { felhasznalo_szuro, felhasznalo_szuro_proba } from "../modell/szuroLeiro.js";
 import Szurok from "../view/szuro/szurok.js";
 
-class Szuro_controller{
+class Szuro_controller {
+  #szurok;
 
-    constructor(){
-        console.log("hello");
+  constructor(szurok, divElem) {
+    this.#szurok = new Szurok(szurok, divElem);
+    this.#keresoEsemeny();
+  }
+
+  #keresoEsemeny() {
+    $(window).on("kereses", (event) => {
+       const obj =  this.#szurok.getObjektumok();
+       const keresettErtekek = [];
+       for (let index = 0; index < obj.length; index++) {
+            keresettErtekek.push(obj[index].getValue());  
+            console.log(obj[index].getValue())
+       }
+
       
-        new Szurok(   felhasznalo_szuro, $("#tabla_szuro"));
-
-        
-    }
 
 
-
-
+    });
+  }
 }
 
 export default Szuro_controller;

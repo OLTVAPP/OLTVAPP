@@ -111,6 +111,23 @@ class FelhasznaloController extends Controller
         return response()->json(FelhasznaloController::bejelentkezes_ellenorzes($tabla, $talalt_felhasznalo_nev, $jelszo == $keresett_jelszo));
     }
 
+
+    public function osszes_felhasznalo(){
+        $szulo = DB::table('felhasznalos as f')
+        ->join('szulos', 'szulos.felhasznalo_id', '=','f.id')
+        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  szulos.vez_nev, szulos.ker_nev, "aktív" as aktiv');
+
+        $orvos = DB::table('felhasznalos as f')
+        ->join('orvos', 'orvos.felhasznalo_id', '=','f.id')
+        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  orvos.vez_nev, orvos.ker_nev, "aktív" as aktiv');
+
+        $admin = DB::table('felhasznalos as f')
+        ->join('admins', 'admins.felhasznalo_id', '=','f.id')
+        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  admins.vez_nev, admins.ker_nev, "aktív" as aktiv');
+        return  response()->json($szulo->union($orvos)->union($admin)->get());
+
+    }
+
     public function filterBySzulo(){
         $user = DB::table('felhasznalos as f')
         ->join('szulos', 'szulos.felhasznalo_id', '=','f.id')
@@ -150,7 +167,6 @@ class FelhasznaloController extends Controller
 
 
     public function felhasznalo_id(){
-
         return  response()->json(DB::table('felhasznalos')->selectRaw('id as value, felhasznalo_nev as kiiras')->get());
     }
 }

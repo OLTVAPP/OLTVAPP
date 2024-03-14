@@ -4,7 +4,7 @@ class DataService {
     }
 
 
-    getData(vegpont, fejlec, callback, hibaCallback) {
+    getDataTabla(vegpont, fejlec, callback, hibaCallback) {
         axios.get(vegpont)
             .then(function (response) {
                 console.log("response", response);
@@ -17,6 +17,24 @@ class DataService {
             .catch(function (error) {
                 console.log(error);
                 hibaCallback(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+    }
+
+    getDataKereso(vegpont, callback, selectElem) {
+        axios.get(vegpont)
+            .then(function (response) {
+                console.log("response", response);
+                console.log("data", response.data);
+                console.log("statusz", response.status);
+                console.log("statusz", response.request.status);
+                console.log("text", response.statusText);
+                callback(response.data, selectElem);
+            })
+            .catch(function (error) {
+                console.log(error);
             })
             .finally(function () {
                 // always executed

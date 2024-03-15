@@ -25,11 +25,9 @@ class TextInput{
         return this.#leiro.id;
     }
 
-    get value() {
-        return this.#value;
-    }
 
-    get key() {
+
+    getKey() {
         return this.#key;
     }
 

@@ -12,14 +12,15 @@ class Szurok {
   constructor(adatok, szuloElem) {
     this.#adatok = adatok;
     this.#divElem = szuloElem;
-    this.#init();
+    this.#divElem.append('<div class="input"></div>')
+    const inputElem = this.#divElem.children('div:last-child')
+    this.#init(inputElem);
     console.log(this.#objektumok)
+    this.#kereses(inputElem);
   }
 
-  #init() {
+  #init(inputElem) {
     for (let index = 0; index < this.#adatok.length; index++)  {
-      this.#divElem.append('<div class="input"></div>')
-      const inputElem = this.#divElem.children('div:last-child')
       switch (this.#adatok[index].tipus) {
           case "text":
            this.#objektumok.push(new TextInput(this.#adatok[index].key, this.#adatok[index], inputElem));
@@ -29,6 +30,7 @@ class Szurok {
           break;
         case "select":
           const select = new Select(this.#adatok[index].key, this.#divElem);
+          select.setValue("");
           const selectElem = select.getSelectElem();
           console.log(selectElem)
           if(this.#adatok[index].url == "nincs"){
@@ -36,7 +38,6 @@ class Szurok {
           } else{
             const dataService = new DataService();
             select.selectLetrehozo(this.#adatok[index].valaszto, select.getSelectElem());
-            select.setValue("");
             dataService.getDataKereso(this.#adatok[index].url, this.#selectUrlLetrehozo,  select.getSelectElem(), select); 
           }
           this.#objektumok.push(select);
@@ -45,11 +46,8 @@ class Szurok {
     }
   }
 
-  #kereses(){
-    this.#divElem.append('<div class="input"></div>')
-    const inputElem = this.#divElem.children('div:last-child')
+  #kereses(inputElem){
     const keres = new Button("kereses", "Keresés", inputElem)
-    keres.kattintas(this.#objektumok);
   }
 
   #selectUrlLetrehozo(adat, selectElem, obj){

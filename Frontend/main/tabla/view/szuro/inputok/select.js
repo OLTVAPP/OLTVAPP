@@ -3,8 +3,10 @@ class Select {
   #selectElem;
   #adatok;
   #value;
+  #key;
 
   constructor(key, inputElem) {
+    this.#key = key;
     inputElem.append(`<select id="${key}"></select>`);
     this.#selectElem = inputElem.children(`#${key}:last-child`);
     this.#change(); 
@@ -33,6 +35,10 @@ class Select {
     });
   }
 
+
+  getKey() {
+    return this.#key;
+}
 
   setValue(value){
     this.#value = value;

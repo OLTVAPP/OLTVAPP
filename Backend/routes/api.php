@@ -6,6 +6,7 @@ use App\Http\Controllers\CsaladController;
 use App\Http\Controllers\FelhasznaloController;
 use App\Http\Controllers\OltasController;
 use App\Http\Controllers\RendeloController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SzuloController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -43,7 +44,9 @@ Route::get('/felhasznalo_orvos', [FelhasznaloController::class, 'filterByOrvos']
 Route::get('/felhasznalo_admin', [FelhasznaloController::class, 'filterByAdmin']);
 Route::get('/felhasznalok', [FelhasznaloController::class, 'osszes_felhasznalo']);
 Route::get('/felhasznalo_id', [FelhasznaloController::class, 'felhasznalo_id']);
-
+Route::get('/felhasznalok_search', [SearchController::class, 'osszes_felhasznalo']);
+Route::get('/felhasznalo_nev_search', [SearchController::class, 'felhasznalo_nev_szuro']);
+Route::get('/search', [SearchController::class, 'search']);
 
 //felhasznalok
 Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Models\Felhasznalo;
+use App\Http\Controllers\SearchController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -111,21 +112,24 @@ class FelhasznaloController extends Controller
         return response()->json(FelhasznaloController::bejelentkezes_ellenorzes($tabla, $talalt_felhasznalo_nev, $jelszo == $keresett_jelszo));
     }
 
+    public function felhasznaloAdatok($join){
+        $aktiv = DB::table('felhasznalos as f')
+        ->join($join, $join.'.felhasznalo_id', '=','f.id')
+        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  vez_nev, ker_nev, "aktív" as aktiv')
+        ->where('f.aktiv', 1);
+        $inaktiv = DB::table('felhasznalos as f')
+        ->join($join, $join.'.felhasznalo_id', '=','f.id')
+        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  vez_nev, ker_nev, "ínaktív" as aktiv')
+        ->where('f.aktiv', 0);
+        return $aktiv->union($inaktiv);
+        }
+
 
     public function osszes_felhasznalo(){
-        $szulo = DB::table('felhasznalos as f')
-        ->join('szulos', 'szulos.felhasznalo_id', '=','f.id')
-        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  szulos.vez_nev, szulos.ker_nev, "aktív" as aktiv');
-
-        $orvos = DB::table('felhasznalos as f')
-        ->join('orvos', 'orvos.felhasznalo_id', '=','f.id')
-        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  orvos.vez_nev, orvos.ker_nev, "aktív" as aktiv');
-
-        $admin = DB::table('felhasznalos as f')
-        ->join('admins', 'admins.felhasznalo_id', '=','f.id')
-        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  admins.vez_nev, admins.ker_nev, "aktív" as aktiv');
+        $szulo = FelhasznaloController::felhasznaloAdatok('szulos');
+        $orvos = FelhasznaloController::felhasznaloAdatok('orvos');
+        $admin = FelhasznaloController::felhasznaloAdatok('admins');
         return  response()->json($szulo->union($orvos)->union($admin)->get());
-
     }
 
     public function filterBySzulo(){

@@ -22,7 +22,6 @@ class Betegek {
   }
 
   megjelenitBeteg(list, leiro) {
-
     new BetegView($("article"), list, leiro)
   }
 
@@ -49,7 +48,6 @@ class Betegek {
 
   #modositBeteg(){
     $(window).on("modositBeteg", (event) => {
-
       this.#dataService.putData(`http://localhost:8000/api/beteg_modosit/${event.detail[2]}/${this.#id}/${event.detail[1]}`, event.detail[0])
     });
   }

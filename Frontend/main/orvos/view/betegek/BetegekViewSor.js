@@ -18,16 +18,15 @@ class BetegekViewSor {
     this.#sor();
     this.#gyerekElem = this.#szuloElem.children(`.gyerek${this.#index}`);
 
-
-    this.#sorElem = this.#szuloElem.children("tr:last-child");
-    this.#adatElem = this.#sorElem.children("td:not(:has(span))");
-    this.#reszletGomb = this.#sorElem.children("td").children(".reszletek" + this.#index);
+    const tbodyElem = this.#szuloElem.children("tbody");
+    const trElem = tbodyElem.children("tr:last-child");
+    this.#reszletGomb = trElem.children("td").children("#reszletek" + this.#index);
     this.#kattintas();
   }
 
   #sor() {
     this.#i = 0;
-    let txt = "";
+    let txt = "<tbody>";
     txt += `<tr class=gyerek${this.#index}>`;
     for (let key in this.#adat) {
       if(key === "gyerek_taj"){
@@ -36,8 +35,9 @@ class BetegekViewSor {
       txt += `<td>${this.#adat[key]}</td>`;
       this.#i++;
     }
-    txt += `<td><span class="reszletek${this.#index}">Részletek</span></td>`;
+    txt += `<td><span id="reszletek${this.#index}">▶</span></td>`;
     txt += "</tr>";
+    txt += "</tbody>"
 
     this.#szuloElem.append(txt);
   }

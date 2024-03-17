@@ -8,7 +8,7 @@ class BetegView {
     #leiro = [];
     #index = 0;
     #cim = [];
-    #felhasznalo_email;
+    #szulo_email;
 
     constructor(szuloElem, list, leiro) {
         this.#leiro = leiro;
@@ -17,15 +17,15 @@ class BetegView {
 
         this.#szuloElem = szuloElem;
         for (let i = 0; i < this.#list.length; i++) {
-            this.#szuloElem.append(`<h2>${this.#cim[i]}</h2>`);
-            this.#szuloElem.append(`<table class=table${i}>`);
-            this.#tablaElem.push(szuloElem.children(`.table${i}`));
+            this.#szuloElem.append(`<h3>${this.#cim[i]}</h3>`);
+            this.#szuloElem.append(`<table class="table table-hover" id=table${i}>`);
+            this.#tablaElem.push(szuloElem.children(`#table${i}`));
         }
 
         const adat = this.#list[0];
         const szulo = this.#list[1];
         const vakcina = this.#list[2];
-
+        this.#szulo_email = szulo[0].felhasznalo_email
 
         this.#sor(this.#leiro.adatok);
         this.#tablazatbaIr(adat);
@@ -33,16 +33,15 @@ class BetegView {
         this.#tablazatbaIr(szulo);
         this.#sor(this.#leiro.vakcina_adatok);
         this.#tablazatbaIr(vakcina);
-        this.#szuloElem.append("<button class='vissza' type='button'>Vissza</button>")
-        const gombElem = this.#szuloElem.children(".vissza");
+        this.#szuloElem.append("<button class='btn btn-primary' id='vissza' type='button'>Vissza</button>")
+        const gombElem = this.#szuloElem.children("#vissza");
         gombElem.on("click", () => {
             this.#esemenyTrigger("vissza")
         });
-        this.#modal();
     }
 
     #sor(leiro) {
-        let txt = "";
+        let txt = "<thead>";
 
         txt += "<tr>";
         for (const key in leiro) {
@@ -52,35 +51,15 @@ class BetegView {
             txt += `<th>Módosít</th>`;
         }
         txt += "</tr>";
+        txt += "</thead>";
         this.#tablaElem[this.#index].append(txt);
     }
 
-    #modal() {
-        let txt = "";
-        txt +=
-            `
-        <div class="modal">
-        <div class="modal-content">
-        </div>
-        </div>
-        `
-        this.#szuloElem.append(txt);
-
-        $(window).on("modal", (event) => {
-            $(".modal").css("display", "block");
-            new Modosit($(".modal-content"), event.detail, this.#leiro.adatok, this.#felhasznalo_email);
-        });
-    }
-
     #tablazatbaIr(adat) {
-        let i = 0;
+        
         for (const key in adat) {
-            if (adat[key].felhasznalo_email != null) {
-                this.#felhasznalo_email = adat[key].felhasznalo_email
-            }
-
-            new BetegViewSor(adat[key], this.#tablaElem[this.#index], i, this.#index);
-            i++;
+            console.log(this.#szulo_email)
+            new BetegViewSor(adat[key], this.#tablaElem[this.#index], this.#index, this.#szuloElem, this.#leiro.adatok, this.#szulo_email);
         }
         this.#index++;
     }

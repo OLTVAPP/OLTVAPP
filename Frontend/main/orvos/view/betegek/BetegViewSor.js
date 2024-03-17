@@ -1,66 +1,64 @@
+import Modosit from "./Modosit.js"
 
 class BetegViewSor {
-    #adat;
-    #reszletGomb;
-    #modositGomb;
-    #keszGomb;
-    #gyerekElem;
-    #szuloElem;
-    #adatokElem = [];
-    #foindex;
-    #index;
-    #i;
-    #sorElem
-  
-    constructor(adat, szuloElem, index, foindex) {
-      this.#adat = adat;
-      this.#szuloElem = szuloElem;
-      this.#index = index;
-      this.#foindex = foindex;
-      this.#sor();
-      this.#gyerekElem = this.#szuloElem.children(`.adat${this.#index}`);
+  #adat;
+  #tablaElem
+  #modositGomb;
+  #szuloElem;
+  #index;
+  #sorElem
+  #leiro
+  #szulo_email
 
-      this.#sorElem = this.#szuloElem.children("tr:last-child");
-      this.#modositGomb = this.#sorElem.children("td").children(".modosit" + this.#index);
-      this.#keszGomb = this.#sorElem.children("td").children(".kesz" + this.#index);
-      this.#keszGomb.css("display", "none");
-      this.#kattintas();
-    }
-  
-    #sor() {
-      this.#i = 0;
-      let txt = "";
-      txt += `<tr class=adat${this.#index}>`;
-      for (let key in this.#adat) {
-        txt += `<td>${this.#adat[key]}</td>`;
-        this.#i++;
-      }
-      if(this.#foindex === 0){
-        txt += `<td><span class="modosit${this.#index}">Módosítás</span></td>`;
-      }
-
-      txt += "</tr>";
-
-  
-      this.#szuloElem.append(txt);
-    }
-
-
-    #kattintas() {
-        this.#modositGomb.on("click", () => {
-          this.#esemenyTrigger("modal");
-        });
-        this.#keszGomb.on("click", () => {
-          this.#keszGomb.css("display", "none");
-          this.#modositGomb.css("display", "inline");
-        });
-      }
-  
-    #esemenyTrigger(esemenyNev){
-      const e = new CustomEvent(esemenyNev, { detail: this.#adat });
-      window.dispatchEvent(e);
-    }
+  constructor(adat, tablaElem, index, szuloElem, leiro, szulo_email) {
+    this.#adat = adat;
+    this.#tablaElem = tablaElem;
+    this.#szuloElem = szuloElem
+    this.#leiro = leiro;
+    this.#index = index;
+    this.#szulo_email = szulo_email;
+    this.#sor();
+    const tbodyElem = this.#tablaElem.children("tbody");
+    this.#sorElem = tbodyElem.children("tr:last-child");
+    this.#modositGomb = this.#sorElem.children("td").children("#modosit" + this.#index);
+    this.#kattintas();
   }
-  
-  export default BetegViewSor;
-  
+
+  #sor() {
+    let txt = "<tbody>";
+    txt += `<tr class=adat${this.#index}>`;
+    for (let key in this.#adat) {
+      txt += `<td>${this.#adat[key]}</td>`;
+    }
+    if (this.#index === 0) {
+      txt += `<td><span id="modosit${this.#index}">📝</span></td>`;
+    }
+
+    txt += "</tr>";
+    txt += "</tbody>";
+
+    this.#tablaElem.append(txt);
+  }
+
+
+  #kattintas() {
+    this.#modositGomb.on("click", () => {
+      console.log("dsa")
+      let txt = "";
+      txt +=
+          `
+      <div class="modal">
+      <div class="modal-content">
+      </div>
+      </div>
+      `
+      this.#szuloElem.append(txt);
+      $(".modal").css("display", "block");
+      console.log(this.#szulo_email)
+      new Modosit($(".modal-content"), this.#adat, this.#leiro, this.#szulo_email);
+    });
+  }
+
+}
+
+export default BetegViewSor;

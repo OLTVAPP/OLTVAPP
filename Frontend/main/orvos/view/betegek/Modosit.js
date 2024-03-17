@@ -7,6 +7,7 @@ class Modosit {
     #felhasznalo_email
     #gyerek_taj
     constructor(szuloElem, adat, leiro, felhasznalo_email) {
+        console.log(adat)
         for (const key in adat) {
             if (adat.gyerek_taj != null) {
                 this.#gyerek_taj = adat.gyerek_taj
@@ -31,9 +32,9 @@ class Modosit {
             i++;
         }
         txt += "</div>"
-        txt += "<button class='ment' type='button'>Mentés</button>"
+        txt += "<button class='btn btn-success' id='ment' type='button'>Mentés</button>"
         this.#szuloElem.append(txt);
-        this.#mentesGomb = this.#szuloElem.children(".ment");
+        this.#mentesGomb = this.#szuloElem.children("#ment");
     }
 
     #kattintas() {
@@ -50,12 +51,12 @@ class Modosit {
             this.#esemenyTrigger("modositBeteg")
         });
         $(".close").on("click", () => {
-            $(".modal").css("display", "none");
-            $(".modal-content").empty();
+            $(".modal").remove();
         });
     }
 
     #esemenyTrigger(esemenyNev) {
+        console.log(this.#ujAdat)
         const E = new CustomEvent(esemenyNev, { detail: [this.#ujAdat, this.#felhasznalo_email, this.#gyerek_taj] });
         window.dispatchEvent(E);
     }

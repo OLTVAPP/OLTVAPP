@@ -38,9 +38,9 @@ class UjKeszlet {
             i++;
         }
         txt += "</div>"
-        txt += "<button class='ment' type='button'>Mentés</button>"
+        txt += "<button class='btn btn-success' id='ment' type='button'>Mentés</button>"
         this.#szuloElem.append(txt);
-        this.#mentesGomb = this.#szuloElem.children(".ment");
+        this.#mentesGomb = this.#szuloElem.children("#ment");
     }
 
     #kattintas() {

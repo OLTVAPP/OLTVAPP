@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Beadando;
 use App\Models\Beadas;
 use App\Models\Beszerzes;
 use App\Models\Felhasznalo;
@@ -40,11 +41,12 @@ class OrvosController extends Controller
         return $betegek;
     }
 
-    public function oltasNev(){
+    public function oltasNev()
+    {
         $oltas = Oltas::select("oltas_id", 'forgalmazo')
-        ->get();
+            ->get();
 
-        return $oltas; 
+        return $oltas;
     }
 
     public function beteg($gyerek_taj)
@@ -60,15 +62,27 @@ class OrvosController extends Controller
             ->select('szulos.vez_nev', 'szulos.ker_nev', 'szulos.lakcim_varos', 'szulos.lakcim_irSzam', 'szulos.lakcim_utca', 'felhasznalos.felhasznalo_nev', 'felhasznalos.felhasznalo_email')
             ->get();
 
-        $vakcinaAdat = DB::table('beadas')
+        //megkapott oltások
+        $beadottVakcina = DB::table('beadas')
             ->join('beadandos', 'beadas.beadando_id', '=', "beadandos.beadando_id")
             ->join('oltas_tipuses', 'beadandos.tipus_id', '=', 'oltas_tipuses.tipus_id')
             ->where('beadas.gyerek_id', $gyerek_taj)
             ->select('oltas_tipuses.tipus_elnev', 'beadas.beadas_datuma')
             ->get();
 
+        //később megkell kapnia oltások
+        /*
+        $beadandoVakcina = DB::table('beadando')
+        ->join('beadandos', 'beadas.beadando_id', '=', "beadandos.beadando_id")
+        ->join('oltas_tipuses', 'beadandos.tipus_id', '=', 'oltas_tipuses.tipus_id')
+        ->where('beadas.gyerek_id', $gyerek_taj)
+        ->select('oltas_tipuses.tipus_elnev', 'beadando.ev', 'beadando.honap', 'beadando.hanyadik')
+        ->get();
+        */
 
-        return [$beteg,  $betegSzulo, $vakcinaAdat];
+
+
+        return [$beteg,  $betegSzulo, $beadottVakcina];
     }
 
 
@@ -106,6 +120,8 @@ class OrvosController extends Controller
             ->where('szerepkor', '=', 'S')
             ->value('id');
 
+
+
         $gyerek = Gyerek::find($gyerek_taj);
         $gyerek->gyerek_taj = $request->gyerek_taj;
         $gyerek->vez_nev = $request->vez_nev;
@@ -119,6 +135,9 @@ class OrvosController extends Controller
         $gyerek->lakcim_utca = $request->lakcim_utca;
         $gyerek->erzekenyseg = $request->erzekenyseg;
         $gyerek->save();
+
+        Beadas::where('gyerek_id', $gyerek_taj)
+            ->update(['gyerek_id' => $request->gyerek_taj]);
     }
 
     public function keszletModosit($keszlet_id)
@@ -130,6 +149,28 @@ class OrvosController extends Controller
         DB::table('beszerzes')
             ->where('beszerzes_id', $beszerzes_id)
             ->update(['megsemmesites_datuma' => date(now())]);
+    }
+
+
+    public function keszletLevon($beszerzes_id, $orvos_id)
+    {
+
+        $darab = Beszerzes::where('orvos_id', $orvos_id)
+            ->where('beszerzes_id', $beszerzes_id)
+            ->value('darab');
+        if ($darab != 1) {
+            DB::table('beszerzes')
+                ->where('orvos_id', $orvos_id)
+                ->where('beszerzes_id', $beszerzes_id)
+                ->where('darab', '>', 0)
+                ->update(['darab' => $darab - 1]);
+        } else {
+            DB::table('beszerzes')
+                ->where('orvos_id', $orvos_id)
+                ->where('beszerzes_id', $beszerzes_id)
+                ->where('darab', '=', 1)
+                ->delete();
+        }
     }
 
     //létrehozások
@@ -163,14 +204,38 @@ class OrvosController extends Controller
     public function ujKeszlet(Request $request, $orvos_id, $oltas_id)
     {
         $record = new Beszerzes();
-        $record -> oltas_id = $oltas_id;
-        $record -> orvos_id = $orvos_id;
-        $record -> darab = $request->darab;
-        $record -> beszerzes_datuma = $request -> beszerzes_datuma;
-        $record -> lejarati_datuma = $request -> lejarati_datuma;
+        $record->oltas_id = $oltas_id;
+        $record->orvos_id = $orvos_id;
+        $record->darab = $request->darab;
+        $record->beszerzes_datuma = $request->beszerzes_datuma;
+        $record->lejarati_datuma = $request->lejarati_datuma;
 
         $record->save();
 
         return Beszerzes::find($record->$oltas_id);
+    }
+
+    public function ujBeadas(Request $request, $orvos_id)
+    {
+        $record = new Beadas();
+        $record->orvos_id = $orvos_id;
+        $record->gyerek_id = $request->gyerek_id;
+        $record->oltas_id = $request->oltas_id;
+        $record->beadando_id = $request->beadando_id;
+        $record->beadas_datuma = $request->beadas_datuma;
+        $record->megjegyzes = $request->megjegyzes;
+
+        $record->save();
+    }
+
+    public function ujBeadando(Request $request, $tipus_id)
+    {
+        $record = new Beadando();
+        $record->tipus_id = $tipus_id;
+        $record->ev = $request->ev;
+        $record->honap = $request->honap;
+        $record->hanyadik = $request->hanyadik;
+
+        $record->save();
     }
 }

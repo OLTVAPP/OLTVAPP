@@ -50,7 +50,7 @@ export const gyerekLeiro = {
   },
   lakcim_utca: {
     megjelenes: "Utca",
-    tipus: "number",
+    tipus: "text",
     value: "",
     regex: "",
     validalas: "",
@@ -110,7 +110,7 @@ export const reszletesAdatok = {
     },
     lakcim_utca: {
       megjelenes: "Utca",
-      tipus: "number",
+      tipus: "text",
       value: "",
       regex: "",
       validalas: "",
@@ -154,7 +154,7 @@ export const reszletesAdatok = {
     },
     lakcim_utca: {
       megjelenes: "Utca",
-      tipus: "number",
+      tipus: "text",
       value: "",
       regex: "",
       validalas: "",

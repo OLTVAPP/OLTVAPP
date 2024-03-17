@@ -36,6 +36,8 @@ Route::get('/oltas_nev', [OrvosController::class, 'oltasNev']);
 
 Route::put('/beteg_modosit/{gyerek_taj}/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'betegModosit']);
 Route::patch('/keszlet_megsemmisitese/{beszerzes_id}', [OrvosController::class, 'keszletMegsemmisitese']);
+Route::patch('/keszlet_levon/{beszerzes_id}/{orvos_id}', [OrvosController::class, 'keszletLevon']);
 
 Route::post('/uj_beteg/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'ujBeteg']);
 Route::post('/uj_keszlet/{orvos_id}/{oltas_id}', [OrvosController::class, 'ujKeszlet']);
+Route::post('/uj_beadas/{orvos_id}', [OrvosController::class, 'ujBeadas']);

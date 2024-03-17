@@ -22,7 +22,7 @@ class Keszlet {
     }
 
     megjelenitUjKeszlet(vakcinaNev, leiro) {
-        new UjKeszlet($(".modal-content"), leiro, vakcinaNev)
+        new UjKeszlet($(".modal-content3"), leiro, vakcinaNev)
     }
 
     #get() {

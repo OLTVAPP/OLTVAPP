@@ -19,17 +19,17 @@ class KeszletView{
         this.#list = list;
         this.#szuloElem = szuloElem;
         if(this.#logikaiErtek === false){
-            this.#szuloElem.append("<button class='semmisitett' type='button'>Megsemmisitett vakcinák</button>")
-            this.#szuloElem.append("<button class='ujvakcina' type='button'>Új vakcina hozzáadása</button>")
+            this.#szuloElem.append("<button class='btn btn-primary' id='semmisitett' type='button'>Megsemmisitett vakcinák</button>")
+            this.#szuloElem.append("<button class='btn btn-primary' id='ujvakcina' type='button'>Új vakcina hozzáadása</button>")
         }
         else{
-            this.#szuloElem.append("<button class='vissza' type='button'>vissza</button>")
+            this.#szuloElem.append("<button class='btn btn-primary' id='vissza' type='button'>vissza</button>")
         }
 
-        this.#semmisitettGomb = this.#szuloElem.children(".semmisitett");
-        this.#visszaGomb = this.#szuloElem.children(".vissza");
-        this.#ujVakcina = this.#szuloElem.children(".ujvakcina");
-        this.#szuloElem.append(`<table>`);
+        this.#semmisitettGomb = this.#szuloElem.children("#semmisitett");
+        this.#visszaGomb = this.#szuloElem.children("#vissza");
+        this.#ujVakcina = this.#szuloElem.children("#ujvakcina");
+        this.#szuloElem.append(`<table class="table table-hover">`);
         this.#tablaElem = this.#szuloElem.children("table");
         this.#sor();
         this.#tablazatbaIr();
@@ -41,8 +41,8 @@ class KeszletView{
         let txt = "";
         txt +=
             `
-        <div class="modal">
-        <div class="modal-content">
+        <div class="modal3">
+        <div class="modal-content3">
         <span class="close">&times;</span>
         </div>
         </div>
@@ -50,15 +50,15 @@ class KeszletView{
         this.#szuloElem.append(txt);
         this.#esemenyTrigger("oltasNev")
         this.#ujVakcina.on("click", () => {
-            $(".modal").css("display", "block");
+            $(".modal3").css("display", "block");
         });
         $(".close").on("click", () => {
-            $(".modal").css("display", "none");
+            $(".modal3").css("display", "none");
         });
     }
 
     #sor() {
-        let txt = "";
+        let txt = "<thead>";
         txt += "<tr>";
         let i = 0;
         for (const key in this.#leiro) {
@@ -80,13 +80,14 @@ class KeszletView{
             txt += `<th>Megsemmisítés</th>`;
         }
         txt += "</tr>";
+        txt += "</thead>"
         this.#tablaElem.append(txt);
     }
 
     #tablazatbaIr() {
         let i = 0;
         for (const key in this.#list) {
-            new KeszletViewSor(this.#list[key], this.#tablaElem, i, this.#logikaiErtek);
+            new KeszletViewSor(this.#list[key], this.#tablaElem, i, this.#logikaiErtek, this.#szuloElem);
             i++;
         }
 

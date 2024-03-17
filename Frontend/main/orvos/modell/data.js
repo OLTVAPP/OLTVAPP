@@ -71,6 +71,7 @@ class DataService {
 
 
   putData(url, obj) {
+    console.log(obj)
     axios.put(url, obj)
       .then(function (response) {
         location.reload();

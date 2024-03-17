@@ -77,3 +77,18 @@ Route::get('/csalad', [CsaladController::class, 'getCsalad']);
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 Route::post('/szulo', [SzuloController::class, 'store']);
 
+
+
+
+
+
+
+
+
+
+
+//tesztelés
+
+Route::get('/felhasznalo_teszt/{join}/{}', [SearchController::class, 'aktiv_felhasznalok']);
+
+

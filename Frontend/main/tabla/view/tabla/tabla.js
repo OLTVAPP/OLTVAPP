@@ -2,6 +2,7 @@ import Fejlec from "./fejLec.js";
 import Tartalom from "./tartalom.js";
 
 class Tabla {
+  #fejelc_obj = [];
   #adatok;
   #fejlec;
   #tablaElem;
@@ -12,19 +13,24 @@ class Tabla {
     this.#fejlec = fejlec;
     this.fejLecKiiro();
     this.tartalomKiiro();
+   for (let index = 0; index < this.#fejelc_obj.length; index++) {
+     this.#fejelc_obj[index].kattintas(this.#adatok);
+    } 
   }
 
   fejLecKiiro() {
     this.#tablaElem.append("<thead></thead>");
     const fej = this.#tablaElem.children("thead:last-child");
-    fej.append("<tr>");
+    let txt = "<tr>"
+    let hanyadik = 0;
     for (const key in this.#fejlec) {
       console.log(key);
-      const fejlec = new Fejlec(this.#fejlec[key], key);
-      fej.append(fejlec.getTartalom());
-      this.#tablaJelolok.push(fejlec.getCimke());
+      this.#fejelc_obj[hanyadik] = new Fejlec(this.#fejlec[key], key);
+      txt += this.#fejelc_obj[hanyadik].getTartalom();
+      this.#tablaJelolok.push(this.#fejelc_obj[hanyadik].getCimke());
+      hanyadik = hanyadik + 1;
     }
-    fej.append("</tr>");
+    fej.append(txt);
   }
 
 
@@ -33,7 +39,7 @@ class Tabla {
     this.#tablaElem.append("<tbody></tbody>");
     const test = this.#tablaElem.children("tbody:last-child");
     for (let index = 0; index < this.#adatok.length; index++) {
-        test.append('<tr>');
+        let txt = "<tr>"
         console.log(this.#adatok[index])
         let hanyadik = 0
         for (const key in this.#adatok[index]) {
@@ -41,16 +47,12 @@ class Tabla {
           console.log(this.#adatok[index].aktiv)
             if(key == this.#tablaJelolok[hanyadik]){
               const tartalom = new Tartalom(this.#adatok[index], key, this.#tablaJelolok, hanyadik);
-              test.append(tartalom.getTartalom());
+              txt += tartalom.getTartalom();
               hanyadik ++;
             }
-            
         }
-        test.append('</tr>');
-        
+        test.append(txt); 
     }
-
-
   }
 }
 export default Tabla;

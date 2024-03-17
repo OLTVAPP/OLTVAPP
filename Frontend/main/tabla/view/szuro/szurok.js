@@ -5,15 +5,14 @@ import Button from "./inputok/button.js";
 
 class Szurok {
   #adatok;
-  #divElem;
   #inputok;
   #szuroAdatErteke;
   #objektumok = [];
   constructor(adatok, szuloElem) {
     this.#adatok = adatok;
-    this.#divElem = szuloElem;
-    this.#divElem.append('<div class="input"></div>')
-    const inputElem = this.#divElem.children('div:last-child')
+    const divElem = szuloElem;
+    divElem.append('<div class="input"></div>')
+    const inputElem = divElem.children('div:last-child')
     this.#init(inputElem);
     console.log(this.#objektumok)
     this.#kereses(inputElem);
@@ -26,10 +25,11 @@ class Szurok {
            this.#objektumok.push(new TextInput(this.#adatok[index].key, this.#adatok[index], inputElem));
           break;
           case "button":
-             new Button(this.#adatok[index].key, this.#adatok[index].value, inputElem);
+             const button = new Button(this.#adatok[index].key, this.#adatok[index].value, inputElem);
+             this.#objektumok.push(button);
           break;
         case "select":
-          const select = new Select(this.#adatok[index].key, this.#divElem);
+          const select = new Select(this.#adatok[index].key, inputElem);
           select.setValue("");
           const selectElem = select.getSelectElem();
           console.log(selectElem)

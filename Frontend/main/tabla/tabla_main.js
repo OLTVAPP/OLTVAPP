@@ -7,69 +7,61 @@ import {
   fejlec_szulo_felhasznalo,
 } from "./modell/fejlecLeiro.js";
 $(function () {
-  const tabla = new Tabla_main();
-  tabla.alapTablak($("table").attr("id"));
+  const tabla = new Tabla_main($("table").attr("id"));
+  tabla.tabla_futtato();
 });
 class Tabla_main {
-  alapTablak(tabla) {
-    let tablaAdatUrl;
-    let fejlec;
+  #fejLecek;
+  #tablaAdatUrl;
+  constructor(tabla) {
+    // Itt választja ki a table elem id-ja alapján, hogy milyen url és fejléc adatokat kapjon a két privát érték.
     switch (tabla) {
       case "admin_felhaszhnalok":
-        tablaAdatUrl = "http://localhost:8000/api/felhasznalo_admin";
-        fejlec = fejlec_admin_felhasznalo;
+        this.#tablaAdatUrl = "http://localhost:8000/api/felhasznalo_admin";
+        this.#fejLecek = fejlec_admin_felhasznalo;
         break;
       case "orvos_felhasznalok":
-        tablaAdatUrl = "http://localhost:8000/api/felhasznalo_orvos";
-        fejlec = fejlec_orvos_felhasznalo;
+        this.#tablaAdatUrl = "http://localhost:8000/api/felhasznalo_orvos";
+        this.#fejLecek = fejlec_orvos_felhasznalo;
         break;
-      case "szulo_felhasznalok":
-        tablaAdatUrl = "http://localhost:8000/api/felhasznalok";
-        fejlec = fejlec_felhasznalo;
+      case "osszes_felhasznalo":
+        this.#tablaAdatUrl = "http://localhost:8000/api/felhasznalok_search";
+        this.#fejLecek = fejlec_felhasznalo;
         break;
       default:
         break;
     }
-    const tabla_controller = new Tabla_controller(fejlec);
-    console.log(tablaAdatUrl);
-    tabla_controller.urlBelovaso(tablaAdatUrl, fejlec);
   }
 
-  keresoTabla(tabla, adatok) {
-    let tablaAdatUrl;
-    let fejlec;
-    switch (tabla) {
-      case "szulo_felhasznalok":
-        tablaAdatUrl = `http://localhost:8000/api/felhasznalok_search`;
-        fejlec = fejlec_felhasznalo;
-        break;
-    }
-    let queryString = this.#szuroErtekAtadas(fejlec, adatok);
-    tablaAdatUrl = tablaAdatUrl + "?" + queryString;
-    console.log(tablaAdatUrl);
-    const data = new DataService();
-    const tabla_controller = new Tabla_controller(fejlec);
-    tabla_controller.urlBeolvasoErtek(tablaAdatUrl, fejlec);
+  tabla_futtato() {
+   new Tabla_controller(this.#tablaAdatUrl, this.#fejLecek);
   }
 
- 
+  keresoTabla(adatok) {
+    // Itt kötöm össze az url-t az ertekekkel, amikre szürni szeretne a program
+    let queryString = this.#szuroErtekAtadas(adatok);
+    this.#tablaAdatUrl = this.#tablaAdatUrl + queryString;
+    this.tabla_futtato();
+  }
 
-  #szuroErtekAtadas(kulcsok, adatok) {
-    let kiiras = "";
+  #szuroErtekAtadas(adatok) {
+    // Itt adja meg az url-nek a szüréshez szükséges kiirást
+    let kiiras = "?";
     let hanyadik = 0;
-    for (const key in kulcsok) {
+    for (const key in this.#fejLecek) {
       if (adatok[hanyadik] == "") {
         kiiras = kiiras + key;
       } else {
         kiiras = kiiras + key + "=" + adatok[hanyadik];
       }
-      if (hanyadik < adatok.length-1){
-      kiiras = kiiras + "&";
+      if (hanyadik < adatok.length - 1) {
+        kiiras = kiiras + "&";
       }
       hanyadik = hanyadik + 1;
     }
     return kiiras;
   }
 
+  
 }
 export default Tabla_main;

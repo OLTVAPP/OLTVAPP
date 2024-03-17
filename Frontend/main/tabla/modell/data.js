@@ -3,7 +3,7 @@ class DataService {
     console.log("hello");
   }
 
-  getDataTabla(vegpont, fejlec, callback, hibaCallback) {
+  getDataTabla(vegpont, fejlec, callback) {
     axios
       .get(vegpont)
       .then(function (response) {
@@ -16,7 +16,6 @@ class DataService {
       })
       .catch(function (error) {
         console.log(error);
-        hibaCallback(error);
       })
       .finally(function () {
         // always executed

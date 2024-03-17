@@ -3,7 +3,7 @@ import Szurok from "../view/szuro/szurok.js";
 
 class Szuro_controller {
   #szurok;
-  #divElem
+  #divElem;
 
   constructor(adatok, divElem) {
     this.#divElem = divElem;
@@ -13,30 +13,21 @@ class Szuro_controller {
 
   #keresoEsemeny() {
     $(window).on("kereses", (event) => {
-       const obj =  this.#szurok.getObjektumok();
-       const keresettErtekek = [];
-       let ures = 0
-       for (let index = 0; index < obj.length; index++) {
-        keresettErtekek.push(obj[index].getValue());  
-        if (keresettErtekek[index] == ""){
+      const obj = this.#szurok.getObjektumok();
+      const keresettErtekek = [];
+      let ures = 0;
+      for (let index = 0; index < obj.length; index++) {
+        keresettErtekek.push(obj[index].getValue());
+        if (keresettErtekek[index] == "") {
           keresettErtekek[index] = "";
           ures = ures + 1;
         }
-       }
-       const tabla = new Tabla_main();
-       const tablaElem = $("table");
-       console.log(keresettErtekek);
-     //  if(keresettErtekek.length == ures){
-      //  return
-     //  } else{
-        tablaElem.empty();
-        tabla.keresoTabla(tablaElem.attr("id"), keresettErtekek);
-      // }
-       
-
-      
-
-
+      }
+      const tablaElem = $("table");
+      tablaElem.empty();
+      const tabla = new Tabla_main(tablaElem.attr("id"));
+      console.log(keresettErtekek);
+      tabla.keresoTabla(keresettErtekek);
     });
   }
 }

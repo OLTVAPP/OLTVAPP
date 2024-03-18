@@ -16,7 +16,6 @@ class OrvosController extends Controller
     public function orvosShow()
     {
         $orvosok = Orvos::all();
-        return view('orvos.index', compact('orvosok'));
+        return response()->json($orvosok);
     }
-
 }

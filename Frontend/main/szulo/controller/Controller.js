@@ -1,25 +1,33 @@
 import Kozpont from "../view/Kozpont.js";
 import adatbazisModell from "../modell/adatbazisModell.js";
 import DataService from "../modell/DataService.js";
+import Gombok from "../view/Gombok.js";
 
 class Controller {
     constructor() {
         this.dataService = new DataService();
         this.adatbazisModell = new adatbazisModell();
         this.kozpont = new Kozpont($("#article"), $("#tablak"));
-        this.megjelenitAdatok('gyerek'); // Példa: Elsőnek a gyerekek adatait jelenítsük meg
+        this.gombok = new Gombok(this.adatbazisModell.getGleiro(), $(".tablaNevek"));
+        this.megjelenitAdatok();
     }
 
-    megjelenitAdatok(adatTipus) {
-        if (adatTipus === 'gyerek') {
-            this.getGyerekAdatok();
-        } else if (adatTipus === 'orvos') {
-            this.getOrvosAdatok();
-        } else if (adatTipus === 'oltas') {
-            this.getOltasAdatok();
-        } else {
-            console.log('Ismeretlen adat típus');
+    megjelenitAdatok() {
+        switch (this.adatbazisModell.getGleiro()) {
+            case 'Gyerek':
+                this.getGyerekAdatok();
+                break;
+            case 'Orvos':
+                this.getOrvosAdatok();
+                break;
+            case 'Oltás':
+                this.getOltasAdatok();
+                break;
+            default:
+                console.log('Ismeretlen adat típus');
+                break;
         }
+
     }
 
     getGyerekAdatok() {

@@ -13,9 +13,10 @@ class OrvosController extends Controller
         return view('orvos.index', ['orvosok' => $orvosok]);
     }
 
-    public function orvosShow($id)
+    public function orvosShow()
     {
-        $orvos = Orvos::find($id);
-        return view('orvos.show', ['orvos' => $orvos]);
+        $orvosok = Orvos::all();
+        return view('orvos.index', compact('orvosok'));
     }
+
 }

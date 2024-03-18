@@ -1,4 +1,5 @@
-import { urlapLeiro } from "./urlapLeiro.js"
+import { urlapLeiro } from "./adatLeiro.js";
+
 
 class UrlapModell {
 

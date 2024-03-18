@@ -12,14 +12,15 @@ class Gyerek extends Model
     protected $primaryKey = 'gyerek_taj';
 
     protected $fillable = [
-        'orvos_id',
         'vez_nev',
         'ker_nev',
+        'szul_datum',
+        'szul_hely',
+        'orvos_id',
+        'szulo_id',
         'lakcim_varos',
         'lakcim_irSzam',
         'lakcim_utca',
-        'erzekenyseg',
-        'szul_datum',
-        'szul_hely'
+        'erzekenyseg'
     ];
 }

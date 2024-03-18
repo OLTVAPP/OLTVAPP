@@ -14,16 +14,23 @@ return new class extends Migration
     {
         Schema::create('orvos', function (Blueprint $table) {
             $table->id('felhasznalo_id');
-            $table->foreign('felhasznalo_id')->references('felhasznalo_id')->on('felhasznalos');
-            $table->string('vez_nev');
-            $table->string('ker_nev');
-            $table->foreignId('rendelo_id')->references('rendelo_id')->on('rendelos');
-            $table->integer('tel_szam');
-            $table->string('publikus_email');
+            $table->foreign('felhasznalo_id')->references('id')->on('felhasznalos');
+            $table->string('vez_nev', 50);
+            $table->string('ker_nev', 50);
+            $table->string('tel_szam', 30);
+            $table->string('publikus_email', 254);
+            $table->integer('rendelo_ajto_szam');
             $table->timestamps();
         });
 
-        
+        Orvos::create([
+            'felhasznalo_id' => 1,
+            'vez_nev' => 'Kovács',
+            'ker_nev' => 'Anna',
+            'tel_szam' => '123456789',
+            'publikus_email' => 'kovacs.anna@example.com',
+            'rendelo_ajto_szam' => 101,
+        ]);        
 
         
 

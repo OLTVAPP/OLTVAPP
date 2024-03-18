@@ -16,6 +16,7 @@ class Tabla {
    for (let index = 0; index < this.#fejelc_obj.length; index++) {
      this.#fejelc_obj[index].kattintas(this.#adatok);
     } 
+    this.tartalomKiiroCsere();
   }
 
   fejLecKiiro() {
@@ -53,6 +54,33 @@ class Tabla {
         }
         test.append(txt); 
     }
+  }
+
+
+  tartalomKiiroCsere(){
+    $(window).on("tabla_sorrend_valtas", (event) => {
+      const tartalom = $('tbody');
+      console.log(tartalom);
+      console.log(event.detail)
+      tartalom.empty()
+      for (let index = 0; index < event.detail.length; index++) {
+        let txt = "<tr>"
+        let hanyadik = 0
+        for (const key in event.detail[index]) {
+          console.log(key);
+          console.log(this.#adatok[index].aktiv)
+            if(key == this.#tablaJelolok[hanyadik]){
+              const tartalom = new Tartalom(event.detail[index], key, this.#tablaJelolok, hanyadik);
+              txt += tartalom.getTartalom();
+              hanyadik ++;
+            }
+        }
+        tartalom.append(txt); 
+    }
+
+    });
+    
+
   }
 }
 export default Tabla;

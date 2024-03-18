@@ -3,8 +3,10 @@ class Fejlec {
   #tartalom;
   #fejlec_cim;
   #inputElem;
+  #sorend
 
   constructor(feljlec_cim, cimke) {
+    this.#sorend = true
     this.#fejlec_cim = feljlec_cim;
     this.#cimke = cimke;
     this.#setInputElem($(`#sort_${this.#cimke}`));
@@ -19,21 +21,23 @@ class Fejlec {
 
   kattintas(adatok) {
     $(`#sort_${this.#cimke}`).on("click", () => {
-      const tomb = [];
-      for (let index = 0; index < adatok.length; index++) {
-        tomb.push(adatok[index][this.#cimke]);
+     console.log(this.#sorend)
+      if(this.#sorend == true){
+        adatok = this.novekvoSorrend(adatok);
+        this.#sorend = false
+      } else{
+       adatok = this.csokkenoSorrend(adatok);
+       this.#sorend = true
       }
-      this.sorrend(adatok);
-      this.csokkenoSorrend(adatok);
+      this.#esemenyTrigger(adatok);
     });
   }
 
-  sorrend(adatok) {
-    var adat = [
-      { nev: 'John', kor: 30, varos: 'New York' },
-      { nev: 'Alice', kor: 25, varos: 'Los Angeles' },
-      { nev: 'Bob', kor: 35, varos: 'Chicago' }
-  ];
+  novekvoSorrend(adatok) {
+    adatok.sort(rendezoFuggvenyNovekvo(this.#cimke));
+    return adatok
+
+
     function rendezoFuggvenyNovekvo(nev1) {
       return function (elsoElem, masodikElem) {
         if (elsoElem[nev1] !== masodikElem[nev1]) {
@@ -41,25 +45,22 @@ class Fejlec {
         }
       };
     }
-    console.log(this.#cimke);
-    console.log(adatok[0][this.#cimke])
-    adatok.sort(rendezoFuggvenyNovekvo("felhasznalo_nev"));
-    adat.sort(rendezoFuggvenyNovekvo("nev"));
-    console.log(adatok);
-    console.log(adat);
+
   }
 
   csokkenoSorrend(adatok) {
-    function rendezoFuggvenyCsokeno(nev1) {
+    adatok.sort(rendezoFuggvenyCsokkeno(this.#cimke));
+    return adatok
+
+
+
+    function rendezoFuggvenyCsokkeno(nev1) {
       return function (elsoElem, masodikElem) {
         if (masodikElem[nev1] !== elsoElem[nev1]) {
           return masodikElem[nev1].localeCompare(elsoElem[nev1]);
         }
       };
     }
-    console.log(this.#cimke);
-    adatok.sort(rendezoFuggvenyCsokeno("felhasznalo_nev"));
-    console.log(adatok);
   }
 
   getTartalom() {
@@ -72,6 +73,12 @@ class Fejlec {
 
   #setInputElem(button_id) {
     this.#inputElem = button_id;
+  }
+
+
+
+  #esemenyTrigger(adatok){
+    window.dispatchEvent(new CustomEvent("tabla_sorrend_valtas", { detail: adatok}));
   }
 }
 

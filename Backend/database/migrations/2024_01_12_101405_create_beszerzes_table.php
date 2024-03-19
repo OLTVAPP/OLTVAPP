@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Beszerzes;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,9 +19,44 @@ return new class extends Migration
             $table->integer('darab');
             $table->date('beszerzes_datuma');
             $table->date('lejarati_datuma');
-            $table->date('megsemessites_datuma');
+            $table->date('megsemmesites_datuma')->nullable();
             $table->timestamps();
         });
+
+        Beszerzes::create([
+            'oltas_id' => 1,
+            'orvos_id' => 2,
+            'darab' => 5,
+            'beszerzes_datuma' => "2023-12-10",
+            'lejarati_datuma' => "2024-12-10"
+        ]);
+
+        Beszerzes::create([
+            'oltas_id' => 1,
+            'orvos_id' => 3,
+            'darab' => 10,
+            'beszerzes_datuma' => "2023-12-10",
+            'lejarati_datuma' => "2024-12-10",
+            'megsemmesites_datuma' => "2024-12-11"
+        ]);
+
+        Beszerzes::create([
+            'oltas_id' => 2,
+            'orvos_id' => 2,
+            'darab' => 20,
+            'beszerzes_datuma' => "2023-12-10",
+            'lejarati_datuma' => "2024-12-10"
+        ]);
+
+        Beszerzes::create([
+            'oltas_id' => 1,
+            'orvos_id' => 2,
+            'darab' => 10,
+            'beszerzes_datuma' => "2023-12-10",
+            'lejarati_datuma' => "2024-12-10",
+            'megsemmesites_datuma' => "2024-12-11"
+        ]);
+        
     }
 
     /**

@@ -22,25 +22,33 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        
-        
+
+
         Felhasznalo::create([
             'felhasznalo_nev' => "balazsmogyorodi",
             'jelszo' => "123ab",
             'felhasznalo_email' => "bal@gmail.com",
             'szerepkor' => "S",
-            'aktiv' => true   
-        ]);   
+            'aktiv' => true
+        ]);
         Felhasznalo::create([
             'felhasznalo_nev' => "kovacsBela",
-            'jelszo' => "123ab",
+            'jelszo' => "Gerle0104",
             'felhasznalo_email' => "kov@gmail.com",
             'szerepkor' => "O",
-            'aktiv' => true   
-        ]);   
+            'aktiv' => true
+        ]);
+
+        Felhasznalo::create([
+            'felhasznalo_nev' => "JoskaSanyi",
+            'jelszo' => "Gerle0104",
+            'felhasznalo_email' => "kodsfv@gmail.com",
+            'szerepkor' => "O",
+            'aktiv' => true
+        ]);
     }
 
-  
+
 
 
 

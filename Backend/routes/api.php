@@ -7,6 +7,7 @@ use App\Http\Controllers\FelhasznaloController;
 use App\Http\Controllers\OltasController;
 use App\Http\Controllers\RendeloController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\OrvosController;
 use App\Http\Controllers\SzuloController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,7 @@ Route::middleware(['auth:basic'])->group(function () {
 
 Route::get('/id/{id}', [SzuloController::class, 'atmasol']);
 
+Route::get('/bejelentkezes/{felhasznalo_nev}/{jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
 Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
 
 Route::get('/bejelentkezes/{felhasnalo_nev}/{jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
@@ -92,3 +94,17 @@ Route::post('/szulo', [SzuloController::class, 'store']);
 Route::get('/felhasznalo_teszt/{join}/{}', [SearchController::class, 'aktiv_felhasznalok']);
 
 
+Route::get('/keszlet/{orvos_id}', [OrvosController::class, 'keszlet']);
+Route::get('/megsemmisitett_keszlet/{orvos_id}', [OrvosController::class, 'megsemmisitettKeszlet']);
+Route::get('/betegek/{orvos_id}', [OrvosController::class, 'betegek']);
+Route::get('/beteg/{gyerek_taj}', [OrvosController::class, 'beteg']);
+Route::get('/oltas_nev', [OrvosController::class, 'oltasNev']);
+
+
+Route::put('/beteg_modosit/{gyerek_taj}/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'betegModosit']);
+Route::patch('/keszlet_megsemmisitese/{beszerzes_id}', [OrvosController::class, 'keszletMegsemmisitese']);
+Route::patch('/keszlet_levon/{beszerzes_id}/{orvos_id}', [OrvosController::class, 'keszletLevon']);
+
+Route::post('/uj_beteg/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'ujBeteg']);
+Route::post('/uj_keszlet/{orvos_id}/{oltas_id}', [OrvosController::class, 'ujKeszlet']);
+Route::post('/uj_beadas/{orvos_id}', [OrvosController::class, 'ujBeadas']);

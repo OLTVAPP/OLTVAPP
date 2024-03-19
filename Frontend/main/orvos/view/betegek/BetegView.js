@@ -1,66 +1,73 @@
 import BetegViewSor from "./BetegViewSor.js";
-
+import Modosit from "./Modosit.js";
 class BetegView {
-  #szuloElem;
-  #leiro = [];
-  #list = [];
-  #index
 
+    #szuloElem;
+    #list = [];
+    #tablaElem = [];
+    #leiro = [];
+    #index = 0;
+    #cim = [];
+    #szulo_email;
 
-  constructor(list, szuloElem, leiro, index) {
-    this.#index = index;
-    this.#list = list;
-    this.#leiro = leiro;
-    this.#szuloElem = szuloElem;
-    this.#tablazatbaIr();
-  }
+    constructor(szuloElem, list, leiro) {
+        this.#leiro = leiro;
+        this.#list = list;
+        this.#cim = ["Részletes adatok", "Szülő adatok", "Vakcina adatok"]
 
-  #tablazatbaIr() {
-    let index = 1;
-    for (let key in this.#list.gyerekek) {
-      const gyerek = this.#list.gyerekek[`gyerek${index}`];
-      const div = $(`<div id=gyerek${index} class="gyerekek">`).html(`<h2>${gyerek.vez_nev} ${gyerek.ker_nev} ${gyerek.szul_datum}</h2>`);
-      const h2 = div.children("h2");
-      this.#szuloElem.append(div);
-      div.append("<table>")
-      const table = div.children("table");
-      div.append("<div class=gombok>")
-      const gombok = div.children("div");
-
-      let boolean = true;
-      h2.on("click", () => {
-        if (boolean) {
-          let txt = "";
-          txt += "<tr>";
-          for (let key in gyerek)
-            txt += `<th>${key}</th>`;
-          txt += "</tr>";
-          table.append(txt);
-          new BetegViewSor(this.#list.gyerekek[key], table, index)
-          txt = "";
-          txt += `<button>Oltási információk</button>`;
-          txt += `<button>Szülő adatai</button>`;
-          txt += `<button>Adatok szerkesztése</button>`;
-          txt += "</div>";
-          gombok.append(txt);
-          boolean = false;
-        }
-        else {
-          table.empty();
-          gombok.empty();
-          boolean = true;
+        this.#szuloElem = szuloElem;
+        for (let i = 0; i < this.#list.length; i++) {
+            this.#szuloElem.append(`<h3>${this.#cim[i]}</h3>`);
+            this.#szuloElem.append(`<table class="table table-hover" id=table${i}>`);
+            this.#tablaElem.push(szuloElem.children(`#table${i}`));
         }
 
-      })
+        const adat = this.#list[0];
+        const szulo = this.#list[1];
+        const vakcina = this.#list[2];
+        this.#szulo_email = szulo[0].felhasznalo_email
 
-      index++
+        this.#sor(this.#leiro.adatok);
+        this.#tablazatbaIr(adat);
+        this.#sor(this.#leiro.szulo_adatok);
+        this.#tablazatbaIr(szulo);
+        this.#sor(this.#leiro.vakcina_adatok);
+        this.#tablazatbaIr(vakcina);
+        this.#szuloElem.append("<button class='btn btn-primary' id='vissza' type='button'>Vissza</button>")
+        const gombElem = this.#szuloElem.children("#vissza");
+        gombElem.on("click", () => {
+            this.#esemenyTrigger("vissza")
+        });
     }
-  }
 
+    #sor(leiro) {
+        let txt = "<thead>";
 
+        txt += "<tr>";
+        for (const key in leiro) {
+            txt += `<th>${leiro[key].megjelenes}</th>`;
+        }
+        if (this.#index === 0) {
+            txt += `<th>Módosít</th>`;
+        }
+        txt += "</tr>";
+        txt += "</thead>";
+        this.#tablaElem[this.#index].append(txt);
+    }
 
+    #tablazatbaIr(adat) {
+        
+        for (const key in adat) {
+            console.log(this.#szulo_email)
+            new BetegViewSor(adat[key], this.#tablaElem[this.#index], this.#index, this.#szuloElem, this.#leiro.adatok, this.#szulo_email);
+        }
+        this.#index++;
+    }
 
-
+    #esemenyTrigger(esemenyNev) {
+        const e = new CustomEvent(esemenyNev);
+        window.dispatchEvent(e);
+    }
 }
 
 export default BetegView;

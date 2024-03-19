@@ -1,93 +1,232 @@
-export const urlapLeiro = {
-  szulo: {
-    felhasznalo_nev: {
-      megjelenes: "Felhasználói név:",
-      tipus: "text",
-      value: "",
-      regex: /^.{5,15}$/,
-      validalas: "Minimum 5 és maximum 15 karakter lehet!",
-      maxLength: 15
-    },
-    felhasznalo_email: {
-      megjelenes: "Email cím:",
-      tipus: "email",
-      value: "",
-      regex: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      validalas: "Nem megfelelő email cim",
-      maxLength: 40
-    },
+export const gyerekLeiro = {
+  gyerek_taj: {
+    megjelenes: "Tajszám",
+    tipus: "number",
+    value: "",
+    regex: "",
+    validalas: "",
   },
-  gyerek: {
-    szemelyes_adatok: {
-      gyerek_taj: {
-        megjelenes: "Tajszám:",
-        tipus: "number",
-        value: "",
-        regex: /^\d{9}$/,
-        validalas: "9 számot kell tartalmaznia!",
-      },
-      vez_nev: {
-        megjelenes: "Vezeték név:",
-        tipus: "text",
-        value: "",
-        regex: /^[A-Z].{1,14}$/,
-        validalas: "Nagy betűvel kezdődjön!",
-        maxLength: 20
-      },
-      ker_nev: {
-        megjelenes: "Kereszt név:",
-        tipus: "text",
-        value: "",
-        regex: /^[A-Z].{1,14}$/,
-        validalas: "Nagy betűvel kezdődjön!",
-        maxLength: 20
-      },
-      szul_datum: {
-        megjelenes: "Születési dátum:",
-        tipus: "date",
-        value: "",
-        regex: "",
-        validalas: "",
-        maxLength: 20
-      },
-      szul_hely: {
-        megjelenes: "Születési hely:",
-        tipus: "text",
-        value: "",
-        regex: /^[A-Z].{2,19}$/,
-        validalas: "Minimum 3 és maximum 20 karakter lehet!",
-        maxLength: 20
-      },
-    },
-    lakcim: {
-      lakcim_varos: {
-        megjelenes: "Város:",
-        tipus: "text",
-        value: "",
-        regex: /^[A-Z].{2,19}$/,
-        validalas: "Minimum 3 és maximum 20 karakter lehet!",
-        maxLength: 20
-      },
-      lakcim_irSzam: {
-        megjelenes: "Irányítószám:",
-        tipus: "number",
-        value: "",
-        regex: /^\d{4}$/,
-        validalas: "4 számot kell tartalmaznia!",
-      },
-      lakcim_utca: {
-        megjelenes: "Utca",
-        tipus: "text",
-        value: "",
-        regex: /^[A-Z].{2,19}$/,
-        validalas: "Minimum 3 és maximum 20 karakter lehet!",
-        maxLength: 20
-      },
-    },
+  vez_nev: {
+    megjelenes: "Vezeték név",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  ker_nev: {
+    megjelenes: "Kereszt név",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  szul_datum: {
+    megjelenes: "Születési dátum",
+    tipus: "date",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  szul_hely: {
+    megjelenes: "Születési hely",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  lakcim_varos: {
+    megjelenes: "Lakhely",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  lakcim_irSzam: {
+    megjelenes: "Irányitószám",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  lakcim_utca: {
+    megjelenes: "Utca",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
   },
 };
 
-export const gyerekLeiro = {
-  
+export const reszletesAdatok = {
+  adatok: {
+    gyerek_taj: {
+      megjelenes: "Tajszám",
+      tipus: "number",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    vez_nev: {
+      megjelenes: "Vezeték név",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    ker_nev: {
+      megjelenes: "Kereszt név",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    szul_datum: {
+      megjelenes: "Születési dátum",
+      tipus: "date",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    szul_hely: {
+      megjelenes: "Születési hely",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    lakcim_varos: {
+      megjelenes: "Lakhely",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    lakcim_irSzam: {
+      megjelenes: "Irányitószám",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    lakcim_utca: {
+      megjelenes: "Utca",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    erzekenyseg: {
+      megjelenes: "Érzékenység",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+  },
+  szulo_adatok: {
+    vez_nev: {
+      megjelenes: "Vezeték név",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    ker_nev: {
+      megjelenes: "Kereszt név",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    lakcim_varos: {
+      megjelenes: "Lakhely",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    lakcim_irSzam: {
+      megjelenes: "Irányitószám",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    lakcim_utca: {
+      megjelenes: "Utca",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    felhasznalo_nev: {
+      megjelenes: "Felhasználó név",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    felhasznalo_email: {
+      megjelenes: "Felhasználó email",
+      tipus: "email",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+  },
+  vakcina_adatok: {
+    oltas_tipus: {
+      megjelenes: "Oltási név",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    beadas_datum: {
+      megjelenes: "Beadás dátuma",
+      tipus: "date",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+  }
+}
+
+export const keszletLeiro = {
+  tipus_elnev: {
+    megjelenes: "Oltás neve",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  darab: {
+    megjelenes: "Darab száma",
+    tipus: "number",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  beszerzes_datuma: {
+    megjelenes: "Beszerzés dátuma",
+    tipus: "date",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  lejarati_datuma: {
+    megjelenes: "Lejárati dátuma",
+    tipus: "date",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  megsemmisitett_datum: {
+    megjelenes: "Megsemmisités dátuma",
+    tipus: "date",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
 }
 

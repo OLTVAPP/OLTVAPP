@@ -41,6 +41,31 @@ class SearchController extends Controller
   }
 
 
+
+
+  public function admin_felhasznalo($id){
+    return DB::table('felhasznalos as f')->join('admins','admins.felhasznalo_id', '=', 'f.id')->selectRaw('*')
+    ->where('f.id', '=', $id)
+    ->get();
+    
+  }
+
+  public function kivalasztott_felhasznalo($id){
+    $felhasznalo = DB::table('felhasznalos as f')->select('f.szerepkor')->where('f.id', '=', $id)->get();
+    foreach ($felhasznalo as $keresett) {
+    if($keresett->szerepkor == 'A'){
+      return response()->json(SearchController::admin_felhasznalo($id));
+    }
+    elseif($keresett->szerepkor == 'O'){
+      return "O";
+    }
+    elseif($keresett->szerepkor == 'S'){
+      return "S";
+    } 
+  }
+  }
+
+
   public function aktiv_felhasznalok($join, $adatok, $szoveg, $aktiv)
   {
     $felhasznalo_nev = $adatok->felhasznalo_nev;

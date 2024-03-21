@@ -10,13 +10,19 @@ class Fejlec {
     this.#fejlec_cim = feljlec_cim;
     this.#cimke = cimke;
     this.#setInputElem($(`#sort_${this.#cimke}`));
-    this.#cimkeFelepito();
   }
 
-  #cimkeFelepito() {
+  cimkeFelepito() {
     this.#tartalom = `<th> <button id="sort_${this.#cimke}"> ↕ </button> ${
       this.#fejlec_cim
     }</th>`;
+  }
+
+
+  modositFelepito(){
+    this.#tartalom = `<th> Módosítás 
+    </th>`;
+
   }
 
   kattintas(adatok) {

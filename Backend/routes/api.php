@@ -49,6 +49,9 @@ Route::get('/felhasznalo_id', [FelhasznaloController::class, 'felhasznalo_id']);
 Route::get('/felhasznalok_search', [SearchController::class, 'osszes_felhasznalo']);
 Route::get('/felhasznalo_nev_search', [SearchController::class, 'felhasznalo_nev_szuro']);
 Route::get('/search', [SearchController::class, 'search']);
+Route::get('/felhasznalo_szerep/{id}', [SearchController::class, 'kivalasztott_felhasznalo']);
+
+
 
 //felhasznalok
 Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);

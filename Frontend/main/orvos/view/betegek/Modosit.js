@@ -1,26 +1,15 @@
 class Modosit {
-    #adat = [];
-    #szuloElem;
-    #leiro;
-    #mentesGomb
-    #ujAdat = {};
-    #felhasznalo_email
-    #gyerek_taj
-    constructor(szuloElem, adat, leiro, felhasznalo_email) {
-        console.log(adat)
-        for (const key in adat) {
-            if (adat.gyerek_taj != null) {
-                this.#gyerek_taj = adat.gyerek_taj
-            }
-            this.#adat.push(adat[key])
-        }
-        this.#szuloElem = szuloElem;
-        this.#leiro = leiro;
-        this.#felhasznalo_email = felhasznalo_email
-        this.#sor();
-        this.#kattintas();
+   #id;
+   #tabla
+    constructor(id, tabla) {
+        this.#id = id;
+        this.#tabla = tabla
+       
+       
+      //  this.#sor();
+      //  this.#kattintas();
     }
-
+/*
     #sor() {
         let i = 0;
         let txt = '<span class="close">&times;</span>';
@@ -59,7 +48,8 @@ class Modosit {
         console.log(this.#ujAdat)
         const E = new CustomEvent(esemenyNev, { detail: [this.#ujAdat, this.#felhasznalo_email, this.#gyerek_taj] });
         window.dispatchEvent(E);
-    }
+    } 
+    */
 }
 
 export default Modosit;

@@ -21,6 +21,24 @@ class DataService {
         // always executed
       });
   }
+  getDataModosit(vegpont, callback) {
+    axios
+      .get(vegpont)
+      .then(function (response) {
+        console.log("response", response);
+        console.log("data", response.data);
+        console.log("statusz", response.status);
+        console.log("statusz", response.request.status);
+        console.log("text", response.statusText);
+        callback(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+  }
 
   getDataKereso(vegpont, callback, selectElem, obj) {
     axios

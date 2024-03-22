@@ -17,13 +17,11 @@ class Tabla {
     this.#fejlec = fejlec;
     this.fejLecKiiro();
     this.tartalomKiiro();
+    for (let index = 0; index < this.#fejelc_obj.length; index++) {
+      this.#fejelc_obj[index].kattintas(this.#adatok);
+     } 
     this.tartalomKiiroCsere();
-   for (let index = 0; index < this.#fejelc_obj.length; index++) {
-     this.#fejelc_obj[index].kattintas(this.#adatok);
-    } 
-    for (let index = 0; index < this.#modositGomb.length; index++) {
-      this.#modositGomb[index].modositasParancs()
-    }
+   
   }
 
   fejLecKiiro() {
@@ -84,6 +82,7 @@ class Tabla {
         }
         test.append(txt); 
     }
+    this.#futtato();
   }
 
 
@@ -120,13 +119,26 @@ class Tabla {
             }
         }
         tartalom.append(txt); 
+      
     }
-
+    this.#futtato();
     });
     
 
   }
 
+
+
+  #futtato(){
+    
+     for (let index = 0; index < this.#modositGomb.length; index++) {
+       this.#modositGomb[index].modositasParancs()
+     }
+
+
+
+
+  }
 
 /*
 

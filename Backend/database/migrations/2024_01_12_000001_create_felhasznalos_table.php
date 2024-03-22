@@ -26,14 +26,14 @@ return new class extends Migration
         
         Felhasznalo::create([
             'felhasznalo_nev' => "balazsmogyorodi",
-            'jelszo' => "123ab",
+            'jelszo' => "123Abc",
             'felhasznalo_email' => "bal@gmail.com",
-            'szerepkor' => "S",
+            'szerepkor' => "A",
             'aktiv' => true   
         ]);   
         Felhasznalo::create([
             'felhasznalo_nev' => "kovacsBela",
-            'jelszo' => "123ab",
+            'jelszo' => "123Abc",
             'felhasznalo_email' => "kov@gmail.com",
             'szerepkor' => "O",
             'aktiv' => true   

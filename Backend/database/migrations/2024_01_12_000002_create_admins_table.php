@@ -20,6 +20,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Admin::create([
+            'felhasznalo_id' => 1,
+            'vez_nev' => "Mogyoródi",
+            'ker_nev' => "Balázs",
+        ]);   
+
     }
 
     /**

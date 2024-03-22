@@ -23,6 +23,15 @@ return new class extends Migration
             $table->timestamps();
         });
 
+
+        Orvos::create([
+            'felhasznalo_id' => 2,
+            'vez_nev' => 'Mogyoródi',
+            'ker_nev' => 'Balázs',
+            'tel_szam' => '+3453454',
+            'publikus_email' => 'kocvagydr@gmail.com',
+            'rendelo_ajto_szam' => 12
+        ]);   
         
 
         

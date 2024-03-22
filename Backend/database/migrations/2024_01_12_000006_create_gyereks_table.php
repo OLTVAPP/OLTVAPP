@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('lakcim_varos', 50);
             $table->integer('lakcim_irSzam');
             $table->string('lakcim_utca', 100);
-            $table->string('erzekenyseg');
+            $table->string('erzekenyseg', 400)->nullable();
             $table->timestamps();
         });
         Gyerek::create([

@@ -50,31 +50,27 @@ article {
 
 article {
   margin: auto;
-  text-align: center;
+  text-align: left;
+  
 }
 
 .input{
   margin: auto;
-  width: 20%;
   display: grid;
 }
 .adatok{
-  width: 50%;
+  text-align: left;
   margin: auto;
-  text-align: center;
-  padding: 10px;
+  text-align: left;
+
 }
 
 .gyerekAdat {
-  margin: 20px;
-  border: solid black 3px;
-  padding: 10px;
+  text-align: left;
 }
 
 .gyerekLakcim {
-  margin: 20px;
-  border: solid black 3px;
-  padding: 10px;
+  text-align: left;
 }
 
 

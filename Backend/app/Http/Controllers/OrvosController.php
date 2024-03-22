@@ -96,7 +96,7 @@ class OrvosController extends Controller
             ->join('oltas', 'beszerzes.oltas_id', '=', 'oltas.oltas_id')
             ->join('oltas_tipuses', 'oltas.tipus_id', '=', 'oltas_tipuses.tipus_id')
             ->whereNull('beszerzes.megsemmesites_datuma')
-            ->select(['beszerzes.beszerzes_id', 'oltas.oltoanyag_neve', 'oltas_tipuses.tipus_elnev', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma'])
+            ->select(['beszerzes.beszerzes_id', 'oltas_tipuses.tipus_elnev', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma',  'oltas.oltoanyag_neve'])
             ->get();
 
         return $keszlet;
@@ -108,7 +108,7 @@ class OrvosController extends Controller
             ->join('oltas', 'beszerzes.oltas_id', '=', 'oltas.oltas_id')
             ->join('oltas_tipuses', 'oltas.tipus_id', '=', 'oltas_tipuses.tipus_id')
             ->whereNotNull('beszerzes.megsemmesites_datuma')
-            ->select('oltas.oltoanyag_neve', 'oltas_tipuses.tipus_elnev', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma', 'beszerzes.megsemmesites_datuma')
+            ->select('oltas.oltoanyag_neve', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma', 'oltas_tipuses.tipus_elnev', 'beszerzes.megsemmesites_datuma')
             ->get();
 
         return $keszlet;

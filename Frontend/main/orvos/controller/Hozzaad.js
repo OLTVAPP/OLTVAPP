@@ -11,7 +11,7 @@ class Hozzaad {
     }
 
     #megjelenit(){
-        new UrlapView($("article"), this.#urlapModell.getLeiro());
+        new UrlapView($("article"), this.#urlapModell.getUjBeteg());
     }
 }
 

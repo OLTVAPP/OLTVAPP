@@ -1,30 +1,37 @@
-import { gyerekLeiro, reszletesAdatok, keszletLeiro } from "./adatLeiro.js";
+import {
+  gyerekLeiro,
+  reszletesAdatok,
+  keszletLeiro,
+  ujBeteg,
+} from "./adatLeiro.js";
 
 class UrlapModell {
   #gyerekLeiro;
-  #reszletesAdatok
-  #keszletLeiro
+  #reszletesAdatok;
+  #keszletLeiro;
+  #ujBeteg;
 
   constructor() {
     this.#gyerekLeiro = gyerekLeiro;
-    this.#reszletesAdatok = reszletesAdatok
+    this.#reszletesAdatok = reszletesAdatok;
     this.#keszletLeiro = keszletLeiro;
+    this.#ujBeteg = ujBeteg;
   }
 
   getLeiro() {
     return { ...this.#gyerekLeiro };
   }
 
-  getReszletesAdatok(){
+  getReszletesAdatok() {
     return { ...this.#reszletesAdatok };
   }
 
-  getKeszletLeiro(){
+  getKeszletLeiro() {
     return { ...this.#keszletLeiro };
   }
 
-
-
-
+  getUjBeteg() {
+    return { ...this.#ujBeteg };
+  }
 }
 export default UrlapModell;

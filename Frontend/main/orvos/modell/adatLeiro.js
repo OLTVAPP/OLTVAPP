@@ -117,7 +117,7 @@ export const reszletesAdatok = {
     },
     erzekenyseg: {
       megjelenes: "Érzékenység",
-      tipus: "text",
+      tipus: "",
       value: "",
       regex: "",
       validalas: "",
@@ -196,19 +196,12 @@ export const reszletesAdatok = {
       regex: "",
       validalas: "",
     },
-  }
-}
+  },
+};
 
 export const keszletLeiro = {
   tipus_elnev: {
     megjelenes: "Oltás neve",
-    tipus: "text",
-    value: "",
-    regex: "",
-    validalas: "",
-  },
-  oltoanyag_neve: {
-    megjelenes: "Oltoanyag neve",
     tipus: "text",
     value: "",
     regex: "",
@@ -235,6 +228,13 @@ export const keszletLeiro = {
     regex: "",
     validalas: "",
   },
+  oltoanyag_neve: {
+    megjelenes: "Oltoanyag neve",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
   megsemmisitett_datum: {
     megjelenes: "Megsemmisités dátuma",
     tipus: "date",
@@ -242,5 +242,88 @@ export const keszletLeiro = {
     regex: "",
     validalas: "",
   },
-}
+};
 
+export const ujBeteg = {
+  szulo_adatok: {
+    email: {
+      megjelenes: "E-mail cím",
+      tipus: "email",
+      value: "",
+      placeholder: "email cím",
+      regex: "[A-Z][a-z]{2,15}",
+      validalas: "Név nagybetűvel kezdődik, legalább 3 karakter!",
+    },
+  },
+  gyerek_adatok: {
+    szemelyes_adatok: {
+      gyerek_taj: {
+        megjelenes: "Gyerek tajszám",
+        tipus: "number",
+        value: "",
+        regex: /^\d{9}$/,
+        validalas: "9 számot kell tartalmaznia!",
+      },
+      vez_nev: {
+        megjelenes: "Vezeték név:",
+        tipus: "text",
+        value: "",
+        regex: /^[A-Z].{1,14}$/,
+        validalas: "Nagy betűvel kezdődjön!",
+        maxLength: 20,
+      },
+      ker_nev: {
+        megjelenes: "Kereszt név:",
+        tipus: "text",
+        value: "",
+        regex: /^[A-Z].{1,14}$/,
+        validalas: "Nagy betűvel kezdődjön!",
+        maxLength: 20,
+      },
+      szul_datum: {
+        megjelenes: "Beszerzés dátuma",
+        tipus: "date",
+        value: "",
+        regex: /^\d{4}-\d{2}-\d{2}$/,
+        validalas: "Nem lehet nagyobb mint a mai dátum!",
+      },
+      szul_hely: {
+        megjelenes: "Születési hely:",
+        tipus: "text",
+        value: "",
+        regex: /^[A-Z].{2,19}$/,
+        validalas: "Minimum 3 és maximum 20 karakter lehet!",
+        maxLength: 20,
+      },
+      erzekenyseg: {
+        megjelenes: "Érzékenység (Nem kötelező!):",
+        tipus: "textarea",
+      },
+    },
+    lakcim: {
+      lakcim_varos: {
+        megjelenes: "Város:",
+        tipus: "text",
+        value: "",
+        regex: /^[A-Z].{2,19}$/,
+        validalas: "Minimum 3 és maximum 20 karakter lehet!",
+        maxLength: 20,
+      },
+      lakcim_irSzam: {
+        megjelenes: "Irányítószám:",
+        tipus: "number",
+        value: "",
+        regex: /^\d{4}$/,
+        validalas: "4 számot kell tartalmaznia!",
+      },
+      lakcim_utca: {
+        megjelenes: "Utca",
+        tipus: "text",
+        value: "",
+        regex: /^[A-Z].{2,19}$/,
+        validalas: "Minimum 3 és maximum 20 karakter lehet!",
+        maxLength: 20,
+      },
+    },
+  },
+};

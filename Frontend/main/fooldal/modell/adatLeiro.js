@@ -122,12 +122,12 @@ export const urlapLeiro = {
         id: "adat",
         maxLength: 8
       },
-      szemelyi_igazolvany_szam: {
+      telefonszam: {
         megjelenes: "Telefonszám:",
         tipus: "text",
         value: "",
-        regex: /^\d{6}[A-Z]{2}$/,
-        validalas: "",
+        regex: "^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$",
+        validalas: "+-al kell kezdődnie (pl.: +36)",
         id: "adat",
         maxLength: 12
       },

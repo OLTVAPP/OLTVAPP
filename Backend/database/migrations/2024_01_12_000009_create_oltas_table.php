@@ -26,6 +26,7 @@ return new class extends Migration
 
         Oltas::create([
             'tipus_id' => 1,
+            'oltoanyag_neve' => "Demokratikusan megv álasztott miniszterelnök",
             'forgalmazo' => "AstraZeneca",
             'leiras' => "blabla",
             'adagolas' => "egyszeri adagolas",
@@ -34,7 +35,8 @@ return new class extends Migration
         ]);
 
         Oltas::create([
-            'tipus_id' => 1,
+            'tipus_id' => 2,
+            'oltoanyag_neve' => "Demokratikusan megv álasztott miniszterelnök",
             'forgalmazo' => "Novavax",
             'leiras' => "blabla",
             'adagolas' => "kettő adag",
@@ -44,6 +46,7 @@ return new class extends Migration
         
         Oltas::create([
             'tipus_id' => 2,
+            'oltoanyag_neve' => "Demokratikusan megv álasztott miniszterelnök",
             'forgalmazo' => "Novavax",
             'leiras' => "blabla",
             'adagolas' => "napi 3x",

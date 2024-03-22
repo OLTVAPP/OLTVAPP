@@ -16,23 +16,23 @@ use Illuminate\Support\Facades\DB;
 class OrvosController extends Controller
 {
 
-    /*
+    
     public function orvosIndex()
     {
         $orvosok = Orvos::all();
         return view('orvos.index', ['orvosok' => $orvosok]);
     }
 
-    public function orvosShow($id)
+    public function orvosShow()
     {
-        $orvos = Orvos::find($id);
-        return view('orvos.show', ['orvos' => $orvos]);
+        $orvosok = Orvos::all();
+        return response()->json($orvosok);
     }
 
 
  
 
-    */
+    
 
     //lekérdezések
     public function betegek($orvos_id)

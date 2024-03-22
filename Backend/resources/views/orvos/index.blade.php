@@ -8,7 +8,7 @@
     @if(count($orvosok) > 0)
         <ul>
             @foreach($orvosok as $orvos)
-                <li>{{ $orvos->vez_nev }}, {{ $orvos->ker_nev }}, {{ $orvos->lakcim_varos }}, {{ $orvos->lakcim_irSzam }}</li>
+                <li>{{ $orvos->vez_nev }}, {{ $orvos->ker_nev }}, {{ $orvos->tel_szam }}, {{ $orvos->publikus_email }}</li>
             @endforeach
         </ul>
     @else

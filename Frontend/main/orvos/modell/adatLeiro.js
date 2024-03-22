@@ -138,6 +138,13 @@ export const reszletesAdatok = {
       regex: "",
       validalas: "",
     },
+    telefonszam: {
+      megjelenes: "Telefonszám",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
     lakcim_varos: {
       megjelenes: "Lakhely",
       tipus: "text",
@@ -195,6 +202,13 @@ export const reszletesAdatok = {
 export const keszletLeiro = {
   tipus_elnev: {
     megjelenes: "Oltás neve",
+    tipus: "text",
+    value: "",
+    regex: "",
+    validalas: "",
+  },
+  oltoanyag_neve: {
+    megjelenes: "Oltoanyag neve",
     tipus: "text",
     value: "",
     regex: "",

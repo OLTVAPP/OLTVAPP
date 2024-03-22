@@ -47,7 +47,7 @@ class OrvosController extends Controller
 
     public function oltasNev()
     {
-        $oltas = Oltas::select("oltas_id", 'forgalmazo')
+        $oltas = Oltas::select("oltas_id", 'oltoanyag_neve')
             ->get();
 
         return $oltas;
@@ -63,7 +63,7 @@ class OrvosController extends Controller
             ->join('szulos', 'gyereks.szulo_id', '=', 'szulos.felhasznalo_id')
             ->join('felhasznalos', 'szulos.felhasznalo_id', '=', 'felhasznalos.id')
             ->where('gyerek_taj', $gyerek_taj)
-            ->select('szulos.vez_nev', 'szulos.ker_nev', 'szulos.lakcim_varos', 'szulos.lakcim_irSzam', 'szulos.lakcim_utca', 'felhasznalos.felhasznalo_nev', 'felhasznalos.felhasznalo_email')
+            ->select('szulos.vez_nev', 'szulos.ker_nev', 'szulos.telefonszam', 'szulos.lakcim_varos', 'szulos.lakcim_irSzam', 'szulos.lakcim_utca', 'felhasznalos.felhasznalo_nev', 'felhasznalos.felhasznalo_email')
             ->get();
 
         //megkapott oltások
@@ -96,7 +96,7 @@ class OrvosController extends Controller
             ->join('oltas', 'beszerzes.oltas_id', '=', 'oltas.oltas_id')
             ->join('oltas_tipuses', 'oltas.tipus_id', '=', 'oltas_tipuses.tipus_id')
             ->whereNull('beszerzes.megsemmesites_datuma')
-            ->select(['oltas_tipuses.tipus_elnev', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma', 'beszerzes.beszerzes_id'])
+            ->select(['beszerzes.beszerzes_id', 'oltas.oltoanyag_neve', 'oltas_tipuses.tipus_elnev', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma'])
             ->get();
 
         return $keszlet;
@@ -108,7 +108,7 @@ class OrvosController extends Controller
             ->join('oltas', 'beszerzes.oltas_id', '=', 'oltas.oltas_id')
             ->join('oltas_tipuses', 'oltas.tipus_id', '=', 'oltas_tipuses.tipus_id')
             ->whereNotNull('beszerzes.megsemmesites_datuma')
-            ->select('oltas_tipuses.tipus_elnev', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma', 'beszerzes.megsemmesites_datuma')
+            ->select('oltas.oltoanyag_neve', 'oltas_tipuses.tipus_elnev', 'beszerzes.darab', 'beszerzes.beszerzes_datuma', 'beszerzes.lejarati_datuma', 'beszerzes.megsemmesites_datuma')
             ->get();
 
         return $keszlet;

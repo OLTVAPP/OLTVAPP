@@ -63,6 +63,7 @@ class KeszletViewSor {
       const nemGomb = gombok.children("#nem")
       const igenGomb = gombok.children("#igen")
       console.log(igenGomb)
+      console.log(this.#beszerzes_id)
       $(".modal2").css("display", "block");
       igenGomb.on("click", () => {
         this.#esemenyTrigger("ujMegsemmisites")

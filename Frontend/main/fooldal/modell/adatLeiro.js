@@ -122,6 +122,15 @@ export const urlapLeiro = {
         id: "adat",
         maxLength: 8
       },
+      szemelyi_igazolvany_szam: {
+        megjelenes: "Telefonszám:",
+        tipus: "text",
+        value: "",
+        regex: /^\d{6}[A-Z]{2}$/,
+        validalas: "",
+        id: "adat",
+        maxLength: 12
+      },
     },
     lakcim: {
       lakcim_varos: {

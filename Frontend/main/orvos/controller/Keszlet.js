@@ -18,6 +18,7 @@ class Keszlet {
     }
 
     megjelenitKeszlet(list, leiro, logikaiErtek) {
+        console.log(list)
         new KeszletView($("article"), list, leiro, logikaiErtek)
     }
 
@@ -26,7 +27,7 @@ class Keszlet {
     }
 
     #get() {
-        this.#id = localStorage.getItem("felhasznalo_id");
+        this.#id = localStorage.getItem("felhasznalo");
         this.#dataService.getAxiosData2(`http://localhost:8000/api/keszlet/${this.#id}`, this.megjelenitKeszlet, this.#urlapModell.getKeszletLeiro(), false
         );
     }
@@ -46,6 +47,7 @@ class Keszlet {
 
     #ujMegsemmisites() {
         $(window).on("ujMegsemmisites", (event) => {
+            console.log(event.detail)
             this.#dataService.patchData(`http://localhost:8000/api/keszlet_megsemmisitese/${event.detail}`)
         });
     }

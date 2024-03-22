@@ -20,7 +20,7 @@ class UjKeszlet {
         txt += '<select name="oltas" id="oltas">'
         txt += `<option>-- oltasok --</option>`
         for (let key in this.#vakcinaAdat) {
-            txt += `<option value=${this.#vakcinaAdat[key].oltas_id}>${this.#vakcinaAdat[key].forgalmazo}</option>`
+            txt += `<option value=${this.#vakcinaAdat[key].oltas_id}>${this.#vakcinaAdat[key].oltoanyag_neve}</option>`
         }
         txt += "</select>"
         txt += "<br><br>"

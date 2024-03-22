@@ -42,6 +42,7 @@ class RegisteredUserController extends Controller
             'vez_nev' => $request->vez_nev,
             'ker_nev' => $request->ker_nev,
             'szemelyi_igazolvany_szam' => $request->szemelyi_igazolvany_szam,
+            'telefonszam' => $request-> telefonszam,
             'lakcim_varos' => $request->lakcim_varos,
             'lakcim_irSzam' => $request->lakcim_irSzam,
             'lakcim_utca' => $request->lakcim_utca

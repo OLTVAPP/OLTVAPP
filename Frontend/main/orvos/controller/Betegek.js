@@ -18,6 +18,7 @@ class Betegek {
   }
 
   megjelenitBetegek(list, leiro) {
+    console.log(list, leiro)
     new BetegekView($("article"), list, leiro);
   }
 
@@ -27,7 +28,8 @@ class Betegek {
 
 
   #get() {
-    this.#id = localStorage.getItem("felhasznalo_id");
+    this.#id = localStorage.getItem("felhasznalo");
+    console.log(this.#id)
     this.#dataService.getAxiosData(`http://localhost:8000/api/betegek/${this.#id}`, this.megjelenitBetegek, this.#urlapModell.getLeiro()
     );
   }

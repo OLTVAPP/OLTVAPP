@@ -21,6 +21,8 @@ class Modosit {
 
      modositasParancs(){
         $(`#modosit_${this.#id}`).on("click", () => {
+            $("article").append(`<div class="modal"></div>`)
+            $(".modal").css("display", "block");
             const data = new DataService();
             let url;
             let adatHalamzok;
@@ -40,13 +42,10 @@ class Modosit {
 
 
         #modositAblak(obj, leiro){
-            let txt = "";
-            txt +=`<div class="modal" id="felhasznalo_${obj[0].atadas}">
-            <div class="modal-content">
-            </div>
-            </div>`
-            $("article").append(txt);
-            $(".modal").css("display", "block");
+            let txt =`<div class="modal-content" id="felhasznalo_${obj[0].atadas}>grgeg</div>`;
+            console.log($(".modal"))
+            $(".modal").append(`<div class="modal-content" id="felhasznalo_${obj[0].atadas}"></div>`);
+            
             new Modosit_mezo($(".modal-content"), obj, leiro);
         }
 

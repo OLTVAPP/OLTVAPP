@@ -100,7 +100,7 @@ class Tabla {
         while (this.#tablaMezokHossz > mezo){
           if(this.#tablaJelolok[hanyadik] == "modosit"){
             mezo = mezo + 1
-            this.#modositGomb.push(new Modosit(this.#adatok[index].id,this.#tablaElem.attr('id')));
+            this.#modositGomb.push(new Modosit(this.#adatok[index].id, this.#tablaElem.attr('id')));
             console.log(this.#modositGomb[index])
             console.log(index)
             txt += this.#modositGomb[index].modositMezoKiiras();
@@ -108,7 +108,6 @@ class Tabla {
           else{
         for (const key in event.detail[index]) {
           console.log(key);
-          console.log(this.#adatok[index].aktiv)
             if(key == this.#tablaJelolok[hanyadik]){
               const tartalom = new Tartalom(event.detail[index], key, this.#tablaJelolok, hanyadik);
               txt += tartalom.getTartalom();

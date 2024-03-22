@@ -1,4 +1,4 @@
-import Modosit from "../modosit.js";
+import Modosit from "../mdodsit/modosit.js";
 import Fejlec from "./fejLec.js";
 import Tartalom from "./tartalom.js";
 
@@ -17,14 +17,13 @@ class Tabla {
     this.#fejlec = fejlec;
     this.fejLecKiiro();
     this.tartalomKiiro();
+    this.tartalomKiiroCsere();
    for (let index = 0; index < this.#fejelc_obj.length; index++) {
      this.#fejelc_obj[index].kattintas(this.#adatok);
     } 
     for (let index = 0; index < this.#modositGomb.length; index++) {
       this.#modositGomb[index].modositasParancs()
-      
     }
-    this.tartalomKiiroCsere();
   }
 
   fejLecKiiro() {
@@ -69,7 +68,6 @@ class Tabla {
             console.log(this.#modositGomb[index])
             console.log(index)
             txt += this.#modositGomb[index].modositMezoKiiras();
-            
           }
           else{
         for (const key in this.#adatok[index]) {
@@ -91,6 +89,7 @@ class Tabla {
 
   tartalomKiiroCsere(){
     $(window).on("tabla_sorrend_valtas", (event) => {
+      this.#modositGomb = [];
       const tartalom = $('tbody');
       console.log(tartalom);
       console.log(event.detail)
@@ -101,8 +100,11 @@ class Tabla {
         let mezo = 0;
         while (this.#tablaMezokHossz > mezo){
           if(this.#tablaJelolok[hanyadik] == "modosit"){
-            txt += `<td><span id="modosit${this.#adatok[index].id}">📝</span></td>`;
             mezo = mezo + 1
+            this.#modositGomb.push(new Modosit(this.#adatok[index].id,this.#tablaElem.attr('id')));
+            console.log(this.#modositGomb[index])
+            console.log(index)
+            txt += this.#modositGomb[index].modositMezoKiiras();
           }
           else{
         for (const key in event.detail[index]) {

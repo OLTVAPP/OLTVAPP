@@ -1,4 +1,6 @@
-import DataService from "../modell/data.js";
+import DataService from "../../modell/data.js";
+import { modosit_felhasznalo } from "../../modell/modositLeiro.js";
+import Modosit_mezo from "./modosit_mezo.js";
 
 class Modosit {
     #id;
@@ -21,47 +23,31 @@ class Modosit {
         $(`#modosit_${this.#id}`).on("click", () => {
             const data = new DataService();
             let url;
+            let adatHalamzok;
             console.log(this.#id)
             switch (this.#tabla) {
                 case "osszes_felhasznalo":
-                    url = `http://localhost:8000/api/felhasznalo_szerep/${this.#id}`
+                    url = `http://localhost:8000/api/felhasznalo_szerep/${this.#id}`;
+                   adatHalamzok = modosit_felhasznalo;
                     break;
             
                 default:
                     break;
             }
-            data.getDataModosit(url, this.#modositAblak)
-        /*    let txt = "";
-            txt +=
-                `
-            <div class="modal">
-            <div class="modal-content">
-            </div>
-            </div>
-            `
-            this.#szuloElem.append(txt);
-            $(".modal").css("display", "block");
-            console.log(this.#szulo_email)
-            new Modosit($(".modal-content"), this.#adat, this.#leiro, this.#szulo_email);*/
+            data.getDataTabla(url, adatHalamzok, this.#modositAblak)
           });
         }
 
 
-        #modositAblak(obj){
-            console.log(obj);
+        #modositAblak(obj, leiro){
             let txt = "";
-            txt +=
-                `
-            <div class="modal">
+            txt +=`<div class="modal" id="felhasznalo_${obj[0].atadas}">
             <div class="modal-content">
             </div>
-            </div>
-            `
+            </div>`
             $("article").append(txt);
             $(".modal").css("display", "block");
-
-
-
+            new Modosit_mezo($(".modal-content"), obj, leiro);
         }
 
 

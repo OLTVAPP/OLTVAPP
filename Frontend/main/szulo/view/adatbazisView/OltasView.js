@@ -18,14 +18,16 @@ class OltasView {
 
     #tablaAdatai() {
         let txt = `<div class="adatok">
-        <h2>${this.#adatok.elnev}</h2>
+        <h2>${this.#adatok.tipus_id}</h2>
         <table>
         <tbody>
         <tr>
-            <td>Hatásai: ${this.#adatok.jotekony_hatas}</td>
-            <td>Mellék hatásai: ${this.#adatok.mellek_hatas}</td>
-            <td>Állapot: ${this.#adatok.beadando}</td>
-            <td>Kötelező beadni: ${this.#adatok.kotelezo}</td>
+            <td>Neve: ${this.#adatok.oltoanyag_neve}</td>
+            <td>Forgalmazza: ${this.#adatok.forgalmazo}</td>
+            <td>Leírása: ${this.#adatok.leiras}</td>
+            <td>adagolása: ${this.#adatok.adagolas}</td>
+            <td>Receptre kapható-e: ${this.#adatok.receptre}</td>
+            <td>aktív: ${this.#adatok.aktiv}</td>
       `
 
       if (this.#adatok.kotelezo === "igen") {

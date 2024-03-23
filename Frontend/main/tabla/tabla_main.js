@@ -41,6 +41,7 @@ class Tabla_main {
     // Itt kötöm össze az url-t az ertekekkel, amikre szürni szeretne a program
     let queryString = this.#szuroErtekAtadas(adatok);
     this.#tablaAdatUrl = this.#tablaAdatUrl + queryString;
+    console.log(this.#tablaAdatUrl)
     this.tabla_futtato();
   }
 

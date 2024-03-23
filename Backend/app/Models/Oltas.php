@@ -15,8 +15,7 @@ class Oltas extends Model
         'tipus_id',
         'oltoanyag_neve',
         'forgalmazo',
-        'szuksegessege',
-        'mellek_hatasa',
+        'leiras',
         'adagolas',
         'receptre',
         'aktiv'

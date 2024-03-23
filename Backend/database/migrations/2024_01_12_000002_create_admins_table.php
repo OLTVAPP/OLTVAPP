@@ -24,7 +24,12 @@ return new class extends Migration
             'felhasznalo_id' => 1,
             'vez_nev' => "Mogyoródi",
             'ker_nev' => "Balázs",
-        ]);   
+        ]);  
+        Admin::create([ 
+            'felhasznalo_id' => 4,
+            'vez_nev' => "Mogyoródi",
+            'ker_nev' => "Balázs",
+        ]);
 
     }
 

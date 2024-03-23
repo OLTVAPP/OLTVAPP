@@ -25,6 +25,15 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Szulo::create([
+            'vez_nev' => "asdgfdgfdgf",
+            'ker_nev' => "dgdfgdffdm",
+            'szemelyi_igazolvany_szam' => "3242342RE",
+            'telefonszam' => "+3243434",
+            'lakcim_varos' => "Pécs",
+            'lakcim_irSzam' => 4535,
+            'lakcim_utca' => "hgfskjd",
+        ]);
        
     }
 

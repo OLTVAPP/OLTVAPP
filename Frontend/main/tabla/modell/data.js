@@ -21,6 +21,46 @@ class DataService {
         // always executed
       });
   }
+  getDataModosit(vegpont, callback) {
+    axios
+      .get(vegpont)
+      .then(function (response) {
+        console.log("response", response);
+        console.log("data", response.data);
+        console.log("statusz", response.status);
+        console.log("statusz", response.request.status);
+        console.log("text", response.statusText);
+        callback(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+  }
+
+  getDataAdd(vegpont, callback, adatok) {
+    axios
+      .get(vegpont)
+      .then(function (response) {
+        console.log("response", response);
+        console.log("data", response.data);
+        console.log("statusz", response.status);
+        console.log("statusz", response.request.status);
+        console.log("text", response.statusText);
+        callback(response.data, adatok);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+  }
+
+
+
 
   getDataKereso(vegpont, callback, selectElem, obj) {
     axios
@@ -66,7 +106,7 @@ class DataService {
 
   putData(url, id, obj) {
     axios
-      .put(url + "/" + id, obj)
+      .put(url + "/" + id + obj)
       .then(function (response) {
         location.reload();
         console.log("resp", response);

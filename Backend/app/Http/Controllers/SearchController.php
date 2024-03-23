@@ -41,6 +41,48 @@ class SearchController extends Controller
   }
 
 
+
+
+  public function admin_felhasznalo($id){
+    $admin = (DB::table('felhasznalos as f')->join('admins','admins.felhasznalo_id', '=', 'f.id')
+    ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'f.jelszo', 'f.szerepkor', 'f.aktiv', 'vez_nev', 'ker_nev', 'f.szerepkor as atadas')
+    ->where('f.id', '=', $id)
+    ->get());
+    return $admin;
+  }
+
+  public function szulo_felhasznalo($id){
+    $felhasznalo = (DB::table('felhasznalos as f')->join('szulos','szulos.felhasznalo_id', '=', 'f.id')
+    ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'f.jelszo', 'f.szerepkor', 'f.aktiv', 'vez_nev', 'ker_nev', 'szemelyi_igazolvany_szam', 'lakcim_varos', 'lakcim_irSzam', 'lakcim_utca', 'f.szerepkor as atadas')
+    ->where('f.id', '=', $id)
+    ->get());
+    return $felhasznalo;
+  }
+
+  public function orvos_felhasznalo($id){
+    $felhasznalo = (DB::table('felhasznalos as f')->join('orvos','orvos.felhasznalo_id', '=', 'f.id')
+    ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'f.jelszo', 'f.szerepkor', 'f.aktiv', 'vez_nev', 'ker_nev', 'tel_szam', 'publikus_email', 'rendelo_ajto_szam', 'f.szerepkor as atadas')
+    ->where('f.id', '=', $id)
+    ->get());
+    return $felhasznalo;
+  }
+
+  public function kivalasztott_felhasznalo($id){
+    $felhasznalo = DB::table('felhasznalos as f')->select('f.szerepkor')->where('f.id', '=', $id)->get();
+    foreach ($felhasznalo as $keresett) {
+    if($keresett->szerepkor == 'A'){
+      return  response()->json(SearchController::admin_felhasznalo($id));
+    }
+    elseif($keresett->szerepkor == 'O'){
+      return  response()->json(SearchController::orvos_felhasznalo($id));
+    }
+    elseif($keresett->szerepkor == 'S'){
+      return  response()->json(SearchController::szulo_felhasznalo($id));
+    } 
+  }
+  }
+
+
   public function aktiv_felhasznalok($join, $adatok, $szoveg, $aktiv)
   {
     $felhasznalo_nev = $adatok->felhasznalo_nev;

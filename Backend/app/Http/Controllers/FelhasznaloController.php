@@ -58,6 +58,16 @@ class FelhasznaloController extends Controller
         $record->save();
     }
 
+    public function idKeres($email){
+        $user = (DB::table('felhasznalos as f')
+        ->select('f.id', 'f.szerepkor')
+        ->where('f.felhasznalo_email', $email)
+        ->get());
+    return $user;
+
+
+    }
+
     public function show($id)
     {
         return response()->json(Felhasznalo::find($id));

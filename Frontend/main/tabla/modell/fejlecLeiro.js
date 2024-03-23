@@ -28,5 +28,7 @@ export const fejlec_felhasznalo = {
     felhasznalo_email: "Felhasználó emailcím",
     vez_nev: "vezeték név",
     ker_nev: "kereszt név",
-    aktiv: "Aktivitás"
+    aktiv: "Aktivitás",
+    modosit: "Modosit"
+
 }

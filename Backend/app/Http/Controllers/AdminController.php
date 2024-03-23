@@ -20,6 +20,15 @@ class AdminController extends Controller
         return view('admin.show', ['admin' => $admin]);
     }
 
+
+    public function store(Request $request)
+    {
+        $record = new Admin();
+        $record->felhasznalo_id = $request->felhasznalo_id;
+        $record->vez_nev = $request->vez_nev;
+        $record->ker_nev = $request->ker_nev;
+        $record->save();
+    }
  
 
 

@@ -4,7 +4,7 @@ class TextArea{
     #key;
     #leiro;
     #value;
-    #valid = false;
+    #valid = true;
 
 
     constructor(key, leiro, szuloElem){
@@ -15,24 +15,16 @@ class TextArea{
         this.#value = this.#leiro.value;
         this.#textElem();
         this.inputElem=$(`#${this.#key}`)
-        console.log("input", this.inputElem);
-        this.validElem = this.#formElem.children("div:last-child").children(".valid");
-        this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");;
+
         this.inputElem.on("keyup",()=>{
             this.#value = this.inputElem.val();
-            let reg = this.#leiro.regex;
-            let regObj = new RegExp(reg);
-            console.log(regObj.test(this.#value));
-            if (regObj.test(this.#value)) {
-                this.#valid = true;
-                this.validElem.removeClass("elrejt");
-                this.invalidElem.addClass("elrejt");
-            } else {
-                this.#valid = false;
-                this.invalidElem.removeClass("elrejt");
-                this.validElem.addClass("elrejt");
+            if(this.#value === ""){
+                this.#value = null;
             }
         })
+        if(this.#value === undefined){
+            this.#value = null;
+        }
 
 
     }
@@ -66,6 +58,7 @@ class TextArea{
         <textarea type="${this.#leiro.tipus}" class="form-control"
         id="${this.#key}" 
         name="${this.#key}"
+        maxLength="${this.#leiro.maxLength}"
         ></textarea>
         </div>
         `

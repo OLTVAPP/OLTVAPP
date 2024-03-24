@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('beadandos', function (Blueprint $table) {
             $table->id('beadando_id');
+            $table->foreignId('gyerek_id')->references('gyerek_taj')->on('gyereks');
             $table->foreignId('tipus_id')->references('tipus_id')->on('oltas_tipuses');
             $table->integer('ev');
             $table->integer('honap');
@@ -22,17 +23,27 @@ return new class extends Migration
         });
 
         Beadando::create([
+            'gyerek_id' => 232354346,
             'tipus_id' => 1,
-            'ev' => 2022,
+            'ev' => 2024,
             'honap' => 12,
             'hanyadik' => 1
         ]);
 
         Beadando::create([
-            'tipus_id' => 2,
-            'ev' => 2022,
+            'gyerek_id' => 232354346,
+            'tipus_id' => 1,
+            'ev' => 2025,
             'honap' => 12,
             'hanyadik' => 2
+        ]);
+
+        Beadando::create([
+            'gyerek_id' => 232354346,
+            'tipus_id' => 2,
+            'ev' => 2023,
+            'honap' => 12,
+            'hanyadik' => 1
         ]);
     }
 

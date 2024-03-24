@@ -13,7 +13,7 @@ class BetegView {
     constructor(szuloElem, list, leiro) {
         this.#leiro = leiro;
         this.#list = list;
-        this.#cim = ["Részletes adatok", "Szülő adatok", "Vakcina adatok"]
+        this.#cim = ["Részletes adatok", "Szülő adatok", "Beadott oltasok", "Beadnadó oltasok"]
 
         this.#szuloElem = szuloElem;
         for (let i = 0; i < this.#list.length; i++) {
@@ -24,16 +24,20 @@ class BetegView {
 
         const adat = this.#list[0];
         const szulo = this.#list[1];
-        const vakcina = this.#list[2];
+        const beadott_vakcina = this.#list[2];
+        const beadnado_vackina = this.#list[3];
         this.#szulo_email = szulo[0].felhasznalo_email
 
         this.#sor(this.#leiro.adatok);
         this.#tablazatbaIr(adat);
         this.#sor(this.#leiro.szulo_adatok);
         this.#tablazatbaIr(szulo);
-        this.#sor(this.#leiro.vakcina_adatok);
-        this.#tablazatbaIr(vakcina);
+        this.#sor(this.#leiro.beadott_oltas);
+        this.#tablazatbaIr(beadott_vakcina);
+        this.#sor(this.#leiro.beadando_oltas);
+        this.#tablazatbaIr(beadnado_vackina);
         this.#szuloElem.append("<button class='btn btn-primary' id='vissza' type='button'>Vissza</button>")
+        this.#szuloElem.append("<button class='btn btn-primary' id='beadando' type='button'>Új beadnadó oltás</button>")
         const gombElem = this.#szuloElem.children("#vissza");
         gombElem.on("click", () => {
             this.#esemenyTrigger("vissza")
@@ -56,10 +60,11 @@ class BetegView {
     }
 
     #tablazatbaIr(adat) {
-        
+        let i = 0;
         for (const key in adat) {
             console.log(this.#szulo_email)
-            new BetegViewSor(adat[key], this.#tablaElem[this.#index], this.#index, this.#szuloElem, this.#leiro.adatok, this.#szulo_email);
+            new BetegViewSor(adat[key], this.#tablaElem[this.#index], this.#index, this.#szuloElem, this.#leiro.adatok, this.#szulo_email, i);
+            i++;
         }
         this.#index++;
     }

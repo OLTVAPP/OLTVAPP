@@ -41,6 +41,7 @@ class KeszletViewSor {
 
   #kattintas() {
     this.#megsemmisitesGomb.on("click", () => {
+      console.log("asd")
       let txt = "";
       txt +=
         `
@@ -62,8 +63,6 @@ class KeszletViewSor {
       const gombok = model_contant2.children(".gombok");
       const nemGomb = gombok.children("#nem")
       const igenGomb = gombok.children("#igen")
-      console.log(igenGomb)
-      console.log(this.#beszerzes_id)
       $(".modal2").css("display", "block");
       igenGomb.on("click", () => {
         this.#esemenyTrigger("ujMegsemmisites")

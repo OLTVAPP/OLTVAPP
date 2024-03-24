@@ -13,6 +13,7 @@ class Beadando extends Model
 
 
     protected $fillable = [
+        'gyerek_id',
         'tipus_id',
         'ev',
         'honap',

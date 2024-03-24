@@ -1,26 +1,33 @@
 import Modosit from "./Modosit.js"
+import UjBeadott from "./UjBeadott.js";
 
 class BetegViewSor {
   #adat;
   #tablaElem
   #modositGomb;
+  #beadasGomb
   #szuloElem;
   #index;
   #sorElem
   #leiro
   #szulo_email
+  #i
+  #beadando_id
+  #tipus_id
 
-  constructor(adat, tablaElem, index, szuloElem, leiro, szulo_email) {
+  constructor(adat, tablaElem, index, szuloElem, leiro, szulo_email, i) {
     this.#adat = adat;
     this.#tablaElem = tablaElem;
     this.#szuloElem = szuloElem
     this.#leiro = leiro;
     this.#index = index;
+    this.#i = i;
     this.#szulo_email = szulo_email;
     this.#sor();
     const tbodyElem = this.#tablaElem.children("tbody");
     this.#sorElem = tbodyElem.children("tr:last-child");
-    this.#modositGomb = this.#sorElem.children("td").children("#modosit" + this.#index);
+    this.#modositGomb = this.#sorElem.children("td").children("#modosit" + this.#i);
+    this.#beadasGomb = this.#sorElem.children("td").children("#beadott" + this.#i);
     this.#kattintas();
   }
 
@@ -28,10 +35,23 @@ class BetegViewSor {
     let txt = "<tbody>";
     txt += `<tr class=adat${this.#index}>`;
     for (let key in this.#adat) {
-      txt += `<td>${this.#adat[key]}</td>`;
+      if (this.#adat[key] === null) {
+        txt += `<td>-</td>`;
+      } else if(key === "tipus_id"){
+        this.#tipus_id = this.#adat[key];
+      }
+      else if (key === "beadando_id") {
+        this.#beadando_id = this.#adat[key];
+      }
+      else {
+        txt += `<td>${this.#adat[key]}</td>`;
+      }
     }
     if (this.#index === 0) {
-      txt += `<td><span id="modosit${this.#index}">📝</span></td>`;
+      txt += `<td><span id="modosit${this.#i}">📝</span></td>`;
+    }
+    if (this.#index === 3) {
+      txt += `<td><span id="beadott${this.#i}">✔️</span></td>`;
     }
 
     txt += "</tr>";
@@ -43,10 +63,9 @@ class BetegViewSor {
 
   #kattintas() {
     this.#modositGomb.on("click", () => {
-      console.log("dsa")
       let txt = "";
       txt +=
-          `
+        `
       <div class="modal">
       <div class="modal-content">
       </div>
@@ -57,6 +76,30 @@ class BetegViewSor {
       console.log(this.#szulo_email)
       new Modosit($(".modal-content"), this.#adat, this.#leiro, this.#szulo_email);
     });
+    ;
+    this.#beadasGomb.on("click", () => {
+      let txt = "";
+      txt +=
+        `
+      <div class="modal4">
+      <div class="modal-content4">
+      <span class="close">&times;</span>
+      </div>
+      </div>
+      `
+      this.#szuloElem.append(txt)
+      $(".modal4").css("display", "block");
+      this.#esemenyTrigger("UjBeadott")
+      $(".close").on("click", () => {
+        $(".modal4").css("display", "none");
+        $(".modal4").empty();
+      });
+    });
+  }
+
+  #esemenyTrigger(esemenyNev) {
+    const e = new CustomEvent(esemenyNev, { detail: [this.#beadando_id, this.#tipus_id] });
+    window.dispatchEvent(e);
   }
 
 }

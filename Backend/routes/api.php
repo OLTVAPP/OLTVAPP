@@ -66,6 +66,10 @@ Route::get('/betegek/{orvos_id}', [OrvosController::class, 'betegek']);
 Route::get('/beteg/{gyerek_taj}', [OrvosController::class, 'beteg']);
 Route::get('/oltas_nev', [OrvosController::class, 'oltasNev']);
 
+//készlet megjelenitése tipus_id alapján
+Route::get('/keszlet_oltas_id/{orvos_id}/{tipus_id}', [OrvosController::class, 'keszletOltasId']);
+
+
 
 Route::put('/beteg_modosit/{gyerek_taj}/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'betegModosit']);
 Route::patch('/keszlet_megsemmisitese/{beszerzes_id}', [OrvosController::class, 'keszletMegsemmisitese']);
@@ -73,7 +77,7 @@ Route::patch('/keszlet_levon/{beszerzes_id}/{orvos_id}', [OrvosController::class
 
 Route::post('/uj_beteg/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'ujBeteg']);
 Route::post('/uj_keszlet/{orvos_id}/{oltas_id}', [OrvosController::class, 'ujKeszlet']);
-Route::post('/uj_beadas/{orvos_id}', [OrvosController::class, 'ujBeadas']);
+Route::post('/uj_beadas/{orvos_id}/{oltas_id}/{beadando_id}', [OrvosController::class, 'ujBeadas']);
 
 //felhasznalok (gyerek, szülő)
 

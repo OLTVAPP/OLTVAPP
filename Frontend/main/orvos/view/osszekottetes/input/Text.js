@@ -8,21 +8,21 @@ class TextInput{
 
 
     constructor(key, leiro, szuloElem){
-        console.log("hello")
+
         this.#key = key;
         this.#leiro = leiro;
         this.#formElem = szuloElem;
         this.#value = this.#leiro.value;
         this.#textElem();
         this.inputElem=$(`#${this.#key}`)
-        console.log("input", this.inputElem);
+
         this.validElem = this.#formElem.children("div:last-child").children(".valid");
         this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");;
         this.inputElem.on("keyup",()=>{
             this.#value = this.inputElem.val();
             let reg = this.#leiro.regex;
             let regObj = new RegExp(reg);
-            console.log(regObj.test(this.#value));
+
             if (regObj.test(this.#value)) {
                 this.#valid = true;
                 this.validElem.removeClass("elrejt");

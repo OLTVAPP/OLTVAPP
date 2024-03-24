@@ -9,7 +9,6 @@ class UjKeszlet {
         this.#szuloElem = szuloElem;
         this.#leiro = leiro;
         this.#vakcinaAdat = vakcinaAdat;
-        console.log(vakcinaAdat)
         this.#select();
         this.#sor();
         this.#kattintas();

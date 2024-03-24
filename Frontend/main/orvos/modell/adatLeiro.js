@@ -181,9 +181,16 @@ export const reszletesAdatok = {
       validalas: "",
     },
   },
-  vakcina_adatok: {
+  beadott_oltas: {
     oltas_tipus: {
-      megjelenes: "Oltási név",
+      megjelenes: "Oltás tipus",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    oltoanyag_neve: {
+      megjelenes: "Oltás neve",
       tipus: "text",
       value: "",
       regex: "",
@@ -196,7 +203,65 @@ export const reszletesAdatok = {
       regex: "",
       validalas: "",
     },
+    ker_nev: {
+      megjelenes: "Orvos kereszt neve",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    vez_nev: {
+      megjelenes: "Orvos vezeték neve",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    megjegyzes: {
+      megjelenes: "Megjegyzés",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
   },
+  beadando_oltas: {
+    oltas_tipus: {
+      megjelenes: "Oltás tipus",
+      tipus: "text",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    ev: {
+      megjelenes: "Év",
+      tipus: "number",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    honap: {
+      megjelenes: "Honap",
+      tipus: "number",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    hanyadik: {
+      megjelenes: "Hanyadik",
+      tipus: "number",
+      value: "",
+      regex: "",
+      validalas: "",
+    },
+    beadott: {
+      megjelenes: "Beadás",
+      tipus: "input",
+      value: "",
+      regex: "",
+      validalas: "",
+    }
+  }
 };
 
 export const keszletLeiro = {
@@ -251,8 +316,8 @@ export const ujBeteg = {
       tipus: "email",
       value: "",
       placeholder: "email cím",
-      regex: "[A-Z][a-z]{2,15}",
-      validalas: "Név nagybetűvel kezdődik, legalább 3 karakter!",
+      regex: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      validalas: "Nem megfelelő email cim",
     },
   },
   gyerek_adatok: {
@@ -281,11 +346,11 @@ export const ujBeteg = {
         maxLength: 20,
       },
       szul_datum: {
-        megjelenes: "Beszerzés dátuma",
+        megjelenes: "Születési dátum:",
         tipus: "date",
         value: "",
-        regex: /^\d{4}-\d{2}-\d{2}$/,
-        validalas: "Nem lehet nagyobb mint a mai dátum!",
+        regex: "",
+        validalas: "Nem lehet nagyobb mint a mai dátum és kisebb mint 18 év!",
       },
       szul_hely: {
         megjelenes: "Születési hely:",
@@ -298,6 +363,7 @@ export const ujBeteg = {
       erzekenyseg: {
         megjelenes: "Érzékenység (Nem kötelező!):",
         tipus: "textarea",
+        maxLength: 400,
       },
     },
     lakcim: {
@@ -327,3 +393,22 @@ export const ujBeteg = {
     },
   },
 };
+
+export const ujBeadott = {
+  beadas_datuma: {
+    megjelenes: "Beadás dátuma:",
+    tipus: "date",
+    value: "",
+    placeholder: "",
+    regex: "",
+    validalas: "",
+  },
+  megjegyzes: {
+    megjelenes: "Megjegyzés",
+    tipus: "text",
+    value: "",
+    placeholder: "",
+    regex: "",
+    validalas: "",
+  },
+}

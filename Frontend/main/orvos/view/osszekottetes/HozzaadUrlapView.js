@@ -11,6 +11,9 @@ class UrlapView {
   #gyerekLakcimElem;
   #leiro;
   #urlapElemLista = [];
+  #osszesElemValidE = true;
+  #adatok = {};
+  #email;
 
   constructor(szuloElem, leiro) {
     this.#szuloElem = szuloElem;
@@ -19,19 +22,20 @@ class UrlapView {
   }
 
   #letrehozz() {
-    this.#szuloElem.append('<div class="container mt-10 px-3" id="adatok">');
+    this.#szuloElem.append('<div class="container mt-10" id="adatok">');
     this.#adatElem = this.#szuloElem.children("#adatok");
     this.#adatElem.append("<h2>Szülő adat</h2>");
     this.Szulo();
-    this.#adatElem.append('<div class="container mt-10 border border-dark px-3" id="gyerekAdat">');
+    this.#adatElem.append('<div class="container mt-10 border border-dark p-4" id="gyerekAdat">');
     this.#gyerekAdatElem = this.#adatElem.children("#gyerekAdat");
     this.#gyerekAdatElem.append("<h2>Gyerek adatok</h2>");
     this.gyerek();
-    this.#gyerekAdatElem.append('<div class="container mt-10 border border-dark px-3" id="gyerekLakcim">');
+    this.#gyerekAdatElem.append('<div class="container mt-10 border border-dark p-4" id="gyerekLakcim">');
     this.#gyerekLakcimElem = this.#gyerekAdatElem.children("#gyerekLakcim");
     this.#gyerekLakcimElem.append("<h2>Lakcim adatok</h2>");
     this.gyerekLakcim();
     this.#szuloElem.append('<button class="btn btn-success" id="kuld">Mentés</button>');
+    this.adatFeltolt();
   }
 
   Szulo() {
@@ -40,6 +44,7 @@ class UrlapView {
         new EmailInput(key, this.#leiro.szulo_adatok[key], this.#adatElem)
       );
     }
+    this.#adatElem.append("<br>");
   }
 
   gyerek() {
@@ -72,18 +77,19 @@ class UrlapView {
             )
           );
           break;
-          case "textarea":
-            this.#urlapElemLista.push(
-              new TextArea(
-                key,
-                this.#leiro.gyerek_adatok.szemelyes_adatok[key],
-                this.#gyerekAdatElem
-              )
-            );
-            break;
+        case "textarea":
+          this.#urlapElemLista.push(
+            new TextArea(
+              key,
+              this.#leiro.gyerek_adatok.szemelyes_adatok[key],
+              this.#gyerekAdatElem
+            )
+          );
+          break;
         default:
       }
     }
+    this.#gyerekAdatElem.append("<br>");
   }
   gyerekLakcim() {
     for (const key in this.#leiro.gyerek_adatok.lakcim) {
@@ -110,6 +116,36 @@ class UrlapView {
       }
     }
   }
+
+  adatFeltolt() {
+    this.submitElem = $("#kuld");
+    this.submitElem.on("click", (event) => {
+      event.preventDefault();
+      this.#osszesElemValidE = true;
+      this.#urlapElemLista.forEach(elem => {
+        this.#osszesElemValidE = this.#osszesElemValidE && elem.valid;
+      })
+      if (this.#osszesElemValidE) {
+        this.#urlapElemLista.forEach((elem) => {
+          if (elem.key === "email") {
+            this.#email = elem.value;
+          } else {
+            this.#adatok[elem.key] = elem.value;
+            console.log(this.#adatok)
+          }
+        })
+        this.#esemenyTrigger("ujBeteg");
+      } else {
+        console.log("Nem valid az űrlap");
+      }
+    });
+  }
+
+  #esemenyTrigger(esemenyNev) {
+    const E = new CustomEvent(esemenyNev, { detail: [this.#adatok, this.#email] });
+    window.dispatchEvent(E);
+  }
+
 }
 
 export default UrlapView;

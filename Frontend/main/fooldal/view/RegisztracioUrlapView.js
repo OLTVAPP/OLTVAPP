@@ -73,8 +73,6 @@ class UrlapView {
     }
 
     szemelyesAdatok() {
-
-
         for (const key in this.#leiro.szulo.szemelyes_adatok) {
             switch (this.#leiro.szulo.szemelyes_adatok[key].tipus) {
                 case "text":
@@ -83,8 +81,6 @@ class UrlapView {
                 default:
             }
         }
-
-
 
     }
 

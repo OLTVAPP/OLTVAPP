@@ -27,8 +27,11 @@ class Modosit {
         txt += '<div class="mb-3">';
         for (let key in this.#leiro) {
             txt += `<label class=cim for='fname'>${this.#leiro[key].megjelenes}</label>`
-
-            txt += `<input class="form-control" type=${this.#leiro[key].tipus} id=${key} name="fname" placeholder=${this.#adat[i]}>`;
+            if (this.#adat[i] === null) {
+                txt += `<input class="form-control" type=${this.#leiro[key].tipus} id=${key} name="fname">`;
+            } else {
+                txt += `<input class="form-control" type=${this.#leiro[key].tipus} id=${key} name="fname" placeholder=${this.#adat[i]}>`;
+            }
             i++;
         }
         txt += "</div>"

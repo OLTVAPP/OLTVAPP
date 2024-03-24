@@ -5,6 +5,8 @@ class DateInput {
     #gyerekElem
     #value = "";
     #valid = false;
+    #maxDatum;
+    #minDatum;
 
     constructor(key, leiro, gyerekElem) {
         this.#key = key;
@@ -16,12 +18,18 @@ class DateInput {
         this.inputElem = $(`#${this.#key}`);
         this.validElem = this.#gyerekElem.children("div:last-child").children(".valid");
         this.invalidElem = this.#gyerekElem.children("div:last-child").children(".invalid");
-        this.inputElem.on("keyup", () => {
-            this.#value = this.inputElem.val();
-            let reg = this.#leiro.regex;
-            let regObj = new RegExp(reg);
 
-            if (regObj.test(this.#value)) {
+        const today = new Date();
+        const year = today.getFullYear();
+        const oldyear = today.getFullYear() - 18;
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        this.#maxDatum = year + '-' + month + '-' + day;
+        this.#minDatum = oldyear + '-' + month + '-' + day;
+
+        this.inputElem.on("change", () => {
+            this.#value = this.inputElem.val();
+            if (this.#value < this.#maxDatum && this.#value > this.#minDatum) {
                 this.#valid = true;
                 this.validElem.removeClass("elrejt");
                 this.invalidElem.addClass("elrejt");
@@ -68,7 +76,6 @@ class DateInput {
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
         </div>
         `
-
         this.#gyerekElem.append(txt);
     }
 }

@@ -64,17 +64,16 @@ tr{
 }
 
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 50px; /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
@@ -84,8 +83,8 @@ tr{
   padding: 20px;
   border: 1px solid #888;
   border-radius: 10px;
-  width: 40%;
-  height: 130%;
+  max-width: 40%;
+  max-height: 200%;
 }
 
 .modal2 {
@@ -111,7 +110,7 @@ tr{
   border: 1px solid #888;
   border-radius: 10px;
   width: 20%;
-  height: 30%;
+  max-height: 200%;
 }
 
 .modal3 {
@@ -137,7 +136,33 @@ tr{
   border: 1px solid #888;
   border-radius: 10px;
   width: 40%;
-  height: 100%;
+  max-height: 200%;
+}
+
+.modal4 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content4 {
+  display: grid;
+  text-align: left;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 40%;
+  max-height: 200%;
 }
 
 .gombok{

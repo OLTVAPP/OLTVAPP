@@ -3,6 +3,7 @@ import {
   reszletesAdatok,
   keszletLeiro,
   ujBeteg,
+  ujBeadott
 } from "./adatLeiro.js";
 
 class UrlapModell {
@@ -10,12 +11,14 @@ class UrlapModell {
   #reszletesAdatok;
   #keszletLeiro;
   #ujBeteg;
+  #ujBeadott
 
   constructor() {
     this.#gyerekLeiro = gyerekLeiro;
     this.#reszletesAdatok = reszletesAdatok;
     this.#keszletLeiro = keszletLeiro;
     this.#ujBeteg = ujBeteg;
+    this.#ujBeadott = ujBeadott;
   }
 
   getLeiro() {
@@ -32,6 +35,10 @@ class UrlapModell {
 
   getUjBeteg() {
     return { ...this.#ujBeteg };
+  }
+
+  getUjBeadott(){
+    return { ...this.#ujBeadott };
   }
 }
 export default UrlapModell;

@@ -38,7 +38,6 @@ class FelhasznaloController extends Controller
     {
         $user = Felhasznalo::find($id);
         $user->felhasznalo_nev = $request->felhasznalo_nev;
-        $user->jelszo = $request->jelszo;
         $user->szerepkor = $request->szerepkor;
         $user->felhasznalo_email = $request->felhasznalo_email;
         $user->aktiv = $request->aktiv;

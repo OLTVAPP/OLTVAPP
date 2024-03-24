@@ -55,6 +55,10 @@ Route::get('/felhasznalo_szerep/{id}', [SearchController::class, 'kivalasztott_f
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 Route::post('/admin', [AdminController::class, 'store']);
 Route::post('/orvos', [OrvosController::class, 'store']);
+Route::put('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'update']);
+Route::put('/admin/{felhasznalo_id}', [AdminController::class, 'update']);
+Route::put('/orvos/{felhasznalo_id}', [OrvosController::class, 'update']);
+Route::put('/szulo/{felhasznalo_id}', [SzuloController::class, 'update']);
 Route::get('/felhasznalo_idKeres/{email}', [FelhasznaloController::class, 'idKeres']);
 
 
@@ -66,7 +70,7 @@ Route::get('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'show
 Route::get('/felhasznalo_keres/{felhasznalo_nev}/{felhasznalo_jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
 
 
-Route::put('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'update']);
+
 
 //oltas
 Route::get('/oltas', [OltasController::class, 'index']);

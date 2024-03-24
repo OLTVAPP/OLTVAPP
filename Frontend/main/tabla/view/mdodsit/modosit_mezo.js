@@ -10,13 +10,19 @@ class Modosit_mezo {
     #ujAdat = [];
     #id;
     constructor(szuloElem, adat, leiro) {
-        this.#id = adat.id
+        console.log(adat)
+        this.#id = adat[0].id
+        console.log(this.#id)
         for (const key in adat) {
             this.#adatok.push(adat[key])
         }
         this.#szuloElem = szuloElem;
         this.#leiro = leiro;
-        this.#sor()
+        this.#sor();
+        console.log(this.#ujAdat)
+        for (let index = 0; index < this.#ujAdat.length; index++) {
+            this.#ujAdat[index].kiirasModsito();
+        }
         this.#kattintas();
 
     }
@@ -41,7 +47,7 @@ class Modosit_mezo {
 
             }
             else {
-                txt += this.#inputok(hanyadik,index, this.#leiro);
+                txt += this.#inputok(hanyadik, index, this.#leiro);
                 hanyadik++;
             }
         }
@@ -58,7 +64,6 @@ class Modosit_mezo {
         this.#ujAdat[hanyadik] = new Modosit_Text(leiro[index], this.#adatok[0], leiro[index].key);
         txt += this.#ujAdat[hanyadik].getTxt();
         return txt;
-
     }
 
 
@@ -66,10 +71,7 @@ class Modosit_mezo {
         this.#mentesGomb.on("click", () => {
             const adatHalmaz = [];
             adatHalmaz.push(this.#id);
-            for (let index = 0; index < this.#ujAdat.length; index++) {
-                adatHalmaz.push(this.#ujAdat[index].getValue())
-            }
-            new Adat_Modosit(adatHalmaz, $(".modal-content").attr('id'), this.#adatok);
+            new Adat_Modosit(this.#ujAdat, $(".modal-content").attr('id'), this.#adatok, this.#id);
         });
         $(".close").on("click", () => {
             $(".modal").remove();

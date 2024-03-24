@@ -1,37 +1,63 @@
 import DataService from "./data.js";
 
+import { admin_adatok_modosit, felhasznalo_adatok_modosit, orvos_adatok_modosit, szulo_adatok_modosit } from "./modositAdurl_leiro.js";
+
 class Adat_Modosit {
     #tablaAdatUrl;
     #fejLecek
     #data = new DataService()
-    constructor(adatok, idElem, fejLecek) {
+    #urlAdatok = {};
+    #adatok;
+    constructor(adatok, idElem, fejLecek, id) {
+      this.#adatok = adatok
         this.#fejLecek = fejLecek;
         switch (idElem) {
             case "felhasznalo_A":
-                console.log("admin")
-                this.#tablaAdatUrl = `http://localhost:8000/api/felhasznalo`;
-                let queryString = this.#szuroErtekAtadas(adatok);
-                this.#tablaAdatUrl = this.#tablaAdatUrl + queryString;
-                this.#data.putData(this.#tablaAdatUrl, this.#fejLecek.id, queryString)
+                this.#tablaAdatUrl =  felhasznalo_adatok_modosit.url
+                this.#urlAdatok = felhasznalo_adatok_modosit.szuksegesAdatok;
+                this.#adatOsszerako()
+                this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok)
+                this.#tablaAdatUrl =  admin_adatok_modosit.url
+                this.#urlAdatok = admin_adatok_modosit.szuksegesAdatok;
+                this.#adatOsszerako()
+                this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok)
                 break;
             case "felhasznalo_S":
-                console.log("szulo")
-
+              this.#tablaAdatUrl =  felhasznalo_adatok_modosit.url
+                this.#urlAdatok = felhasznalo_adatok_modosit.szuksegesAdatok;
+                this.#adatOsszerako()
+                this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok)
+                this.#tablaAdatUrl =  szulo_adatok_modosit.url
+                this.#urlAdatok = szulo_adatok_modosit.szuksegesAdatok;
+                this.#adatOsszerako()
+                this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok)
                 break;
             case "felhasznalo_O":
-                console.log("orvos")
-
+              this.#tablaAdatUrl =  felhasznalo_adatok_modosit.url
+              this.#urlAdatok = felhasznalo_adatok_modosit.szuksegesAdatok;
+              this.#adatOsszerako()
+              this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok)
+              this.#tablaAdatUrl =   orvos_adatok_modosit.url
+              this.#urlAdatok =  orvos_adatok_modosit.szuksegesAdatok;
+              this.#adatOsszerako()
+              this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok)
                 break;
 
             default:
                 break;
         }
-      
-
-
+      //  location.reload();
     }
 
-
+    #adatOsszerako() {
+      for (const key in this.#urlAdatok) {
+        for (let index = 0; index < this.#adatok.length; index++) {
+          if (key == this.#adatok[index].getKey()) {
+            this.#urlAdatok[key] = this.#adatok[index].getValue();
+          }
+        }
+      }
+    }
 
 
 

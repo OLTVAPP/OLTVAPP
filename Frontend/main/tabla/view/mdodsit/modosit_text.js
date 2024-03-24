@@ -11,11 +11,14 @@ class Modosit_Text{
         this.#key = key;
         this.#value = this.#adat[this.#key]
         this.#textElem();
-        this.#inputElem=$(`#${this.#key}`)
+    }
+
+    kiirasModsito(){
+        this.#inputElem=$(`#modosit_${this.#key}`)
         this.#inputElem.on("keyup",()=>{
             this.#value = this.#inputElem.val();  
+            console.log(this.#value)
         })
-
     }
 
 
@@ -27,7 +30,7 @@ class Modosit_Text{
         ${this.#leiro.megjelenes}
         </label>
         <input type="${this.#leiro.tipus}" class="form-control" 
-        id="${this.#key}" 
+        id="modosit_${this.#key}" 
         name="${this.#key}"
         placeholder="${this.#adat[this.#key]}"
         value="${this.#value}"
@@ -41,6 +44,10 @@ class Modosit_Text{
 
     getValue(){
         return this.#value
+    }
+
+    getKey(){
+        return this.#key
     }
 
 

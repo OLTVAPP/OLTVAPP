@@ -42,6 +42,20 @@ class SzuloController extends Controller
         return response()->json($idValtozo);
     }
 
+
+    public function update(Request $request, $id)
+    {
+        $record = Szulo::find($id);
+        $record->vez_nev = $request->vez_nev;
+        $record->ker_nev = $request->ker_nev;
+        $record->szemelyi_igazolvany_szam = $request->szemelyi_igazolvany_szam;
+        $record->lakcim_varos = $request->lakcim_varos;
+        $record->lakcim_irSzam = $request->lakcim_irSzam;
+        $record->lakcim_utca = $request->lakcim_utca;
+        $record->save();
+        return Szulo::find($record->felhasznalo_id);
+    }
+
    
 
 }

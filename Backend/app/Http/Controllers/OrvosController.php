@@ -33,7 +33,17 @@ class OrvosController extends Controller
  
 
     */
-
+    public function update(Request $request, $id)
+    {
+        $record = Orvos::find($id);
+        $record->vez_nev = $request->vez_nev;
+        $record->ker_nev = $request->ker_nev;
+        $record->tel_szam = $request->tel_szam;
+        $record->publikus_email = $request->publikus_email;
+        $record->rendelo_ajto_szam = $request->rendelo_ajto_szam;
+        $record->save();
+        return Orvos::find($record->felhasznalo_id);
+    }
     public function store(Request $request)
     {
         $record = new Orvos();

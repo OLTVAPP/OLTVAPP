@@ -42,8 +42,9 @@ class Modosit {
 
 
         #modositAblak(obj, leiro){
+            console.log(obj)
             let txt =`<div class="modal-content" id="felhasznalo_${obj[0].atadas}>grgeg</div>`;
-            console.log($(".modal"))
+            console.log(obj[0].atadas)
             $(".modal").append(`<div class="modal-content" id="felhasznalo_${obj[0].atadas}"></div>`);
             
             new Modosit_mezo($(".modal-content"), obj, leiro);

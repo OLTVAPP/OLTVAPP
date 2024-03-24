@@ -77,7 +77,8 @@ class SearchController extends Controller
       return  response()->json(SearchController::orvos_felhasznalo($id));
     }
     elseif($keresett->szerepkor == 'S'){
-      return  response()->json(SearchController::szulo_felhasznalo($id));
+    
+    return  response()->json(SearchController::szulo_felhasznalo($id));
     } 
   }
   }

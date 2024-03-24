@@ -106,9 +106,9 @@ class DataService {
 
   putData(url, id, obj) {
     axios
-      .put(url + "/" + id + obj)
+      .put(url + "/" + id, obj)
       .then(function (response) {
-        location.reload();
+      
         console.log("resp", response);
       })
       .catch((error) => {

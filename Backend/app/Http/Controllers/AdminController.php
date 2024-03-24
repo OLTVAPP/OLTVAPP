@@ -21,6 +21,15 @@ class AdminController extends Controller
     }
 
 
+    public function update(Request $request, $id)
+    {
+        $user = Admin::find($id);
+        $user->vez_nev = $request->vez_nev;
+        $user->ker_nev = $request->ker_nev;
+        $user->save();
+        return Admin::find($user->felhasznalo_id);
+    }
+
     public function store(Request $request)
     {
         $record = new Admin();

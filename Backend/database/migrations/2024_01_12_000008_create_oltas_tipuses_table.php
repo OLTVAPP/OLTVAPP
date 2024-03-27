@@ -32,7 +32,20 @@ return new class extends Migration
             'kotelezo' => false,
             'leiras' => "blabla"
         ]);
+        
+        Oltas_tipus::create([
+            'tipus_elnev' => "ACID",
+            'kotelezo' => false,
+            'leiras' => "blabla"
+        ]);
+        
+        Oltas_tipus::create([
+            'tipus_elnev' => "BAKTIT",
+            'kotelezo' => true,
+            'leiras' => "blabla"
+        ]);
     }
+    
 
     /**
      * Reverse the migrations.

@@ -15,6 +15,5 @@ class Oltas_tipus extends Model
         'tipus_elnev',
         'kotelezo',
         'leiras',
-        'korosztaly'
     ];
 }

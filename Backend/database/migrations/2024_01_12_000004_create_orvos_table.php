@@ -25,7 +25,7 @@ return new class extends Migration
 
 
         Orvos::create([
-            'felhasznalo_id' => 2,
+            'felhasznalo_id' => 3,
             'vez_nev' => 'Mogyoródi',
             'ker_nev' => 'Balázs',
             'tel_szam' => '+3453454',
@@ -36,7 +36,7 @@ return new class extends Migration
 
         
         Orvos::create([
-            'felhasznalo_id' => 2,
+            'felhasznalo_id' => 4,
             'vez_nev' => "asdf",
             'ker_nev' => "dgfdm",
             'tel_szam' => "+36209432",
@@ -44,14 +44,7 @@ return new class extends Migration
             'rendelo_ajto_szam' => 2
         ]);
 
-        Orvos::create([
-            'felhasznalo_id' => 3,
-            'vez_nev' => "asdfgdfdf",
-            'ker_nev' => "dgfdgdffdm",
-            'tel_szam' => "+3620439432",
-            'publikus_email' => "kogfhgfv@gmail.com",
-            'rendelo_ajto_szam' => 4
-        ]);
+       
     }
 
     /**

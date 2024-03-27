@@ -25,7 +25,7 @@ return new class extends Migration
 
         Beszerzes::create([
             'oltas_id' => 1,
-            'orvos_id' => 2,
+            'orvos_id' => 4,
             'darab' => 5,
             'beszerzes_datuma' => "2023-12-10",
             'lejarati_datuma' => "2024-12-10"
@@ -42,7 +42,7 @@ return new class extends Migration
 
         Beszerzes::create([
             'oltas_id' => 2,
-            'orvos_id' => 2,
+            'orvos_id' => 3,
             'darab' => 20,
             'beszerzes_datuma' => "2023-12-10",
             'lejarati_datuma' => "2024-12-10"
@@ -50,7 +50,7 @@ return new class extends Migration
 
         Beszerzes::create([
             'oltas_id' => 1,
-            'orvos_id' => 2,
+            'orvos_id' => 3,
             'darab' => 10,
             'beszerzes_datuma' => "2023-12-10",
             'lejarati_datuma' => "2024-12-10",

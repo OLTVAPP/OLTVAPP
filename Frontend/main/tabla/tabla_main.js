@@ -3,6 +3,7 @@ import DataService from "./modell/data.js";
 import {
   fejlec_admin_felhasznalo,
   fejlec_felhasznalo,
+  fejlec_oltas_tipus,
   fejlec_orvos_felhasznalo,
   fejlec_szulo_felhasznalo,
 } from "./modell/fejlecLeiro.js";
@@ -28,6 +29,10 @@ class Tabla_main {
         this.#tablaAdatUrl = "http://localhost:8000/api/felhasznalok_search";
         this.#fejLecek = fejlec_felhasznalo;
         break;
+        case "osszes_oltas_tipus":
+         this.#tablaAdatUrl = "http://localhost:8000/api/oltas_tipus_tabla";
+          this.#fejLecek = fejlec_oltas_tipus;
+          break;
       default:
         break;
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Oltas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OltasController extends Controller
 {
@@ -52,6 +53,15 @@ class OltasController extends Controller
         $record->adagolas = $request->adagolas;
         $record->receptre = $request->receptre;
         $record->save();
+    }
+
+
+    public function oltas_tipus_tabla(){
+        $oltas_tipus = (DB::table('oltas_tipuses as o')
+        ->join('beadandos as b','b.tipus_id', '=','o.tipus_id')
+        ->select('tipus_elnev', 'kotelezo', 'ev', 'honap', 'hanyadik')
+        ->get());
+        return response()->json($oltas_tipus);
     }
 
     

@@ -1,19 +1,16 @@
-import { admin_hozzAd, orvos_hozzAd } from "../modell/hozzaAd_leiro.js";
+import { admin_hozzAd, oltas_tipus_hozzaAd, orvos_hozzAd } from "../modell/hozzaAd_leiro.js";
 import HozzaAd_view from "../view/hozzaAd/hozzaAd_view.js";
 
 class HozzaAd_Controller {
-  #divElem;
   #adatLeiro = [];
-  #cimke;
   #id;
-  #divId
-  constructor(divId, divElem) {
-    this.#divId = divId
+  #divId;
+  constructor(divId) {
+    this.#divId = divId;
+    console.log(this.#divId);
     this.setDivId();
-    this.#divElem = divElem;
-    console.log(this.#adatLeiro);
-    this.#divElem.append(`<button class='ujAdat'>Új felhasználó</button>`);
-    const button = this.#divElem.children(".ujAdat:last-child");
+    const button = $(`#${this.#divId}`);
+    console.log(button);
     button.on("click", () => {
       this.#adatAtadas();
       let txt = "";
@@ -31,28 +28,29 @@ class HozzaAd_Controller {
     switch (this.#divId) {
       case "admin_hozaAd":
         this.#adatLeiro = admin_hozzAd;
-        this.#cimke = "Új felhasználó hozzáadása";
         this.#id = "admin_felhasznalo";
         break;
       case "orvos_hozaAd":
         this.#adatLeiro = orvos_hozzAd;
-        this.#cimke = "Új felhasználó hozzáadása";
         this.#id = "orvos_felhasznalo";
+        break;
+      case "oltas_tipus_add":
+        this.#adatLeiro = oltas_tipus_hozzaAd;
+        this.#id = "oltas_tipus";
+        break;
+      case "beadando_add":
+        this.#adatLeiro = oltas_tipus_hozzaAd;
+        this.#id = "beadando";
         break;
       default:
         break;
     }
   }
 
-
-
-  setDivId(){
+  setDivId() {
     $(window).on("divValtas", (event) => {
-        this.#divId = event.detail;
-
-
-  });
-
-}
+      this.#divId = event.detail;
+    });
+  }
 }
 export default HozzaAd_Controller;

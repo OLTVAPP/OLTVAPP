@@ -51,7 +51,6 @@ Route::get('/felhasznalok_search', [SearchController::class, 'osszes_felhasznalo
 Route::get('/felhasznalo_nev_search', [SearchController::class, 'felhasznalo_nev_szuro']);
 Route::get('/search', [SearchController::class, 'search']);
 Route::get('/felhasznalo_szerep/{id}', [SearchController::class, 'kivalasztott_felhasznalo']);
-
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 Route::post('/admin', [AdminController::class, 'store']);
 Route::post('/orvos', [OrvosController::class, 'store']);
@@ -60,6 +59,7 @@ Route::put('/admin/{felhasznalo_id}', [AdminController::class, 'update']);
 Route::put('/orvos/{felhasznalo_id}', [OrvosController::class, 'update']);
 Route::put('/szulo/{felhasznalo_id}', [SzuloController::class, 'update']);
 Route::get('/felhasznalo_idKeres/{email}', [FelhasznaloController::class, 'idKeres']);
+Route::get('/oltas_tipus_tabla', [OltasController::class, 'oltas_tipus_tabla']);
 
 
 //felhasznalok

@@ -12,10 +12,16 @@ class Fejlec {
     this.#setInputElem($(`#sort_${this.#cimke}`));
   }
 
-  cimkeFelepito() {
+  cimkeFelepito(sorendGomb) {
+    if(sorendGomb){
     this.#tartalom = `<th> <button id="sort_${this.#cimke}"> ↕ </button> ${
       this.#fejlec_cim
     }</th>`;
+  } else{ this.#tartalom = `<th>  ${
+    this.#fejlec_cim
+  }</th>`
+
+  }
   }
 
 

@@ -10,7 +10,7 @@ class HozzaAd_view{
     constructor(szuloElem, leiro) {
         this.#szuloElem = szuloElem;
         this.#leiro = leiro;
-        this.#sor()
+        this.#sor();
         for (let index = 0; index < this.#inputok.length; index++) {
             this.#inputok[index].kiirasModsito();
         }

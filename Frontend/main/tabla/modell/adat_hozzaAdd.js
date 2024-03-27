@@ -40,6 +40,10 @@ class Adat_hozaAd {
           this.#adatOsszerako();
           data.getDataAdd(`http://localhost:8000/api/felhasznalo_idKeres/${this.#kereses}`, this.#masodikTablaAdd, this.#urlAdatok)
           break;
+        case "osszes_oltas_tipus":
+            this.#url = felhasznalo_adatok_hozzaAd.url;
+            this.#urlAdatok = felhasznalo_adatok_hozzaAd.szuksegesAdatok;
+            break;
       default:
         break;
     }

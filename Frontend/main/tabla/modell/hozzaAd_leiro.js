@@ -100,4 +100,29 @@ export const admin_hozzAd = [
 
   
   ];
+
+
+  export const oltas_tipus_hozzaAd = [
+    {
+      key: "tipus_elnev",
+      megjelenes: "Oltás tipus neve",
+      tipus: "text",
+      value: "",
+      placeholder: "",
+    },
+    {
+      key: "kotelezo",
+      megjelenes: "Kötelezetség",
+      tipus: "text",
+      value: "",
+      placeholder: '',
+    },
+    {
+        key: "leiras",
+        megjelenes: "Leírás",
+        tipus: "text",
+        value: "",
+        placeholder: "",
+      },
+  ];
   

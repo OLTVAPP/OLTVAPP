@@ -30,7 +30,7 @@ class HozzaAd_Text{
         <input type="${this.#leiro.tipus}" class="form-control" 
         id="add_${this.#key}" 
         name="${this.#key}"
-        placeholder=${this.#leiro.placeholder}
+        placeholder="${this.#leiro.placeholder}"
         value="${this.#value}"
         >`
         this.#txt = txt;

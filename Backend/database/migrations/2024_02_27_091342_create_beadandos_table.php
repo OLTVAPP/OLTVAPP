@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('ev');
             $table->integer('honap');
             $table->integer('hanyadik');
+            $table->boolean('beadva');
             $table->timestamps();
         });
 
@@ -27,7 +28,8 @@ return new class extends Migration
             'tipus_id' => 1,
             'ev' => 2024,
             'honap' => 12,
-            'hanyadik' => 1
+            'hanyadik' => 1,
+            'beadva' => false
         ]);
 
         Beadando::create([
@@ -35,7 +37,8 @@ return new class extends Migration
             'tipus_id' => 1,
             'ev' => 2025,
             'honap' => 12,
-            'hanyadik' => 2
+            'hanyadik' => 2,
+            'beadva' => false
         ]);
 
         Beadando::create([
@@ -43,7 +46,8 @@ return new class extends Migration
             'tipus_id' => 2,
             'ev' => 2023,
             'honap' => 12,
-            'hanyadik' => 1
+            'hanyadik' => 1,
+            'beadva' => false
         ]);
     }
 

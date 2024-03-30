@@ -24,19 +24,19 @@ class UrlapView {
 
     letrehozz(szuloElem) {
         this.#szuloElem = szuloElem;
-        this.#szuloElem.append('<div class="fAdat">')
-        this.#fElem = this.#szuloElem.children(".fAdat");
+        this.#szuloElem.append('<div class="container mt-10" id="fAdat">')
+        this.#fElem = this.#szuloElem.children("#fAdat");
         this.#fElem.append('<h2>Felhasznalói adatok</h2>')
         this.felhasznalo();
-        this.#szuloElem.append('<div class="szAdat">')
-        this.#szElem = this.#szuloElem.children(".szAdat");
+        this.#szuloElem.append('<div class="container mt-10 border border-dark p-4" id="szAdat">')
+        this.#szElem = this.#szuloElem.children("#szAdat");
         this.#szElem.append('<h2>Személyes adatok</h2>')
         this.szemelyesAdatok();
-        this.#szElem.append('<div class="lAdat">')
-        this.#lElem = this.#szElem.children(".lAdat");
+        this.#szElem.append('<div class="container mt-10 border border-dark p-4" id="lAdat">')
+        this.#lElem = this.#szElem.children("#lAdat");
         this.#lElem.append('<h2>Lakcim</h2>')
         this.lakcim();
-        this.#szuloElem.append('<button class="kuld">Regisztráció elküldése</button>')
+        this.#szuloElem.append('<button class="btn btn-success" id="kuld">Regisztráció elküldése</button>')
     }
 
     felhasznalo() {
@@ -85,7 +85,7 @@ class UrlapView {
     }
 
     adatFeltolt() {
-        this.submitElem = $(".kuld");
+        this.submitElem = $("#kuld");
         this.submitElem.on("click", (event) => {
             event.preventDefault();
             this.#osszesElemValidE = true;

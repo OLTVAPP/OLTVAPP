@@ -8,24 +8,17 @@ class DateInput {
     #maxDatum;
     #minDatum;
 
-    constructor(key, leiro, gyerekElem) {
+    constructor(key, leiro, gyerekElem, maxDatum, minDatum) {
         this.#key = key;
         this.#leiro = leiro;
         this.#gyerekElem = gyerekElem
-
+        this.#maxDatum = maxDatum
+        this.#minDatum = minDatum;
         this.textElem();
 
         this.inputElem = $(`#${this.#key}`);
         this.validElem = this.#gyerekElem.children("div:last-child").children(".valid");
         this.invalidElem = this.#gyerekElem.children("div:last-child").children(".invalid");
-
-        const today = new Date();
-        const year = today.getFullYear();
-        const oldyear = today.getFullYear() - 18;
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-        this.#maxDatum = year + '-' + month + '-' + day;
-        this.#minDatum = oldyear + '-' + month + '-' + day;
 
         this.inputElem.on("change", () => {
             this.#value = this.inputElem.val();
@@ -69,7 +62,6 @@ class DateInput {
         id="${this.#key}" 
         name="${this.#key}"
         patter="${this.#leiro.regex}"
-        value="${this.#leiro.value}"
         maxLength="${this.#leiro.maxLength}">
 
         <div class="valid elrejt">OK</div>

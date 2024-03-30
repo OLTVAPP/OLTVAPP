@@ -5,14 +5,16 @@ class TextInput{
     #leiro;
     #value;
     #valid = false;
+    #szuloValue
 
 
-    constructor(key, leiro, szuloElem){
+    constructor(key, leiro, szuloElem, szuloValue){
 
         this.#key = key;
         this.#leiro = leiro;
         this.#formElem = szuloElem;
         this.#value = this.#leiro.value;
+        this.#szuloValue = szuloValue;
         this.#textElem();
         this.inputElem=$(`#${this.#key}`)
 
@@ -67,7 +69,7 @@ class TextInput{
         id="${this.#key}" 
         name="${this.#key}"
         patter="${this.#leiro.regex}"
-        value="${this.#leiro.value}"
+        placeholder="${this.#szuloValue}"
         maxLength="${this.#leiro.maxLength}">
 
         <div class="valid elrejt">OK</div>

@@ -42,12 +42,6 @@ article {
   text-align: center;
 }
 
-.gombok {
-  background-color: mediumturquoise;
-  padding: 40px;
-  margin: 10px;
-}
-
 article {
   margin: auto;
   text-align: left;
@@ -86,20 +80,3 @@ article {
 .elrejt {
   display: none;
 }
-
-
-/*
-footer {
-  padding-top: 5px;
-  background-color: black;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-}
-
-#jog {
-  color: white;
-}
-*/

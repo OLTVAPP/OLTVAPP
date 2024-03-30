@@ -17,7 +17,8 @@ class Beadando extends Model
         'tipus_id',
         'ev',
         'honap',
-        'hanyadik'
+        'hanyadik',
+        'beadva'
     ];
 
 }

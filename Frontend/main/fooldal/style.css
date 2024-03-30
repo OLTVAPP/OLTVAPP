@@ -48,7 +48,7 @@ article {
   grid-area: fo;
   padding: 5px;
   margin: 5px;
-  border: solid black 3px;
+  border: solid black 2px;
 }
 
 .valid {
@@ -65,14 +65,14 @@ article {
   grid-area: c2;
   padding: 5px;
   margin: 5px;
-  border: solid black 3px;
+  border: solid black 2px;
 }
 
 #cikk3 {
   grid-area: c3;
   padding: 5px;
   margin: 5px;
-  border: solid black 3px;
+  border: solid black 2px;
 }
 
 footer {

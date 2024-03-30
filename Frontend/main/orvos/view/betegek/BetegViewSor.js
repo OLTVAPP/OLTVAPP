@@ -37,11 +37,19 @@ class BetegViewSor {
     for (let key in this.#adat) {
       if (this.#adat[key] === null) {
         txt += `<td>-</td>`;
-      } else if(key === "tipus_id"){
+      }
+      else if (key === "tipus_id") {
         this.#tipus_id = this.#adat[key];
       }
       else if (key === "beadando_id") {
         this.#beadando_id = this.#adat[key];
+      }
+      else if (key === "beadva") {
+        if (this.#adat[key] === 0) {
+          txt += `<td><span id="beadott${this.#i}">❌</span></td>`;
+        } else {
+          txt += `<td><span>✔️</span></td>`;
+        }
       }
       else {
         txt += `<td>${this.#adat[key]}</td>`;
@@ -49,9 +57,6 @@ class BetegViewSor {
     }
     if (this.#index === 0) {
       txt += `<td><span id="modosit${this.#i}">📝</span></td>`;
-    }
-    if (this.#index === 3) {
-      txt += `<td><span id="beadott${this.#i}">✔️</span></td>`;
     }
 
     txt += "</tr>";

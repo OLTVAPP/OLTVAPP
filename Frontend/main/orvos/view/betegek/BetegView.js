@@ -9,6 +9,7 @@ class BetegView {
     #index = 0;
     #cim = [];
     #szulo_email;
+    #gyerek_taj;
 
     constructor(szuloElem, list, leiro) {
         this.#leiro = leiro;
@@ -27,6 +28,8 @@ class BetegView {
         const beadott_vakcina = this.#list[2];
         const beadnado_vackina = this.#list[3];
         this.#szulo_email = szulo[0].felhasznalo_email
+        this.#gyerek_taj = adat[0].gyerek_taj
+
 
         this.#sor(this.#leiro.adatok);
         this.#tablazatbaIr(adat);
@@ -42,6 +45,7 @@ class BetegView {
         gombElem.on("click", () => {
             this.#esemenyTrigger("vissza")
         });
+        this.#modal();
     }
 
     #sor(leiro) {
@@ -62,7 +66,6 @@ class BetegView {
     #tablazatbaIr(adat) {
         let i = 0;
         for (const key in adat) {
-            console.log(this.#szulo_email)
             new BetegViewSor(adat[key], this.#tablaElem[this.#index], this.#index, this.#szuloElem, this.#leiro.adatok, this.#szulo_email, i);
             i++;
         }
@@ -70,8 +73,29 @@ class BetegView {
     }
 
     #esemenyTrigger(esemenyNev) {
-        const e = new CustomEvent(esemenyNev);
+        const e = new CustomEvent(esemenyNev, { detail: this.#gyerek_taj });
         window.dispatchEvent(e);
+    }
+
+    #modal() {
+        let txt = "";
+        txt +=
+            `
+        <div class="modal5">
+        <div class="modal-content5">
+        <span class="close">&times;</span>
+        </div>
+        </div>
+        `
+        this.#szuloElem.append(txt);
+        this.#esemenyTrigger("oltasTipusNev")
+        const gombBeadando = this.#szuloElem.children("#beadando");
+        gombBeadando.on("click", () => {
+            $(".modal5").css("display", "block");
+        })
+        $(".close").on("click", () => {
+            $(".modal5").css("display", "none");
+        });
     }
 }
 

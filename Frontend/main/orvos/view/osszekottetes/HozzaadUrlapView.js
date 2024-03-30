@@ -1,8 +1,8 @@
-import TextInput from "./input/Text.js";
-import EmailInput from "./input/Email.js";
-import NumberInput from "./input/Number.js";
-import DateInput from "./input/Date.js";
-import TextArea from "./input/TextArea.js";
+import TextInput from "../input/Text.js";
+import EmailInput from "../input/Email.js";
+import NumberInput from "../input/Number.js";
+import DateInput from "../input/Date.js";
+import TextArea from "../input/TextArea.js";
 
 class UrlapView {
   #szuloElem;
@@ -25,29 +25,29 @@ class UrlapView {
     this.#szuloElem.append('<div class="container mt-10" id="adatok">');
     this.#adatElem = this.#szuloElem.children("#adatok");
     this.#adatElem.append("<h2>Szülő adat</h2>");
-    this.Szulo();
+    this.#szulo();
     this.#adatElem.append('<div class="container mt-10 border border-dark p-4" id="gyerekAdat">');
     this.#gyerekAdatElem = this.#adatElem.children("#gyerekAdat");
     this.#gyerekAdatElem.append("<h2>Gyerek adatok</h2>");
-    this.gyerek();
+    this.#gyerek();
     this.#gyerekAdatElem.append('<div class="container mt-10 border border-dark p-4" id="gyerekLakcim">');
     this.#gyerekLakcimElem = this.#gyerekAdatElem.children("#gyerekLakcim");
     this.#gyerekLakcimElem.append("<h2>Lakcim adatok</h2>");
-    this.gyerekLakcim();
+    this.#gyerekLakcim();
     this.#szuloElem.append('<button class="btn btn-success" id="kuld">Mentés</button>');
-    this.adatFeltolt();
+    this.#adatFeltolt();
   }
 
-  Szulo() {
+  #szulo() {
     for (const key in this.#leiro.szulo_adatok) {
       this.#urlapElemLista.push(
-        new EmailInput(key, this.#leiro.szulo_adatok[key], this.#adatElem)
+        new EmailInput(key, this.#leiro.szulo_adatok[key], this.#adatElem, "")
       );
     }
     this.#adatElem.append("<br>");
   }
 
-  gyerek() {
+  #gyerek() {
     for (const key in this.#leiro.gyerek_adatok.szemelyes_adatok) {
       switch (this.#leiro.gyerek_adatok.szemelyes_adatok[key].tipus) {
         case "text":
@@ -55,7 +55,7 @@ class UrlapView {
             new TextInput(
               key,
               this.#leiro.gyerek_adatok.szemelyes_adatok[key],
-              this.#gyerekAdatElem
+              this.#gyerekAdatElem, ""
             )
           );
           break;
@@ -64,16 +64,23 @@ class UrlapView {
             new NumberInput(
               key,
               this.#leiro.gyerek_adatok.szemelyes_adatok[key],
-              this.#gyerekAdatElem
+              this.#gyerekAdatElem, ""
             )
           );
           break;
         case "date":
+          const today = new Date();
+          const year = today.getFullYear();
+          const oldyear = today.getFullYear() - 18;
+          const month = String(today.getMonth() + 1).padStart(2, '0');
+          const day = String(today.getDate()).padStart(2, '0');
+          const maxDatum = year + '-' + month + '-' + day;
+          const minDatum = oldyear + '-' + month + '-' + day;
           this.#urlapElemLista.push(
             new DateInput(
               key,
               this.#leiro.gyerek_adatok.szemelyes_adatok[key],
-              this.#gyerekAdatElem
+              this.#gyerekAdatElem, maxDatum, minDatum
             )
           );
           break;
@@ -82,7 +89,7 @@ class UrlapView {
             new TextArea(
               key,
               this.#leiro.gyerek_adatok.szemelyes_adatok[key],
-              this.#gyerekAdatElem
+              this.#gyerekAdatElem, ""
             )
           );
           break;
@@ -91,7 +98,7 @@ class UrlapView {
     }
     this.#gyerekAdatElem.append("<br>");
   }
-  gyerekLakcim() {
+  #gyerekLakcim() {
     for (const key in this.#leiro.gyerek_adatok.lakcim) {
       switch (this.#leiro.gyerek_adatok.lakcim[key].tipus) {
         case "text":
@@ -99,7 +106,7 @@ class UrlapView {
             new TextInput(
               key,
               this.#leiro.gyerek_adatok.lakcim[key],
-              this.#gyerekLakcimElem
+              this.#gyerekLakcimElem, ""
             )
           );
           break;
@@ -108,7 +115,7 @@ class UrlapView {
             new NumberInput(
               key,
               this.#leiro.gyerek_adatok.lakcim[key],
-              this.#gyerekLakcimElem
+              this.#gyerekLakcimElem, ""
             )
           );
           break;
@@ -117,7 +124,7 @@ class UrlapView {
     }
   }
 
-  adatFeltolt() {
+  #adatFeltolt() {
     this.submitElem = $("#kuld");
     this.submitElem.on("click", (event) => {
       event.preventDefault();

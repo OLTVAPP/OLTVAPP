@@ -1,13 +1,22 @@
+import TextInput from "../input/Text.js";
+import EmailInput from "../input/Email.js";
+import NumberInput from "../input/Number.js";
+import DateInput from "../input/Date.js";
+import TextArea from "../input/TextArea.js";
+
 class Modosit {
     #adat = [];
     #szuloElem;
     #leiro;
-    #mentesGomb
     #ujAdat = {};
     #felhasznalo_email
     #gyerek_taj
+
+    #urlapElemLista = [];
+    #osszesElemValidE = true;
+
     constructor(szuloElem, adat, leiro, felhasznalo_email) {
-        console.log(adat)
+        console.log(leiro)
         for (const key in adat) {
             if (adat.gyerek_taj != null) {
                 this.#gyerek_taj = adat.gyerek_taj
@@ -24,34 +33,88 @@ class Modosit {
     #sor() {
         let i = 0;
         let txt = '<span class="close">&times;</span>';
+        this.#szuloElem.append(txt);
+        txt = "";
         txt += '<div class="mb-3">';
         for (let key in this.#leiro) {
-            txt += `<label class=cim for='fname'>${this.#leiro[key].megjelenes}</label>`
-            if (this.#adat[i] === null) {
-                txt += `<input class="form-control" type=${this.#leiro[key].tipus} id=${key} name="fname">`;
-            } else {
-                txt += `<input class="form-control" type=${this.#leiro[key].tipus} id=${key} name="fname" placeholder=${this.#adat[i]}>`;
+            switch (this.#leiro[key].tipus) {
+                case "text":
+                    this.#urlapElemLista.push(
+                        new TextInput(
+                            key,
+                            this.#leiro[key],
+                            this.#szuloElem, this.#adat[i]
+                        )
+                    );
+                    break;
+                case "number":
+                    this.#urlapElemLista.push(
+                        new NumberInput(
+                            key,
+                            this.#leiro[key],
+                            this.#szuloElem, this.#adat[i]
+                        )
+                    );
+                    break;
+                case "date":
+                    this.#urlapElemLista.push(
+                        new DateInput(
+                            key,
+                            this.#leiro[key],
+                            this.#szuloElem, this.#adat[i]
+                        )
+                    );
+                    break;
+                case "textarea":
+                    this.#urlapElemLista.push(
+                        new TextArea(
+                            key,
+                            this.#leiro[key],
+                            this.#szuloElem, this.#adat[i]
+                        )
+                    );
+                    break;
+                default:
             }
             i++;
         }
         txt += "</div>"
         txt += "<button class='btn btn-success' id='ment' type='button'>Mentés</button>"
         this.#szuloElem.append(txt);
-        this.#mentesGomb = this.#szuloElem.children("#ment");
     }
 
     #kattintas() {
-        this.#mentesGomb.on("click", () => {
-            let i = 0;
-            for (let key in this.#leiro) {
-                if ($(`#${key}`).val()) {
-                    this.#ujAdat[key] = $(`#${key}`).val()
-                } else {
-                    this.#ujAdat[key] = this.#adat[i]
+        const mentesGomb = this.#szuloElem.children("#ment");
+        mentesGomb.on("click", (event) => {
+            event.preventDefault();
+            this.#osszesElemValidE = false;
+            let elemValid = true;
+            this.#urlapElemLista.forEach(elem => {
+                if (elem.key != "erzekenyseg") {
+                    if (elem.value !== '') {
+                        if (elem.valid === true && elemValid === true) {
+                            this.#osszesElemValidE = true;
+                        } else {
+                            this.#osszesElemValidE = false;
+                            elemValid = false;
+                        }
+                    }
                 }
-                i++;
+            })
+            if (this.#osszesElemValidE) {
+                let i = 0;
+                this.#urlapElemLista.forEach((elem) => {
+                    if (elem.value === "" || elem.value === null) {
+                        this.#ujAdat[elem.key] = this.#adat[i]
+                    } else {
+                        this.#ujAdat[elem.key] = elem.value;
+                    }
+                    i++;
+                })
+                this.#esemenyTrigger("modositBeteg")
+            } else {
+                console.log("Nem valid az űrlap");
             }
-            this.#esemenyTrigger("modositBeteg")
         });
         $(".close").on("click", () => {
             $(".modal").remove();

@@ -41,7 +41,6 @@ class KeszletViewSor {
 
   #kattintas() {
     this.#megsemmisitesGomb.on("click", () => {
-      console.log("asd")
       let txt = "";
       txt +=
         `

@@ -41,39 +41,7 @@ button {
   grid-area: "c";
 }
 
-article {
-  margin: auto;
-  width: 50%;
-  display: grid;
-  grid-template-areas:
-    "fAdat szAdat"
-    "b b";
-}
 
-.fAdat {
-  grid-area: fAdat;
-}
-
-.szAdat {
-  grid-area: szAdat;
-  padding: 5px;
-  margin: 5px;
-  border: solid black 3px;
-}
-
-.lAdat {
-  grid-area: lAdat;
-  padding: 5px;
-  margin: 5px;
-  border: solid black 3px;
-}
-
-
-.kuld {
-  margin: auto;
-  margin-top: 10px;
-  grid-area: b;
-}
 
 .valid {
   color: green;
@@ -87,7 +55,6 @@ article {
 
 .input{
   grid-area: input;
-  margin-right: 150px;
   padding:10px;
   display: grid;
 }

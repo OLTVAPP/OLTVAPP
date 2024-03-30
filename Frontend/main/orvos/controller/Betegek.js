@@ -3,6 +3,8 @@ import BetegekView from "../view/betegek/BetegekView.js";
 import DataService from "../modell/data.js";
 import BetegView from "../view/betegek/BetegView.js";
 import UjBeadott from "../view/betegek/UjBeadott.js";
+import UjBeadando from "../view/betegek/UjBeadando.js";
+
 class Betegek {
   #urlapModell;
   #dataService;
@@ -17,6 +19,8 @@ class Betegek {
     this.#modositBeteg()
     this.#ujBeadott();
     this.#ujBeadas();
+    this.#oltasTipusNev();
+    this.#ujBeadando();
 
   }
 
@@ -30,8 +34,13 @@ class Betegek {
     new BetegView($("article"), list, leiro)
   }
 
-  megjelenitUjBeteg(list, leiro, beadando_id){
+  megjelenitUjBeteg(list, leiro, beadando_id) {
     new UjBeadott($(".modal-content4"), list, leiro, beadando_id)
+  }
+
+  megjelenitUjBeadando(list, leiro, gyerek_taj) {
+
+    new UjBeadando($(".modal-content5"), list, leiro, gyerek_taj)
   }
 
   #get() {
@@ -48,31 +57,44 @@ class Betegek {
     });
   }
 
-  #vissza(){
+  #vissza() {
     $(window).on("vissza", (event) => {
       $("article").empty()
       this.#get();
     });
   }
 
-  #modositBeteg(){
+  #modositBeteg() {
     $(window).on("modositBeteg", (event) => {
       this.#dataService.putData(`http://localhost:8000/api/beteg_modosit/${event.detail[2]}/${this.#id}/${event.detail[1]}`, event.detail[0])
     });
   }
 
-  #ujBeadott(){
+  #ujBeadott() {
     $(window).on("UjBeadott", (event) => {
       this.#dataService.getAxiosData2(`http://localhost:8000/api/keszlet_oltas_id/${this.#id}/${event.detail[1]}`, this.megjelenitUjBeteg, this.#urlapModell.getUjBeadott(), event.detail[0])
     });
   }
 
 
-  #ujBeadas(){
+  #ujBeadas() {
     $(window).on("ujBeadas", (event) => {
-      this.#dataService.patchData(`http://localhost:8000/api/keszlet_levon/${event.detail[3]}/${this.#id}`)
-      this.#dataService.postData(`http://localhost:8000/api/uj_beadas/${this.#id}/${event.detail[0]}/${event.detail[1]}`, event.detail[2])
-  });
+      this.#dataService.postData(`http://localhost:8000/api/uj_beadas/${this.#id}/${event.detail[0]}/${event.detail[1]}/${event.detail[3]}`, event.detail[2])
+
+    });
+  }
+
+  #oltasTipusNev() {
+    $(window).on("oltasTipusNev", (event) => {
+
+      this.#dataService.getAxiosData2(`http://localhost:8000/api/oltas_tipus_nev`, this.megjelenitUjBeadando, this.#urlapModell.getUjBeadando(), event.detail)
+    })
+  }
+
+  #ujBeadando() {
+    $(window).on("ujBeadando", (event) => {
+      this.#dataService.postData(`http://localhost:8000/api/uj_beadando/${event.detail[1]}/${event.detail[2]}`, event.detail[0])
+    })
   }
 }
 export default Betegek;

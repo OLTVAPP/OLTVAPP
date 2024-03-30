@@ -5,13 +5,14 @@ class TextArea{
     #leiro;
     #value;
     #valid = true;
+    #szuloValue
 
 
-    constructor(key, leiro, szuloElem){
-        console.log("hello")
+    constructor(key, leiro, szuloElem, szuloValue){
         this.#key = key;
         this.#leiro = leiro;
         this.#formElem = szuloElem;
+        this.#szuloValue = szuloValue;
         this.#value = this.#leiro.value;
         this.#textElem();
         this.inputElem=$(`#${this.#key}`)
@@ -58,6 +59,8 @@ class TextArea{
         <textarea type="${this.#leiro.tipus}" class="form-control"
         id="${this.#key}" 
         name="${this.#key}"
+        value="${this.#szuloValue}"
+        placeholder="${this.#szuloValue}"
         maxLength="${this.#leiro.maxLength}"
         ></textarea>
         </div>

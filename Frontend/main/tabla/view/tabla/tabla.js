@@ -15,6 +15,8 @@ class Tabla {
     this.#tablaElem = $("table");
     this.#adatok = adatok;
     this.#fejlec = fejlec;
+    this.#modositGomb = [];
+    this.#fejelc_obj = [];
     this.fejLecKiiro();
     this.tartalomKiiro();
     for (let index = 0; index < this.#fejelc_obj.length; index++) {

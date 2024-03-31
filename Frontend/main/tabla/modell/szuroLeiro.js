@@ -29,21 +29,21 @@ export const felhasznalo_szuro = [
 
   {
     key: "vez_nev",
-    megjelenes: "Vezeték név",
+    megjelenes: "Vezetéknév",
     tipus: "text",
     value: "",
     placeholder: "felhasználó név",
   },
   {
     key: "ker_nev",
-    megjelenes: "Kereszt név",
+    megjelenes: "Keresztnév",
     tipus: "text",
     value: "",
     placeholder: "felhasználó név",
   },
   {
     key: "aktiv",
-    megjelenes: "Felhasználó név",
+    megjelenes: "Felhasználónév",
     tipus: "select",
     value: "",
     url: "nincs",

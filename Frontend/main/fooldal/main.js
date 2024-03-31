@@ -14,7 +14,7 @@ $(function () {
     if (message === "Belépés") {
         
         new Bejelentkezes(articleElem);
-        new ElfelejtettJelszo(articleElem);
+      //  new ElfelejtettJelszo(articleElem);
     }
 
 });

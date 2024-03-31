@@ -11,6 +11,10 @@ class Tabla_main {
   #fejLecek;
   #tablaAdatUrl;
   constructor(tabla) {
+    const felhasznalo = localStorage.getItem("kereses");
+    console.log(felhasznalo);
+
+   
     // Itt választja ki a table elem id-ja alapján, hogy milyen url és fejléc adatokat kapjon a két privát érték.
     switch (tabla) {
       case "osszes_felhasznalo":

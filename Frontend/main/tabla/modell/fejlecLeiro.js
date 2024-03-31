@@ -26,7 +26,7 @@ export const fejlec_orvos_felhasznalo = {
 export const fejlec_felhasznalo = {
   felhasznalo_nev: " Felhasználó név",
   felhasznalo_email: "Felhasználó emailcím",
-  szereplo: "Szerep",
+  szerepkor: "Szerepkör",
   vez_nev: "vezeték név",
   ker_nev: "kereszt név",
   aktiv: "Aktivitás",

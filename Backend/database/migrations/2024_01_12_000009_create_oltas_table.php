@@ -26,7 +26,7 @@ return new class extends Migration
 
         Oltas::create([
             'tipus_id' => 1,
-            'oltoanyag_neve' => "phiser",
+            'oltoanyag_neve' => 'Valneva',
             'forgalmazo' => "AstraZeneca",
             'leiras' => "blabla",
             'adagolas' => "egyszeri adagolas",
@@ -46,7 +46,7 @@ return new class extends Migration
         
         Oltas::create([
             'tipus_id' => 2,
-            'oltoanyag_neve' => "grgtg",
+            'oltoanyag_neve' => 'Vidprev',
             'forgalmazo' => "Novavax",
             'leiras' => "blabla",
             'adagolas' => "napi 3x",

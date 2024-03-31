@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Level;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,6 +19,12 @@ return new class extends Migration
             $table->date('kikuldes_datuma');
             $table->timestamps();
         });
+
+        Level::create([
+            'gyerek_taj' => 345232232,
+            'tipus_id' => 2,
+            'kikuldes_datuma' => "2002-02-13"
+        ]);
     }
 
     /**

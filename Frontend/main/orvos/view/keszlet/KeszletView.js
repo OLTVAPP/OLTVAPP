@@ -66,7 +66,7 @@ class KeszletView{
                 if(i >= 1 & i <= 3){
                     this.#ujKeszletleiro[key] = this.#leiro[key]
                 }
-                if(i < 4){
+                if(i < 5){
                     txt += `<th>${this.#leiro[key].megjelenes}</th>`;
                 }
             }

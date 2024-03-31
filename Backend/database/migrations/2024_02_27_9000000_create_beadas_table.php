@@ -14,7 +14,6 @@ return new class extends Migration
     {
         Schema::create('beadas', function (Blueprint $table) {
             $table->foreignId('orvos_id')->references('felhasznalo_id')->on('orvos');
-            $table->foreignId('gyerek_id')->references('gyerek_taj')->on('gyereks');
             $table->foreignId('oltas_id')->references('oltas_id')->on('oltas');
             $table->foreignId('beadando_id')->references('beadando_id')->on('beadandos');
             $table->date('beadas_datuma');
@@ -23,8 +22,7 @@ return new class extends Migration
         });
         
         Beadas::create([
-            'orvos_id' => 3,
-            'gyerek_id' => 232354346,
+            'orvos_id' => 2,
             'oltas_id' => 1,
             'beadando_id' => 2,
             'beadas_datuma' => "2024-12-11",
@@ -33,7 +31,6 @@ return new class extends Migration
 
         Beadas::create([
             'orvos_id' => 3,
-            'gyerek_id' => 232354346,
             'oltas_id' => 2,
             'beadando_id' => 1,
             'beadas_datuma' => "2024-12-11"

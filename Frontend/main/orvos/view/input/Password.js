@@ -8,23 +8,20 @@ class PasswordInput {
 
 
     constructor(key, leiro, szuloElem) {
-        console.log("hello")
         this.#key = key;
         this.#leiro = leiro;
         this.#formElem = szuloElem;
         this.#value = this.#leiro.value;
         this.#textElem();
         this.inputElem = $(`#${this.#key}`)
-        console.log("input", this.inputElem);
+
         this.validElem = this.#formElem.children("div:last-child").children(".valid");
         this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");;
-        console.log(this.validelem)
-        console.log(this.invalidElem)
         this.inputElem.on("keyup", () => {
             this.#value = this.inputElem.val();
             let reg = this.#leiro.regex;
             let regObj = new RegExp(reg);
-            console.log(regObj.test(this.#value));
+
             if (regObj.test(this.#value)) {
                 this.#valid = true;
                 this.validElem.removeClass("elrejt");
@@ -58,7 +55,6 @@ class PasswordInput {
 
 
     #textElem() {
-        console.log(this.#leiro.tipus)
         let txt = `
         <div class="input">
         <label for="${this.#key}" 
@@ -70,7 +66,6 @@ class PasswordInput {
         id="${this.#key}" 
         name="${this.#key}"
         patter="${this.#leiro.regex}"
-        value="${this.#leiro.value}"
         maxLength="${this.#leiro.maxLength}">
 
         <div class="valid elrejt">OK</div>

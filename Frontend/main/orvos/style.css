@@ -45,7 +45,8 @@ article {
 }
 
 .gombok {
-  background-color: mediumturquoise;
+  border-radius: 10px;
+  background-color: darksalmon;
   padding: 40px;
   margin: 10px;
 }

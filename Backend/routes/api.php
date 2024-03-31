@@ -14,24 +14,13 @@ use App\Http\Controllers\SzuloController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::middleware(['auth:basic'])->group(function () {
-
-}); 
+});
 
 
 Route::get('/id/{id}', [SzuloController::class, 'atmasol']);
@@ -94,6 +83,27 @@ Route::get('/felhasznalo_keres/{felhasznalo_nev}/{felhasznalo_jelszo}', [Felhasz
 
 
 //Orvosoknak!
+Route::get('/keszlet/{orvos_id}', [OrvosController::class, 'keszlet']);
+Route::get('/megsemmisitett_keszlet/{orvos_id}', [OrvosController::class, 'megsemmisitettKeszlet']);
+Route::get('/betegek/{orvos_id}', [OrvosController::class, 'betegek']);
+Route::get('/beteg/{gyerek_taj}', [OrvosController::class, 'beteg']);
+Route::get('/oltas_nev', [OrvosController::class, 'oltasNev']);
+Route::get('/oltas_tipus_nev', [OrvosController::class, 'oltasTipusNev']);
+Route::get('/orvos/{orvos_id}', [OrvosController::class, 'orvos']);
+
+//készlet megjelenitése tipus_id alapján
+Route::get('/keszlet_oltas_id/{orvos_id}/{tipus_id}', [OrvosController::class, 'keszletOltasId']);
+
+Route::put('/beteg_modosit/{gyerek_taj}/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'betegModosit']);
+Route::patch('/orvos_modosit/{orvos_id}', [OrvosController::class, 'orvosModosit']);
+
+Route::patch('/keszlet_megsemmisitese/{beszerzes_id}', [OrvosController::class, 'keszletMegsemmisitese']);
+
+Route::post('/uj_beteg/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'ujBeteg']);
+Route::post('/uj_keszlet/{orvos_id}/{oltas_id}', [OrvosController::class, 'ujKeszlet']);
+Route::post('/uj_beadas/{orvos_id}/{oltas_id}/{beadando_id}/{beszerzes_id}', [OrvosController::class, 'ujBeadas']);
+Route::post('/uj_beadando/{gyerek_id}/{tipus_id}', [OrvosController::class, 'ujBeadando']);
+
 //felhasznalok (gyerek, szülő)
 
 //lekérdezések
@@ -109,30 +119,6 @@ Route::get('/orvos', [OrvosController::class,'orvosShow']);
 
 
 
-
-
-
-
-
-
-
-
 //tesztelés
 
 Route::get('/felhasznalo_teszt/{join}/{}', [SearchController::class, 'aktiv_felhasznalok']);
-
-
-Route::get('/keszlet/{orvos_id}', [OrvosController::class, 'keszlet']);
-Route::get('/megsemmisitett_keszlet/{orvos_id}', [OrvosController::class, 'megsemmisitettKeszlet']);
-Route::get('/betegek/{orvos_id}', [OrvosController::class, 'betegek']);
-Route::get('/beteg/{gyerek_taj}', [OrvosController::class, 'beteg']);
-Route::get('/oltas_nev', [OrvosController::class, 'oltasNev']);
-
-
-Route::put('/beteg_modosit/{gyerek_taj}/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'betegModosit']);
-Route::patch('/keszlet_megsemmisitese/{beszerzes_id}', [OrvosController::class, 'keszletMegsemmisitese']);
-Route::patch('/keszlet_levon/{beszerzes_id}/{orvos_id}', [OrvosController::class, 'keszletLevon']);
-
-Route::post('/uj_beteg/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'ujBeteg']);
-Route::post('/uj_keszlet/{orvos_id}/{oltas_id}', [OrvosController::class, 'ujKeszlet']);
-Route::post('/uj_beadas/{orvos_id}', [OrvosController::class, 'ujBeadas']);

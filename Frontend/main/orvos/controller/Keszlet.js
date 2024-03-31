@@ -18,6 +18,7 @@ class Keszlet {
     }
 
     megjelenitKeszlet(list, leiro, logikaiErtek) {
+        console.log(list)
         new KeszletView($("article"), list, leiro, logikaiErtek)
     }
 
@@ -26,9 +27,8 @@ class Keszlet {
     }
 
     #get() {
-        this.#id = localStorage.getItem("felhasznalo_id");
-        this.#dataService.getAxiosData2(`http://localhost:8000/api/keszlet/${this.#id}`, this.megjelenitKeszlet, this.#urlapModell.getKeszletLeiro(), false
-        );
+        this.#id = localStorage.getItem("felhasznalo");
+        this.#dataService.getAxiosData2(`http://localhost:8000/api/keszlet/${this.#id}`, this.megjelenitKeszlet, this.#urlapModell.getKeszletLeiro(), false);
     }
 
     #semmisitettAdat() {
@@ -46,19 +46,20 @@ class Keszlet {
 
     #ujMegsemmisites() {
         $(window).on("ujMegsemmisites", (event) => {
+            console.log(event.detail)
             this.#dataService.patchData(`http://localhost:8000/api/keszlet_megsemmisitese/${event.detail}`)
         });
     }
 
     #oltasNev() {
         $(window).on("oltasNev", (event) => {
-            this.#dataService.getAxiosData(`http://localhost:8000/api/oltas_nev/`, this.megjelenitUjKeszlet, event.detail)
+            console.log(event.detail)
+            this.#dataService.getAxiosData2(`http://localhost:8000/api/oltas_nev/`, this.megjelenitUjKeszlet, event.detail)
         });
     }
 
     #ujKeszlet() {
         $(window).on("ujKeszlet", (event) => {
-            console.log(event.detail[0])
             this.#dataService.postData(`http://localhost:8000/api/uj_keszlet/${this.#id}/${event.detail[1]}`, event.detail[0])
         });
     }

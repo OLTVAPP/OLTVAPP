@@ -1,6 +1,7 @@
 import Hozzaad from "./controller/Hozzaad.js";
 import Betegek from "./controller/Betegek.js";
 import Keszlet from "./controller/Keszlet.js";
+import Bealitasok from "./controller/Bealitasok.js";
 
 $(function () {
   let header = $("header");
@@ -16,9 +17,8 @@ $(function () {
   if (message === "Készlet") {
     new Keszlet();
   }
-  /*
-    if(message === "Profil Beálitások"){
-        new Bealitasok();
-    }
-    */
+  if (message === "Profil Beálitások") {
+    new Bealitasok();
+  }
+
 });

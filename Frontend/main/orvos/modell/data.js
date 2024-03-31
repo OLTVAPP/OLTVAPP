@@ -24,7 +24,7 @@ class DataService {
       });
   }
 
-  getAxiosData2(url, callback, adatLeiro, logikaiErtek) {
+  getAxiosData2(url, callback, adatLeiro, ertek) {
     axios
       .get(url)
       .then(function (response) {
@@ -33,7 +33,7 @@ class DataService {
         console.log("data", response.data);
         console.log("státusz", response.request.status);
         console.log("text", response.statusText);
-        callback(response.data, adatLeiro, logikaiErtek);
+        callback(response.data, adatLeiro, ertek);
       })
       .catch(function (error) {
         // handle error
@@ -92,6 +92,19 @@ class DataService {
         console.log("hiba", error);
       })
   }
+
+  patchData2(url, data) {
+    axios
+      .patch(url, data)
+      .then((response) => {
+        console.log(response);
+        location.reload();
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
 
 
 }

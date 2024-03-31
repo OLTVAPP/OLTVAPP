@@ -42,39 +42,29 @@ article {
   text-align: center;
 }
 
-.gombok {
-  background-color: mediumturquoise;
-  padding: 40px;
-  margin: 10px;
-}
-
 article {
   margin: auto;
-  text-align: center;
+  text-align: left;
+  
 }
 
 .input{
   margin: auto;
-  width: 20%;
   display: grid;
 }
 .adatok{
-  width: 50%;
+  text-align: left;
   margin: auto;
-  text-align: center;
-  padding: 10px;
+  text-align: left;
+
 }
 
 .gyerekAdat {
-  margin: 20px;
-  border: solid black 3px;
-  padding: 10px;
+  text-align: left;
 }
 
 .gyerekLakcim {
-  margin: 20px;
-  border: solid black 3px;
-  padding: 10px;
+  text-align: left;
 }
 
 
@@ -90,20 +80,3 @@ article {
 .elrejt {
   display: none;
 }
-
-
-/*
-footer {
-  padding-top: 5px;
-  background-color: black;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-}
-
-#jog {
-  color: white;
-}
-*/

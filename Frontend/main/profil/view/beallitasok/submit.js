@@ -27,7 +27,7 @@ class SubmitInput {
   #buttonElem() {
     console.log(this.#leiro.tipus);
     let txt = `<div class="mb-3 mt-3">`;
-    txt += ` <button class="form-control" id="${ this.#key }"  value="${this.#value}">  ${this.#value} </button>`;
+    txt += ` <button class="form-control btn btn-primary" id="${ this.#key }"  value="${this.#value}">  ${this.#value} </button>`;
 
    // txt += `<input type="${this.#leiro.tipus}" class="form-control" id="${this.#key}"  value="${this.#value}">`;
     txt += "</div>";

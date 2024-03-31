@@ -1,49 +1,52 @@
-import NumberInput from "../input/Number.js";
 import DateInput from "../input/Date.js";
+import TextArea from "../input/TextArea.js";
 
-class UjKeszlet {
+class UjBeadott {
     #szuloElem
+    #list
     #leiro
-    #mentesGomb
-    #vakcinaAdat
-    #oltas_id
-    #keszlet_adat = {};
-    #lejarati_datuma;
+    #beadando_id
+    #mentesGomb;
+    #beszerzes_id;
+    #beadas_adat = {};
+    #oltas_id;
+    #keszlet;
 
     #urlapElemLista = [];
     #osszesElemValidE = true;
-    constructor(szuloElem, leiro, vakcinaAdat) {
-        this.#szuloElem = szuloElem;
+
+    constructor(szuloElem, list, leiro, beadando_id) {
+        this.#szuloElem = szuloElem
+        this.#list = list;
         this.#leiro = leiro;
-        this.#vakcinaAdat = vakcinaAdat;
+        this.#beadando_id = beadando_id;
         this.#select();
         this.#sor();
         this.#kattintas();
     }
 
     #select() {
-        let txt = "<label for='oltas'>Válassz oltást: </label>"
-        txt += '<select name="oltas" id="oltas">'
-        txt += `<option value=0>-- oltasok --</option>`
-        for (let key in this.#vakcinaAdat) {
-            txt += `<option value=${this.#vakcinaAdat[key].oltas_id}>${this.#vakcinaAdat[key].oltoanyag_neve}</option>`
+        let txt = "<label for='oltas'>Válassz készletett: </label>"
+        txt += '<select name="keszlet" id="keszlet">'
+        txt += `<option>oltás neve | darab | beszerzés dátuma | lejárati dátuma</option>`
+        for (let key in this.#list) {
+            txt += `<option data-values=${this.#list[key].oltas_id},${this.#list[key].beszerzes_id}>${this.#list[key].oltoanyag_neve} | ${this.#list[key].darab} | ${this.#list[key].beszerzes_datuma} | ${this.#list[key].lejarati_datuma}</option>`
         }
         txt += "</select>"
         txt += '<div class="valid elrejt">OK</div>'
         txt += '<div class="invalid elrejt">Nincs megadva adat</div>'
         txt += "<br><br>"
 
-
         this.#szuloElem.append(txt);
 
         this.invalidElem = this.#szuloElem.children(".invalid");
         this.validElem = this.#szuloElem.children(".valid");
-        $("#oltas").on("change", () => {
-            const oltas_id = $("#oltas option:selected").val()
-            if(oltas_id != 0){
+        $("#keszlet").on("change", () => {
+            try {
+                let ertekek = $("#keszlet option:selected").data("values").split(",");
                 this.validElem.removeClass("elrejt");
                 this.invalidElem.addClass("elrejt");
-            }else{
+            } catch {
                 this.validElem.addClass("elrejt");
                 this.invalidElem.removeClass("elrejt");
             }
@@ -54,11 +57,6 @@ class UjKeszlet {
         let txt = '<div class="mb-3">';
         for (let key in this.#leiro) {
             switch (this.#leiro[key].tipus) {
-                case "number":
-                    this.#urlapElemLista.push(
-                        new NumberInput(key, this.#leiro[key], this.#szuloElem, "")
-                    );
-                    break;
                 case "date":
                     const today = new Date();
                     const year = today.getFullYear() + 18;
@@ -70,6 +68,10 @@ class UjKeszlet {
                     this.#urlapElemLista.push(new DateInput(key, this.#leiro[key], this.#szuloElem, maxDatum, minDatum));
                     break;
                 default:
+                case "textarea":
+                    this.#urlapElemLista.push(
+                        new TextArea(key, this.#leiro[key], this.#szuloElem, ""));
+                    break;
             }
         }
         txt += "</div>"
@@ -79,11 +81,11 @@ class UjKeszlet {
     }
 
     #kattintas() {
-        this.#mentesGomb.on("click", (event) => {
-            this.#oltas_id = $("#oltas option:selected").val()
-            if (this.#oltas_id == 0) {
-                this.invalidElem.removeClass("elrejt");
-            } else {
+        this.#mentesGomb.on("click", () => {
+            try {
+                let ertekek = $("#keszlet option:selected").data("values").split(",");
+                this.#oltas_id = ertekek[0];
+                this.#beszerzes_id = ertekek[1];
                 event.preventDefault();
                 this.#osszesElemValidE = true;
                 this.#urlapElemLista.forEach(elem => {
@@ -91,24 +93,22 @@ class UjKeszlet {
                 })
                 if (this.#osszesElemValidE) {
                     this.#urlapElemLista.forEach((elem) => {
-                        this.#keszlet_adat[elem.key] = elem.value;
+                        this.#beadas_adat[elem.key] = elem.value;
                     })
-                    if (this.#keszlet_adat.beszerzes_datuma >= this.#keszlet_adat.lejarati_datuma) {
-                        alert("Lejárati dátum nem lehet kisebb a beszerzés dátumnál!")
-                    } else {
-                        this.#esemenyTrigger("ujKeszlet")
-                    }
+                    this.#esemenyTrigger("ujBeadas")
                 } else {
                     console.log("Nem valid az űrlap");
                 }
+            } catch {
+                this.invalidElem.removeClass("elrejt");
             }
         });
     }
 
     #esemenyTrigger(esemenyNev) {
-        const E = new CustomEvent(esemenyNev, { detail: [this.#keszlet_adat, this.#oltas_id] });
-        window.dispatchEvent(E);
+        const e = new CustomEvent(esemenyNev, { detail: [this.#oltas_id, this.#beadando_id, this.#beadas_adat, this.#beszerzes_id] });
+        window.dispatchEvent(e);
     }
-}
 
-export default UjKeszlet;
+}
+export default UjBeadott;

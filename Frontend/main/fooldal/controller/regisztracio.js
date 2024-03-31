@@ -9,21 +9,23 @@ class Controller {
   constructor() {
     this.#dataService = new DataService();
     this.#urlapModell = new UrlapModell();
-    this.megjelenit();
+    this.#ellenorzes();
     this.post();
   }
 
-  megjelenit() {
-    new UrlapView($("article"), this.#urlapModell.getLeiro());
+  megjelenit(list, leiro) {
+    console.log(list)
+    new UrlapView($("article"), leiro, list);
   }
 
   post() {
     $(window).on("regisztracio", (event) => {
-      this.#dataService.postData(
-        "http://localhost:8000/register",
-        event.detail
-      );
+      this.#dataService.postData("http://localhost:8000/register", event.detail);
     });
+  }
+
+  #ellenorzes() {
+    this.#dataService.getAxiosData("http://localhost:8000/api/felhasznalo_nev_email", this.megjelenit, this.#urlapModell.getLeiro());
   }
 }
 

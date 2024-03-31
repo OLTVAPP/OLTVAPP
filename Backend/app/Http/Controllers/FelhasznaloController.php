@@ -191,4 +191,11 @@ class FelhasznaloController extends Controller
     }
 
 
+    public function felhasznaloNevEmail(){
+        $felhasznalo = Felhasznalo::select("felhasznalo_nev", 'felhasznalo_email')
+        ->get();
+
+    return $felhasznalo;
+    }
+
 }

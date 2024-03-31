@@ -93,16 +93,14 @@ Route::get('/orvos/{orvos_id}', [OrvosController::class, 'orvos']);
 
 //készlet megjelenitése tipus_id alapján
 Route::get('/keszlet_oltas_id/{orvos_id}/{tipus_id}', [OrvosController::class, 'keszletOltasId']);
-
 Route::put('/beteg_modosit/{gyerek_taj}/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'betegModosit']);
 Route::patch('/orvos_modosit/{orvos_id}', [OrvosController::class, 'orvosModosit']);
-
 Route::patch('/keszlet_megsemmisitese/{beszerzes_id}', [OrvosController::class, 'keszletMegsemmisitese']);
-
 Route::post('/uj_beteg/{orvos_id}/{felhasznalo_email}', [OrvosController::class, 'ujBeteg']);
 Route::post('/uj_keszlet/{orvos_id}/{oltas_id}', [OrvosController::class, 'ujKeszlet']);
 Route::post('/uj_beadas/{orvos_id}/{oltas_id}/{beadando_id}/{beszerzes_id}', [OrvosController::class, 'ujBeadas']);
 Route::post('/uj_beadando/{gyerek_id}/{tipus_id}', [OrvosController::class, 'ujBeadando']);
+
 
 //felhasznalok (gyerek, szülő)
 
@@ -110,12 +108,13 @@ Route::post('/uj_beadando/{gyerek_id}/{tipus_id}', [OrvosController::class, 'ujB
 Route::get('/csalad', [CsaladController::class, 'getCsalad']);
 
 //regisztráció
+Route::get('/felhasznalo_nev_email', [FelhasznaloController::class, 'felhasznaloNevEmail']);
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 Route::post('/szulo', [SzuloController::class, 'store']);
 
-Route::get('/oltas', [OltasController::class,'index']);
-Route::get('/gyerek', [GyerekController::class,'gyerekIndex']);
-Route::get('/orvos', [OrvosController::class,'orvosShow']);
+Route::get('/oltas', [OltasController::class, 'index']);
+Route::get('/gyerek', [GyerekController::class, 'gyerekIndex']);
+Route::get('/orvos', [OrvosController::class, 'orvosShow']);
 
 
 

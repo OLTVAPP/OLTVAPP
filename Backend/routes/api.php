@@ -8,6 +8,7 @@ use App\Http\Controllers\FelhasznaloController;
 use App\Http\Controllers\OltasController;
 use App\Http\Controllers\RendeloController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\GyerekController;
 use App\Http\Controllers\OrvosController;
 use App\Http\Controllers\SzuloController;
 use Illuminate\Http\Request;
@@ -101,6 +102,10 @@ Route::get('/csalad', [CsaladController::class, 'getCsalad']);
 //regisztráció
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 Route::post('/szulo', [SzuloController::class, 'store']);
+
+Route::get('/oltas', [OltasController::class,'index']);
+Route::get('/gyerek', [GyerekController::class,'gyerekIndex']);
+Route::get('/orvos', [OrvosController::class,'orvosShow']);
 
 
 

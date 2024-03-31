@@ -1,16 +1,16 @@
-import PasswordInput from "./input/password.js";
-import SubmitInput from "./input/submit.js";
-import TextInput from "./input/text.js";
+import PasswordInput from "./beallitasok/password.js";
+import SubmitInput from "./beallitasok/submit.js";
+import TextInput from "./beallitasok/text.js";
 
 class TombInput {
   #adatok;
   #divElem;
   #inputok = [];
-  constructor(adatok, szuloElem, className) {
+  constructor(adatok, szuloElem, osztaly) {
     this.#adatok = adatok;
     szuloElem.append("<div>");
     this.#divElem = szuloElem.children("div:last-child");
-    this.#divElem.addClass(className);
+    this.#divElem.addClass(osztaly);
     this.#init();
   }
 
@@ -38,6 +38,7 @@ class TombInput {
       }
     }
   }
+
 
   getInputok() {
     return this.#inputok;

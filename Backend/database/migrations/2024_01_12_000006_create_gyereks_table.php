@@ -67,6 +67,7 @@ return new class extends Migration
             'lakcim_utca' => "hgfskjd",
             'erzekenyseg' => "fgfdgdhdkd"
         ]);
+            
     }
 
     /**

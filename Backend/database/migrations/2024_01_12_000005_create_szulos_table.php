@@ -32,7 +32,7 @@ return new class extends Migration
             'vez_nev' => "asdgfdgfdgf",
             'ker_nev' => "dgdfgdffdm",
             'szemelyi_igazolvany_szam' => "3242342RE",
-            'telefonszam' => "+3243434",
+            'telefonszam' => 1234567891,
             'lakcim_varos' => "Pécs",
             'lakcim_irSzam' => 4535,
             'lakcim_utca' => "hgfskjd",

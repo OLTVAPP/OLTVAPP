@@ -1,4 +1,4 @@
-import { admin_hozzAd, oltas_tipus_hozzaAd, orvos_hozzAd } from "../modell/hozzaAd_leiro.js";
+import { admin_hozzAd, beadando_hozzaAd, oltas_hozzaAd, oltas_tipus_hozzaAd, orvos_hozzAd } from "../modell/hozzaAd_leiro.js";
 import HozzaAd_view from "../view/hozzaAd/hozzaAd_view.js";
 
 class HozzaAd_Controller {
@@ -7,7 +7,6 @@ class HozzaAd_Controller {
   #divId;
   constructor(divId) {
     this.#divId = divId;
-    console.log(this.#divId);
     this.setDivId();
     const button = $(`#${this.#divId}`);
     console.log(button);
@@ -39,9 +38,13 @@ class HozzaAd_Controller {
         this.#id = "oltas_tipus";
         break;
       case "beadando_add":
-        this.#adatLeiro = oltas_tipus_hozzaAd;
+        this.#adatLeiro = beadando_hozzaAd;
         this.#id = "beadando";
         break;
+        case "oltas_add":
+          this.#adatLeiro = oltas_hozzaAd;
+          this.#id = "oltas";
+          break;
       default:
         break;
     }

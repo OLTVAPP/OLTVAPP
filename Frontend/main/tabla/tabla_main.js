@@ -2,15 +2,14 @@ import Tabla_controller from "./controller/tabla_controller.js";
 import DataService from "./modell/data.js";
 import {
   fejlec_admin_felhasznalo,
+  fejlec_beadando,
   fejlec_felhasznalo,
+  fejlec_oltas,
   fejlec_oltas_tipus,
   fejlec_orvos_felhasznalo,
   fejlec_szulo_felhasznalo,
 } from "./modell/fejlecLeiro.js";
-$(function () {
-  const tabla = new Tabla_main($("table").attr("id"));
-  tabla.tabla_futtato();
-});
+
 class Tabla_main {
   #fejLecek;
   #tablaAdatUrl;
@@ -29,9 +28,17 @@ class Tabla_main {
         this.#tablaAdatUrl = "http://localhost:8000/api/felhasznalok_search";
         this.#fejLecek = fejlec_felhasznalo;
         break;
-        case "osszes_oltas_tipus":
+        case "osszes_beadando":
+         this.#tablaAdatUrl = "http://localhost:8000/api/beadando_tabla";
+          this.#fejLecek = fejlec_beadando;
+          break;
+          case "osszes_oltas_tipus":
          this.#tablaAdatUrl = "http://localhost:8000/api/oltas_tipus_tabla";
           this.#fejLecek = fejlec_oltas_tipus;
+          break;
+          case "osszes_oltas":
+         this.#tablaAdatUrl = "http://localhost:8000/api/oltas_tabla";
+          this.#fejLecek = fejlec_oltas;
           break;
       default:
         break;

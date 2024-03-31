@@ -4,7 +4,7 @@ use App\Models\Szulo;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 return new class extends Migration
 {
     /**
@@ -25,7 +25,10 @@ return new class extends Migration
             $table->timestamps();
         });
 
+   
+
         Szulo::create([
+            'felhasznalo_id' => 1,
             'vez_nev' => "asdgfdgfdgf",
             'ker_nev' => "dgdfgdffdm",
             'szemelyi_igazolvany_szam' => "3242342RE",
@@ -34,6 +37,22 @@ return new class extends Migration
             'lakcim_irSzam' => 4535,
             'lakcim_utca' => "hgfskjd",
         ]);
+
+        DB::unprepared('
+        CREATE TRIGGER szulo_check_felhasznalo_id_k_role BEFORE INSERT ON szulos
+        FOR EACH ROW
+        BEGIN
+            DECLARE felhasznalo_count INT;
+            SELECT COUNT(*)
+            INTO felhasznalo_count
+            FROM felhasznalos
+            WHERE id = NEW.felhasznalo_id AND szerepkor = \'S\';
+
+            IF felhasznalo_count = 0 THEN
+                SIGNAL SQLSTATE \'45000\' SET MESSAGE_TEXT = "The felhasznalo_id must reference an \'S\' role felhasznalos";
+            END IF;
+        END
+    ');
        
     }
 
@@ -43,5 +62,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('szulos');
+
+
+
+    
+
     }
 };

@@ -21,3 +21,38 @@ export const orvos_adatok_hozzaAd = {
   publikus_email: "",
   rendelo_ajto_szam: "",
 };
+
+
+export const oltas_tipus_hozzaAd = {
+  url: "http://localhost:8000/api/oltas_tipus",
+  szuksegesAdatok: {
+  tipus_elnev: "",
+  kotelezo: "",
+  leiras: ""
+  }
+};
+
+export const beadando_hozzaAd = {
+  url: "http://localhost:8000/api/beadando",
+  szuksegesAdatok: {
+  tipus_id: "",
+  ev: "",
+  honap: "",
+  hanyadik: ""
+  }
+};
+
+
+
+export const oltas_hozzaAd = {
+  url: "http://localhost:8000/api/oltas",
+  szuksegesAdatok: {
+  tipus_id: "",
+  oltoanyag_neve: "",
+  forgalmazo: "",
+  leiras: "",
+  adagolas: "",
+  receptre: ""
+  }
+};
+

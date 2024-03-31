@@ -81,6 +81,20 @@ class DataService {
       });
   }
 
+  getDataModosit(vegpont, callback, divElem, obj, adatTipus) {
+    axios
+      .get(vegpont)
+      .then(function (response) {
+        callback(response.data, divElem, obj, adatTipus);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+  }
+
   postData(url, data) {
     console.log("put");
     axios
@@ -105,6 +119,7 @@ class DataService {
   }
 
   putData(url, id, obj) {
+   
     axios
       .put(url + "/" + id, obj)
       .then(function (response) {

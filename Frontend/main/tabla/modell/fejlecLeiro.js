@@ -26,20 +26,41 @@ export const fejlec_orvos_felhasznalo = {
 export const fejlec_felhasznalo = {
   felhasznalo_nev: " Felhasználó név",
   felhasznalo_email: "Felhasználó emailcím",
+  szereplo: "Szerep",
   vez_nev: "vezeték név",
   ker_nev: "kereszt név",
   aktiv: "Aktivitás",
   modosit: "Modosit",
-  sorrendValtozatato: [true, true, true, true, false, false]
+  sorrendValtozatato: [true, true, false, true, true, false, false]
 };
 
-export const fejlec_oltas_tipus = {
+export const fejlec_beadando = {
   tipus_elnev: "Oltás tipus neve",
-  kotelezo: "Kötelezetség",
   ev: "Beadandó év",
   honap: "Beadandó hónap",
   hanyadik: "hanyadik",
   modosit: "Modosit",
   sorrendValtozatato: [true, false, false, false, false, false]
+
+};
+
+export const fejlec_oltas_tipus = {
+  tipus_elnev: "Oltás tipus neve",
+  kotelezo: "Kötelezetség",
+ leiras: "Leírás",
+  modosit: "Modosit",
+  sorrendValtozatato: [true, false, false, false]
+
+};
+
+
+export const fejlec_oltas = {
+  tipus_elnev: "Oltás tipus neve",
+  oltoanyag_neve: "Oltóanyag neve",
+  forgalmazo: "Forgalmazó neve",
+  receptre: "Recepes",
+  aktiv: "Forgalomban",
+  modosit: "Modosit",
+  sorrendValtozatato: [true, true, true, false, false, false]
 
 };

@@ -13,7 +13,6 @@
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/main/profil/nav_main.js" type="module"></script>
-    <script src="/main/tabla/tabla_main.js" type="module"></script>
     <script src="/main/tabla/szuro_main.js" type="module"></script>
     <script src="valaszto_main.js" type="module"></script>
     <script src="/main/tabla/hozzaAd_main.js" type="module"></script>
@@ -21,21 +20,31 @@
   </head>
   <body>
     <nav>
-      <div id="">
-        <h1></h1>
+      <div id="cim">
+          <h1>OLTVAPP</h1>
       </div>
-      <div id=""></div>
-    </nav>
+      <div id="gombok">
+        <button class="foGomb">
+            <a href="admin.html">főoldal</a>
+          </button>
+          <button class="foGomb">
+              <a href="../fooldal/index.html">kilépés</a>
+          </button>
+      </div>
+  </nav>
     <article class="container mt-3">
       <div class="hozzaAd">
         <select name="felhasznalo" id="felhasznalo_valaszt">
           <option value="admin_hozaAd">Admin</option>
           <option value="orvos_hozaAd">Orvos</option>
         </select>
-        <button class='ujAdat' id="admin_hozaAd">Új felhasználó</button>
+        <button class='btn btn-primary ujAdat' id="admin_hozaAd">Új felhasználó</button>
       </div>
       <div class="szuro" id="felhasznalo_szuro"></div>
       <table class="table table-bordered" id="osszes_felhasznalo"></table>
     </article>
+    <footer>
+      <a id="jog">Minden jog fenntartva!</a>
+  </footer>
   </body>
 </html>

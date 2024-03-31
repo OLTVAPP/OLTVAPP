@@ -14,6 +14,20 @@ export const felhasznalo_szuro = [
     placeholder: "felhasználó név",
   },
   {
+    key: "szerepkor",
+    megjelenes: "Szerepkőr",
+    tipus: "select",
+    value: "",
+    url: "nincs",
+    valaszto: [
+      { value: "", kiiras: "Összes" },
+      { value: "A", kiiras: "Admin" },
+      { value: "O", kiiras: "Orvos" },
+      { value: "S", kiiras: "Szülő" },
+    ],
+  },
+
+  {
     key: "vez_nev",
     megjelenes: "Vezeték név",
     tipus: "text",
@@ -42,6 +56,59 @@ export const felhasznalo_szuro = [
 
 ];
 
+
+
+export const oltas_tipus_szuro = [
+  {
+    key: "tipus_elnev",
+    megjelenes: "Óltás tipus neve",
+    tipus: "text",
+    value: "",
+    placeholder: "Óltás típús neve",
+  },
+  
+  {
+    key: "kotelezo",
+    megjelenes: "Kötelezetség",
+    tipus: "select",
+    value: "",
+    url: "nincs",
+    valaszto: [
+      { value: "", kiiras: "Összes" },
+      { value: 1, kiiras: "Kötelező" },
+      { value: 0, kiiras: "Nem kötelező" },
+    ],
+  },
+
+];
+
+export const oltas_szuro = [
+  {
+    key: "tipus_elnev",
+    megjelenes: "Óltás tipus neve",
+    tipus: "text",
+    value: "",
+    placeholder: "Óltás típús neve",
+  },
+  {
+    key: "oltoanyag_neve",
+    megjelenes: "Oltóanyag neve",
+    tipus: "text",
+    value: "",
+    placeholder: "Óltás típús neve",
+  },
+
+  {
+    key: "forgalmazo",
+    megjelenes: "Forgalamzó neve",
+    tipus: "text",
+    value: "",
+    placeholder: "Óltás típús neve",
+  },
+
+
+
+];
 
 
 

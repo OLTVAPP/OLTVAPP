@@ -29,7 +29,7 @@ class Szurok {
              this.#objektumok.push(button);
           break;
         case "select":
-          const select = new Select(this.#adatok[index].key, inputElem);
+          const select = new Select(this.#adatok[index].key, inputElem, this.#adatok[index].megjelenes);
           select.setValue("");
           const selectElem = select.getSelectElem();
           console.log(selectElem)

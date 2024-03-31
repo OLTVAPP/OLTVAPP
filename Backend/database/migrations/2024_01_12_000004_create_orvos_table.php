@@ -4,7 +4,7 @@ use App\Models\Orvos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 return new class extends Migration
 {
     /**
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-
+ 
         Orvos::create([
             'felhasznalo_id' => 3,
             'vez_nev' => 'Mogyoródi',
@@ -43,6 +43,21 @@ return new class extends Migration
             'publikus_email' => "kov@gmail.com",
             'rendelo_ajto_szam' => 2
         ]);
+        DB::unprepared('
+        CREATE TRIGGER orvos_check_felhasznalo_id_k_role BEFORE INSERT ON orvos
+        FOR EACH ROW
+        BEGIN
+            DECLARE felhasznalo_count INT;
+            SELECT COUNT(*)
+            INTO felhasznalo_count
+            FROM felhasznalos
+            WHERE id = NEW.felhasznalo_id AND szerepkor = \'O\';
+
+            IF felhasznalo_count = 0 THEN
+                SIGNAL SQLSTATE \'45000\' SET MESSAGE_TEXT = "The felhasznalo_id must reference an \'O\' role felhasznalos";
+            END IF;
+        END
+    ');
 
        
     }

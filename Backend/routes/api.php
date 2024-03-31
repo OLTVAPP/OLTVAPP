@@ -60,6 +60,18 @@ Route::put('/orvos/{felhasznalo_id}', [OrvosController::class, 'update']);
 Route::put('/szulo/{felhasznalo_id}', [SzuloController::class, 'update']);
 Route::get('/felhasznalo_idKeres/{email}', [FelhasznaloController::class, 'idKeres']);
 Route::get('/oltas_tipus_tabla', [OltasController::class, 'oltas_tipus_tabla']);
+Route::get('/oltas_tipus/{oltas_tipus_id}', [OltasController::class, 'kivalasztott_oltas_tipus']);
+Route::get('/beadando_tabla', [OltasController::class, 'beadando_tabla']);
+Route::get('/beadando/{beadando_id}', [OltasController::class, 'kivalaszott_beadando']);
+Route::get('/oltas_tipus', [OltasController::class, 'oltas_tipus']);
+Route::post('/oltas_tipus', [OltasController::class, 'store_tipus']);
+Route::post('/beadando', [OltasController::class, 'store_beadando']);
+Route::get('/oltas_tabla', [OltasController::class, 'oltas_tabla']);
+Route::get('/oltas/{id}', [OltasController::class, 'oltas_kivalasztott']);
+Route::post('/oltas', [OltasController::class, 'store']);
+Route::put('/oltas/{oltas_id}', [OltasController::class, 'update']);
+Route::put('/oltas_tipus/{oltas_tipus_id}', [OltasController::class, 'update_tipus']);
+Route::put('/beadando/{beadando_id}', [OltasController::class, 'update_beadando']);
 
 
 //felhasznalok
@@ -73,9 +85,9 @@ Route::get('/felhasznalo_keres/{felhasznalo_nev}/{felhasznalo_jelszo}', [Felhasz
 
 
 //oltas
-Route::get('/oltas', [OltasController::class, 'index']);
-Route::post('/oltas', [OltasController::class, 'store']);
-Route::put('/oltas/{oltas_id}', [OltasController::class, 'update']);
+
+
+
 
 //rendelo
 

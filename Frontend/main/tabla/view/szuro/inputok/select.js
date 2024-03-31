@@ -5,8 +5,12 @@ class Select {
   #value;
   #key;
 
-  constructor(key, inputElem) {
+  constructor(key, inputElem, megjelenes) {
     this.#key = key;
+    inputElem.append(`<label for="${this.#key}" 
+    class="form-label"><br>
+    ${megjelenes}
+    </label><br>`)
     inputElem.append(`<select id="${key}"></select>`);
     this.#selectElem = inputElem.children(`#${key}:last-child`);
     this.#change(); 

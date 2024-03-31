@@ -1,26 +1,26 @@
-class TextInput{
+class HozzaAd_Text{
 
-    #formElem;
     #key;
-    #leiro;
-    #value;
-    #valid = false;
-
-
-    constructor(key, leiro, szuloElem){
-        console.log("hello")
+    #leiro = []
+    #txt
+    #value
+    #inputElem
+    #valid
+    constructor(leiro, key){
         this.#valid = false
-        this.#key = key;
+        this.#value = "";
         this.#leiro = leiro;
-        this.#formElem = szuloElem;
-        this.#value = this.#leiro.value;
+        this.#key = key;
         this.#textElem();
-        this.inputElem=$(`#${this.#key}`)
-        console.log("input", this.inputElem);
-        this.validElem = this.#formElem.children("div:last-child").children(".valid");
-        this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");;
-        this.inputElem.on("keyup",()=>{
-            this.#value = this.inputElem.val();
+    }
+
+    kiirasModsito(){
+        this.validElem = $(`.${this.#key}`).children(".valid");
+        this.invalidElem = $(`.${this.#key}`).children(".invalid");;
+        this.#inputElem=$(`#add_${this.#key}`)
+        this.#inputElem.on("keyup",()=>{
+            this.#value = this.#inputElem.val();  
+            console.log(this.#value)
             let reg = this.#leiro.regex;
             let regObj = new RegExp(reg);
             console.log(regObj.test(this.#value));
@@ -34,55 +34,38 @@ class TextInput{
                 this.validElem.addClass("elrejt");
             }
         })
-
-
-    }
-
-    get id() {
-        return this.#leiro.id;
-    }
-
-    get value() {
-        return this.#value;
-    }
-
-    get valid() {
-        return this.#valid;
-    }
-
-    get key() {
-        return this.#key;
     }
 
 
 
     #textElem() {
-        let txt = `
-        <div class="input">
+        let txt = `<div class="${this.#key}">
         <label for="${this.#key}" 
         class="form-label">
         ${this.#leiro.megjelenes}
         </label>
-        
         <input type="${this.#leiro.tipus}" class="form-control" 
-        id="${this.#key}" 
+        id="add_${this.#key}" 
         name="${this.#key}"
+        placeholder="${this.#leiro.placeholder}"
+        value="${this.#value}"
         patter="${this.#leiro.regex}"
-        value="${this.#leiro.value}"
         maxLength="${this.#leiro.maxLength}">
-
         <div class="valid elrejt">OK</div>
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
-        </div>
-        `
-        this.#formElem.append(txt);
+        </div>`
+        this.#txt = txt;
     }
 
+    getTxt(){
+        return this.#txt
+    }
 
     getValue(){
         return this.#value
     }
 
 
+
 }
-export default TextInput
+export default HozzaAd_Text

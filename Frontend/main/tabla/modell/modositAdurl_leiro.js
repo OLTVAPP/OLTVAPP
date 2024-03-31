@@ -41,3 +41,36 @@ export const szulo_adatok_modosit = {
     lakcim_utca: "",
   }
 }
+
+export const oltas_adatok_modosit = {
+  url: "http://localhost:8000/api/oltas",
+  szuksegesAdatok: {
+  tipus_id: "",
+  oltoanyag_neve: "",
+  forgalmazo: "",
+  leiras: "",
+  adagolas: "",
+  receptre: "",
+  aktiv: ""
+  }
+};
+
+
+export const beadando_modosit = {
+  url: "http://localhost:8000/api/beadando",
+  szuksegesAdatok: {
+  tipus_id: "",
+  ev: "",
+  honap: "",
+  hanyadik: ""
+  }
+};
+
+export const oltas_tipus_modosit = {
+  url: "http://localhost:8000/api/oltas_tipus",
+  szuksegesAdatok: {
+  tipus_elnev: "",
+  kotelezo: "",
+  leiras: ""
+  }
+};

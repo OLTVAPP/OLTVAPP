@@ -1,21 +1,23 @@
-class HozzaAd_Text{
-
+class Modosit_extended_Text{
     #key;
     #leiro = []
+    #adat = [];
     #txt
     #value
     #inputElem
-    constructor(leiro, key){
-        this.#value = "";
+    constructor(leiro, adat, key){
         this.#leiro = leiro;
+        this.#adat = adat;
         this.#key = key;
+        this.#value = this.#adat[this.#key]
         this.#textElem();
     }
 
     kiirasModsito(){
-        this.#inputElem=$(`#add_${this.#key}`)
+        this.#inputElem=$(`#modosit_${this.#key}`)
         this.#inputElem.on("keyup",()=>{
             this.#value = this.#inputElem.val();  
+            console.log(this.#value)
         })
     }
 
@@ -27,10 +29,10 @@ class HozzaAd_Text{
         class="form-label">
         ${this.#leiro.megjelenes}
         </label>
-        <input type="${this.#leiro.tipus}" class="form-control" 
-        id="add_${this.#key}" 
+        <input type="text" class="form-control extended_input" 
+        id="modosit_${this.#key}" 
         name="${this.#key}"
-        placeholder="${this.#leiro.placeholder}"
+        placeholder="${this.#adat[this.#key]}"
         value="${this.#value}"
         >`
         this.#txt = txt;
@@ -44,7 +46,12 @@ class HozzaAd_Text{
         return this.#value
     }
 
+    getKey(){
+        return this.#key
+    }
+
+
 
 
 }
-export default HozzaAd_Text
+export default Modosit_extended_Text

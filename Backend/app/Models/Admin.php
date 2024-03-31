@@ -20,5 +20,16 @@ class Admin extends Model
     {
         return $this->belongsTo(Felhasznalo::class);
     }
-   
+   /* public static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($admin) {
+            $felhasznalo = Felhasznalo::find($admin->felhasznalo_id);
+
+            if (!$felhasznalo || $felhasznalo->szerepkor !== 'A') {
+                throw new \Exception('Nem megfelelő felhasználó azonosító vagy szerepkör.');
+            }
+        });
+    } */
 }

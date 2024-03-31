@@ -32,8 +32,8 @@ class Fejlec {
   }
 
   kattintas(adatok) {
+    console.log(adatok)
     $(`#sort_${this.#cimke}`).on("click", () => {
-     console.log(this.#sorend)
       if(this.#sorend == true){
         adatok = this.novekvoSorrend(adatok);
         this.#sorend = false
@@ -90,6 +90,7 @@ class Fejlec {
 
 
   #esemenyTrigger(adatok){
+    console.log(adatok)
     window.dispatchEvent(new CustomEvent("tabla_sorrend_valtas", { detail: adatok}));
   }
 }

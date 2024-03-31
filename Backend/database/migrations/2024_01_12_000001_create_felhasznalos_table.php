@@ -4,6 +4,7 @@ use App\Models\Felhasznalo;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -24,22 +25,29 @@ return new class extends Migration
         });
 
 
+        DB::statement("ALTER TABLE felhasznalos ADD CONSTRAINT szerepkor_check CHECK (szerepkor IN('A', 'S', 'O'))");
+
+
+
         Felhasznalo::create([
-            'felhasznalo_nev' => "balazsmogyorodi",
-            'jelszo' => "123Abc",
-            'felhasznalo_email' => "bal@gmail.com",
-            'szerepkor' => "A",
-            'aktiv' => true   
-        ]);   
-        Felhasznalo::create([
+            'id' => 1,
             'felhasznalo_nev' => "kovacsBeluka",
             'jelszo' => "123Abc",
             'felhasznalo_email' => "rgrg@gmail.com",
             'szerepkor' => "S",
             'aktiv' => true
         ]);
+        Felhasznalo::create([
+            'id' => 2,
+            'felhasznalo_nev' => "balazsmogyorodi",
+            'jelszo' => "123Abc",
+            'felhasznalo_email' => "bal@gmail.com",
+            'szerepkor' => "A",
+            'aktiv' => true   
+        ]);   
         
         Felhasznalo::create([
+            'id' => 3,
             'felhasznalo_nev' => "kovacsBela",
             'jelszo' => "Gerle0104",
             'felhasznalo_email' => "kov@gmail.com",
@@ -48,6 +56,7 @@ return new class extends Migration
         ]);
 
         Felhasznalo::create([
+            'id' => 4,
             'felhasznalo_nev' => "JoskaSanyi",
             'jelszo' => "Gerle0104",
             'felhasznalo_email' => "kodsfv@gmail.com",

@@ -23,4 +23,8 @@ class Felhasznalo extends Model
     {
         return $this->hasOne(Szulo::class);
     }
+
+
+
+    
 }

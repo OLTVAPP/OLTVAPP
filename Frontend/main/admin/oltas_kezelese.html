@@ -14,6 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/main/profil/nav_main.js" type="module"></script>
     <script src="valaszto_main.js" type="module"></script>
+    <script src="/main/tabla/szuro_main.js" type="module"></script>
+    <script src="valaszto_main.js" type="module"></script>
     <script src="/main/tabla/hozzaAd_main.js" type="module"></script>
     <link rel="stylesheet" href="admin.css" />
   </head>
@@ -32,19 +34,11 @@
       </div>
   </nav>
     <article class="container mt-3">
-      <div class="tabla_menu">
-
-        <ul>
-          <li><button class="btn btn-primary menu" id="oltas_tipus_kivalasztas">Otlások típúsa</button></li>
-          <li><button class="btn btn-primary menu" id="beadando_kivalasztas">Oltások beadandója</button></li>
-        </ul>
-
-      </div>
       <div class="hozzaAd" id="oltas_tipus">
-        <button class='btn btn-primary ujAdat' id="oltas_tipus_add">Új oltás tipus</button>
+        <button class='btn btn-primary ujAdat' id="oltas_add">Új oltóanyag</button>
       </div>
-      <div class="szuro" id="beadando_szuro"></div>
-      <table class="table table-bordered" id="osszes_oltas_tipus"></table>
+      <div class="szuro" id="oltas_szuro"></div>
+      <table class="table table-bordered" id="osszes_oltas"></table>
     </article>
     <footer>
       <a id="jog">Minden jog fenntartva!</a>

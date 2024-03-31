@@ -182,4 +182,13 @@ class FelhasznaloController extends Controller
     public function felhasznalo_id(){
         return  response()->json(DB::table('felhasznalos')->selectRaw('id as value, felhasznalo_nev as kiiras')->get());
     }
+
+
+    public function admin_id(){
+
+
+        
+    }
+
+
 }

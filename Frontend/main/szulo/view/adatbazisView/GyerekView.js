@@ -19,7 +19,7 @@ class GyerekView {
         let txt = `
         
         <div class="adatok">
-        <h2>${this.#adatok.vez_nev} ${this.#adatok.ker_nev}</h2>
+        <h2 class = "xy">${this.#adatok.vez_nev} ${this.#adatok.ker_nev}</h2>
         <table>
         <tbody>
         <tr>

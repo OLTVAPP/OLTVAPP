@@ -26,8 +26,8 @@ return new class extends Migration
  
         Orvos::create([
             'felhasznalo_id' => 3,
-            'vez_nev' => 'Mogyoródi',
-            'ker_nev' => 'Balázs',
+            'vez_nev' => 'Dr.Bagoly',
+            'ker_nev' => 'Fecske',
             'tel_szam' => '+3453454',
             'publikus_email' => 'kocvagydr@gmail.com',
             'rendelo_ajto_szam' => 12

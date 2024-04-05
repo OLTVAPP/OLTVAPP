@@ -29,13 +29,24 @@ return new class extends Migration
 
         Szulo::create([
             'felhasznalo_id' => 1,
-            'vez_nev' => "asdgfdgfdgf",
-            'ker_nev' => "dgdfgdffdm",
+            'vez_nev' => "Hát",
+            'ker_nev' => "Izsák",
             'szemelyi_igazolvany_szam' => "3242342RE",
             'telefonszam' => "+36202299124",
             'lakcim_varos' => "Pécs",
             'lakcim_irSzam' => 4535,
-            'lakcim_utca' => "hgfskjd",
+            'lakcim_utca' => "Hát utca",
+        ]);
+
+        Szulo::create([
+            'felhasznalo_id' => 1,
+            'vez_nev' => "Hata",
+            'ker_nev' => "Cuka",
+            'szemelyi_igazolvany_szam' => "3232342RE",
+            'telefonszam' => "+36202299124",
+            'lakcim_varos' => "Pécs",
+            'lakcim_irSzam' => 4535,
+            'lakcim_utca' => "Margit utca",
         ]);
 
         DB::unprepared('

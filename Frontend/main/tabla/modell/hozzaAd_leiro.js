@@ -34,7 +34,7 @@ export const admin_hozzAd = [
     
     {
       key: "vez_nev",
-      megjelenes: "Vezeték név",
+      megjelenes: "Vezetéknév",
       tipus: "text",
       value: "",
       placeholder: "vezeték név",
@@ -44,7 +44,7 @@ export const admin_hozzAd = [
     },
     {
       key: "ker_nev",
-      megjelenes: "Kereszt név",
+      megjelenes: "Keresztnév",
       tipus: "text",
       value: "",
       placeholder: "kereszt név",
@@ -89,7 +89,7 @@ export const admin_hozzAd = [
     
     {
       key: "vez_nev",
-      megjelenes: "Vezeték név",
+      megjelenes: "Vezetéknév",
       tipus: "text",
       value: "",
       placeholder: "",
@@ -98,7 +98,7 @@ export const admin_hozzAd = [
     },
     {
       key: "ker_nev",
-      megjelenes: "Kereszt név",
+      megjelenes: "Keresztnév",
       tipus: "text",
       value: "",
       placeholder: "",
@@ -107,7 +107,7 @@ export const admin_hozzAd = [
     },
     {
       key: "tel_szam",
-      megjelenes: "telefonszám",
+      megjelenes: "Telefonszám",
       tipus: "text",
       value: "",
       placeholder: "",
@@ -117,7 +117,7 @@ export const admin_hozzAd = [
   },
   {
       key: "publikus_email",
-      megjelenes: "publikus emai cím",
+      megjelenes: "Publikus email cím",
       tipus: "text",
       value: "",
       placeholder: "",
@@ -127,7 +127,7 @@ export const admin_hozzAd = [
   },
   {
       key: "rendelo_ajto_szam",
-      megjelenes: "rendelő ajtó száma",
+      megjelenes: "Rendelő ajtó száma",
       tipus: "text",
       value: "",
       placeholder: "",
@@ -151,7 +151,7 @@ export const admin_hozzAd = [
     },
     {
       key: "kotelezo",
-      megjelenes: "Kötelezetség",
+      megjelenes: "Kötelezettség",
       tipus: "select",
       value: "",
       url: "nincs",
@@ -222,7 +222,7 @@ export const admin_hozzAd = [
     },
     {
       key: "oltoanyag_neve",
-      megjelenes: "Oltás tipuúsa",
+      megjelenes: "Oltás tipusa",
       tipus: "text",
       value: "",
       placeholder: '',

@@ -1,21 +1,22 @@
-class NumberInput {
+class PasswordInput {
 
-    #key = "";
-    #leiro = {};
-    #gyerekElem
-    #value = "";
+    #formElem;
+    #key;
+    #leiro;
+    #value;
     #valid = false;
 
-    constructor(key, leiro, gyerekElem) {
+
+    constructor(key, leiro, szuloElem) {
         this.#key = key;
         this.#leiro = leiro;
-        this.#gyerekElem = gyerekElem
+        this.#formElem = szuloElem;
+        this.#value = this.#leiro.value;
+        this.#textElem();
+        this.inputElem = $(`#${this.#key}`)
 
-        this.textElem();
-
-        this.inputElem = $(`#${this.#key}`);
-        this.validElem = this.#gyerekElem.children("div:last-child").children(".valid");
-        this.invalidElem = this.#gyerekElem.children("div:last-child").children(".invalid");
+        this.validElem = this.#formElem.children("div:last-child").children(".valid");
+        this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");;
         this.inputElem.on("keyup", () => {
             this.#value = this.inputElem.val();
             let reg = this.#leiro.regex;
@@ -30,7 +31,9 @@ class NumberInput {
                 this.invalidElem.removeClass("elrejt");
                 this.validElem.addClass("elrejt");
             }
-        });
+        })
+
+
     }
 
     get id() {
@@ -49,7 +52,9 @@ class NumberInput {
         return this.#key;
     }
 
-    textElem() {
+
+
+    #textElem() {
         let txt = `
         <div class="input">
         <label for="${this.#key}" 
@@ -61,16 +66,20 @@ class NumberInput {
         id="${this.#key}" 
         name="${this.#key}"
         patter="${this.#leiro.regex}"
-        value="${this.#leiro.value}"
         maxLength="${this.#leiro.maxLength}">
 
         <div class="valid elrejt">OK</div>
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
         </div>
         `
-
-        this.#gyerekElem.append(txt);
+        this.#formElem.append(txt);
     }
-}
 
-export default NumberInput;
+
+    getValue() {
+        return this.#value
+    }
+
+
+}
+export default PasswordInput

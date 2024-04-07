@@ -1,15 +1,17 @@
-import { adatbazis, gombok, jelentkezettOltasok } from "./adatbazisLeiro.js"
+import { adatbazis, gombok, jelentkezettOltasok, profilModositas } from "./adatbazisLeiro.js"
 
 class adatbazisModell {
 
     #jelentkezettOltasok
     #leiro
     #gLeiro
+    #profilModositas
 
     constructor() {
         this.#jelentkezettOltasok = jelentkezettOltasok;
         this.#leiro = adatbazis;
         this.#gLeiro = gombok;
+        this.#profilModositas = profilModositas;
     }
 
     getLeiro() {
@@ -23,5 +25,10 @@ class adatbazisModell {
     getJelentkezettOltasok() {
         return { ...this.#jelentkezettOltasok }
     }
+
+    getProfil() {
+        return { ...this.#profilModositas };
+    }
+
 }
 export default adatbazisModell;

@@ -21,14 +21,14 @@ export const modosit_felhasznalo = [
             plusz_adatok: [
                 {
                     key: "vez_nev",
-                    megjelenes: "vezeték név",
+                    megjelenes: "Vezetéknév",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
                 },
                 {
                     key: "ker_nev",
-                    megjelenes: "kereszt név",
+                    megjelenes: "Keresztnév",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
@@ -41,35 +41,35 @@ export const modosit_felhasznalo = [
             plusz_adatok: [
                 {
                     key: "vez_nev",
-                    megjelenes: "vezeték név",
+                    megjelenes: "Vezetéknév",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
                 },
                 {
                     key: "ker_nev",
-                    megjelenes: "kereszt név",
+                    megjelenes: "Keresztnév",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
                 },
                 {
                     key: "tel_szam",
-                    megjelenes: "telefonszám",
+                    megjelenes: "Telefonszám",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
                 },
                 {
                     key: "publikus_email",
-                    megjelenes: "publikus emai cím",
+                    megjelenes: "Publikus emai cím",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
                 },
                 {
                     key: "rendelo_ajto_szam",
-                    megjelenes: "rendelő ajtó száma",
+                    megjelenes: "Rendelő ajtó száma",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
@@ -83,21 +83,21 @@ export const modosit_felhasznalo = [
             plusz_adatok: [
                 {
                     key: "vez_nev",
-                    megjelenes: "vezeték név",
+                    megjelenes: "Vezetéknév",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
                 },
                 {
                     key: "ker_nev",
-                    megjelenes: "kereszt név",
+                    megjelenes: "Keresztnév",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
                 },
                 {
                     key: "szemelyi_igazolvany_szam",
-                    megjelenes: "személyi igazolvány szám",
+                    megjelenes: "Személyi igazolvány szám",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
@@ -111,14 +111,14 @@ export const modosit_felhasznalo = [
                 },
                 {
                     key: "lakcim_irSzam",
-                    megjelenes: "irányitószám",
+                    megjelenes: "Irányitószám",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
                 },
                 {
                     key: "lakcim_utca",
-                    megjelenes: "utca",
+                    megjelenes: "Utca",
                     tipus: "text",
                     value: "",
                     placeholder: "felhasználó név",
@@ -156,7 +156,7 @@ export const oltas_modosit = [
       },
     {
       key: "tipus_id",
-      megjelenes: "Oltás típúsa",
+      megjelenes: "Oltás típusa",
       tipus: "select",
       value: "",
       placeholder: "",
@@ -173,7 +173,7 @@ export const oltas_modosit = [
       },
      {
         key: "receptre",
-        megjelenes: "Receptre",
+        megjelenes: "Receptköteles",
         tipus: "select",
       value: "",
       url: "nincs",

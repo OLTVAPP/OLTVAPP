@@ -1,36 +1,13 @@
-export const fejlec_admin_felhasznalo = {
-  felhasznalo_nev: " Felhasználó név",
-  felhasznalo_email: "Felhasználó emailcím",
-  vez_nev: "vezeték név",
-  ker_nev: "kereszt név",
-  aktiv: "Aktivitás",
-};
 
-export const fejlec_szulo_felhasznalo = {
-  felhasznalo_nev: " Felhasználó név",
-  felhasznalo_email: "Felhasználó emailcím",
-  vez_nev: "vezeték név",
-  ker_nev: "kereszt név",
-  szemelyi_igazolvany_szam: "zszemélyi igazolvány szám",
-  aktiv: "Aktivitás",
-};
-
-export const fejlec_orvos_felhasznalo = {
-  felhasznalo_nev: " Felhasználó név",
-  felhasznalo_email: "Felhasználó emailcím",
-  vez_nev: "vezeték név",
-  ker_nev: "kereszt név",
-  aktiv: "Aktivitás",
-};
 
 export const fejlec_felhasznalo = {
-  felhasznalo_nev: " Felhasználó név",
+  felhasznalo_nev: " Felhasználónév",
   felhasznalo_email: "Felhasználó emailcím",
-  szereplo: "Szerep",
-  vez_nev: "vezeték név",
-  ker_nev: "kereszt név",
+  szerepkor: "Szerepkör",
+  vez_nev: "Vezetéknév",
+  ker_nev: "Keresztnév",
   aktiv: "Aktivitás",
-  modosit: "Modosit",
+  modosit: "Módosit",
   sorrendValtozatato: [true, true, false, true, true, false, false]
 };
 
@@ -39,16 +16,16 @@ export const fejlec_beadando = {
   ev: "Beadandó év",
   honap: "Beadandó hónap",
   hanyadik: "hanyadik",
-  modosit: "Modosit",
+  modosit: "Módosit",
   sorrendValtozatato: [true, false, false, false, false, false]
 
 };
 
 export const fejlec_oltas_tipus = {
   tipus_elnev: "Oltás tipus neve",
-  kotelezo: "Kötelezetség",
+  kotelezo: "Kötelezettség",
  leiras: "Leírás",
-  modosit: "Modosit",
+  modosit: "Módosit",
   sorrendValtozatato: [true, false, false, false]
 
 };
@@ -58,9 +35,9 @@ export const fejlec_oltas = {
   tipus_elnev: "Oltás tipus neve",
   oltoanyag_neve: "Oltóanyag neve",
   forgalmazo: "Forgalmazó neve",
-  receptre: "Recepes",
+  receptre: "Receptköteles",
   aktiv: "Forgalomban",
-  modosit: "Modosit",
+  modosit: "Módosit",
   sorrendValtozatato: [true, true, true, false, false, false]
 
 };

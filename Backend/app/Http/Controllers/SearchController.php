@@ -19,7 +19,7 @@ class SearchController extends Controller
 */
 
 
-/*
+  /*
   public function aktiv_felhasznalok($join, $adatok)
   {
     $felhasznalo_nev = $adatok->felhasznalo_nev;
@@ -33,8 +33,9 @@ class SearchController extends Controller
       return $felhasznalok;
   }
  */
-  public function ertekKeresesek($kod, $ertek, $mezo){
-    if($ertek !== null){
+  public function ertekKeresesek($kod, $ertek, $mezo)
+  {
+    if ($ertek !== null) {
       $kod->where($mezo, 'LIKE', "%$ertek%");;
     }
     return $kod;
@@ -43,44 +44,46 @@ class SearchController extends Controller
 
 
 
-  public function admin_felhasznalo($id){
-    $admin = (DB::table('felhasznalos as f')->join('admins','admins.felhasznalo_id', '=', 'f.id')
-    ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'f.jelszo', 'f.szerepkor', 'f.aktiv', 'vez_nev', 'ker_nev', 'f.szerepkor as atadas')
-    ->where('f.id', '=', $id)
-    ->get());
+  public function admin_felhasznalo($id)
+  {
+    $admin = (DB::table('felhasznalos as f')->join('admins', 'admins.felhasznalo_id', '=', 'f.id')
+      ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'f.jelszo', 'f.szerepkor', 'f.aktiv', 'vez_nev', 'ker_nev', 'f.szerepkor as atadas')
+      ->where('f.id', '=', $id)
+      ->get());
     return $admin;
   }
 
-  public function szulo_felhasznalo($id){
-    $felhasznalo = (DB::table('felhasznalos as f')->join('szulos','szulos.felhasznalo_id', '=', 'f.id')
-    ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'f.jelszo', 'f.szerepkor', 'f.aktiv', 'vez_nev', 'ker_nev', 'szemelyi_igazolvany_szam', 'lakcim_varos', 'lakcim_irSzam', 'lakcim_utca', 'f.szerepkor as atadas')
-    ->where('f.id', '=', $id)
-    ->get());
+  public function szulo_felhasznalo($id)
+  {
+    $felhasznalo = (DB::table('felhasznalos as f')->join('szulos', 'szulos.felhasznalo_id', '=', 'f.id')
+      ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'f.jelszo', 'f.szerepkor', 'f.aktiv', 'vez_nev', 'ker_nev', 'szemelyi_igazolvany_szam', 'lakcim_varos', 'lakcim_irSzam', 'lakcim_utca', 'f.szerepkor as atadas')
+      ->where('f.id', '=', $id)
+      ->get());
     return $felhasznalo;
   }
 
-  public function orvos_felhasznalo($id){
-    $felhasznalo = (DB::table('felhasznalos as f')->join('orvos','orvos.felhasznalo_id', '=', 'f.id')
-    ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'f.jelszo', 'f.szerepkor', 'f.aktiv', 'vez_nev', 'ker_nev', 'tel_szam', 'publikus_email', 'rendelo_ajto_szam', 'f.szerepkor as atadas')
-    ->where('f.id', '=', $id)
-    ->get());
+  public function orvos_felhasznalo($id)
+  {
+    $felhasznalo = (DB::table('felhasznalos as f')->join('orvos', 'orvos.felhasznalo_id', '=', 'f.id')
+      ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'f.jelszo', 'f.szerepkor', 'f.aktiv', 'vez_nev', 'ker_nev', 'tel_szam', 'publikus_email', 'rendelo_ajto_szam', 'f.szerepkor as atadas')
+      ->where('f.id', '=', $id)
+      ->get());
     return $felhasznalo;
   }
 
-  public function kivalasztott_felhasznalo($id){
+  public function kivalasztott_felhasznalo($id)
+  {
     $felhasznalo = DB::table('felhasznalos as f')->select('f.szerepkor')->where('f.id', '=', $id)->get();
     foreach ($felhasznalo as $keresett) {
-    if($keresett->szerepkor == 'A'){
-      return  response()->json(SearchController::admin_felhasznalo($id));
+      if ($keresett->szerepkor == 'A') {
+        return  response()->json(SearchController::admin_felhasznalo($id));
+      } elseif ($keresett->szerepkor == 'O') {
+        return  response()->json(SearchController::orvos_felhasznalo($id));
+      } elseif ($keresett->szerepkor == 'S') {
+
+        return  response()->json(SearchController::szulo_felhasznalo($id));
+      }
     }
-    elseif($keresett->szerepkor == 'O'){
-      return  response()->json(SearchController::orvos_felhasznalo($id));
-    }
-    elseif($keresett->szerepkor == 'S'){
-    
-    return  response()->json(SearchController::szulo_felhasznalo($id));
-    } 
-  }
   }
 
 
@@ -93,14 +96,13 @@ class SearchController extends Controller
     $ker_nev = $adatok->ker_nev;
     $felhasznalok = DB::table('felhasznalos as f')
       ->join($join, $join . '.felhasznalo_id', '=', 'f.id')
-      ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'vez_nev', 'ker_nev', DB::raw('"'.$szoveg.'" as aktiv, "'.$szereplo.'" as szereplo', ))
+      ->select('f.id', 'f.felhasznalo_nev', 'f.felhasznalo_email', 'vez_nev', 'ker_nev', DB::raw('"' . $szoveg . '" as aktiv, "' . $szereplo . '" as szerepkor',))
       ->where('f.aktiv', '=', $aktiv);
-      $felhasznalok = SearchController::ertekKeresesek($felhasznalok, $felhasznalo_nev, "f.felhasznalo_nev");
-      $felhasznalok = SearchController::ertekKeresesek($felhasznalok, $felhasznalo_email, "f.felhasznalo_email");
-      $felhasznalok = SearchController::ertekKeresesek($felhasznalok, $szerepkor, "f.szerepkor");
-      $felhasznalok = SearchController::ertekKeresesek($felhasznalok, $vez_nev, "vez_nev");
-      $felhasznalok = SearchController::ertekKeresesek($felhasznalok, $ker_nev, "ker_nev"); 
-      return $felhasznalok;
+    $felhasznalok = SearchController::ertekKeresesek($felhasznalok, $felhasznalo_nev, "f.felhasznalo_nev");
+    $felhasznalok = SearchController::ertekKeresesek($felhasznalok, $felhasznalo_email, "f.felhasznalo_email");
+    $felhasznalok = SearchController::ertekKeresesek($felhasznalok, $vez_nev, "vez_nev");
+    $felhasznalok = SearchController::ertekKeresesek($felhasznalok, $ker_nev, "ker_nev");
+    return $felhasznalok;
   }
   public function felhasznaloAdatok($join, $adatok, $szereplo)
   {
@@ -110,15 +112,13 @@ class SearchController extends Controller
         $felhasznalok = SearchController::aktiv_felhasznalok($join, $adatok, "inaktív", false, $szereplo);
       } else {
         $felhasznalok = SearchController::aktiv_felhasznalok($join, $adatok, "aktív", true, $szereplo);
-    }
       }
-     else {
+    } else {
       $felhasznalo_1 = SearchController::aktiv_felhasznalok($join, $adatok, "inaktív", false, $szereplo);
       $felhasznalo_2 = SearchController::aktiv_felhasznalok($join, $adatok, "aktív", true, $szereplo);
       $felhasznalok = $felhasznalo_1->union($felhasznalo_2);
-     }
+    }
     return $felhasznalok;
-  
   }
 
 
@@ -129,12 +129,17 @@ class SearchController extends Controller
     $szulo = SearchController::felhasznaloAdatok('szulos', $adatok, "szülő");
     $orvos = SearchController::felhasznaloAdatok('orvos', $adatok, "orvos");
     $admin = SearchController::felhasznaloAdatok('admins', $adatok, "admin");
-    return  response()->json($szulo->union($orvos)->union($admin)->get());
-   // return $szulo;
+    if ($adatok->szerepkor == "A") {
+      $felhasznalo = $admin->get();
+    } elseif ($adatok->szerepkor == 'O') {
+      $felhasznalo = $orvos->get();
+
+    } elseif ($adatok->szerepkor == 'S') {
+      $felhasznalo = $szulo->get();
+    } else {
+      $felhasznalo = $szulo->union($orvos)->union($admin)->get();
+    }
+    return  response()->json($felhasznalo);
+    // return $szerepkor;
   }
-
-
-
-
- 
 }

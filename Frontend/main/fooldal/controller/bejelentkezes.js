@@ -16,7 +16,7 @@ class Bejelentkezes {
     const adatLeiro = bejelentKezesLeiro;
     for (const tomb in adatLeiro) {
       console.log(adatLeiro[tomb]);
-      adatTombok.push(new TombInput(adatLeiro[tomb], $("article"), tomb));
+      adatTombok.push(new TombInput(adatLeiro[tomb], articleElem, tomb));
     }
     this.#felhasznaloi_adatok = adatTombok[0].getInputok();
     this.#bejelentkezes();

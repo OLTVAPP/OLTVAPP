@@ -1,29 +1,22 @@
 import Tabla_controller from "./controller/tabla_controller.js";
 import DataService from "./modell/data.js";
 import {
-  fejlec_admin_felhasznalo,
   fejlec_beadando,
   fejlec_felhasznalo,
   fejlec_oltas,
   fejlec_oltas_tipus,
-  fejlec_orvos_felhasznalo,
-  fejlec_szulo_felhasznalo,
 } from "./modell/fejlecLeiro.js";
 
 class Tabla_main {
   #fejLecek;
   #tablaAdatUrl;
   constructor(tabla) {
+    const felhasznalo = localStorage.getItem("kereses");
+    console.log(felhasznalo);
+
+   
     // Itt választja ki a table elem id-ja alapján, hogy milyen url és fejléc adatokat kapjon a két privát érték.
     switch (tabla) {
-      case "admin_felhaszhnalok":
-        this.#tablaAdatUrl = "http://localhost:8000/api/felhasznalo_admin";
-        this.#fejLecek = fejlec_admin_felhasznalo;
-        break;
-      case "orvos_felhasznalok":
-        this.#tablaAdatUrl = "http://localhost:8000/api/felhasznalo_orvos";
-        this.#fejLecek = fejlec_orvos_felhasznalo;
-        break;
       case "osszes_felhasznalo":
         this.#tablaAdatUrl = "http://localhost:8000/api/felhasznalok_search";
         this.#fejLecek = fejlec_felhasznalo;

@@ -90,6 +90,7 @@ Route::get('/beteg/{gyerek_taj}', [OrvosController::class, 'beteg']);
 Route::get('/oltas_nev', [OrvosController::class, 'oltasNev']);
 Route::get('/oltas_tipus_nev', [OrvosController::class, 'oltasTipusNev']);
 Route::get('/orvos/{orvos_id}', [OrvosController::class, 'orvos']);
+Route::get('/szulo/{szulo_id}', [SzuloController::class, 'szulo']);
 
 //készlet megjelenitése tipus_id alapján
 Route::get('/keszlet_oltas_id/{orvos_id}/{tipus_id}', [OrvosController::class, 'keszletOltasId']);
@@ -121,3 +122,6 @@ Route::get('/orvos', [OrvosController::class, 'orvosShow']);
 //tesztelés
 
 Route::get('/felhasznalo_teszt/{join}/{}', [SearchController::class, 'aktiv_felhasznalok']);
+
+
+Route::patch('/szulo_modosit/{szulo_id}', [SzuloController::class, 'szuloModosit']);

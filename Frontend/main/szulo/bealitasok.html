@@ -7,8 +7,11 @@
     <meta name="description" content="Oltási könyv weboldalon keresztül szülőknek">
     <meta name="keywords" content="Oltas, OLTVAPP, Vakcina">
     <meta name="author" content="Somogyi András, Somogyvári Márton, Mogyoródi Balázs">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="mainProfil.js" type="module"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="mainSzulo.js" type="module"></script>
     <link rel="stylesheet" href="style.css">
     <title></title>
 
@@ -20,31 +23,24 @@
             <div id="cim">
                 <h1>OLTVAPP</h1>
             </div>
-            <div>
-
-            </div>
             <div id="gombok">
-
                 <button class="alapMinta">
-                    <a href="bejelentkezes.html">Belépés</a>
+                    <a href="szulo.html">Vissza</a>
                 </button>
                 <button class="alapMinta">
-                    <a href="regisztracio.html">Regisztráció</a>
+                    <a href="../fooldal/index.html">kilépés</a>
                 </button>
             </div>
         </nav>
         <header>
-            <h1>Profil beállítások</h1>
+            <h1>Profil Beálitások</h1>
         </header>
-        <article>
-            <div class="profilGombok"></div>
-            <div class="profilElemek"></div>
+        <article class="container mt-5 col-sm-6">
+
         </article>
 
         <footer>
-            <a id="jog">Minden jog fenntartva!</a>
         </footer>
-
     </main>
 </body>
 

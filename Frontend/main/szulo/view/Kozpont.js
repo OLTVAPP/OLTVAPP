@@ -1,18 +1,12 @@
 import GyerekView from "./adatbazisView/GyerekView.js";
 import OltasView from "./adatbazisView/OltasView.js";
 import OrvosView from "./adatbazisView/OrvosView.js";
-import Xyoldal from "./adatbazisView/Xyoldal.js";
 //import OltasRegisztracioView from "./adatbazisView/OltasRegisztracioView.js";
 
 class Kozpont {
     constructor(szuloElem, osztaly) {
         this.szuloElem = szuloElem;
         this.osztaly = osztaly;
-    }
-
-    megjelenitGyerek(data) {
-            this.osztaly.push(new Xyoldal(data, this.szuloElem));
-        
     }
 
     megjelenitGyerek(data) {

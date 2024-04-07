@@ -5,11 +5,13 @@ class EmailInput {
     #gyerekElem
     #value = "";
     #valid = false;
+    #szuloValue
 
-    constructor(key, leiro, gyerekElem) {
+    constructor(key, leiro, gyerekElem, szuloValue) {
         this.#key = key;
         this.#leiro = leiro;
         this.#gyerekElem = gyerekElem
+        this.#szuloValue = szuloValue;
 
         this.textElem();
 
@@ -61,7 +63,7 @@ class EmailInput {
         id="${this.#key}" 
         name="${this.#key}"
         patter="${this.#leiro.regex}"
-        value="${this.#leiro.value}"
+        placeholder="${this.#szuloValue}"
         maxLength="${this.#leiro.maxLength}">
 
         <div class="valid elrejt">OK</div>

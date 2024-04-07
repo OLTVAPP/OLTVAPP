@@ -36,24 +36,103 @@ return new class extends Migration
 
         Oltas::create([
             'tipus_id' => 1,
-            'oltoanyag_neve' => "sputnyik",
+            'oltoanyag_neve' => "Sputnyik",
             'forgalmazo' => "Novavax",
             'leiras' => "blabla",
             'adagolas' => "kettő adag",
             'receptre' => true,
             'aktiv' => true
         ]);
-        
+
+        Oltas::create([
+            'tipus_id' => 1,
+            'oltoanyag_neve' => "Hungavirus",
+            'forgalmazo' => "Magyar gyógyszerészet",
+            'leiras' => "blabla",
+            'adagolas' => "három adag",
+            'receptre' => true,
+            'aktiv' => false
+        ]);
+
         Oltas::create([
             'tipus_id' => 2,
             'oltoanyag_neve' => 'Vidprev',
             'forgalmazo' => "Novavax",
             'leiras' => "blabla",
-            'adagolas' => "napi 3x",
+            'adagolas' => "három adag",
+            'receptre' => false,
+            'aktiv' => true
+        ]);
+
+        Oltas::create([
+            'tipus_id' => 2,
+            'oltoanyag_neve' => 'Vidrakosz',
+            'forgalmazo' => "Leverkusen",
+            'leiras' => "blabla",
+            'adagolas' => "egyszeri adagolás",
             'receptre' => true,
             'aktiv' => true
         ]);
-        
+
+        Oltas::create([
+            'tipus_id' => 3,
+            'oltoanyag_neve' => 'Vödrös',
+            'forgalmazo' => "Pfizer",
+            'leiras' => "blabla",
+            'adagolas' => "kettő adag",
+            'receptre' => true,
+            'aktiv' => true
+        ]);
+
+        Oltas::create([
+            'tipus_id' => 3,
+            'oltoanyag_neve' => 'Vödrös2',
+            'forgalmazo' => "Pfizer",
+            'leiras' => "blabla",
+            'adagolas' => "egyszeri adagolás",
+            'receptre' => false,
+            'aktiv' => false
+        ]);
+
+        Oltas::create([
+            'tipus_id' => 4,
+            'oltoanyag_neve' => 'Pinces',
+            'forgalmazo' => "Janssen",
+            'leiras' => "blabla",
+            'adagolas' => "egyszeri adagolás",
+            'receptre' => True,
+            'aktiv' => True
+        ]);
+
+        Oltas::create([
+            'tipus_id' => 5,
+            'oltoanyag_neve' => 'Sophiane',
+            'forgalmazo' => "GSK-Sanofi",
+            'leiras' => "blabla",
+            'adagolas' => "három adag",
+            'receptre' => True,
+            'aktiv' => True
+        ]);
+
+        Oltas::create([
+            'tipus_id' => 5,
+            'oltoanyag_neve' => 'Sophratesz',
+            'forgalmazo' => "GSK-Sanofi",
+            'leiras' => "blabla",
+            'adagolas' => "egyszeri adagolás",
+            'receptre' => True,
+            'aktiv' => True
+        ]);
+
+        Oltas::create([
+            'tipus_id' => 6,
+            'oltoanyag_neve' => 'Fureszpor',
+            'forgalmazo' => "GSK-Sanofi",
+            'leiras' => "blabla",
+            'adagolas' => "kettő adag",
+            'receptre' => True,
+            'aktiv' => True
+        ]);
     }
 
     /**

@@ -29,13 +29,35 @@ return new class extends Migration
 
         Szulo::create([
             'felhasznalo_id' => 1,
-            'vez_nev' => "asdgfdgfdgf",
-            'ker_nev' => "dgdfgdffdm",
-            'szemelyi_igazolvany_szam' => "3242342RE",
-            'telefonszam' => "+36202299124",
+            'vez_nev' => "Rozsané",
+            'ker_nev' => "Sandor Ilonka",
+            'szemelyi_igazolvany_szam' => "321332RE",
+            'telefonszam' => "+36202345621",
             'lakcim_varos' => "Pécs",
             'lakcim_irSzam' => 4535,
-            'lakcim_utca' => "hgfskjd",
+            'lakcim_utca' => "Rántott utca 2.",
+        ]);
+
+        Szulo::create([
+            'felhasznalo_id' => 2,
+            'vez_nev' => "Somogyvári",
+            'ker_nev' => "Márton",
+            'szemelyi_igazolvany_szam' => "223412RE",
+            'telefonszam' => "+36102238194",
+            'lakcim_varos' => "Budapest",
+            'lakcim_irSzam' => 3525,
+            'lakcim_utca' => "Szent jakab utca 23.",
+        ]);
+
+        Szulo::create([
+            'felhasznalo_id' => 3,
+            'vez_nev' => "Rozsás",
+            'ker_nev' => "Julianna",
+            'szemelyi_igazolvany_szam' => "323546RE",
+            'telefonszam' => "+36306892527",
+            'lakcim_varos' => "Kacsóta",
+            'lakcim_irSzam' => 3438,
+            'lakcim_utca' => "Földes utca 56.",
         ]);
 
         DB::unprepared('

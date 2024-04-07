@@ -25,15 +25,32 @@ return new class extends Migration
 
         Beszerzes::create([
             'oltas_id' => 1,
-            'orvos_id' => 4,
+            'orvos_id' => 7,
             'darab' => 5,
             'beszerzes_datuma' => "2023-12-10",
             'lejarati_datuma' => "2024-12-10"
         ]);
 
         Beszerzes::create([
+            'oltas_id' => 4,
+            'orvos_id' => 7,
+            'darab' => 10,
+            'beszerzes_datuma' => "2023-12-10",
+            'lejarati_datuma' => "2024-12-10",
+            'megsemmesites_datuma' => "2024-12-11"
+        ]);
+
+        Beszerzes::create([
+            'oltas_id' => 6,
+            'orvos_id' => 7,
+            'darab' => 20,
+            'beszerzes_datuma' => "2023-12-10",
+            'lejarati_datuma' => "2024-12-10"
+        ]);
+
+        Beszerzes::create([
             'oltas_id' => 1,
-            'orvos_id' => 3,
+            'orvos_id' => 8,
             'darab' => 10,
             'beszerzes_datuma' => "2023-12-10",
             'lejarati_datuma' => "2024-12-10",
@@ -42,19 +59,18 @@ return new class extends Migration
 
         Beszerzes::create([
             'oltas_id' => 2,
-            'orvos_id' => 3,
-            'darab' => 20,
+            'orvos_id' => 8,
+            'darab' => 30,
             'beszerzes_datuma' => "2023-12-10",
-            'lejarati_datuma' => "2024-12-10"
+            'lejarati_datuma' => "2024-12-10",
         ]);
 
         Beszerzes::create([
-            'oltas_id' => 1,
-            'orvos_id' => 3,
-            'darab' => 10,
-            'beszerzes_datuma' => "2023-12-10",
-            'lejarati_datuma' => "2024-12-10",
-            'megsemmesites_datuma' => "2024-12-11"
+            'oltas_id' => 7,
+            'orvos_id' => 9,
+            'darab' => 30,
+            'beszerzes_datuma' => "2023-05-12",
+            'lejarati_datuma' => "2024-12-12",
         ]);
         
     }

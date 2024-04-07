@@ -108,7 +108,7 @@ Route::post('/uj_beadando/{gyerek_id}/{tipus_id}', [OrvosController::class, 'ujB
 Route::get('/csalad', [CsaladController::class, 'getCsalad']);
 
 //regisztráció
-Route::get('/felhasznalo_nev_email', [FelhasznaloController::class, 'felhasznaloNevEmail']);
+Route::get('/felhasznalo_szulo_adatok', [FelhasznaloController::class, 'felhasznaloSzuloAdatok']);
 Route::post('/felhasznalo', [FelhasznaloController::class, 'store']);
 Route::post('/szulo', [SzuloController::class, 'store']);
 

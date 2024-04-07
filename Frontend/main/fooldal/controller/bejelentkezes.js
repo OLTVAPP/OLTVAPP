@@ -1,7 +1,7 @@
 import { bejelentKezesLeiro } from "../modell/adatLeiro.js";
 import DataService from "../modell/data.js";
 import Felhasznalo from "../modell/felhasznalo.js";
-import TombInput from "../view/tombInput.js";
+import TombInput from "../view/TombInput.js";
 
 class Bejelentkezes {
   #felhasznalo_id;
@@ -67,7 +67,7 @@ class Bejelentkezes {
             break;
         }
       } else {
-        console.log("Nem aktív felhasználó");
+        alert("Nem aktív felhasználó");
       }
     } else if (jelszo_allapot == "helytelen jelszó") {
       console.log("Hibás jelszó");

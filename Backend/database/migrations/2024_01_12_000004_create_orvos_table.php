@@ -5,6 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+
 return new class extends Migration
 {
     /**
@@ -23,26 +24,34 @@ return new class extends Migration
             $table->timestamps();
         });
 
- 
-        Orvos::create([
-            'felhasznalo_id' => 3,
-            'vez_nev' => 'Mogyoródi',
-            'ker_nev' => 'Balázs',
-            'tel_szam' => '+3453454',
-            'publikus_email' => 'kocvagydr@gmail.com',
-            'rendelo_ajto_szam' => 12
-        ]);   
-        
 
-        
         Orvos::create([
-            'felhasznalo_id' => 4,
-            'vez_nev' => "asdf",
-            'ker_nev' => "dgfdm",
-            'tel_szam' => "+36209432",
-            'publikus_email' => "kov@gmail.com",
+            'felhasznalo_id' => 7,
+            'vez_nev' => 'Dr. Kovács',
+            'ker_nev' => 'Béla',
+            'tel_szam' => '+36202299188',
+            'publikus_email' => 'drkovacs@gmail.com',
+            'rendelo_ajto_szam' => 12
+        ]);
+
+        Orvos::create([
+            'felhasznalo_id' => 8,
+            'vez_nev' => "Dr. Somogyi",
+            'ker_nev' => "András István",
+            'tel_szam' => "+36202299124",
+            'publikus_email' => "somogyi.andras.istvan@gmail.com",
             'rendelo_ajto_szam' => 2
         ]);
+
+        Orvos::create([
+            'felhasznalo_id' => 9,
+            'vez_nev' => "Dr. Joska",
+            'ker_nev' => "Sanyi",
+            'tel_szam' => "+36301263132",
+            'publikus_email' => "drsanyijoska@gmail.com",
+            'rendelo_ajto_szam' => 10
+        ]);
+
         DB::unprepared('
         CREATE TRIGGER orvos_check_felhasznalo_id_k_role BEFORE INSERT ON orvos
         FOR EACH ROW
@@ -58,8 +67,6 @@ return new class extends Migration
             END IF;
         END
     ');
-
-       
     }
 
     /**

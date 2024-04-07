@@ -8,29 +8,35 @@ class TextInput{
 
 
     constructor(key, leiro, szuloElem){
-        console.log("hello")
         this.#key = key;
         this.#leiro = leiro;
         this.#formElem = szuloElem;
         this.#value = this.#leiro.value;
         this.#textElem();
         this.inputElem=$(`#${this.#key}`)
-        console.log("input", this.inputElem);
+
         this.validElem = this.#formElem.children("div:last-child").children(".valid");
-        this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");;
+        this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");
+        this.ellenorzes = this.#formElem.children("div:last-child").children(".ellenorzes");
         this.inputElem.on("keyup",()=>{
             this.#value = this.inputElem.val();
             let reg = this.#leiro.regex;
             let regObj = new RegExp(reg);
-            console.log(regObj.test(this.#value));
+
             if (regObj.test(this.#value)) {
                 this.#valid = true;
                 this.validElem.removeClass("elrejt");
                 this.invalidElem.addClass("elrejt");
+                if (!this.ellenorzes.hasClass('elrejt')) {
+                    this.ellenorzes.addClass("elrejt");
+                }
             } else {
                 this.#valid = false;
                 this.invalidElem.removeClass("elrejt");
                 this.validElem.addClass("elrejt");
+                if (!this.ellenorzes.hasClass('elrejt')) {
+                    this.ellenorzes.addClass("elrejt");
+                }
             }
         })
 
@@ -72,6 +78,7 @@ class TextInput{
 
         <div class="valid elrejt">OK</div>
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
+        <div class="ellenorzes elrejt">${this.#leiro.ellenorzes}</div>
         </div>
         `
         this.#formElem.append(txt);

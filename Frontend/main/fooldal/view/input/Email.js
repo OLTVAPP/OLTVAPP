@@ -16,6 +16,7 @@ class EmailInput {
         this.inputElem = $(`#${this.#key}`);
         this.validElem = this.#gyerekElem.children("div:last-child").children(".valid");
         this.invalidElem = this.#gyerekElem.children("div:last-child").children(".invalid");
+        this.ellenorzes = this.#gyerekElem.children("div:last-child").children(".ellenorzes");
         this.inputElem.on("keyup", () => {
             this.#value = this.inputElem.val();
             let reg = this.#leiro.regex;
@@ -25,10 +26,16 @@ class EmailInput {
                 this.#valid = true;
                 this.validElem.removeClass("elrejt");
                 this.invalidElem.addClass("elrejt");
+                if (!this.ellenorzes.hasClass('elrejt')) {
+                    this.ellenorzes.addClass("elrejt");
+                }
             } else {
                 this.#valid = false;
                 this.invalidElem.removeClass("elrejt");
                 this.validElem.addClass("elrejt");
+                if (!this.ellenorzes.hasClass('elrejt')) {
+                    this.ellenorzes.addClass("elrejt");
+                }
             }
         });
     }
@@ -66,6 +73,7 @@ class EmailInput {
 
         <div class="valid elrejt">OK</div>
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
+        <div class="ellenorzes elrejt">${this.#leiro.ellenorzes}</div>
         </div>
         `
 

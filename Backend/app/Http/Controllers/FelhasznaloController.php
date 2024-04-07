@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Models\Felhasznalo;
 use App\Http\Controllers\SearchController;
+use App\Models\Szulo;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -57,14 +58,13 @@ class FelhasznaloController extends Controller
         $record->save();
     }
 
-    public function idKeres($email){
+    public function idKeres($email)
+    {
         $user = (DB::table('felhasznalos as f')
-        ->select('f.id', 'f.szerepkor')
-        ->where('f.felhasznalo_email', $email)
-        ->get());
-    return $user;
-
-
+            ->select('f.id', 'f.szerepkor')
+            ->where('f.felhasznalo_email', $email)
+            ->get());
+        return $user;
     }
 
     public function show($id)
@@ -98,8 +98,9 @@ class FelhasznaloController extends Controller
     }
 
 
-    public function bejelentkezett_felhasznalo(){
-        return response()->json(Auth::user());	
+    public function bejelentkezett_felhasznalo()
+    {
+        return response()->json(Auth::user());
     }
 
 
@@ -121,81 +122,88 @@ class FelhasznaloController extends Controller
         return response()->json(FelhasznaloController::bejelentkezes_ellenorzes($tabla, $talalt_felhasznalo_nev, $jelszo == $keresett_jelszo));
     }
 
-    public function felhasznaloAdatok($join){
+    public function felhasznaloAdatok($join)
+    {
         $aktiv = DB::table('felhasznalos as f')
-        ->join($join, $join.'.felhasznalo_id', '=','f.id')
-        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  vez_nev, ker_nev, "aktív" as aktiv')
-        ->where('f.aktiv', 1);
+            ->join($join, $join . '.felhasznalo_id', '=', 'f.id')
+            ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  vez_nev, ker_nev, "aktív" as aktiv')
+            ->where('f.aktiv', 1);
         $inaktiv = DB::table('felhasznalos as f')
-        ->join($join, $join.'.felhasznalo_id', '=','f.id')
-        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  vez_nev, ker_nev, "ínaktív" as aktiv')
-        ->where('f.aktiv', 0);
+            ->join($join, $join . '.felhasznalo_id', '=', 'f.id')
+            ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  vez_nev, ker_nev, "ínaktív" as aktiv')
+            ->where('f.aktiv', 0);
         return $aktiv->union($inaktiv);
-        }
+    }
 
 
-    public function osszes_felhasznalo(){
+    public function osszes_felhasznalo()
+    {
         $szulo = FelhasznaloController::felhasznaloAdatok('szulos');
         $orvos = FelhasznaloController::felhasznaloAdatok('orvos');
         $admin = FelhasznaloController::felhasznaloAdatok('admins');
         return  response()->json($szulo->union($orvos)->union($admin)->get());
     }
 
-    public function filterBySzulo(){
+    public function filterBySzulo()
+    {
         $user = DB::table('felhasznalos as f')
-        ->join('szulos', 'szulos.felhasznalo_id', '=','f.id')
-        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  szulos.vez_nev, szulos.ker_nev, szulos.szemelyi_igazolvany_szam, "aktív" as aktiv')
-        ->get();
+            ->join('szulos', 'szulos.felhasznalo_id', '=', 'f.id')
+            ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  szulos.vez_nev, szulos.ker_nev, szulos.szemelyi_igazolvany_szam, "aktív" as aktiv')
+            ->get();
         return  response()->json($user);
     }
 
-    public function filterByOrvos(){
+    public function filterByOrvos()
+    {
         $user_true = DB::table('felhasznalos as f')
-        ->join('orvos', 'orvos.felhasznalo_id', '=','f.id')
-       // ->select('*')
-        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  orvos.vez_nev, orvos.ker_nev, "aktív" as aktiv')
-        ->where('f.aktiv', '=', true);
+            ->join('orvos', 'orvos.felhasznalo_id', '=', 'f.id')
+            // ->select('*')
+            ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  orvos.vez_nev, orvos.ker_nev, "aktív" as aktiv')
+            ->where('f.aktiv', '=', true);
         $user_false = DB::table('felhasznalos as f')
-        ->join('orvos', 'orvos.felhasznalo_id', '=','f.id')
-     //   ->select('*')
-        ->selectRaw('id, felhasznalo_nev, felhasznalo_email,  vez_nev, ker_nev, "inaktív" as aktiv')
-        ->where('f.aktiv', '=', false);
+            ->join('orvos', 'orvos.felhasznalo_id', '=', 'f.id')
+            //   ->select('*')
+            ->selectRaw('id, felhasznalo_nev, felhasznalo_email,  vez_nev, ker_nev, "inaktív" as aktiv')
+            ->where('f.aktiv', '=', false);
         return  response()->json($user_true->union($user_false)->get());
     }
 
-    public function filterByAdmin(){
+    public function filterByAdmin()
+    {
         $user_true = DB::table('felhasznalos as f')
-        ->join('admins', 'admins.felhasznalo_id', '=','f.id')
-       // ->select('*')
-        ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  admins.vez_nev, admins.ker_nev, "aktív" as aktiv')
-        ->where('f.aktiv', '=', true);
+            ->join('admins', 'admins.felhasznalo_id', '=', 'f.id')
+            // ->select('*')
+            ->selectRaw('f.id, f.felhasznalo_nev, f.felhasznalo_email,  admins.vez_nev, admins.ker_nev, "aktív" as aktiv')
+            ->where('f.aktiv', '=', true);
         $user_false = DB::table('felhasznalos as f')
-        ->join('admins', 'admins.felhasznalo_id', '=','f.id')
-     //   ->select('*')
-        ->selectRaw('id, felhasznalo_nev, felhasznalo_email,  vez_nev, ker_nev, "inaktív" as aktiv')
-        ->where('f.aktiv', '=', false);
+            ->join('admins', 'admins.felhasznalo_id', '=', 'f.id')
+            //   ->select('*')
+            ->selectRaw('id, felhasznalo_nev, felhasznalo_email,  vez_nev, ker_nev, "inaktív" as aktiv')
+            ->where('f.aktiv', '=', false);
         return  response()->json($user_true->union($user_false)->get());
-       // return  response()->json($user_true);
+        // return  response()->json($user_true);
     }
 
 
-    public function felhasznalo_id(){
+    public function felhasznalo_id()
+    {
         return  response()->json(DB::table('felhasznalos')->selectRaw('id as value, felhasznalo_nev as kiiras')->get());
     }
 
 
-    public function admin_id(){
-
-
-        
+    public function admin_id()
+    {
     }
 
 
-    public function felhasznaloNevEmail(){
-        $felhasznalo = Felhasznalo::select("felhasznalo_nev", 'felhasznalo_email')
-        ->get();
+    public function felhasznaloSzuloAdatok()
+    {
+        $felhasznalo = Felhasznalo::select("felhasznalo_nev", 'felhasznalo_email',)
+            ->get();
 
-    return $felhasznalo;
+        $szulo = Szulo::select("szemelyi_igazolvany_szam", "telefonszam")
+            ->get();
+
+        return [$felhasznalo, $szulo];
     }
-
 }

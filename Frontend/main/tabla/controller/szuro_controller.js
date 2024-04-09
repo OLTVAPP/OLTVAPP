@@ -25,6 +25,7 @@ class Szuro_controller {
       }
       const tablaElem = $("table");
       tablaElem.empty();
+      const tabla = new Tabla_main(tablaElem.attr("id"));
       console.log(keresettErtekek);
       tabla.keresoTabla(keresettErtekek);
      

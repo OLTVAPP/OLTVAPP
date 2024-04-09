@@ -30,10 +30,6 @@ class OrvosController extends Controller
         $orvosok = Orvos::all();
         return response()->json($orvosok);
     }
-
-
- 
-
     
     public function update(Request $request, $id)
     {
@@ -201,9 +197,6 @@ class OrvosController extends Controller
             ->update(['gyerek_id' => $request->gyerek_taj]);
     }
 
-    public function keszletModosit($keszlet_id)
-    {
-    }
 
     public function orvosModosit(Request $request, $orvos_id)
     {

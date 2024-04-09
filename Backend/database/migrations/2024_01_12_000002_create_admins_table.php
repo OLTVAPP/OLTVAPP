@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+
 return new class extends Migration
 {
     /**
@@ -21,17 +22,29 @@ return new class extends Migration
             $table->timestamps();
         });
 
-       
+
 
         // Add check condition
- 
+
 
 
         Admin::create([
-            'felhasznalo_id' => 2,
+            'felhasznalo_id' => 4,
             'vez_nev' => "Mogyoródi",
             'ker_nev' => "Balázs",
-        ]);  
+        ]);
+
+        Admin::create([
+            'felhasznalo_id' => 5,
+            'vez_nev' => "Ncu",
+            'ker_nev' => "Peter",
+        ]);
+
+        Admin::create([
+            'felhasznalo_id' => 6,
+            'vez_nev' => "Jakab",
+            'ker_nev' => "Peter",
+        ]);
 
         DB::unprepared('DROP TRIGGER IF EXISTS admins_check_felhasznalo_id_k_role');
 
@@ -50,8 +63,6 @@ return new class extends Migration
             END IF;
         END
     ');
-       
-        
     }
 
     /**
@@ -61,6 +72,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('admins');
         DB::unprepared('DROP TRIGGER IF EXISTS admins_check_felhasznalo_id_k_role');
-    
     }
 };

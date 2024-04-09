@@ -58,4 +58,30 @@ class SzuloController extends Controller
 
    
 
+    public function szuloModosit(Request $request, $szulo_id)
+    {
+
+        DB::table('felhasznalos')
+            ->where('id', $szulo_id)
+            ->update(['felhasznalo_nev' => $request->felhasznalo_nev, 'felhasznalo_email' => $request->felhasznalo_email]);
+
+        DB::table('szulos')
+            ->where('szulos.felhasznalo_id', $szulo_id)
+            ->update(['vez_nev' => $request->vez_nev, 'ker_nev' => $request->ker_nev, 'telefonszam' => $request->telefonszam, 'szemelyi_igazolvany_szam' => $request->szemelyi_igazolvany_szam, 'lakcim_varos' => $request->lakcim_varos, 'lakcim_irSzam' => $request->lakcim_irSzam, 'lakcim_utca' => $request->lakcim_utca]);
+    }
+
+    public function szulo($szulo_id)
+    {
+
+        $szulo = DB::table('felhasznalos')
+            ->join('szulos', 'szulos.felhasznalo_id', '=', 'felhasznalos.id')
+            ->where('felhasznalos.id', $szulo_id)
+            ->where('felhasznalos.szerepkor', '=', 'O')
+            ->select('felhasznalos.felhasznalo_nev', 'felhasznalos.felhasznalo_email', 'szulos.vez_nev', 'szulos.ker_nev', 'szulos.szemelyi_igazolvany_szam', 'szulos.telefonszam', 'szulos.lakcim_varos', 'szulos.lakcim_irSzam', 'szulos.lakcim_utca')
+            ->get();
+
+
+
+        return $szulo;
+    }
 }

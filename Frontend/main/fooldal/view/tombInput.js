@@ -1,6 +1,6 @@
-import PasswordInput from "./input/password.js";
-import SubmitInput from "./input/submit.js";
-import TextInput from "./input/text.js";
+import PasswordInput from "./input/Password.js";
+import SubmitInput from "./input/Submit.js";
+import TextInput from "./input/Text.js";
 
 class TombInput {
   #adatok;

@@ -22,18 +22,25 @@ return new class extends Migration
         });
         
         Beadas::create([
-            'orvos_id' => 3,
-            'oltas_id' => 1,
-            'beadando_id' => 2,
-            'beadas_datuma' => "2024-12-11",
+            'orvos_id' => 7,
+            'oltas_id' => 7,
+            'beadando_id' => 3,
+            'beadas_datuma' => "2023-12-11",
             'megjegyzes' => "blabla"
         ]);
 
         Beadas::create([
-            'orvos_id' => 4,
+            'orvos_id' => 7,
             'oltas_id' => 2,
-            'beadando_id' => 1,
-            'beadas_datuma' => "2024-12-11"
+            'beadando_id' => 7,
+            'beadas_datuma' => "2023-02-1"
+        ]);
+
+        Beadas::create([
+            'orvos_id' => 7,
+            'oltas_id' => 2,
+            'beadando_id' => 7,
+            'beadas_datuma' => "2023-03-12"
         ]);
     }
 

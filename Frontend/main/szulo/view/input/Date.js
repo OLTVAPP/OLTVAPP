@@ -1,27 +1,28 @@
-class EmailInput {
+class DateInput {
 
     #key = "";
     #leiro = {};
     #gyerekElem
     #value = "";
     #valid = false;
+    #maxDatum;
+    #minDatum;
 
-    constructor(key, leiro, gyerekElem) {
+    constructor(key, leiro, gyerekElem, maxDatum, minDatum) {
         this.#key = key;
         this.#leiro = leiro;
         this.#gyerekElem = gyerekElem
-
+        this.#maxDatum = maxDatum
+        this.#minDatum = minDatum;
         this.textElem();
 
         this.inputElem = $(`#${this.#key}`);
         this.validElem = this.#gyerekElem.children("div:last-child").children(".valid");
         this.invalidElem = this.#gyerekElem.children("div:last-child").children(".invalid");
-        this.inputElem.on("keyup", () => {
-            this.#value = this.inputElem.val();
-            let reg = this.#leiro.regex;
-            let regObj = new RegExp(reg);
 
-            if (regObj.test(this.#value)) {
+        this.inputElem.on("change", () => {
+            this.#value = this.inputElem.val();
+            if (this.#value < this.#maxDatum && this.#value > this.#minDatum) {
                 this.#valid = true;
                 this.validElem.removeClass("elrejt");
                 this.invalidElem.addClass("elrejt");
@@ -61,16 +62,14 @@ class EmailInput {
         id="${this.#key}" 
         name="${this.#key}"
         patter="${this.#leiro.regex}"
-        value="${this.#leiro.value}"
         maxLength="${this.#leiro.maxLength}">
 
         <div class="valid elrejt">OK</div>
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
         </div>
         `
-
         this.#gyerekElem.append(txt);
     }
 }
 
-export default EmailInput;
+export default DateInput;

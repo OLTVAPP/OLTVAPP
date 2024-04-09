@@ -66,6 +66,7 @@ export const urlapLeiro = {
       value: "",
       regex: /^.{5,15}$/,
       validalas: "Minimum 5 és maximum 15 karakter lehet!",
+      ellenorzes: "Foglalt a felhasználó név!",
       maxLength: 15
     },
     szerepkor: {
@@ -77,7 +78,8 @@ export const urlapLeiro = {
       tipus: "email",
       value: "",
       regex: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      validalas: "Nem megfelelő email cim",
+      validalas: "Nem megfelelő email cim!",
+      ellenorzes: "Foglalt az email cím!",
       maxLength: 40
     },
     jelszo: {
@@ -86,6 +88,7 @@ export const urlapLeiro = {
       value: "",
       regex: /^(?=.*[A-Z])(?=.*\d).{8,20}$/,
       validalas: "1 Nagy betű és szám illetve 8-20 közötti karakter kell",
+      ellenorzes: "Nem egyforma a jelszó!",
       maxLength: 20
     },
     aktiv: {
@@ -119,6 +122,7 @@ export const urlapLeiro = {
         value: "",
         regex: /^\d{6}[A-Z]{2}$/,
         validalas: "6 számot és 2 betűt kell tartalmaznia!",
+        ellenorzes: "Foglalt személyi igazolvány szám",
         id: "adat",
         maxLength: 8
       },
@@ -128,6 +132,7 @@ export const urlapLeiro = {
         value: "",
         regex: "^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$",
         validalas: "+-al kell kezdődnie (pl.: +36)",
+        ellenorzes: "Foglalt telefonszám!",
         id: "adat",
         maxLength: 12
       },

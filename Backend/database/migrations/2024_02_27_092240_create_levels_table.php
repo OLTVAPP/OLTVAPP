@@ -20,11 +20,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Level::create([
-            'gyerek_taj' => 345232232,
-            'tipus_id' => 2,
-            'kikuldes_datuma' => "2002-02-13"
-        ]);
     }
 
     /**

@@ -24,25 +24,37 @@ return new class extends Migration
         Oltas_tipus::create([
             'tipus_elnev' => "Koronavirus",
             'kotelezo' => true,
-            'leiras' => "blabla"
+            'leiras' => "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
         ]);
 
         Oltas_tipus::create([
-            'tipus_elnev' => "ADHD",
+            'tipus_elnev' => "Rotavírus",
             'kotelezo' => false,
-            'leiras' => "blabla"
+            'leiras' => "Quia quis voluptatum nulla natus, labore, ab excepturi rerum"
         ]);
         
         Oltas_tipus::create([
-            'tipus_elnev' => "ACID",
+            'tipus_elnev' => "HPV",
             'kotelezo' => false,
-            'leiras' => "blabla"
+            'leiras' => "adipisci ut repellat atque autem"
         ]);
         
+        Oltas_tipus::create([
+            'tipus_elnev' => "BCG",
+            'kotelezo' => true,
+            'leiras' => "magnam itaque"
+        ]);
+
+        Oltas_tipus::create([
+            'tipus_elnev' => "Varicella",
+            'kotelezo' => true,
+            'leiras' => "blablabla"
+        ]);
+
         Oltas_tipus::create([
             'tipus_elnev' => "BAKTIT",
             'kotelezo' => true,
-            'leiras' => "blabla"
+            'leiras' => "szerintem jó választás"
         ]);
     }
     

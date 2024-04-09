@@ -27,47 +27,98 @@ return new class extends Migration
             $table->timestamps();
         });
         Gyerek::create([
-            'gyerek_taj' => 345232232,
-            'vez_nev' => "asfgdgdf",
-            'ker_nev' => "dgffdgdm",
-            'szul_datum' => "2002-02-13",
-            'szul_hely' => "Pecs",
-            'orvos_id' => 3,
+            'gyerek_taj' => 325245267,
+            'vez_nev' => "Somogyi",
+            'ker_nev' => "Gödör",
+            'szul_datum' => "2010-02-13",
+            'szul_hely' => "Pécs",
+            'orvos_id' => 7,
             'szulo_id' => 1,
             'lakcim_varos' => "Pécs",
             'lakcim_irSzam' => 4535,
-            'lakcim_utca' => "hgfskjd",
-            'erzekenyseg' => "fghdkd"
+            'lakcim_utca' => "Rántott utca 2.",
+            'erzekenyseg' => "Bolha allergia"
+        ]);
+
+        Gyerek::create([
+            'gyerek_taj' => 452645123,
+            'vez_nev' => "Somogyi",
+            'ker_nev' => "Pince",
+            'szul_datum' => "2020-02-13",
+            'szul_hely' => "Pécs",
+            'orvos_id' => 7,
+            'szulo_id' => 1,
+            'lakcim_varos' => "Pécs",
+            'lakcim_irSzam' => 4535,
+            'lakcim_utca' => "Rántott utca 2.",
+        ]);
+
+        Gyerek::create([
+            'gyerek_taj' => 938472345,
+            'vez_nev' => "Somogyi",
+            'ker_nev' => "Gaspar",
+            'szul_datum' => "2022-12-13",
+            'szul_hely' => "Pécs",
+            'orvos_id' => 7,
+            'szulo_id' => 1,
+            'lakcim_varos' => "Pécs",
+            'lakcim_irSzam' => 4535,
+            'lakcim_utca' => "Rántott utca 2.",
+            'erzekenyseg' => "laktózérzékeny"
         ]);
 
         Gyerek::create([
             'gyerek_taj' => 432354345,
-            'vez_nev' => "asfgdgfdgdf",
-            'ker_nev' => "dgffdfgdgdm",
-            'szul_datum' => "2002-02-16",
-            'szul_hely' => "Pecs",
-            'orvos_id' => 4,
-            'szulo_id' => 1,
-            'lakcim_varos' => "Pécs",
-            'lakcim_irSzam' => 4535,
-            'lakcim_utca' => "hgfskjd",
-            'erzekenyseg' => "fgfdgdhdkd"
+            'vez_nev' => "Vicc",
+            'ker_nev' => "Elek",
+            'szul_datum' => "2015-06-27",
+            'szul_hely' => "Budapest",
+            'orvos_id' => 7,
+            'szulo_id' => 2,
+            'lakcim_varos' => "Budapest",
+            'lakcim_irSzam' => 3525,
+            'lakcim_utca' => "Szent jakab utca 23.",
         ]);
 
         Gyerek::create([
             'gyerek_taj' => 232354346,
-            'vez_nev' => "asfgdgfdgdf",
-            'ker_nev' => "dgffdfgdgdm",
-            'szul_datum' => "2002-02-16",
-            'szul_hely' => "Pecs",
-            'orvos_id' => 3,
-            'szulo_id' => 1,
-            'lakcim_varos' => "Pécs",
-            'lakcim_irSzam' => 4535,
-            'lakcim_utca' => "hgfskjd",
-            'erzekenyseg' => "fgfdgdhdkd"
+            'vez_nev' => "Botond",
+            'ker_nev' => "Rodond",
+            'szul_datum' => "2009-10-16",
+            'szul_hely' => "Érd",
+            'orvos_id' => 8,
+            'szulo_id' => 3,
+            'lakcim_varos' => "Kacsóta",
+            'lakcim_irSzam' => 3438,
+            'lakcim_utca' => "Földes utca 56.",
+            'erzekenyseg' => "Fény allergia"
         ]);
-            
+
+        Gyerek::create([
+            'gyerek_taj' => 457584854,
+            'vez_nev' => "Botond",
+            'ker_nev' => "Fotond",
+            'szul_datum' => "2013-12-29",
+            'szul_hely' => "Érd",
+            'orvos_id' => 8,
+            'szulo_id' => 3,
+            'lakcim_varos' => "Kacsóta",
+            'lakcim_irSzam' => 3438,
+            'lakcim_utca' => "Földes utca 56.",
+        ]);
+
+        Gyerek::create([
+            'gyerek_taj' => 342342334,
+            'vez_nev' => "Botond",
+            'ker_nev' => "Docond",
+            'szul_datum' => "2008-03-03",
+            'szul_hely' => "Érd",
+            'orvos_id' => 9,
+            'szulo_id' => 3,
+            'lakcim_varos' => "Kacsóta",
+            'lakcim_irSzam' => 3438,
+            'lakcim_utca' => "Földes utca 56.",
+        ]);
     }
 
     /**

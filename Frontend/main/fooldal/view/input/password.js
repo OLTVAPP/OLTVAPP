@@ -18,7 +18,8 @@ class PasswordInput {
         this.inputElem = $(`#${this.#key}`)
         console.log("input", this.inputElem);
         this.validElem = this.#formElem.children("div:last-child").children(".valid");
-        this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");;
+        this.invalidElem = this.#formElem.children("div:last-child").children(".invalid");
+        this.ellenorzes = this.#formElem.children("div:last-child").children(".ellenorzes");
         console.log(this.validelem)
         console.log(this.invalidElem)
         this.inputElem.on("keyup", () => {
@@ -30,10 +31,16 @@ class PasswordInput {
                 this.#valid = true;
                 this.validElem.removeClass("elrejt");
                 this.invalidElem.addClass("elrejt");
+                if (!this.ellenorzes.hasClass('elrejt')) {
+                    this.ellenorzes.addClass("elrejt");
+                }
             } else {
                 this.#valid = false;
                 this.invalidElem.removeClass("elrejt");
                 this.validElem.addClass("elrejt");
+                if (!this.ellenorzes.hasClass('elrejt')) {
+                    this.ellenorzes.addClass("elrejt");
+                }
             }
         })
 
@@ -76,6 +83,7 @@ class PasswordInput {
 
         <div class="valid elrejt">OK</div>
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
+        <div class="ellenorzes elrejt">${this.#leiro.ellenorzes}</div>
         </div>
         `
         this.#formElem.append(txt);

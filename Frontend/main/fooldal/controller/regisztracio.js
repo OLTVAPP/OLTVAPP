@@ -25,7 +25,7 @@ class Controller {
   }
 
   #ellenorzes() {
-    this.#dataService.getAxiosData("http://localhost:8000/api/felhasznalo_nev_email", this.megjelenit, this.#urlapModell.getLeiro());
+    this.#dataService.getAxiosData("http://localhost:8000/api/felhasznalo_szulo_adatok", this.megjelenit, this.#urlapModell.getLeiro());
   }
 }
 

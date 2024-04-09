@@ -2,6 +2,7 @@ import Kozpont from "../view/Kozpont.js";
 import adatbazisModell from "../modell/adatbazisModell.js";
 import DataService from "../modell/DataService.js";
 import Gombok from "../view/Gombok.js";
+import Xyegyedul from "../view/Xyegyedul.js";
 
 class Controller {
     constructor() {
@@ -9,6 +10,7 @@ class Controller {
         this.adatbazisModell = new adatbazisModell();
         this.kozpont = new Kozpont($("article"), $(".tablak"));
         this.gombok = new Gombok(this.adatbazisModell.getGleiro(), $(".tablaNevek"));
+        this.xyoldala = new Xyegyedul($("article"), $(".xyOldala"));
         this.megjelenitAdatok();
     }
 
@@ -67,6 +69,15 @@ class Controller {
         );
     }
 
+    getxyAdatok() {
+        this.dataService.getAxiosData(
+            "http://localhost:8000/api/felhasznalo_szulo",
+            (data) => {
+                this.xyoldala.megjelenitXy(data);
+            },
+            this.adatbazisModell.getLeiro()
+        );
+    }
 }
 
 export default Controller;

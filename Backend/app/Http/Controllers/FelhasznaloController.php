@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class FelhasznaloController extends Controller
 {
@@ -105,21 +106,33 @@ class FelhasznaloController extends Controller
 
 
 
-
+    public function teszt()
+    {
+        $felhasznalo_nev = "kovacsBela";
+        $jelszo = "ABCabc123";
+        $felhasznalo = DB::table('felhasznalos')
+            ->select("jelszo", "szerepkor", "aktiv")
+            ->where('felhasznalo_nev', '=', $felhasznalo_nev)
+            ->get();
+        if (Hash::check($jelszo, $felhasznalo[0]->jelszo)) {
+            return ["Helyes jelszó", $felhasznalo[0]->szerepkor, $felhasznalo[0]->aktiv];
+        } else {
+            return "Helytelen jelszó";
+        };
+    }
 
 
     public function bejelentkezes($felhasznalo_nev, $jelszo)
     {
-        $felhasznalo = FelhasznaloController::felhasznaloKeres_by_name($felhasznalo_nev);
-        $keresett_jelszo = "";
-        $talalt_felhasznalo_nev = "";
-        $tabla = [];
-        foreach ($felhasznalo as $keresett) {
-            $keresett_jelszo = $keresett->jelszo;
-            $tabla = ["Helyes jelszó", $keresett];
-            $talalt_felhasznalo_nev = $keresett->felhasznalo_nev;
-        }
-        return response()->json(FelhasznaloController::bejelentkezes_ellenorzes($tabla, $talalt_felhasznalo_nev, $jelszo == $keresett_jelszo));
+        $felhasznalo = DB::table('felhasznalos')
+            ->select("jelszo", "szerepkor", "aktiv", "id")
+            ->where('felhasznalo_nev', '=', $felhasznalo_nev)
+            ->get();
+        if (Hash::check($jelszo, $felhasznalo[0]->jelszo)) {
+            return ["Helyes jelszó", $felhasznalo[0]->aktiv, $felhasznalo[0]->szerepkor, $felhasznalo[0]->id];
+        } else {
+            return "Helytelen jelszó";
+        };
     }
 
     public function felhasznaloAdatok($join)

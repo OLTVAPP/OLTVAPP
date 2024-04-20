@@ -44,15 +44,16 @@ class Bejelentkezes {
     let jelszo_allapot = obj[0];
     if (jelszo_allapot == "Helyes jelszó") {
       const objektum = obj[1];
+      console.log(objektum)
       console.log("jó jelszó");
-      if (objektum.aktiv == 1) {
+      if (objektum == 1) {
         const adat = {
           emai: objektum.felhasznalo_email,
           jelszo: objektum.jelszo,
         };
      
-        localStorage.setItem("felhasznalo", objektum.id);
-        switch (objektum.szerepkor) {
+        localStorage.setItem("felhasznalo", obj[3]);
+        switch (obj[2]) {
           case "S":
             console.log("szulo");
             window.location.assign("/main/szulo/szulo.html");

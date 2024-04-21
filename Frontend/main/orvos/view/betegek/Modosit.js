@@ -56,12 +56,16 @@ class Modosit {
                     );
                     break;
                 case "date":
+                    const today = new Date();
+                    const year = today.getFullYear();
+                    const oldyear = today.getFullYear() - 18;
+                    const month = String(today.getMonth() + 1).padStart(2, '0');
+                    const day = String(today.getDate()).padStart(2, '0');
+                    const maxDatum = year + '-' + month + '-' + day;
+                    const minDatum = oldyear + '-' + month + '-' + day;
+                    console.log(minDatum, maxDatum)
                     this.#urlapElemLista.push(
-                        new DateInput(
-                            key,
-                            this.#leiro[key],
-                            this.#szuloElem, this.#adat[i]
-                        )
+                        new DateInput(key, this.#leiro[key], this.#szuloElem, maxDatum, minDatum)
                     );
                     break;
                 case "textarea":
@@ -124,7 +128,7 @@ class Modosit {
         console.log(this.#ujAdat)
         const E = new CustomEvent(esemenyNev, { detail: [this.#ujAdat, this.#felhasznalo_email, this.#gyerek_taj] });
         window.dispatchEvent(E);
-    } 
+    }
 }
 
 export default Modosit;

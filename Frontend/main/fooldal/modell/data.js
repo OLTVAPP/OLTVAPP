@@ -4,7 +4,7 @@ class DataService {
     }
 
 
-    getData(vegpont, callback, hibaCallback) {
+    getData(vegpont, callback, elem, hibaCallback) {
         axios.get(vegpont)
             .then(function (response) {
                 console.log("response", response);
@@ -12,7 +12,7 @@ class DataService {
                 console.log("statusz", response.status);
                 console.log("statusz", response.request.status);
                 console.log("text", response.statusText);
-                callback(response.data);
+                callback(response.data, elem);
             })
             .catch(function (error) {
                 console.log(error);

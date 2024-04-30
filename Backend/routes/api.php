@@ -69,6 +69,8 @@ Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
 Route::get('/bejelentkezett_felhasznalo', [FelhasznaloController::class, 'bejelentkezett_felhasznalo']);
 Route::get('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'show']);
 
+Route::get('/teszt', [FelhasznaloController::class, 'teszt']);
+
 Route::get('/felhasznalo_keres/{felhasznalo_nev}/{felhasznalo_jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
 
 

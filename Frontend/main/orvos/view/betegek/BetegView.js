@@ -14,7 +14,7 @@ class BetegView {
     constructor(szuloElem, list, leiro) {
         this.#leiro = leiro;
         this.#list = list;
-        this.#cim = ["Részletes adatok", "Szülő adatok", "Beadott oltasok", "Beadnadó oltasok"]
+        this.#cim = ["Részletes adatok", "Szülő adatok", "Beadott oltások", "Beadnadó oltások"]
 
         this.#szuloElem = szuloElem;
         for (let i = 0; i < this.#list.length; i++) {

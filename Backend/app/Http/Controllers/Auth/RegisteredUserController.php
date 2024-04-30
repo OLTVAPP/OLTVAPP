@@ -30,7 +30,7 @@ class RegisteredUserController extends Controller
 
         $user = Felhasznalo::create([
             'felhasznalo_nev' => $request->felhasznalo_nev,
-            'jelszo' => $request->jelszo,
+            'jelszo' => Hash::make($request->jelszo),
             'felhasznalo_email' => $request->felhasznalo_email,
             'szerepkor' => 'S',
             'aktiv' => true

@@ -73,6 +73,8 @@ Route::get('/teszt', [FelhasznaloController::class, 'teszt']);
 
 Route::get('/felhasznalo_keres/{felhasznalo_nev}/{felhasznalo_jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
 
+Route::patch('/jelszo_modositas/{id}/{regiJelszo}/{ujJelszo}', [FelhasznaloController::class, 'jelszoModositas']);
+
 
 
 

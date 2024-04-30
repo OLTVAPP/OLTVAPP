@@ -70,6 +70,7 @@ class PasswordInput {
 
         <div class="valid elrejt">OK</div>
         <div class="invalid elrejt">${this.#leiro.validalas}</div>
+        <div class="ellenorzes elrejt">${this.#leiro.ellenorzes}</div>
         </div>
         `
         this.#formElem.append(txt);

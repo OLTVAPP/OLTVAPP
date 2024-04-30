@@ -219,4 +219,20 @@ class FelhasznaloController extends Controller
 
         return [$felhasznalo, $szulo];
     }
+
+    public function jelszoModositas($id, $regiJelszo, $ujJelszo)
+    {
+        $felhasznalo = DB::table('felhasznalos')
+            ->select("jelszo")
+            ->where('id', $id)
+            ->get();
+        if (Hash::check($regiJelszo, $felhasznalo[0]->jelszo)) {
+            $felhasznalo = DB::table('felhasznalos')
+                ->where('id', $id)
+                ->update(['jelszo' => Hash::make($ujJelszo)]);
+            return "Sikerült";
+        }else{
+            return "Hiba";
+        }
+    }
 }

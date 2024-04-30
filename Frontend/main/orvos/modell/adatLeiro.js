@@ -357,6 +357,7 @@ export const profilModositas = {
       value: "",
       regex: /^(?=.*[A-Z])(?=.*\d).{8,20}$/,
       validalas: "1 Nagy betű és szám illetve 8-20 közötti karakter kell",
+      ellenorzes: "Nem egyforma a jelszó!",
       maxLength: 20
     },
     uj_jelszo2: {
@@ -365,6 +366,7 @@ export const profilModositas = {
       value: "",
       regex: /^(?=.*[A-Z])(?=.*\d).{8,20}$/,
       validalas: "1 Nagy betű és szám illetve 8-20 közötti karakter kell",
+      ellenorzes: "Nem egyforma a jelszó!",
       maxLength: 20
     },
   },
@@ -375,7 +377,6 @@ export const profilModositas = {
       value: "",
       regex: /^[A-Z].{1,14}$/,
       validalas: "Nagy betűvel kezdődjön!",
-      id: "adat",
       maxLength: 20
     },
     ker_nev: {
@@ -384,7 +385,6 @@ export const profilModositas = {
       value: "",
       regex: /^[A-Z].{1,14}$/,
       validalas: "Nagy betűvel kezdődjön!",
-      id: "adat",
       maxLength: 20
     },
     tel_szam: {
@@ -393,7 +393,6 @@ export const profilModositas = {
       value: "",
       regex: "^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$",
       validalas: "+-al kell kezdődnie (pl.: +36)",
-      id: "adat",
       maxLength: 12
     },
     publikus_email: {

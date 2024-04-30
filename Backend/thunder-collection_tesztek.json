@@ -1,0 +1,23 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "tesztek",
+    "collectionId": "3bf8bb46-87a0-40aa-8aa9-d71e798c08cf",
+    "dateExported": "2024-04-30T13:57:38.177Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "6f4f2daf-6852-4e27-b5be-c7aeec2e8f7c",
+            "colId": "3bf8bb46-87a0-40aa-8aa9-d71e798c08cf",
+            "containerId": "",
+            "name": "Jelszo modosítás",
+            "url": "http://localhost:8000/api/jelszo_modositas/rozsaSandor/123Abc/321Abc",
+            "method": "PATCH",
+            "sortNum": 10000,
+            "created": "2024-04-30T13:56:42.617Z",
+            "modified": "2024-04-30T13:56:42.617Z",
+            "headers": []
+        }
+    ],
+    "ref": "ju-SB1QZAiGAfZQsjd4kUSnh8McIdfY729YJ9fmGy1Iz6fzul86EPXYm9TAEpXZcOy3yXbhhe40ElKTqER8uZw"
+}

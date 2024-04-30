@@ -85,7 +85,11 @@ class DataService {
   patchData(url) {
     axios.patch(url)
       .then(function (response) {
-        location.reload();
+        if (response.data == "Hiba") {
+          alert("Rossz jelszót adtál meg!")
+        } else {
+          location.reload();
+        }
         console.log("resp", response);
       })
       .catch((error) => {

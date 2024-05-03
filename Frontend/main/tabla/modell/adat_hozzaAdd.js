@@ -26,9 +26,11 @@ class Adat_hozaAd {
     switch (this.#idEllenorzo) {
       case "admin_felhasznalo":
         this.#url = felhasznalo_adatok_hozzaAd.url;
+        
         this.#urlAdatok = felhasznalo_adatok_hozzaAd.szuksegesAdatok;
         this.#urlAdatok.szerepkor = "A";
         this.#adatOsszerako();
+        console.log(this.#urlAdatok)
         data.postData(this.#url, this.#urlAdatok);
         this.#kereses = this.#urlAdatok.felhasznalo_email;
         this.#urlAdatok = admin_adatok_hozzaAd;
@@ -84,7 +86,11 @@ class Adat_hozaAd {
       default:
         break;
     }
-     location.reload();
+    $(window).on('load', function () {
+      setTimeout(document.getElementById("loading").style.display = "none", 5000)
+      location.reload();
+  });
+ 
   }
 
   #adatOsszerako() {

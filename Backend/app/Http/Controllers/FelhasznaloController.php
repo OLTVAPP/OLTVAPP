@@ -52,7 +52,7 @@ class FelhasznaloController extends Controller
     {
         $record = new Felhasznalo();
         $record->felhasznalo_nev = $request->felhasznalo_nev;
-        $record->jelszo = $request->jelszo;
+        $record->jelszo = Hash::make($request->jelszo);
         $record->szerepkor = $request->szerepkor;
         $record->felhasznalo_email = $request->felhasznalo_email;
         $record->aktiv = true;

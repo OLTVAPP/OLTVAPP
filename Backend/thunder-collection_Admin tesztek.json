@@ -1,0 +1,597 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Admin tesztek",
+    "collectionId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+    "dateExported": "2024-05-03T19:49:41.623Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "e20e085e-8645-4e8f-9659-d270a5655d83",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "felhasznalo_tabla",
+            "url": "http://localhost:8000/api/felhasznalok_search",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-03T18:01:14.859Z",
+            "modified": "2024-05-03T18:01:26.340Z",
+            "headers": []
+        },
+        {
+            "_id": "3fb84e11-8639-4d5b-bf4f-06e420f8cbf0",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "beadando_tabla",
+            "url": "http://localhost:8000/api/beadando_tabla",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-05-03T18:01:53.547Z",
+            "modified": "2024-05-03T18:02:19.973Z",
+            "headers": []
+        },
+        {
+            "_id": "b60dc198-34ee-4df3-888b-3d05e87337aa",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "oltas_tipus_tabla",
+            "url": "http://localhost:8000/api/oltas_tipus_tabla",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-05-03T18:03:26.147Z",
+            "modified": "2024-05-03T18:04:08.334Z",
+            "headers": []
+        },
+        {
+            "_id": "8db07ad1-f691-42c6-b60a-453be8d874c7",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "oltas_tabla",
+            "url": "http://localhost:8000/api/oltas_tabla",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-05-03T18:04:53.363Z",
+            "modified": "2024-05-03T18:05:44.100Z",
+            "headers": []
+        },
+        {
+            "_id": "e6ec60c9-a24b-4243-8e29-df5e6fab5477",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "oltas_tipusok",
+            "url": "http://localhost:8000/api/oltas_tipus",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-05-03T18:13:16.195Z",
+            "modified": "2024-05-03T18:14:46.491Z",
+            "headers": []
+        },
+        {
+            "_id": "c2274b15-a3b2-4616-85ec-a1997d3a705e",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "felhasznalo_hozzaAdasa",
+            "url": "http://localhost:8000/api/felhasznalo?felhasznalo_nev=gezaNagy&jelszo=123Abc&felhasznalo_email=gezanagy@gmail.com&szerepkor=A",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-05-03T18:15:53.619Z",
+            "modified": "2024-05-03T18:21:18.120Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "felhasznalo_nev",
+                    "value": "gezaNagy",
+                    "isPath": false
+                },
+                {
+                    "name": "jelszo",
+                    "value": "123Abc",
+                    "isPath": false
+                },
+                {
+                    "name": "felhasznalo_email",
+                    "value": "gezanagy@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "szerepkor",
+                    "value": "A",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "96a0d4ee-376c-4c0e-8f95-dbe81747afab",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "admin_hozzaAdasa",
+            "url": "http://localhost:8000/api/admin?vez_nev=Nagy&ker_nev=Géza&felhasznalo_id=27",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-05-03T18:21:27.587Z",
+            "modified": "2024-05-03T18:24:56.650Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "vez_nev",
+                    "value": "Nagy",
+                    "isPath": false
+                },
+                {
+                    "name": "ker_nev",
+                    "value": "Géza",
+                    "isPath": false
+                },
+                {
+                    "name": "felhasznalo_id",
+                    "value": "27",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "2d5fff31-0d5f-4df4-b204-649e598edf02",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "felhasznalo_hozzaAdasa Copy",
+            "url": "http://localhost:8000/api/felhasznalo?felhasznalo_nev=aronKovacs&jelszo=123Abc&felhasznalo_email=kovacsaron@gmail.com&szerepkor=O",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-05-03T18:30:35.595Z",
+            "modified": "2024-05-03T18:31:51.210Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "felhasznalo_nev",
+                    "value": "aronKovacs",
+                    "isPath": false
+                },
+                {
+                    "name": "jelszo",
+                    "value": "123Abc",
+                    "isPath": false
+                },
+                {
+                    "name": "felhasznalo_email",
+                    "value": "kovacsaron@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "szerepkor",
+                    "value": "O",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "2d44a3d4-ae75-4513-ac02-ccdfc1186959",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "orvos_hozzaAdasa",
+            "url": "http://localhost:8000/api/orvos?vez_nev=Kovács&ker_nev=Áron&tel_szam=+36301263135&publikus_email=acon@gmail.com&rendelo_ajto_szam=12&felhasznalo_id=28",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-05-03T18:25:08.507Z",
+            "modified": "2024-05-03T19:34:45.537Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "vez_nev",
+                    "value": "Kovács",
+                    "isPath": false
+                },
+                {
+                    "name": "ker_nev",
+                    "value": "Áron",
+                    "isPath": false
+                },
+                {
+                    "name": "tel_szam",
+                    "value": "+36301263135",
+                    "isPath": false
+                },
+                {
+                    "name": "publikus_email",
+                    "value": "acon@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "rendelo_ajto_szam",
+                    "value": "12",
+                    "isPath": false
+                },
+                {
+                    "name": "felhasznalo_id",
+                    "value": "28",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "bed6f545-44a9-46a1-8b6b-7f6465236c7d",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "oltas_tipus_hozzaAdasa",
+            "url": "http://localhost:8000/api/oltas_tipus?tipus_elnev=KIWI&kotelezo=1&leiras=loeregegj ejgrj igrgnr gnrtgjnrt hnghrtguhrtghr",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-05-03T18:25:10.267Z",
+            "modified": "2024-05-03T18:43:58.857Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "tipus_elnev",
+                    "value": "KIWI",
+                    "isPath": false
+                },
+                {
+                    "name": "kotelezo",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "leiras",
+                    "value": "loeregegj ejgrj igrgnr gnrtgjnrt hnghrtguhrtghr",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "b5a6e994-eb29-4af7-b009-c24f2b419007",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "oltas_tipus_hozzaAdasa Copy",
+            "url": "http://localhost:8000/api/beadando?tipus_id=7&ev=12&honap=10&hanyadik=1",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2024-05-03T18:44:08.652Z",
+            "modified": "2024-05-03T18:49:00.063Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "tipus_id",
+                    "value": "7",
+                    "isPath": false
+                },
+                {
+                    "name": "ev",
+                    "value": "12",
+                    "isPath": false
+                },
+                {
+                    "name": "honap",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "hanyadik",
+                    "value": "1",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "49ad777c-15c9-4fe9-bc5d-9fc540052b98",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "oltas_hozzaAdasa Copy Copy",
+            "url": "http://localhost:8000/api/oltas?tipus_id=7&oltoanyag_neve=xizozor&forgalmazo=xank&leiras=dgdgdggdfgfrgrg&adagolas=napi 2-szer&receptre=1&aktiv=1",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-05-03T18:51:46.701Z",
+            "modified": "2024-05-03T18:55:08.053Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "tipus_id",
+                    "value": "7",
+                    "isPath": false
+                },
+                {
+                    "name": "oltoanyag_neve",
+                    "value": "xizozor",
+                    "isPath": false
+                },
+                {
+                    "name": "forgalmazo",
+                    "value": "xank",
+                    "isPath": false
+                },
+                {
+                    "name": "leiras",
+                    "value": "dgdgdggdfgfrgrg",
+                    "isPath": false
+                },
+                {
+                    "name": "adagolas",
+                    "value": "napi 2-szer",
+                    "isPath": false
+                },
+                {
+                    "name": "receptre",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "aktiv",
+                    "value": "1",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "64304142-0bf8-40df-a53d-5e14fcb8aa4f",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "oltas_hozzaAdasa Copy Copy Copy",
+            "url": "http://localhost:8000/api/oltas?tipus_id=7&oltoanyag_neve=xizozor&forgalmazo=xank&leiras=dgdgdggdfgfrgrg&adagolas=napi 2-szer&receptre=1&aktiv=1",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2024-05-03T18:56:35.870Z",
+            "modified": "2024-05-03T18:56:35.870Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "tipus_id",
+                    "value": "7",
+                    "isPath": false
+                },
+                {
+                    "name": "oltoanyag_neve",
+                    "value": "xizozor",
+                    "isPath": false
+                },
+                {
+                    "name": "forgalmazo",
+                    "value": "xank",
+                    "isPath": false
+                },
+                {
+                    "name": "leiras",
+                    "value": "dgdgdggdfgfrgrg",
+                    "isPath": false
+                },
+                {
+                    "name": "adagolas",
+                    "value": "napi 2-szer",
+                    "isPath": false
+                },
+                {
+                    "name": "receptre",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "aktiv",
+                    "value": "1",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "a6fa0a58-cf3b-4405-916f-da0918176a5f",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "felhasznalo_modositas",
+            "url": "http://localhost:8000/api/felhasznalo/28?felhasznalo_nev=kissAntal&felhasznalo_email=kissAnt@gmail.com&aktiv=0&szerepkor=O",
+            "method": "PUT",
+            "sortNum": 150000,
+            "created": "2024-05-03T19:12:56.542Z",
+            "modified": "2024-05-03T19:19:19.292Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "felhasznalo_nev",
+                    "value": "kissAntal",
+                    "isPath": false
+                },
+                {
+                    "name": "felhasznalo_email",
+                    "value": "kissAnt@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "aktiv",
+                    "value": "0",
+                    "isPath": false
+                },
+                {
+                    "name": "szerepkor",
+                    "value": "O",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "eab6bf55-1311-4833-96b7-b12809bb33b2",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "admin_modositas",
+            "url": "http://localhost:8000/api/admin/27?vez_nev=Kiss&ker_nev=Jenő",
+            "method": "PUT",
+            "sortNum": 160000,
+            "created": "2024-05-03T19:20:34.438Z",
+            "modified": "2024-05-03T19:25:14.723Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "vez_nev",
+                    "value": "Kiss",
+                    "isPath": false
+                },
+                {
+                    "name": "ker_nev",
+                    "value": "Jenő",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "01d0d2c6-15c5-428d-b95c-899fec6bcba2",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "orvos_modositas",
+            "url": "http://localhost:8000/api/orvos/28?vez_nev=Vagány&ker_nev=Erik&tel_szam=+302323&publikus_email=erik@gmail.com&rendelo_ajto_szam=17",
+            "method": "PUT",
+            "sortNum": 170000,
+            "created": "2024-05-03T19:20:37.902Z",
+            "modified": "2024-05-03T19:27:54.944Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "vez_nev",
+                    "value": "Vagány",
+                    "isPath": false
+                },
+                {
+                    "name": "ker_nev",
+                    "value": "Erik",
+                    "isPath": false
+                },
+                {
+                    "name": "tel_szam",
+                    "value": "+302323",
+                    "isPath": false
+                },
+                {
+                    "name": "publikus_email",
+                    "value": "erik@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "rendelo_ajto_szam",
+                    "value": "17",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "c768a7c1-f9e3-482f-b6eb-98532d3784f4",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "szulo_modositas",
+            "url": "http://localhost:8000/api/szulo/3?vez_nev=Julia&ker_nev=Róza&szemelyi_igazolvany_szam=323546RG&telefonszam=+36306892534&lakcim_varos=Budapest&lakcim_irSzam=1102&lakcim_utca=Sír utca",
+            "method": "PUT",
+            "sortNum": 180000,
+            "created": "2024-05-03T19:35:16.599Z",
+            "modified": "2024-05-03T19:39:41.354Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "vez_nev",
+                    "value": "Julia",
+                    "isPath": false
+                },
+                {
+                    "name": "ker_nev",
+                    "value": "Róza",
+                    "isPath": false
+                },
+                {
+                    "name": "szemelyi_igazolvany_szam",
+                    "value": "323546RG",
+                    "isPath": false
+                },
+                {
+                    "name": "telefonszam",
+                    "value": "+36306892534",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_varos",
+                    "value": "Budapest",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_irSzam",
+                    "value": "1102",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_utca",
+                    "value": "Sír utca",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "cd83687b-0152-4ed7-b285-0fd20417baa0",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "oltas_modositas",
+            "url": "http://localhost:8000/api/oltas/12?tipus_id=6&oltoanyag_neve=Xizorous&forgalmazo=Xix&leiras=vgfrrggr&adagolas=efregfregr&receptre=0&aktiv=0",
+            "method": "PUT",
+            "sortNum": 190000,
+            "created": "2024-05-03T19:35:20.831Z",
+            "modified": "2024-05-03T19:43:23.879Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "tipus_id",
+                    "value": "6",
+                    "isPath": false
+                },
+                {
+                    "name": "oltoanyag_neve",
+                    "value": "Xizorous",
+                    "isPath": false
+                },
+                {
+                    "name": "forgalmazo",
+                    "value": "Xix",
+                    "isPath": false
+                },
+                {
+                    "name": "leiras",
+                    "value": "vgfrrggr",
+                    "isPath": false
+                },
+                {
+                    "name": "adagolas",
+                    "value": "efregfregr",
+                    "isPath": false
+                },
+                {
+                    "name": "receptre",
+                    "value": "0",
+                    "isPath": false
+                },
+                {
+                    "name": "aktiv",
+                    "value": "0",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "3a1f3a20-0dee-49cc-9765-3ce4e6e99f5f",
+            "colId": "a6b08555-6a44-484f-a95f-e784f21ffaa8",
+            "containerId": "",
+            "name": "oltas_tipus_modositas",
+            "url": "http://localhost:8000/api/oltas_tipus/7?tipus_elnev=KIWIK&kotelezo=0&leiras=dgdgdgrgrgrg",
+            "method": "PUT",
+            "sortNum": 200000,
+            "created": "2024-05-03T19:45:33.367Z",
+            "modified": "2024-05-03T19:48:06.103Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "tipus_elnev",
+                    "value": "KIWIK",
+                    "isPath": false
+                },
+                {
+                    "name": "kotelezo",
+                    "value": "0",
+                    "isPath": false
+                },
+                {
+                    "name": "leiras",
+                    "value": "dgdgdgrgrgrg",
+                    "isPath": false
+                }
+            ]
+        }
+    ],
+    "ref": "AIGMX3oX5mO3EZlIgK8rXtp0OhXOjWswxxskLCGexcaRac0ji5WiHruXMfSX-OXlQZZ8m1sJj1bb6MEBtwbz5Q"
+}

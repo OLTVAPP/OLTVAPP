@@ -14,6 +14,7 @@ class Bealitasok {
 
         this.#megjelenitOrvos();
         this.#profilModositas();
+        this.#jelszoModositas();
     }
 
     megjelenit(list, leiro) {
@@ -31,6 +32,13 @@ class Bealitasok {
         $(window).on("orvosModosit", (event) => {
             console.log(event.detail)
             this.#dataService.patchData2(`http://localhost:8000/api/orvos_modosit/${this.#id}`, event.detail)
+        });
+    }
+
+    #jelszoModositas() {
+        $(window).on("jelszoModosit", (event) => {
+
+            this.#dataService.patchData(`http://localhost:8000/api/jelszo_modositas/${this.#id}/${event.detail.regiJelszo}/${event.detail.ujJelszo}`)
         });
     }
 }

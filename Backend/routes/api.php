@@ -68,20 +68,14 @@ Route::put('/beadando/{beadando_id}', [OltasController::class, 'update_beadando'
 Route::get('/felhasznalo', [FelhasznaloController::class, 'index']);
 Route::get('/bejelentkezett_felhasznalo', [FelhasznaloController::class, 'bejelentkezett_felhasznalo']);
 Route::get('/felhasznalo/{felhasznalo_id}', [FelhasznaloController::class, 'show']);
+Route::get('/szulo/{szulo_id}', [SzuloController::class, 'szulo']);
 
 Route::get('/teszt', [FelhasznaloController::class, 'teszt']);
 
 Route::get('/felhasznalo_keres/{felhasznalo_nev}/{felhasznalo_jelszo}', [FelhasznaloController::class, 'bejelentkezes']);
 
+Route::patch('/jelszo_modositas/{id}/{regiJelszo}/{ujJelszo}', [FelhasznaloController::class, 'jelszoModositas']);
 
-
-
-//oltas
-
-
-
-
-//rendelo
 
 
 //Orvosoknak!
@@ -92,7 +86,6 @@ Route::get('/beteg/{gyerek_taj}', [OrvosController::class, 'beteg']);
 Route::get('/oltas_nev', [OrvosController::class, 'oltasNev']);
 Route::get('/oltas_tipus_nev', [OrvosController::class, 'oltasTipusNev']);
 Route::get('/orvos/{orvos_id}', [OrvosController::class, 'orvos']);
-Route::get('/szulo/{szulo_id}', [SzuloController::class, 'szulo']);
 
 //készlet megjelenitése tipus_id alapján
 Route::get('/keszlet_oltas_id/{orvos_id}/{tipus_id}', [OrvosController::class, 'keszletOltasId']);

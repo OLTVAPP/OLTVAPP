@@ -1,0 +1,87 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Bejelentkezés, regisztráció",
+    "collectionId": "972a76dd-502e-4d19-8581-840e1d2e9c2b",
+    "dateExported": "2024-05-03T13:26:50.463Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "6ed4c6ec-a80e-4ecd-837a-f8b7feb6d130",
+            "colId": "972a76dd-502e-4d19-8581-840e1d2e9c2b",
+            "containerId": "",
+            "name": "Regisztráció",
+            "url": "http://localhost:8000/register?felhasznalo_nev=Szulo2&jelszo=ABC12345&felhasznalo_email=szulovagyok@gmail.com&vez_nev=Felnott&ker_nev=Gaspar&szemelyi_igazolvany_szam=020345RE&telefonszam=+36202249124&lakcim_varos=Szentlőrinc&lakcim_irSzam=7940&lakcim_utca=Sajtos utca 8.",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-03T13:22:04.925Z",
+            "modified": "2024-05-03T13:22:04.925Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "felhasznalo_nev",
+                    "value": "Szulo2",
+                    "isPath": false
+                },
+                {
+                    "name": "jelszo",
+                    "value": "ABC12345",
+                    "isPath": false
+                },
+                {
+                    "name": "felhasznalo_email",
+                    "value": "szulovagyok@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "vez_nev",
+                    "value": "Felnott",
+                    "isPath": false
+                },
+                {
+                    "name": "ker_nev",
+                    "value": "Gaspar",
+                    "isPath": false
+                },
+                {
+                    "name": "szemelyi_igazolvany_szam",
+                    "value": "020345RE",
+                    "isPath": false
+                },
+                {
+                    "name": "telefonszam",
+                    "value": "+36202249124",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_varos",
+                    "value": "Szentlőrinc",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_irSzam",
+                    "value": "7940",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_utca",
+                    "value": "Sajtos utca 8.",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "72161e7d-b30f-4bcd-8a77-287e2ce97e44",
+            "colId": "972a76dd-502e-4d19-8581-840e1d2e9c2b",
+            "containerId": "",
+            "name": "Bejelentkezés",
+            "url": "http://localhost:8000/api/bejelentkezes/Orvos/123Abc",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-03T13:25:12.581Z",
+            "modified": "2024-05-03T13:25:12.581Z",
+            "headers": []
+        }
+    ],
+    "ref": "WMF6RrkJWuKA5vA0z7uA14zrAeWbUnS4ZkDL-59a7d286doJkYLUYhFLk3Z0Xb8q2dvPzrTBtc9ImuHLieoR7g"
+}

@@ -14,6 +14,10 @@ class UrlapView {
     #ujAdat = {};
     #index = 0;
 
+    #valid_jelszo
+    #ellenorzes_jelszo
+    #jelszoAdat = {};
+
     #urlapElemLista = [];
     #jelszoElemLista = [];
     #osszesElemValidE = true;
@@ -23,7 +27,6 @@ class UrlapView {
         for (const key in list[0]) {
             this.#regiAdat.push(list[0][key])
         }
-        console.log(this.#regiAdat)
         this.#leiro = leiro;
         this.#letrehozz();
     }
@@ -68,7 +71,9 @@ class UrlapView {
         for (const key in this.#leiro.jelszo) {
             this.#jelszoElemLista.push(new PasswordInput(key, this.#leiro.jelszo[key], this.#jelszoElem));
         }
-        this.#jelszoElem.append('<button class="btn btn-success" id="jelszo">Mentés</button>');
+        this.#ellenorzes_jelszo = this.#jelszoElem.children("div:last-child").children(".ellenorzes");
+        this.#valid_jelszo = this.#jelszoElem.children("div:last-child").children(".valid");
+        this.#jelszoElem.append('<button class="btn btn-success" id="jelszoGomb">Mentés</button>');
     }
 
     #orvosAdatok() {
@@ -119,15 +124,43 @@ class UrlapView {
                     }
                     i++;
                 })
-                this.#esemenyTrigger("orvosModosit");
+                this.#esemenyTrigger("orvosModosit", this.#ujAdat);
             } else {
                 console.log("Nem valid az űrlap");
             }
         });
+        this.#jelszoElem = $("#jelszoGomb");
+        this.#jelszoElem.on("click", (event) => {
+            event.preventDefault();
+            this.#osszesElemValidE = true;
+            this.#jelszoElemLista.forEach(elem => {
+                this.#osszesElemValidE = this.#osszesElemValidE && elem.valid;
+            })
+            if (this.#osszesElemValidE) {
+                let jelszo = {};
+                this.#jelszoElemLista.forEach((elem) => {
+                    jelszo[elem.key] = elem.value;
+                })
+                console.log(jelszo)
+                if (jelszo.uj_jelszo == jelszo.uj_jelszo2) {
+                    this.#ellenorzes_jelszo.addClass("elrejt");
+                    this.#jelszoAdat["regiJelszo"] = jelszo.regi_jelszo;
+                    this.#jelszoAdat["ujJelszo"] = jelszo.uj_jelszo;
+                    this.#esemenyTrigger("jelszoModosit", this.#jelszoAdat);
+
+                }
+                else {
+                    this.#ellenorzes_jelszo.removeClass("elrejt");
+                    this.#valid_jelszo.addClass("elrejt")
+                }
+            } else {
+                console.log("Nem valid az űrlap!")
+            }
+        })
     }
 
-    #esemenyTrigger(esemenyNev) {
-        const E = new CustomEvent(esemenyNev, { detail: this.#ujAdat });
+    #esemenyTrigger(esemenyNev, adat) {
+        const E = new CustomEvent(esemenyNev, { detail: adat });
         window.dispatchEvent(E);
     }
 }

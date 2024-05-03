@@ -1,0 +1,380 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Orvos",
+    "collectionId": "0e17d607-4168-4463-9b88-35aab90b9881",
+    "dateExported": "2024-05-03T13:26:41.801Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7573e52d-3b02-4da6-bc2a-56974342cf7b",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Bizonyos orvosnak a készlete",
+            "url": "http://localhost:8000/api/keszlet/7",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-03T12:25:43.878Z",
+            "modified": "2024-05-03T12:25:43.878Z",
+            "headers": []
+        },
+        {
+            "_id": "034898d2-a73e-4134-806e-a0efb6e58e6e",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Bizonyos orvosnak a megsemmisített készlete",
+            "url": "http://localhost:8000/api/megsemmisitett_keszlet/7",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-03T12:26:45.489Z",
+            "modified": "2024-05-03T12:26:45.489Z",
+            "headers": []
+        },
+        {
+            "_id": "ad0dc985-b670-437f-a5d0-139bae49ac8d",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Bizonyos orvosnak a betegeinek megjelenitése",
+            "url": "http://localhost:8000/api/betegek/7",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-05-03T12:27:21.226Z",
+            "modified": "2024-05-03T12:27:21.226Z",
+            "headers": []
+        },
+        {
+            "_id": "8d9888b9-fdbd-4094-9251-d0408e634a44",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "gyerek összes adatainak megjelenitése",
+            "url": "http://localhost:8000/api/beteg/325245267",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-05-03T12:28:37.397Z",
+            "modified": "2024-05-03T12:28:37.397Z",
+            "headers": []
+        },
+        {
+            "_id": "e6ae81b0-a789-4a3d-886e-c41560ccbc96",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "oltás id és neve megjelenitése",
+            "url": "http://localhost:8000/api/oltas_nev",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-05-03T12:30:49.530Z",
+            "modified": "2024-05-03T12:30:49.530Z",
+            "headers": []
+        },
+        {
+            "_id": "d7c9fda3-9de3-4052-b293-04777176c9ce",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "tipus id és neve megjelenitése",
+            "url": "http://localhost:8000/api/oltas_tipus_nev",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-05-03T12:31:14.547Z",
+            "modified": "2024-05-03T12:31:14.548Z",
+            "headers": []
+        },
+        {
+            "_id": "ba69d67f-38fc-4da6-b4c1-6cf7726455d4",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "orvos adatainak megjelenitése",
+            "url": "http://localhost:8000/api/orvos/8",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-05-03T12:31:44.616Z",
+            "modified": "2024-05-03T12:31:44.616Z",
+            "headers": []
+        },
+        {
+            "_id": "5b926741-69fa-48ec-8045-b8da50adbfb0",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Orvosnak készlet megjelenitése tipus alapján",
+            "url": "http://localhost:8000/api/keszlet_oltas_id/8/1",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-05-03T12:39:48.836Z",
+            "modified": "2024-05-03T12:39:48.836Z",
+            "headers": []
+        },
+        {
+            "_id": "83cbc828-babb-46d7-95c9-21c0f0063b61",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "kiválasztott készlet megsemmisítése",
+            "url": "http://localhost:8000/api/keszlet_megsemmisitese/1",
+            "method": "PATCH",
+            "sortNum": 90000,
+            "created": "2024-05-03T12:41:02.533Z",
+            "modified": "2024-05-03T12:41:02.533Z",
+            "headers": []
+        },
+        {
+            "_id": "667b39cf-f034-46ac-8eff-29dac52e5083",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Gyerek adatainak modosítása",
+            "url": "http://localhost:8000/api/beteg_modosit/232354346/8/rozika@gmail.com?gyerek_taj=232354346&vez_nev=Botond&ker_nev=Rodond&szul_hely=Érd&lakcim_varos=Tarcsapuszta&lakcim_irSzam=3438&lakcim_utca=Arkos utca 2.&erzekenyseg=Fény allergia&szul_datum=2009-10-16",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2024-05-03T12:45:35.678Z",
+            "modified": "2024-05-03T12:45:35.678Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "gyerek_taj",
+                    "value": "232354346",
+                    "isPath": false
+                },
+                {
+                    "name": "vez_nev",
+                    "value": "Botond",
+                    "isPath": false
+                },
+                {
+                    "name": "ker_nev",
+                    "value": "Rodond",
+                    "isPath": false
+                },
+                {
+                    "name": "szul_hely",
+                    "value": "Érd",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_varos",
+                    "value": "Tarcsapuszta",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_irSzam",
+                    "value": "3438",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_utca",
+                    "value": "Arkos utca 2.",
+                    "isPath": false
+                },
+                {
+                    "name": "erzekenyseg",
+                    "value": "Fény allergia",
+                    "isPath": false
+                },
+                {
+                    "name": "szul_datum",
+                    "value": "2009-10-16",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "154b2473-513e-46d7-9c49-17a88db3d5ca",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "orvos adatainak modosítása",
+            "url": "http://localhost:8000/api/orvos_modosit/7?felhasznalo_nev=kovacsBela&felhasznalo_email=kov@gmail.com&vez_nev=Dr. Kovács&ker_nev=Béla&tel_szam=+36202299188&publikus_email=drkovacs1980@gmail.com&rendelo_ajto_szam=12",
+            "method": "PATCH",
+            "sortNum": 110000,
+            "created": "2024-05-03T12:48:19.317Z",
+            "modified": "2024-05-03T12:48:19.317Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "felhasznalo_nev",
+                    "value": "kovacsBela",
+                    "isPath": false
+                },
+                {
+                    "name": "felhasznalo_email",
+                    "value": "kov@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "vez_nev",
+                    "value": "Dr. Kovács",
+                    "isPath": false
+                },
+                {
+                    "name": "ker_nev",
+                    "value": "Béla",
+                    "isPath": false
+                },
+                {
+                    "name": "tel_szam",
+                    "value": "+36202299188",
+                    "isPath": false
+                },
+                {
+                    "name": "publikus_email",
+                    "value": "drkovacs1980@gmail.com",
+                    "isPath": false
+                },
+                {
+                    "name": "rendelo_ajto_szam",
+                    "value": "12",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "b7401562-76e4-4b9a-89c4-0ee814c1d385",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Új beteg hozzáadása",
+            "url": "http://localhost:8000/api/uj_beteg/7/sandor@gmail.com?gyerek_taj=545453476&vez_nev=Irányi&ker_nev=Gábor&szul_hely=Pécs&lakcim_varos=Pécs&lakcim_irSzam=5435&lakcim_utca=Fenyves utca 3.&erzekenyseg&szul_datum=2020-01-01",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2024-05-03T12:51:06.388Z",
+            "modified": "2024-05-03T12:51:06.388Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "gyerek_taj",
+                    "value": "545453476",
+                    "isPath": false
+                },
+                {
+                    "name": "vez_nev",
+                    "value": "Irányi",
+                    "isPath": false
+                },
+                {
+                    "name": "ker_nev",
+                    "value": "Gábor",
+                    "isPath": false
+                },
+                {
+                    "name": "szul_hely",
+                    "value": "Pécs",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_varos",
+                    "value": "Pécs",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_irSzam",
+                    "value": "5435",
+                    "isPath": false
+                },
+                {
+                    "name": "lakcim_utca",
+                    "value": "Fenyves utca 3.",
+                    "isPath": false
+                },
+                {
+                    "name": "erzekenyseg",
+                    "value": "",
+                    "isPath": false
+                },
+                {
+                    "name": "szul_datum",
+                    "value": "2020-01-01",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "d8fa3e95-51e2-4cfa-a886-a935a609cf76",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Új készlet hozzáadása",
+            "url": "http://localhost:8000/api/uj_keszlet/7/1?darab=2&beszerzes_datuma=2023-12-12&lejarati_datuma=2025-01-01",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-05-03T12:52:03.261Z",
+            "modified": "2024-05-03T12:52:03.261Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "darab",
+                    "value": "2",
+                    "isPath": false
+                },
+                {
+                    "name": "beszerzes_datuma",
+                    "value": "2023-12-12",
+                    "isPath": false
+                },
+                {
+                    "name": "lejarati_datuma",
+                    "value": "2025-01-01",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "97b78088-dbc7-4ab2-ad08-abb2ff528591",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Új beadandó",
+            "url": "http://localhost:8000/api/uj_beadando/325245267/1?ev=2024&honap=6&hanyadik=1",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2024-05-03T12:58:01.108Z",
+            "modified": "2024-05-03T12:58:01.108Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "ev",
+                    "value": "2024",
+                    "isPath": false
+                },
+                {
+                    "name": "honap",
+                    "value": "6",
+                    "isPath": false
+                },
+                {
+                    "name": "hanyadik",
+                    "value": "1",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "9f53d0d0-8637-4090-9be1-3b8cd1fcb947",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Új beadott oltás",
+            "url": "http://localhost:8000/api/uj_beadas/7/1/9/1?beadas_datuma=2024-06-21&megjegyzes",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2024-05-03T12:59:46.514Z",
+            "modified": "2024-05-03T12:59:46.514Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "beadas_datuma",
+                    "value": "2024-06-21",
+                    "isPath": false
+                },
+                {
+                    "name": "megjegyzes",
+                    "value": "",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "4187ac98-bc4f-4950-bd6e-e4d012fd77ab",
+            "colId": "0e17d607-4168-4463-9b88-35aab90b9881",
+            "containerId": "",
+            "name": "Jelszó modosítás",
+            "url": "http://localhost:8000/api/jelszo_modositas/7/ABCabc123/Gerle0104",
+            "method": "PATCH",
+            "sortNum": 160000,
+            "created": "2024-05-03T13:13:27.491Z",
+            "modified": "2024-05-03T13:13:27.491Z",
+            "headers": []
+        }
+    ],
+    "ref": "NK5jkO8P1_NGaz658cRvzPhgn8dSvY7QXOzBYMbNIr_0B0U0nRsEzdcOTyk1O4J_AgNOYZL9ITivDRbrI_ZZ6g"
+}

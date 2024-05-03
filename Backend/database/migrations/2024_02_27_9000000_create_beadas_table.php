@@ -39,7 +39,7 @@ return new class extends Migration
         Beadas::create([
             'orvos_id' => 7,
             'oltas_id' => 2,
-            'beadando_id' => 7,
+            'beadando_id' => 8,
             'beadas_datuma' => "2023-03-12"
         ]);
     }

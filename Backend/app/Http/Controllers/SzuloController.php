@@ -76,7 +76,7 @@ class SzuloController extends Controller
         $szulo = DB::table('felhasznalos')
             ->join('szulos', 'szulos.felhasznalo_id', '=', 'felhasznalos.id')
             ->where('felhasznalos.id', $szulo_id)
-            ->where('felhasznalos.szerepkor', '=', 'O')
+            ->where('felhasznalos.szerepkor', '=', 'S')
             ->select('felhasznalos.felhasznalo_nev', 'felhasznalos.felhasznalo_email', 'szulos.vez_nev', 'szulos.ker_nev', 'szulos.szemelyi_igazolvany_szam', 'szulos.telefonszam', 'szulos.lakcim_varos', 'szulos.lakcim_irSzam', 'szulos.lakcim_utca')
             ->get();
 

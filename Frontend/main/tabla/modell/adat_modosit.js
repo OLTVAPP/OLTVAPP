@@ -25,30 +25,39 @@ class Adat_Modosit {
         this.#tablaAdatUrl = felhasznalo_adatok_modosit.url;
         this.#urlAdatok = felhasznalo_adatok_modosit.szuksegesAdatok;
         this.#adatOsszerako();
+        this.#urlAdatok.szerepkor = "A"
+        console.log(this.#urlAdatok)
         this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok);
         this.#tablaAdatUrl = admin_adatok_modosit.url;
         this.#urlAdatok = admin_adatok_modosit.szuksegesAdatok;
         this.#adatOsszerako();
+        console.log(this.#urlAdatok)
         this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok);
         break;
       case "felhasznalo_S":
         this.#tablaAdatUrl = felhasznalo_adatok_modosit.url;
         this.#urlAdatok = felhasznalo_adatok_modosit.szuksegesAdatok;
         this.#adatOsszerako();
+        this.#urlAdatok.szerepkor = "S"
+        console.log(this.#urlAdatok)
         this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok);
         this.#tablaAdatUrl = szulo_adatok_modosit.url;
         this.#urlAdatok = szulo_adatok_modosit.szuksegesAdatok;
         this.#adatOsszerako();
+        console.log(this.#urlAdatok)
         this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok);
         break;
       case "felhasznalo_O":
         this.#tablaAdatUrl = felhasznalo_adatok_modosit.url;
         this.#urlAdatok = felhasznalo_adatok_modosit.szuksegesAdatok;
         this.#adatOsszerako();
+        this.#urlAdatok.szerepkor = "O"
+        console.log(this.#urlAdatok)
         this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok);
         this.#tablaAdatUrl = orvos_adatok_modosit.url;
         this.#urlAdatok = orvos_adatok_modosit.szuksegesAdatok;
         this.#adatOsszerako();
+        console.log(this.#urlAdatok)
         this.#data.putData(this.#tablaAdatUrl, id, this.#urlAdatok);
         break;
       case "modosit_oltas":
@@ -78,7 +87,7 @@ class Adat_Modosit {
       default:
         break;
     }
-        location.reload();
+       // location.reload();
   }
 
   #adatOsszerako() {

@@ -23,12 +23,14 @@ class AdminController extends Controller
 
     public function update(Request $request, $id)
     {
-        $user = Admin::find($id);
-        $user->vez_nev = $request->vez_nev;
-        $user->ker_nev = $request->ker_nev;
-        $user->save();
-        return Admin::find($user->felhasznalo_id);
+     
+        DB::update('UPDATE admins SET vez_nev = ?, ker_nev = ? WHERE felhasznalo_id = ?', [$request->vez_nev, $request->ker_nev, $id]);
+        $user = Admin::where('felhasznalo_id', $id)->first();
+        return $user;
     }
+
+
+
 
     public function store(Request $request)
     {
@@ -38,7 +40,4 @@ class AdminController extends Controller
         $record->ker_nev = $request->ker_nev;
         $record->save();
     }
- 
-
-
 }

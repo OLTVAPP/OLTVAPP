@@ -10,7 +10,7 @@ class Orvos extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'felhasznalo_id';
+ 
 
     protected $fillable = [
         'felhasznalo_id',

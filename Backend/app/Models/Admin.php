@@ -9,10 +9,10 @@ class Admin extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'felhasznalo_id';
-    public $autoincrement = false;
+
     
     protected $fillable = [
+        'felhasznalo_id',
         'vez_nev',
         'ker_nev'
     ];

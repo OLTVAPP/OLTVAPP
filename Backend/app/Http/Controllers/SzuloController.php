@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Felhasznalo;
+use App\Models\Orvos;
 use App\Models\Szulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,15 +46,9 @@ class SzuloController extends Controller
 
     public function update(Request $request, $id)
     {
-        $record = Szulo::find($id);
-        $record->vez_nev = $request->vez_nev;
-        $record->ker_nev = $request->ker_nev;
-        $record->szemelyi_igazolvany_szam = $request->szemelyi_igazolvany_szam;
-        $record->lakcim_varos = $request->lakcim_varos;
-        $record->lakcim_irSzam = $request->lakcim_irSzam;
-        $record->lakcim_utca = $request->lakcim_utca;
-        $record->save();
-        return Szulo::find($record->felhasznalo_id);
+        DB::update('UPDATE szulos SET vez_nev = ?, ker_nev = ?, szemelyi_igazolvany_szam = ?, lakcim_varos = ?, lakcim_irSzam = ?, lakcim_utca = ? WHERE felhasznalo_id = ?', [$request->vez_nev, $request->ker_nev, $request->szemelyi_igazolvany_szam, $request->lakcim_varos, $request->lakcim_irSzam, $request->lakcim_utca,   $id]);
+        $user = Szulo::where('felhasznalo_id', $id)->first();
+        return $user;
     }
 
    

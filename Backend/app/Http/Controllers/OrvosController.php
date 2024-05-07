@@ -33,14 +33,11 @@ class OrvosController extends Controller
     
     public function update(Request $request, $id)
     {
-        $record = Orvos::find($id);
-        $record->vez_nev = $request->vez_nev;
-        $record->ker_nev = $request->ker_nev;
-        $record->tel_szam = $request->tel_szam;
-        $record->publikus_email = $request->publikus_email;
-        $record->rendelo_ajto_szam = $request->rendelo_ajto_szam;
-        $record->save();
-        return Orvos::find($record->felhasznalo_id);
+        DB::update('UPDATE orvos SET vez_nev = ?, ker_nev = ?, tel_szam = ?, publikus_email = ?, rendelo_ajto_szam = ?
+        WHERE felhasznalo_id = ?', [$request->vez_nev, $request->ker_nev, $request->tel_szam, $request->publikus_email, $request->rendelo_ajto_szam,  $id]);
+        $user = Admin::where('felhasznalo_id', $id)->first();
+        return $user;
+
     }
     public function store(Request $request)
     {

@@ -40,7 +40,7 @@ class UrlapView {
         this.#szuloElem = szuloElem;
         this.#szuloElem.append('<div class="container mt-10" id="fAdat">')
         this.#fElem = this.#szuloElem.children("#fAdat");
-        this.#fElem.append('<h2>Felhasznalói adatok</h2>')
+        this.#fElem.append('<h2>Felhasználói adatok</h2>')
         this.felhasznalo();
         this.#szuloElem.append('<div class="container mt-10 border border-dark p-4" id="szAdat">')
         this.#szElem = this.#szuloElem.children("#szAdat");
@@ -48,7 +48,7 @@ class UrlapView {
         this.szemelyesAdatok();
         this.#szElem.append('<div class="container mt-10 border border-dark p-4" id="lAdat">')
         this.#lElem = this.#szElem.children("#lAdat");
-        this.#lElem.append('<h2>Lakcim</h2>')
+        this.#lElem.append('<h2>Lakcím</h2>')
         this.lakcim();
         this.#szuloElem.append('<button class="btn btn-success" id="kuld">Regisztráció elküldése</button>')
     }

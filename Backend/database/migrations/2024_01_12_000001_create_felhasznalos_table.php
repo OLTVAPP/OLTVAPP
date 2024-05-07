@@ -33,7 +33,7 @@ return new class extends Migration
         Felhasznalo::create([
             'id' => 1,
             'felhasznalo_nev' => "Szulo",
-            'jelszo' => Hash::make("123Abc"),
+            'jelszo' => Hash::make("123Abcabc"),
             'felhasznalo_email' => "sandor@gmail.com",
             'szerepkor' => "S",
             'aktiv' => true
@@ -51,7 +51,7 @@ return new class extends Migration
         Felhasznalo::create([
             'id' => 3,
             'felhasznalo_nev' => "rozineni",
-            'jelszo' => Hash::make("123Abc"),
+            'jelszo' => Hash::make("123Abcabc"),
             'felhasznalo_email' => "rozika@gmail.com",
             'szerepkor' => "S",
             'aktiv' => false
@@ -59,7 +59,7 @@ return new class extends Migration
         Felhasznalo::create([
             'id' => 4,
             'felhasznalo_nev' => "Admin",
-            'jelszo' => Hash::make("123Abc"),
+            'jelszo' => Hash::make("123Abcabc"),
             'felhasznalo_email' => "bal@gmail.com",
             'szerepkor' => "A",
             'aktiv' => true
@@ -68,7 +68,7 @@ return new class extends Migration
         Felhasznalo::create([
             'id' => 5,
             'felhasznalo_nev' => "petikavok Admin",
-            'jelszo' => Hash::make("123Abc"),
+            'jelszo' => Hash::make("123Abcabc"),
             'felhasznalo_email' => "peti@gmail.com",
             'szerepkor' => "A",
             'aktiv' => true
@@ -95,7 +95,7 @@ return new class extends Migration
         Felhasznalo::create([
             'id' => 8,
             'felhasznalo_nev' => "Orvos",
-            'jelszo' => Hash::make("123Abc"),
+            'jelszo' => Hash::make("123Abcabc"),
             'felhasznalo_email' => "somogyiandraska@gmail.com",
             'szerepkor' => "O",
             'aktiv' => true

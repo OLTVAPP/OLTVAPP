@@ -39,7 +39,7 @@ class UrlapView {
         this.#szuloElem.append("<br>");
         this.#adatElem.append('<div class="container mt-10 border border-dark p-4" id="jelszo">');
         this.#jelszoElem = this.#adatElem.children("#jelszo");
-        this.#jelszoElem.append("<h3>jelszó módosítás</h3>");
+        this.#jelszoElem.append("<h3>Jelszó módosítás</h3>");
         this.#jelszo();
         this.#szuloElem.append('<div class="container mt-10 border border-dark p-4" id="orvos_adatok">');
         this.#orvosElem = this.#szuloElem.children("#orvos_adatok");

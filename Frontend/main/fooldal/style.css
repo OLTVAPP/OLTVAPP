@@ -54,9 +54,11 @@ article {
 .valid {
   color: green;
 }
+
 .invalid {
   color: red;
 }
+
 .elrejt {
   display: none;
 }
@@ -89,4 +91,8 @@ footer {
   color: white;
 }
 
-
+@media only screen and (max-width: 600px) {
+  nav {
+    display: block;
+  }
+}

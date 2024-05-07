@@ -17,7 +17,7 @@ $(function () {
   if (message === "Készlet") {
     new Keszlet();
   }
-  if (message === "Profil Beálitások") {
+  if (message === "Profil beállítások") {
     new Bealitasok();
   }
 

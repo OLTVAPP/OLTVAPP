@@ -69,6 +69,9 @@ class Modosit {
                     );
                     break;
                 case "textarea":
+                    if (this.#adat[i] === null) {
+                        this.#adat[i] = "";
+                    }
                     this.#urlapElemLista.push(
                         new TextArea(
                             key,
@@ -102,6 +105,8 @@ class Modosit {
                             elemValid = false;
                         }
                     }
+                } else if (elem.key === "erzekenyseg" & elem.value != null) {
+                    this.#osszesElemValidE = true;
                 }
             })
             if (this.#osszesElemValidE) {

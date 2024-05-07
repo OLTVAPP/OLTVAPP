@@ -19,11 +19,11 @@ class KeszletView{
         this.#list = list;
         this.#szuloElem = szuloElem;
         if(this.#logikaiErtek === false){
-            this.#szuloElem.append("<button class='btn btn-primary' id='semmisitett' type='button'>Megsemmisitett vakcinák</button>")
+            this.#szuloElem.append("<button class='btn btn-primary' id='semmisitett' type='button'>Megsemmisített vakcinák</button>")
             this.#szuloElem.append("<button class='btn btn-primary' id='ujvakcina' type='button'>Új vakcina hozzáadása</button>")
         }
         else{
-            this.#szuloElem.append("<button class='btn btn-primary' id='vissza' type='button'>vissza</button>")
+            this.#szuloElem.append("<button class='btn btn-primary' id='vissza' type='button'>Vissza</button>")
         }
 
         this.#semmisitettGomb = this.#szuloElem.children("#semmisitett");

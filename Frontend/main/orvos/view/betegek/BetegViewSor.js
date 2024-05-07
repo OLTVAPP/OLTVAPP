@@ -78,7 +78,6 @@ class BetegViewSor {
       `
       this.#szuloElem.append(txt);
       $(".modal").css("display", "block");
-      console.log(this.#szulo_email)
       new Modosit($(".modal-content"), this.#adat, this.#leiro, this.#szulo_email);
     });
     ;

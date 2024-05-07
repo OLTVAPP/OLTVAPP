@@ -3,10 +3,10 @@
 export const bejelentKezesLeiro = {
   bejelentkezes: {
     felhasznalo_nev: {
-      megjelenes: "Felhasználó név",
+      megjelenes: "Felhasználónév",
       tipus: "text",
       value: "",
-      placeholder: "felhasználó név",
+      placeholder: "felhasználónév",
       regex: /^.{5,15}$/,
       validalas: "Minimum 5 és maximum 15 karakter lehet!",
     },
@@ -38,10 +38,10 @@ export const bejelentKezesElfelejtLeiro = {
       validalas: "Név nagybetűvel kezdődik, legalább 3 karakter!",
     },
     felhasznaloNev: {
-      megjelenes: "Felhasználó név",
+      megjelenes: "Felhasználónév",
       tipus: "text",
       value: "",
-      placeholder: "felhasználó név",
+      placeholder: "felhasználónév",
       regex: "[A-Z][a-z]{2,15}",
       validalas: "Név nagybetűvel kezdődik, legalább 3 karakter!",
     },
@@ -99,7 +99,7 @@ export const urlapLeiro = {
   szulo: {
     szemelyes_adatok: {
       vez_nev: {
-        megjelenes: "Vezeték név:",
+        megjelenes: "Vezetéknév:",
         tipus: "text",
         value: "",
         regex: /^[A-Z].{1,14}$/,
@@ -108,7 +108,7 @@ export const urlapLeiro = {
         maxLength: 20
       },
       ker_nev: {
-        megjelenes: "Kereszt név:",
+        megjelenes: "Keresztnév:",
         tipus: "text",
         value: "",
         regex: /^[A-Z].{1,14}$/,
@@ -156,7 +156,7 @@ export const urlapLeiro = {
         id: "lakcim",
       },
       lakcim_utca: {
-        megjelenes: "Utca",
+        megjelenes: "Utca:",
         tipus: "text",
         value: "",
         regex: /^[A-Z].{2,19}$/,

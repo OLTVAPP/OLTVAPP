@@ -3,10 +3,10 @@ export const gyerekLeiro = {
     megjelenes: "Tajszám"
   },
   vez_nev: {
-    megjelenes: "Vezeték név"
+    megjelenes: "Vezetéknév"
   },
   ker_nev: {
-    megjelenes: "Kereszt név"
+    megjelenes: "Keresztnév"
   },
   szul_datum: {
     megjelenes: "Születési dátum"
@@ -18,7 +18,7 @@ export const gyerekLeiro = {
     megjelenes: "Lakhely"
   },
   lakcim_irSzam: {
-    megjelenes: "Irányitószám"
+    megjelenes: "Irányítószám"
   },
   lakcim_utca: {
     megjelenes: "Utca"
@@ -35,7 +35,7 @@ export const reszletesAdatok = {
       validalas: "9 számot kell tartalmaznia!",
     },
     vez_nev: {
-      megjelenes: "Vezeték név",
+      megjelenes: "Vezetéknév",
       tipus: "text",
       value: "",
       regex: /^[A-Z].{1,14}$/,
@@ -43,7 +43,7 @@ export const reszletesAdatok = {
       maxLength: 20,
     },
     ker_nev: {
-      megjelenes: "Kereszt név",
+      megjelenes: "Keresztnév",
       tipus: "text",
       value: "",
       regex: /^[A-Z].{1,14}$/,
@@ -96,10 +96,10 @@ export const reszletesAdatok = {
   },
   szulo_adatok: {
     vez_nev: {
-      megjelenes: "Vezeték név"
+      megjelenes: "Vezetéknév"
     },
     ker_nev: {
-      megjelenes: "Kereszt név"
+      megjelenes: "Keresztnév"
     },
     telefonszam: {
       megjelenes: "Telefonszám"
@@ -108,16 +108,16 @@ export const reszletesAdatok = {
       megjelenes: "Lakhely",
     },
     lakcim_irSzam: {
-      megjelenes: "Irányitószám"
+      megjelenes: "Irányítószám"
     },
     lakcim_utca: {
       megjelenes: "Utca",
     },
     felhasznalo_nev: {
-      megjelenes: "Felhasználó név"
+      megjelenes: "Felhasználónév"
     },
     felhasznalo_email: {
-      megjelenes: "Felhasználó email"
+      megjelenes: "Felhasználói email"
     },
   },
   beadott_oltas: {
@@ -128,16 +128,16 @@ export const reszletesAdatok = {
       megjelenes: "Oltás neve"
     },
     hanyadik: {
-      megjelenes: "Hanyadik"
+      megjelenes: "Hányadik"
     },
     beadas_datum: {
       megjelenes: "Beadás dátuma"
     },
     ker_nev: {
-      megjelenes: "Orvos kereszt neve"
+      megjelenes: "Orvos keresztneve"
     },
     vez_nev: {
-      megjelenes: "Orvos vezeték neve"
+      megjelenes: "Orvos vezetékneve"
     },
     megjegyzes: {
       megjelenes: "Megjegyzés"
@@ -151,10 +151,10 @@ export const reszletesAdatok = {
       megjelenes: "Év"
     },
     honap: {
-      megjelenes: "Honap"
+      megjelenes: "Hónap"
     },
     hanyadik: {
-      megjelenes: "Hanyadik"
+      megjelenes: "Hányadik"
     },
     beadva: {
       megjelenes: "Beadva"
@@ -188,17 +188,17 @@ export const keszletLeiro = {
     validalas: "Nem lehet kisebb dátum mint a beszerzés dátuma!",
   },
   oltoanyag_neve: {
-    megjelenes: "Oltoanyag neve"
+    megjelenes: "Oltóanyag neve"
   },
   megsemmisitett_datum: {
-    megjelenes: "Megsemmisités dátuma"
+    megjelenes: "Megsemmisítés dátuma"
   },
 };
 
 export const ujBeteg = {
   szulo_adatok: {
     email: {
-      megjelenes: "E-mail cím",
+      megjelenes: "E-mail cím:",
       tipus: "email",
       value: "",
       placeholder: "email cím",
@@ -209,14 +209,14 @@ export const ujBeteg = {
   gyerek_adatok: {
     szemelyes_adatok: {
       gyerek_taj: {
-        megjelenes: "Gyerek tajszám",
+        megjelenes: "Gyerek tajszám:",
         tipus: "number",
         value: "",
         regex: /^\d{9}$/,
         validalas: "9 számot kell tartalmaznia!",
       },
       vez_nev: {
-        megjelenes: "Vezeték név:",
+        megjelenes: "Vezetéknév:",
         tipus: "text",
         value: "",
         regex: /^[A-Z].{1,14}$/,
@@ -224,7 +224,7 @@ export const ujBeteg = {
         maxLength: 20,
       },
       ker_nev: {
-        megjelenes: "Kereszt név:",
+        megjelenes: "Keresztnév:",
         tipus: "text",
         value: "",
         regex: /^[A-Z].{1,14}$/,
@@ -269,7 +269,7 @@ export const ujBeteg = {
         validalas: "4 számot kell tartalmaznia!",
       },
       lakcim_utca: {
-        megjelenes: "Utca",
+        megjelenes: "Utca:",
         tipus: "text",
         value: "",
         regex: /^[A-Z].{2,19}$/,
@@ -290,7 +290,7 @@ export const ujBeadott = {
     validalas: "Túl nagy vagy túl kicsi a dátum",
   },
   megjegyzes: {
-    megjelenes: "Megjegyzés",
+    megjelenes: "Megjegyzés:",
     tipus: "textarea",
     value: "",
     placeholder: "",
@@ -315,7 +315,7 @@ export const ujBeadando = {
     validalas: "1-12 közötti szám lehet csak!",
   },
   hanyadik: {
-    megjelenes: "Hanyadik",
+    megjelenes: "Hányadik",
     tipus: "number",
     value: "",
     regex: /^(?:[1-9]|[1-9][0-9])$/,
@@ -326,7 +326,7 @@ export const ujBeadando = {
 export const profilModositas = {
   adatok: {
     felhasznalo_nev: {
-      megjelenes: "Felhasználói név:",
+      megjelenes: "Felhasználónév:",
       tipus: "text",
       value: "",
       regex: /^.{5,15}$/,
@@ -372,7 +372,7 @@ export const profilModositas = {
   },
   orvos_adatok: {
     vez_nev: {
-      megjelenes: "Vezeték név:",
+      megjelenes: "Vezetéknév:",
       tipus: "text",
       value: "",
       regex: /^[A-Z].{1,14}$/,
@@ -380,7 +380,7 @@ export const profilModositas = {
       maxLength: 20
     },
     ker_nev: {
-      megjelenes: "Kereszt név:",
+      megjelenes: "Keresztnév:",
       tipus: "text",
       value: "",
       regex: /^[A-Z].{1,14}$/,
@@ -404,7 +404,7 @@ export const profilModositas = {
       maxLength: 40
     },
     rendelo_ajto_szam: {
-      megjelenes: "Rendelő ajtó száma: ",
+      megjelenes: "Rendelő ajtó száma:",
       tipus: "number",
       value: "",
       regex: /^(?:[1-9]|[1-9][0-9])$/,

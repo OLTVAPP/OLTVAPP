@@ -87,7 +87,13 @@ class Adat_Modosit {
       default:
         break;
     }
-       // location.reload();
+    $(document).ready(function() {
+      // Wait for 5 seconds before reloading the page
+      setTimeout(function() {
+          location.reload();
+      }, 3000); // 3000 milliseconds = 3 seconds
+  });
+       
   }
 
   #adatOsszerako() {
